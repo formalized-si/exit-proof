@@ -13,7 +13,7 @@
 
 [Try it](#try-it) · [Stages](#exit-stages) · [Where NEAR stands](#where-near-stands-today) · [What is proved](#what-is-proved) · [Intents Proof](#intents-proof-for-standard-tokens-the-ledger-of-near-intents-never-credits-more-than-it-holds) · [How it works](#how-it-works) · [Why NEAR](#why-near) · [FAQ](#faq) · [Documentation](#documentation)
 
-**[Open the page](https://formalized-si.github.io/exit-proof/)**: the scanner runs in your browser ·
+**[Open the page](https://exit-proof.formalized.si/)**: the scanner runs in your browser ·
 **[Watch the video](docs/assets/exit-proof-promo.mp4)** (1 min 43 s)
 
 <code>./check-all.sh</code>
@@ -48,9 +48,9 @@ replay of the exact wasm, and it is measured, not proved.
 
 ## Try it
 
-[The page](https://formalized-si.github.io/exit-proof/) answers for any account without an install: it runs the
+[The page](https://exit-proof.formalized.si/) answers for any account without an install: it runs the
 scanner of this repository in your browser, and a link such as
-[`…/exit-proof/#check=wrap.near`](https://formalized-si.github.io/exit-proof/#check=wrap.near) opens with the answer. On the command line: Python 3.10 or newer and nothing else. Every
+[`…/exit-proof/#check=wrap.near`](https://exit-proof.formalized.si/#check=wrap.near) opens with the answer. On the command line: Python 3.10 or newer and nothing else. Every
 command reads public RPC and signs nothing.
 
 | Do | See |

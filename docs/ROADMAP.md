@@ -9,7 +9,7 @@
 | Upgrade window of `near-plugins` v0.5.1 | proved (34 theorems), conformance and mutants, attested; live stage-1 examples on testnet |
 | Scanner and exit stages | works on any mainnet or testnet account; 28 of 28 large contracts scanned; verdicts below stage 2 rest partly on names and self-reported views |
 | Registry `registry.exitproof.near` | keyless, 4 certificates, one attestor |
-| The page (`web/`) | the scanner and the token check run in the browser, unchanged, on Python compiled to WebAssembly; the numbers of the page are read from the evidence files; hosted at `formalized-si.github.io/exit-proof`, with links to an answer (`#check=<account>`) |
+| The page (`web/`) | the scanner and the token check run in the browser, unchanged, on Python compiled to WebAssembly; the numbers of the page are read from the evidence files; hosted at `exit-proof.formalized.si`, with links to an answer (`#check=<account>`) |
 | Agent interface | MCP stdio server with three tools (`exit_check`, `exit_plan`, `token_check`), reference agent (dry run) |
 | Intents Proof (`intents-proof/`) | ledger backing proved for a standard token and for wNEAR; who can lower a balance, with the authorisation of each way, the source of keys, role holders and refunds (standard token); byte-identical rebuild; replay, mutants, TLA+, blind re-statement, upgrade gate; `./check.sh --mutants --tla` passes on a clean copy |
 | Verified upgrades (`gated-upgrade/`) | a vault that upgrades only to certified code: theorem, tests, live testnet example; the scanner reports the gate |

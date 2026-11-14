@@ -33,7 +33,8 @@ changed:
   is measured on the chain's clock; the token check reads a fee only from a view that holds a recognised fee field
   (a fraction, the 21st tier and top-level fields included), and the watch reports a tax switch after a run that
   could not read it.
-- **The repository is public and the page is hosted** at `formalized-si.github.io/exit-proof`. The page shows where
+- **The repository is public and the page is hosted** at `exit-proof.formalized.si` (the earlier address,
+  `formalized-si.github.io/exit-proof`, redirects to it). The page shows where
   each line of evidence comes from, gives a link to an answer (`#check=<account>`), starts loading the scanner when
   a visitor comes near a form, and has two more parts: the registry on mainnet with its transactions, and what an
   agent, a contract team, a token team and a reviewer run.
