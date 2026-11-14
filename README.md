@@ -50,7 +50,7 @@ replay of the exact wasm, and it is measured, not proved.
 
 [The page](https://exit-proof.formalized.si/) answers for any account without an install: it runs the
 scanner of this repository in your browser, and a link such as
-[`…/exit-proof/#check=wrap.near`](https://exit-proof.formalized.si/#check=wrap.near) opens with the answer. On the command line: Python 3.10 or newer and nothing else. Every
+[`exit-proof.formalized.si/#check=wrap.near`](https://exit-proof.formalized.si/#check=wrap.near) opens with the answer. On the command line: Python 3.10 or newer and nothing else. Every
 command reads public RPC and signs nothing.
 
 | Do | See |
