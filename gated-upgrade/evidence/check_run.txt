@@ -1,0 +1,79 @@
+== 1. Lean: build, no sorry, axioms
+Build completed successfully (13 jobs).
+axioms: 37 theorems, all within ['Classical.choice', 'Quot.sound', 'propext']
+== 2. the plugin model is the exit-window kit's, unchanged
+lean/UpgradeWindow*: 6 files with the pinned hashes
+== 3. contracts: gated vault (near-plugins v0.5.1, near-sdk 5.26.1, Rust 1.86.0), three versions; the registry
+52a787345f263ca02219a787be84be9e0a2d3dd5e8fd3a84552b8586a0e8c25e  gated_vault_v1.wasm
+4119617a3df44a476ec8f1aa6ed58b942fc37ce24155403bc307b23e56f13a85  gated_vault_v2.wasm
+4ca962328a229ab2336882df5aa19ef585c5c636e776216e22adca03822774f9  gated_vault_v3.wasm
+a8984200f13b774e71ac24cfa260ee69efaaa6123e8da498e4b5cc815ce4ca9b  exitproof_registry.wasm
+the registry wasm is the one recorded for the mainnet registry (contract/REGISTRY_MAINNET_SHA256)
+rebuild from source with cargo-near: same bytes as the pinned builds
+== 4. harness
+    Finished `release` profile [optimized] target(s) in 0.33s
+== 5. scenarios on the wasm (nearcore runtime)
+ok   certified_upgrade (11 checks)
+ok   uncertified_refused (6 checks)
+ok   restaged_between_check_and_deploy (15 checks)
+ok   revoked_certificate (6 checks)
+ok   callback_checks_every_field (10 checks)
+ok   no_way_around_the_gate (9 checks)
+ok   init (8 checks)
+ok   failed_steps (12 checks)
+ok   gate_survives_upgrade (4 checks)
+ok   control_contract_key (1 checks)
+10 scenarios, 82 checks
+== 6. random traces with the monitor
+2000 traces, 281198 receipts, 117568 blocks: 0 violations; 822 code changes, 2392 deployments started, 8633 callbacks refused, 5904 direct deploy calls refused
+== 7. mutants (each must be DETECTED; M0_control must PASS)
+M0_control: PASS (scenario checks failed: 0, trace violations: 0)
+M1_any_attestor: DETECTED (scenario checks failed: 5, trace violations: 137)
+M2_revoked_counts: DETECTED (scenario checks failed: 2, trace violations: 0)
+M3_any_kind: DETECTED (scenario checks failed: 2, trace violations: 0)
+M4_any_hash: DETECTED (scenario checks failed: 2, trace violations: 0)
+M5_public_callback: DETECTED (scenario checks failed: 1, trace violations: 502)
+M6_stager_deploys: DETECTED (scenario checks failed: 2, trace violations: 226)
+M7_no_early_check: DETECTED (scenario checks failed: 1, trace violations: 662)
+M8_deploys_what_is_staged_now: DETECTED (scenario checks failed: 3, trace violations: 9)
+M9_public_init: DETECTED (scenario checks failed: 1, trace violations: 0)
+M10_deployer_role_to_stagers: DETECTED (scenario checks failed: 7, trace violations: 16752)
+M11_any_certificate: DETECTED (scenario checks failed: 8, trace violations: 137)
+== 8. the testnet example, read back from the chain
+ok   setup: create registry.gated-upgrade.testnet — CBWjCKfiWRLgGkW6gEGRXD5gsUccBpXbJ7ZNqwZnUJxg: success
+ok   setup: create attestor.gated-upgrade.testnet — Dgxfb25KJuWxJ6jQuJHtxFNK9FcL8ecGKfiVgFkqs9P9: success
+ok   setup: create gov.gated-upgrade.testnet — JApyjnpe9vtCyN8Jm3T1nYjHgQWWBi4QZWCRkRjb4Ug9: success
+ok   setup: create vault.gated-upgrade.testnet — FaAzEvHnUe3T4Twx1n9aXBpLSby5p9rGeCBtgdAm5kyS: success
+ok   setup: deploy the registry and call new — BxE6wV1HXWyGtCWHzCHoaXUTdRLPepXpdtqA2kgegD2t: success
+ok   setup: registry owner adds the attestor — Nd2ET5GaEGYLGoQAkK8CAZMXJrUz36qAT98oo5akhKF: success
+ok   setup: delete the registry's only access key — AQZBznwvJmzQhBTzs83PuG9bWgnVZkdxDTQykvfqgE5G: success
+ok   setup: deploy the gated vault v1 and call new — 4LJZUa5MY7X8Nk9eZZ98dhsaT79PBBwuBTLecZLfkQmK: success
+ok   setup: a deposit of 0.05 NEAR by gov — 5ZRTEMdo8nuAr1jiiMNzzEjm9MHuHF5FHD6uvPGSTg4m: success
+ok   setup: delete the vault's only access key — XV2E2wt8bgtkuc78m9H8JYqnNMmjGqBU9jXSJNpVq4P: success
+ok   scenario 1: gov stages the v2 build — oZHkyNXrkiD2miRHtzr5DMaNDT6Q9y8iXUGZRgvG8ei: success
+ok   scenario 1: the attestor attests the hash of v2 — EDwj8A131hbVnNNEFuGYWFkoijMDst9gTByXEjgj89o1: success
+ok   scenario 1: deploy_certified before the delay (must be refused) — GjzZAVL51qWQYmaT5hYUNFvMWQU2SvxHQ7hA3o8UsKcq: failure (Smart contract panicked: Gate: deploy too early: staging ends on 1794524885108635419)
+ok   scenario 1: deploy_certified after the delay, by an account with no role — Bk2dvYM2f24dtujK7ji9V8di4jSXKcodptcFesJLZeDL: success
+ok   scenario 2: gov stages the v3 build (no certificate) — EuwVKGE3qbofEkybamvC8chhY5wyQf5omVH6BiYq9vVH: success
+ok   scenario 2: deploy_certified after the delay (must be refused) — BqssNoHvStwbBXBtAAn3YXZiXqq4t1TzBRqKuDAfGocu: failure (Smart contract panicked: Gate: no valid upgrade-window certificate from an accepted attest)
+ok   scenario 2: up_deploy_code by the stager (must be refused) — EtonGXeR47dnfKUUz7FVkGw9wSg1DpAnEZUXDUzCiNas: failure (Smart contract panicked: Insufficient permissions for method up_deploy_code restricted by )
+ok   scenario 1: deploy_certified after the delay succeeded with a batch [DeployContract, FunctionCall] on the vault, sent by the vault, that succeeded
+ok   scenario 1: deploy_certified before the delay failed with 'Gate: deploy too early' and deployed nothing
+ok   scenario 2: deploy_certified for the uncertified code failed with 'Gate: no valid upgrade-window certificate' and deployed nothing
+ok   scenario 2: up_deploy_code by the stager failed with 'Insufficient permissions' and deployed nothing
+ok   the vault runs the pinned v2 build (4119617a3df44a47…) and version() = 2
+ok   the vault has no access keys
+ok   the gate: that registry, kind upgrade-window, that attestor
+ok   the delay: a staging duration of 180 s, no duration update staged
+ok   staged and not deployed: the v3 build
+ok   the roles: the vault is the only super-admin and code deployer, gov the code stager, nobody a duration manager, no admins
+ok   the registry runs the wasm recorded for the mainnet registry (a8984200f13b774e…) and has no access keys
+ok   the registry holds exactly one valid upgrade-window certificate for the running code, by the accepted attestor
+ok   the registry holds no valid upgrade-window certificate for the staged code
+ok   the certificate's artifact_sha256 is the hash of this kit's proof bundle (09a3d698b27c9b12…)
+RESULT: the chain shows what TESTNET.md says
+RESULT: PASS
+
+real	7m8.022s
+user	10m16.338s
+sys	3m1.392s

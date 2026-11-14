@@ -1,0 +1,654 @@
+{
+ "arithmetic of credit and debit": {
+  "changes": [
+   "M1",
+   "M2",
+   "M4",
+   "W1",
+   "W2"
+  ],
+  "detected": 5,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 5,
+  "by_the_world_replay": 3
+ },
+ "debit: the account is not locked, unless forced": {
+  "changes": [
+   "M3",
+   "X22"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 2
+ },
+ "refund rules of ft_resolve_withdraw": {
+  "changes": [
+   "M5",
+   "M6",
+   "M7",
+   "M8",
+   "M9",
+   "M11",
+   "X8",
+   "X9",
+   "X10",
+   "X11",
+   "X20"
+  ],
+  "detected": 11,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 11,
+  "by_the_world_replay": 4
+ },
+ "isPaused: the key or ALL": {
+  "changes": [
+   "M10",
+   "B8"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 2
+ },
+ "ft_withdraw: auth by predecessor is enabled": {
+  "changes": [
+   "X1"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "ft_force_withdraw: DAO or UnrestrictedWithdrawer": {
+  "changes": [
+   "X2",
+   "X3",
+   "X4"
+  ],
+  "detected": 3,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 3,
+  "by_the_world_replay": 3
+ },
+ "credit: supply and balance stay within u128": {
+  "changes": [
+   "X5"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 0
+ },
+ "debit: the amount is positive": {
+  "changes": [
+   "X6"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "credit: the amount is positive": {
+  "changes": [
+   "X7"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 0
+ },
+ "internal move: source and destination differ, the amount is positive": {
+  "changes": [
+   "X12",
+   "X13"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 0
+ },
+ "internal move by the owner: the source is not locked": {
+  "changes": [
+   "X14"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 0
+ },
+ "FtWithdraw intent: intents are not paused": {
+  "changes": [
+   "X15"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 0
+ },
+ "pause: DAO or PauseManager": {
+  "changes": [
+   "X16",
+   "X17",
+   "A10",
+   "B4"
+  ],
+  "detected": 4,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 4,
+  "by_the_world_replay": 4
+ },
+ "lock: DAO, locker or account manager": {
+  "changes": [
+   "X18",
+   "A4",
+   "A5",
+   "A12"
+  ],
+  "detected": 4,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 4,
+  "by_the_world_replay": 4
+ },
+ "unlock: DAO, unlocker or account manager": {
+  "changes": [
+   "X19",
+   "X23",
+   "A13"
+  ],
+  "detected": 3,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 3,
+  "by_the_world_replay": 3
+ },
+ "ft_withdraw: the caller is the owner": {
+  "changes": [
+   "X21"
+  ],
+  "detected": 0,
+  "equivalent": 1,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 0
+ },
+ "forced internal move: DAO or UnrestrictedWithdrawer": {
+  "changes": [
+   "A1",
+   "A2"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 1
+ },
+ "unpause: DAO or UnpauseManager": {
+  "changes": [
+   "A3",
+   "A11",
+   "B5"
+  ],
+  "detected": 3,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 3,
+  "by_the_world_replay": 3
+ },
+ "disable auth by predecessor (self): the flag is on, the account is not locked": {
+  "changes": [
+   "A6",
+   "B6"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 2
+ },
+ "forced auth switch: locker roles to disable, unlocker roles to enable": {
+  "changes": [
+   "A7",
+   "A8",
+   "A14"
+  ],
+  "detected": 3,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 3,
+  "by_the_world_replay": 3
+ },
+ "SetAuthByPredecessorId intent: applied unless the account is locked": {
+  "changes": [
+   "A9",
+   "B7"
+  ],
+  "detected": 1,
+  "equivalent": 1,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "debit: the amount is within balance and supply": {
+  "changes": [
+   "B1"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "ft_withdraw: the method is not paused": {
+  "changes": [
+   "B2"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "internal move: the amount is within the source balance": {
+  "changes": [
+   "B3"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 0
+ },
+ "ft_withdraw, ft_force_withdraw: no storage deposit": {
+  "changes": [
+   "E1",
+   "E2"
+  ],
+  "detected": 0,
+  "equivalent": 2,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 0
+ },
+ "startWithdraw: the amount is a u128": {
+  "changes": [
+   "E3"
+  ],
+  "detected": 0,
+  "equivalent": 1,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 0
+ },
+ "internal move: the destination stays within u128": {
+  "changes": [
+   "E4"
+  ],
+  "detected": 0,
+  "equivalent": 1,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 0
+ },
+ "deposit: ft_on_transfer is not paused": {
+  "changes": [
+   "V1"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 1
+ },
+ "world: what a callback reads is what the other contract returned": {
+  "changes": [
+   "V2",
+   "V3",
+   "V4",
+   "V7"
+  ],
+  "detected": 4,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 4
+ },
+ "world: which receipts a call starts": {
+  "changes": [
+   "V5",
+   "V6"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 2
+ },
+ "deposit: the credited account is the one msg names": {
+  "changes": [
+   "V8"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 1
+ },
+ "unwrap: intents are not paused": {
+  "changes": [
+   "W3"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 0
+ },
+ "unwrap: the account is not locked": {
+  "changes": [
+   "W4"
+  ],
+  "detected": 0,
+  "equivalent": 1,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 0
+ },
+ "mt_resolve_transfer: the refund is the request capped by the amount and by the receiver's balance": {
+  "changes": [
+   "R2",
+   "R3",
+   "R1"
+  ],
+  "detected": 3,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 3,
+  "by_the_world_replay": 2
+ },
+ "mt_resolve_transfer: a positive refund moves from the receiver back to the sender": {
+  "changes": [
+   "R4",
+   "R5",
+   "R6"
+  ],
+  "detected": 3,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 3,
+  "by_the_world_replay": 2
+ },
+ "mt_transfer*: mt_transfer is not paused, auth by predecessor is enabled": {
+  "changes": [
+   "D1",
+   "D2",
+   "D3"
+  ],
+  "detected": 3,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 3,
+  "by_the_world_replay": 0
+ },
+ "signed payload: the verifying contract is this contract": {
+  "changes": [
+   "P1"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 0
+ },
+ "signed payload: the deadline has not passed": {
+  "changes": [
+   "P2"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 0
+ },
+ "signed payload: the key is one of the signer's": {
+  "changes": [
+   "P3",
+   "K1",
+   "K2"
+  ],
+  "detected": 3,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 3,
+  "by_the_world_replay": 0
+ },
+ "signed payload: the nonce is new, and is committed": {
+  "changes": [
+   "P4",
+   "P6"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 0
+ },
+ "acl_grant_role: a super-admin or an admin of the role": {
+  "changes": [
+   "C1",
+   "C2"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 2
+ },
+ "acl_revoke_role: a super-admin or an admin of the role": {
+  "changes": [
+   "C3"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "acl_renounce_role: the caller's own role goes": {
+  "changes": [
+   "C4"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "acl_add_admin: a super-admin or an admin of the role": {
+  "changes": [
+   "C5"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "acl_add_super_admin: a super-admin": {
+  "changes": [
+   "C8"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "acl_revoke_super_admin: a super-admin": {
+  "changes": [
+   "C9"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 0
+ },
+ "acl_transfer_super_admin: a super-admin, who stops being one": {
+  "changes": [
+   "C11",
+   "C10"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 2
+ },
+ "is_admin: a super-admin, or an admin of that role": {
+  "changes": [
+   "C12",
+   "C13"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 2
+ },
+ "strict world: a transfer call, and only a transfer call, leaves one mt_resolve_transfer in flight": {
+  "changes": [
+   "S1",
+   "S3",
+   "S4",
+   "S10"
+  ],
+  "detected": 4,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 4
+ },
+ "strict world: mt_resolve_transfer takes its entry, moves the refund, and the entry is gone": {
+  "changes": [
+   "S2",
+   "S8",
+   "S5"
+  ],
+  "detected": 3,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 3
+ },
+ "strict world: an acl_* call updates super-admins, admins and grantees": {
+  "changes": [
+   "S6",
+   "S7",
+   "S11"
+  ],
+  "detected": 3,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 3
+ },
+ "strict world: a transfer by the owner moves the balance": {
+  "changes": [
+   "S13"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 0,
+  "by_the_world_replay": 1
+ },
+ "signed payload: the signer is not locked": {
+  "changes": [
+   "P5"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 0
+ },
+ "acl_revoke_admin: a super-admin or an admin of the role": {
+  "changes": [
+   "C6"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "acl_renounce_admin: the caller's own admin entry goes": {
+  "changes": [
+   "C7"
+  ],
+  "detected": 1,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 1,
+  "by_the_world_replay": 1
+ },
+ "add_public_key: the key is not there yet, and is there afterwards": {
+  "changes": [
+   "K4",
+   "K8"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 0
+ },
+ "remove_public_key: the key is there, and is gone afterwards": {
+  "changes": [
+   "K5",
+   "K9"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 0
+ },
+ "add_public_key, remove_public_key: the account is not locked": {
+  "changes": [
+   "K6",
+   "K7"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 0
+ },
+ "strict world: add_public_key and remove_public_key need auth by predecessor enabled": {
+  "changes": [
+   "S14",
+   "S15"
+  ],
+  "detected": 2,
+  "equivalent": 0,
+  "missed": 0,
+  "by_the_receipt_replay": 2,
+  "by_the_world_replay": 0
+ }
+}

@@ -1,0 +1,74 @@
+== 1. Lean: build, no sorry, axioms
+Build completed successfully (15 jobs).
+'UpgradeWindow.W1_delay' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UpgradeWindow.W2_visibility' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UpgradeWindow.deploy_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UpgradeWindow.W3a_duration_change' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W3b_update_staged' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W3_no_deploy_before' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W3_code_change' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W3_code_change_any' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W3_prestaged_shortcut' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W3_shrink_shortcut' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W4_no_window' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W4_witness' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W5_notice' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W5_exit_window' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W5_code_change' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W5_exit_before_code_change' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W5_quiet_reading' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W5_quiet_reading_code' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W5_quiet_reading_code_any' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W5_polling_call' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W5_polling' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.callU_eq_call' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W3U_no_deploy_before' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W5U_quiet_reading' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.alarmU_flags_huge_update' depends on axioms: [propext]
+'UpgradeWindow.W3U_grow_then_remove' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W3_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UpgradeWindow.safeUntil_run' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.quiet_safeUntil' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.wf_run' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.stageDurUnchecked_eq' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.W3_unchecked_shortcut' depends on axioms: [propext, Quot.sound]
+'UpgradeWindow.vault_exit' depends on axioms: [propext]
+'UpgradeWindow.vault_others' depends on axioms: [propext]
+== 2. pinned plugin source
+plugin source: v0.5.1 312e016e0574d5756f6eba37acc82d9a237b2e3e (matches PLUGIN_PIN.json)
+== 3. example vault (near-plugins v0.5.1, near-sdk 5.26.1, Rust 1.86.0) with cargo-near, three versions
+646d1bd2759eabb7264b1c979c930ed9e65b2af8ca93b4891eff05fc3d6d4781  vault_v1.wasm
+afbf4807f5621b64636c321cccaa3f9c4ed20684ccb5312964f8ff241088bc92  vault_v2.wasm
+6c5540df0869b5ef17a015682474c5470f69014b095e8e58d76a673281265c83  vault_v3.wasm
+same bytes as the pinned builds (contract/VAULT_WASM_SHA256)
+   ... and once more without overflow checks (cargo's default release profile), for the witness run
+== 4. harness
+    Finished `release` profile [optimized] target(s) in 0.32s
+== 5. witness scenarios on the wasm
+ok   W4_no_window (4 checks)
+ok   W1_W2_W5_window (9 checks)
+ok   W3_prestaged (2 checks)
+ok   W3_shrink (4 checks)
+ok   W3_unchecked_build (4 checks)
+ok   A5_storage_staking (5 checks)
+ok   inflight_invisible (3 checks)
+== 6. conformance: wasm on near-contract-sim against the Lean model
+{"ok": true, "traces": 1000, "receipts": 37736, "calls": 36620, "deploy_batches": 1116, "blocks": 49948, "diverging_traces": 0, "monitor_violations": {}}
+   ... the build without overflow checks against the model of that build
+{"ok": true, "traces": 1000, "receipts": 37757, "calls": 36620, "deploy_batches": 1137, "blocks": 49925, "diverging_traces": 0, "monitor_violations": {}}
+== 7. mutants (each must FAIL; M0_control must PASS)
+M0_control: PASS diverging=0 by={} first=None None None monitors={} | expected -
+M1_deploy_check_flipped: FAIL diverging=657 by={'W1': 471, 'W2': 186} first=W1 outcome up_deploy_code monitors={'deploy_before_safe_until': 330, 'deploy_before_staging_timestamp': 324} | expected W1
+M2_deploy_one_ns_early: FAIL diverging=27 by={'W1': 25, 'W2': 2} first=W1 outcome up_deploy_code monitors={'deploy_before_safe_until': 27, 'deploy_before_staging_timestamp': 27} | expected W1
+M3_stage_ignores_duration: FAIL diverging=603 by={'W1': 595, 'W2': 8} first=W1 state staging_timestamp monitors={'safe_until_decreased': 453, 'deploy_before_safe_until': 233} | expected W1
+M4_hash_check_removed: FAIL diverging=227 by={'W2': 227} first=W2 outcome up_deploy_code monitors={'deploy_with_other_hash': 289} | expected W2
+M5_duration_update_no_delay: FAIL diverging=612 by={'W3': 612} first=W3 state new_staging_duration_timestamp monitors={'safe_until_decreased': 325, 'deploy_before_safe_until': 36} | expected W3
+M6_duration_update_written_directly: FAIL diverging=653 by={'W3': 653} first=W3 state staging_duration monitors={'safe_until_decreased': 232, 'deploy_before_safe_until': 29} | expected W3
+M7_apply_check_removed: FAIL diverging=145 by={'W3': 145} first=W3 outcome up_apply_update_staging_duration monitors={'safe_until_decreased': 55, 'deploy_before_safe_until': 7} | expected W3
+M8_reinit_allowed: FAIL diverging=545 by={'W3': 545} first=W3 outcome up_init_staging_duration monitors={'safe_until_decreased': 237, 'deploy_before_safe_until': 66} | expected W3
+M9_update_timestamp_wraps: FAIL diverging=94 by={'W3': 94} first=W3 outcome up_stage_update_staging_duration monitors={'safe_until_decreased': 84, 'deploy_before_safe_until': 20} | expected W3
+M10_stage_timestamp_wraps: FAIL diverging=99 by={'W1': 96, 'W2': 3} first=W1 state staging_timestamp monitors={'safe_until_decreased': 80, 'deploy_before_safe_until': 61} | expected W1
+M11_removal_keeps_timestamp: FAIL diverging=295 by={'W1': 292, 'W2': 3} first=W1 state staging_timestamp monitors={} | expected W1
+M12_deploy_guarded_by_stager_roles: FAIL diverging=793 by={'ACL': 738, 'W2': 55} first=ACL error text up_deploy_code monitors={} | expected ACL
+mutants: all detected, control passes
+== done

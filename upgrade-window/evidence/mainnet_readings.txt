@@ -1,0 +1,70 @@
+$ ./check-upgrade-window.py token.sweat
+account          token.sweat
+read at          block 224225057 (2026-11-12 14:12:45 UTC)
+code hash        9EUtV11wgCZ4N16xa24ETnn8E78GjeSit1r7gMyQZ6Zi
+access keys      0 full-access, 0 function-call
+Upgradable       interface detected (up_get_delay_status answers; the deployed wasm is not compared to v0.5.1)
+staging duration none (never initialised)
+staged code      9EUtV11wgCZ4N16xa24ETnn8E78GjeSit1r7gMyQZ6Zi = the deployed code
+                 earliest deploy: 2026-10-08 22:19:09 UTC — deployable now
+duration update  none staged
+safe until       already passed: an up_deploy_code call can succeed at the current block timestamp
+exit window now  none
+role holders     1 super-admin(s); DenylistManager: 1 grantee(s), 0 admin(s), Oracle: 1 grantee(s), 0 admin(s), PauseManager: 1 grantee(s), 0 admin(s), StagingManager: 1 grantee(s), 0 admin(s), UnpauseManager: 1 grantee(s), 0 admin(s), UpgradeManager: 1 grantee(s), 0 admin(s)
+verdict          NO_WINDOW
+  - staging duration is not set: code can be staged and its deployment accepted at the same block timestamp (theorem W4_no_window)
+  - staged code is deployable now (it equals the code deployed now)
+not covered      code-change paths outside the plugin (full-access keys above; custom upgrade or migration methods of the contract), pausing of exit methods: check them with the scanner; a deploy batch created in the block or two before this reading does not show in the views
+
+$ ./check-upgrade-window.py lst.rhealab.near
+account          lst.rhealab.near
+read at          block 224225062 (2026-11-12 14:12:47 UTC)
+code hash        EPLT4C61pkVYf5Km6dC4X9x5PMo6rfBwuEwo7vgKpmuv
+access keys      0 full-access, 0 function-call
+Upgradable       interface detected (up_get_delay_status answers; the deployed wasm is not compared to v0.5.1)
+staging duration none (never initialised)
+staged code      none
+duration update  none staged
+safe until       already passed: an up_deploy_code call can succeed at the current block timestamp
+exit window now  none
+role holders     1 super-admin(s); DAO: 1 grantee(s), 0 admin(s), OpManager: 3 grantee(s), 0 admin(s), PauseManager: 1 grantee(s), 0 admin(s), UnpauseManager: 1 grantee(s), 0 admin(s), UpgradableCodeDeployer: 1 grantee(s), 0 admin(s), UpgradableCodeStager: 2 grantee(s), 0 admin(s)
+verdict          NO_WINDOW
+  - staging duration is not set: code can be staged and its deployment accepted at the same block timestamp (theorem W4_no_window)
+not covered      code-change paths outside the plugin (full-access keys above; custom upgrade or migration methods of the contract), pausing of exit methods: check them with the scanner; a deploy batch created in the block or two before this reading does not show in the views
+
+$ ./check-upgrade-window.py ctl-intents.near
+account          ctl-intents.near
+read at          block 224225066 (2026-11-12 14:12:50 UTC)
+code hash        5ndbayBGx3kZc43QJHUn9WsoD6ZHo31L9ZWa83qkjywq
+access keys      0 full-access, 0 function-call
+Upgradable       interface detected (up_get_delay_status answers; the deployed wasm is not compared to v0.5.1)
+staging duration none (never initialised)
+staged code      5ndbayBGx3kZc43QJHUn9WsoD6ZHo31L9ZWa83qkjywq = the deployed code
+                 earliest deploy: 2025-06-09 10:03:29 UTC — deployable now
+duration update  none staged
+safe until       already passed: an up_deploy_code call can succeed at the current block timestamp
+exit window now  none
+role holders     2 super-admin(s); DAO: 1 grantee(s), 0 admin(s), Deployer: 0 grantee(s), 0 admin(s), Downgrader: 2 grantee(s), 0 admin(s), Pauser: 0 grantee(s), 0 admin(s), Releaser: 0 grantee(s), 0 admin(s), Unpauser: 0 grantee(s), 0 admin(s), Updater: 1 grantee(s), 0 admin(s)
+verdict          NO_WINDOW
+  - staging duration is not set: code can be staged and its deployment accepted at the same block timestamp (theorem W4_no_window)
+  - staged code is deployable now (it equals the code deployed now)
+not covered      code-change paths outside the plugin (full-access keys above; custom upgrade or migration methods of the contract), pausing of exit methods: check them with the scanner; a deploy batch created in the block or two before this reading does not show in the views
+
+$ ./check-upgrade-window.py omni.bridge.near
+account          omni.bridge.near
+read at          block 224225073 (2026-11-12 14:12:54 UTC)
+code hash        F2no3vqrFxm2c34mZqoMNawhRYYHbp22WuRqN6vEd3KP
+access keys      0 full-access, 0 function-call
+Upgradable       interface detected (up_get_delay_status answers; the deployed wasm is not compared to v0.5.1)
+staging duration none (never initialised)
+staged code      F2no3vqrFxm2c34mZqoMNawhRYYHbp22WuRqN6vEd3KP = the deployed code
+                 earliest deploy: 2026-10-27 21:22:42 UTC — deployable now
+duration update  none staged
+safe until       already passed: an up_deploy_code call can succeed at the current block timestamp
+exit window now  none
+role holders     1 super-admin(s); DAO: 2 grantee(s), 0 admin(s), MetadataManager: 1 grantee(s), 0 admin(s), NativeFeeRestricted: 1 grantee(s), 0 admin(s), PauseManager: 2 grantee(s), 0 admin(s), RbfOperator: 1 grantee(s), 0 admin(s), RelayerManager: 0 grantee(s), 0 admin(s), TokenControllerUpdater: 0 grantee(s), 0 admin(s), TokenDeployer: 1 grantee(s), 0 admin(s), TokenLockController: 0 grantee(s), 0 admin(s), TokenUpgrader: 0 grantee(s), 0 admin(s), UnpauseManager: 0 grantee(s), 0 admin(s), UnrestrictedDeposit: 0 grantee(s), 0 admin(s), UnrestrictedRelayer: 3 grantee(s), 0 admin(s), UpgradableCodeDeployer: 0 grantee(s), 0 admin(s), UpgradableCodeStager: 1 grantee(s), 0 admin(s)
+verdict          NO_WINDOW
+  - staging duration is not set: code can be staged and its deployment accepted at the same block timestamp (theorem W4_no_window)
+  - staged code is deployable now (it equals the code deployed now)
+not covered      code-change paths outside the plugin (full-access keys above; custom upgrade or migration methods of the contract), pausing of exit methods: check them with the scanner; a deploy batch created in the block or two before this reading does not show in the views
+

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exit Proof · can you always get it back?</title>
+<meta name="description" content="The exit stage of any NEAR contract: who can change its code, who can move or freeze the funds, and whether a Lean theorem tied to its code hash says a depositor can always withdraw. The scanner runs in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Exit Proof · can you always get it back?">
+<meta property="og:description" content="Every NEAR contract gets an exit stage. The top stage takes a Lean theorem tied to the deployed code hash. Ask the chain from your browser, with no wallet.">
+<meta property="og:url" content="https://formalized-si.github.io/exit-proof/">
+<meta property="og:image" content="https://formalized-si.github.io/exit-proof/docs/assets/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1a1c18">
+<link rel="icon" href="assets/formalized-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="page.css">
+<link rel="stylesheet" href="exit.css">
+</head>
+<body>
+<div class="marks" aria-hidden="true"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><i class="tc"></i><i class="bc"></i><i class="ml"></i><i class="mr"></i></div>
+<main>
+<div class="stage">
+<div class="grain" aria-hidden="true"></div>
+<header>
+  <div class="brand-line"><a class="formalized" href="https://formalized.si/" aria-label="Formalized"><img src="assets/formalized-white.svg" alt="Formalized" width="146" height="26"></a><a class="brand" href="index.html">Exit Proof</a></div>
+  <nav aria-label="Main"><a href="#ladder">The stages</a><a href="#stands">Where NEAR stands</a><a href="#proved">What is proved</a><a href="#tokens">Tokens</a><a href="#agents">For agents</a><a class="nav-cta" href="https://github.com/formalized-si/exit-proof">Source <svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></a></nav>
+</header>
+
+<div class="stage-grid">
+<section class="patch-hero">
+  <p class="eyebrow">EXIT STAGES FOR NEAR CONTRACTS · REGISTRY ON NEAR MAINNET</p>
+  <h1>Can you always<br><span>get it back?</span></h1>
+  <p class="lead">Before you, or your agent, deposit into a NEAR contract: who can change its code, who can move or freeze the funds, and is there a proof that you can always withdraw? Exit Proof gives every contract an exit stage. Each stage is defined by evidence that anyone can check again. The top stage takes a Lean theorem tied to the deployed code hash.</p>
+  <div class="actions"><a class="button" href="#try-title">Ask the chain <svg class="ui-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg></a><a class="button ghost" href="#video">Watch the video</a><a class="button ghost" href="#proved">What is proved</a><a class="button ghost" href="#ladder">The four stages</a><span class="license">MIT · NEAR HACKATHON 2026</span></div>
+</section>
+
+<section class="try-card" id="try" aria-labelledby="try-title">
+  <p class="eyebrow">ASK THE CHAIN</p>
+  <h2 id="try-title">The exit stage of any NEAR account.</h2>
+  <p>This page runs the scanner of the repository in your browser. Your browser reads public RPC, and nothing is signed. If the chain cannot be read, there is no verdict.</p>
+  <form id="exit-form" autocomplete="off">
+    <label for="account">Account</label>
+    <div class="field-row">
+      <input id="account" type="text" spellcheck="false" autocapitalize="none" value="astro-stakers.poolv1.near" aria-describedby="exit-status">
+      <div class="seg" role="radiogroup" aria-label="Network"><button type="button" role="radio" aria-checked="true" data-net="mainnet">mainnet</button><button type="button" role="radio" aria-checked="false" data-net="testnet">testnet</button></div>
+      <input type="hidden" id="network" value="mainnet">
+    </div>
+    <div class="presets" aria-label="Examples">
+      <button type="button" data-account="astro-stakers.poolv1.near" data-network="mainnet">a staking pool</button>
+      <button type="button" data-account="token.sweat" data-network="mainnet">token.sweat</button>
+      <button type="button" data-account="wrap.near" data-network="mainnet">wrap.near</button>
+      <button type="button" data-account="intents.near" data-network="mainnet">intents.near</button>
+      <button type="button" data-account="gated-quiet-vault.testnet" data-network="testnet">a gated vault, testnet</button>
+    </div>
+    <button class="button" id="check-exit" type="submit">Read the exit stage</button>
+  </form>
+  <p id="exit-status" role="status" aria-live="polite">The scanner starts loading when you come near this form: about 10 MB, once per visit.</p>
+  <div id="exit-result" hidden>
+    <h3 id="decision"></h3>
+    <ul id="why"></ul>
+    <p id="condition" hidden></p>
+    <div class="result-actions"><button class="button ghost" id="full" type="button" hidden>Read who holds each power</button><button class="button ghost" id="share" type="button" hidden>Copy a link to this answer</button></div>
+    <details><summary>The whole report</summary><pre id="report"></pre></details>
+  </div>
+  <p class="muted small" id="check-note">The same answer on the command line: <code>python3 tools/exitproof.py &lt;account&gt;</code>.</p>
+</section>
+</div>
+</div>
+
+<section class="patch-card video-card" id="video" aria-labelledby="video-title">
+  <p class="eyebrow">THE VIDEO · 1 MIN 43 S</p>
+  <h2 id="video-title">Exit Proof in a minute and a half.</h2>
+  <video controls preload="none" playsinline poster="../docs/assets/exit-proof-promo-poster.jpg" width="1280" height="720">
+    <source src="../docs/assets/exit-proof-promo.mp4" type="video/mp4">
+    <a href="../docs/assets/exit-proof-promo.mp4">Download the video</a>
+  </video>
+</section>
+
+<section class="pj-facts" aria-label="Key numbers">
+  <div class="facts" id="facts">
+    <div class="fact"><b id="f-share">—</b><span>of staked NEAR is at stage 2, proven exit</span></div>
+    <div class="fact"><b id="f-pools">—</b><span>pools satisfy the theorem's precondition at one block</span></div>
+    <div class="fact"><b id="f-zero">—</b><span id="f-zero-label">large contracts at stage 0</span></div>
+    <div class="fact"><b id="f-receipts">—</b><span>receipts of NEAR Intents replayed, 0 disagree</span></div>
+    <div class="fact"><b id="f-mutants">—</b><span id="f-mutants-label">one-line changes of the model noticed</span></div>
+  </div>
+</section>
+
+<section class="patch-card" id="ladder" aria-labelledby="ladder-title">
+  <p class="eyebrow">01 · THE STAGES</p>
+  <h2 id="ladder-title">Four stages, each defined by evidence.</h2>
+  <p>A stage answers one question for a depositor: if I put money into this contract, what guarantees that I can get it back? The ladder follows the idea of L2BEAT's Stages for rollups. What is added here is the top rung: a stage is 2 only with a machine-checked exit theorem tied to the deployed code hash.</p>
+  <table class="ladder">
+    <thead><tr><th>Stage</th><th>Meaning</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lvl l2">2</span> Proven exit</td><td>The code cannot change, and a depositor can always withdraw by its own calls.</td><td>No code-change path and no access key; an exit theorem registered on chain for the exact code hash by an accepted attestor; the account's state was made by this code: one deployment, or every deployment recorded by the proof.</td></tr>
+      <tr><td><span class="lvl l1">1</span> Exit window</td><td>The code can change only after a visible delay, long enough to leave.</td><td>The code runs the proved upgrade plugin (a certificate or a proof for its code hash), no other code-change method is found by name, and the plugin's delay is set. Names alone give stage 0.</td></tr>
+      <tr><td><span class="lvl l0">0</span> Keyholder trust</td><td>The code can change with no notice, or exits can be paused and deposits moved.</td><td>The scanner names the path and how strongly it is guarded: a DAO vote, a multisig, another contract, several keys, one key.</td></tr>
+      <tr><td><span class="lvl lu">U</span> Unproven</td><td>No code-change path was found, and no exit theorem covers this account.</td><td>Absence of evidence, stated as such: no theorem for the code hash, or the account has a key or a history the theorem does not cover.</td></tr>
+    </tbody>
+  </table>
+  <p class="note">A report shows how strongly each power is guarded and never lists who holds it. <a href="https://github.com/formalized-si/exit-proof/blob/main/docs/STAGES.md">The full rules</a>.</p>
+</section>
+
+<section class="patch-card" id="stands" aria-labelledby="stands-title">
+  <p class="eyebrow">02 · WHERE NEAR STANDS</p>
+  <h2 id="stands-title">Most staked NEAR can always leave. Most large contracts can change overnight.</h2>
+  <h3>Staked NEAR, by the stage of the pool that holds it</h3>
+  <div class="bar" id="stake-bar" role="img" aria-label="Share of staked NEAR by stage"></div>
+  <p id="stake-note" class="note"></p>
+  <h3 id="cells-title">Large contracts: bridges, tokens, DeFi</h3>
+  <div class="cells" id="cells" role="img" aria-label="Large contracts by stage"></div>
+  <p id="cells-note" class="note"></p>
+  <p>The numbers on this page are read from the evidence files of the repository when the page loads. Each has a script that produced it and a check that compares it with the documents.</p>
+</section>
+
+<section class="patch-card" id="proved" aria-labelledby="proved-title">
+  <p class="eyebrow">03 · WHAT IS PROVED</p>
+  <h2 id="proved-title">A theorem about a model, tied to the deployed bytes.</h2>
+  <p>Three levels of evidence are kept apart everywhere. <b>Proved</b> is a Lean theorem about a model. <b>Tested</b> is the model run against the exact deployed wasm on nearcore's own runtime. <b>Read</b> is chain state or a contract's own answer.</p>
+  <table>
+    <thead><tr><th>Subject</th><th>Proved in Lean</th><th>Not covered</th></tr></thead>
+    <tbody>
+      <tr><td>Core staking pool, the code of <code>*.poolv1.near</code></td><td>A delegator can always unstake and withdraw. Nobody else lowers its balance.</td><td>Storage staking. That the protocol returns the stake is an assumption.</td></tr>
+      <tr><td>wNEAR, <code>wrap.near</code></td><td>A holder can always unwrap, under an invariant of the state.</td><td>The rest of the invariant on mainnet, and the code the account ran before 2021.</td></tr>
+      <tr><td>Token ledger of NEAR Intents, <code>intents.near</code></td><td>For a standard token and for wNEAR the ledger never exceeds the holdings. Withdrawals settle exactly. A balance falls only in six ways, each with the checks the contract makes.</td><td>The multi-token and NFT paths, the swap path (<code>token_diff</code>) and its fees, gas, the signature standards, a proof about the bytes.</td></tr>
+      <tr><td>Token standard, near-contract-standards 5.29.0</td><td>Supply is the sum of balances. Settlement refunds at most what was sent. Only the token settles.</td><td>Other library versions: their verdicts come from runs.</td></tr>
+      <tr><td>Upgrade plugin, near-plugins v0.5.1</td><td>No deploy is accepted before a bound that is tight.</td><td>Contracts that changed the plugin.</td></tr>
+      <tr><td>Gated upgrades</td><td>Every code change installs code that had a certificate.</td><td>The gate is as strong as the attestors it accepts.</td></tr>
+    </tbody>
+  </table>
+  <h3>One statement, as Lean reads it</h3>
+  <pre>theorem T1_ledger_covered (K : Cfg) (S : World) (h : Reach K S) :
+    total S.L.bals ≤ bal S.c.accts K.me</pre>
+  <p>In every reachable state of the contract together with a standard token, the sum of the ledger balances is at most the token balance of the contract: with anything in flight, at any point of any interleaving, with any receipt failing. <a href="https://github.com/formalized-si/exit-proof/blob/main/intents-proof/README.md">The Intents proof</a> has the assumptions and what is not covered.</p>
+</section>
+
+<section class="patch-card" id="how" aria-labelledby="how-title">
+  <p class="eyebrow">04 · THE PIPELINE</p>
+  <h2 id="how-title">Proved once for a code hash. Read for every account.</h2>
+  <div class="lane-name"><b>PROVE</b> once per code hash</div>
+  <ol class="steps">
+    <li><span>01</span><b>Deployed code</b><p>The exact wasm of a contract on mainnet, named by its code hash.</p></li>
+    <li><span>02</span><b>Lean model and theorems</b><p>Written from the source. Any receipt may fail, in any order.</p></li>
+    <li><span>03</span><b>Replay</b><p>The wasm runs on the nearcore runtime. Every receipt is compared with the model.</p></li>
+    <li class="end"><span>04</span><b>Certificate</b><p>In a registry on NEAR mainnet, with the command that re-checks it.</p></li>
+  </ol>
+  <div class="lane-name"><b>READ</b> on every question</div>
+  <ol class="steps">
+    <li><span>05</span><b>An account</b><p>Its keys, the methods of its code, its roles, its deployment history.</p></li>
+    <li><span>06</span><b>Scanner</b><p>Applies the stage rules and looks the code hash up in the registry.</p></li>
+    <li class="end"><span>07</span><b>Exit stage</b><p>2, 1, 0 or U, each with the evidence it rests on.</p></li>
+    <li><span>08</span><b>Who asks</b><p>A depositor, an agent through MCP, a watch that reports a change.</p></li>
+  </ol>
+</section>
+
+<section class="patch-card" id="tokens" aria-labelledby="tokens-title">
+  <p class="eyebrow">05 · TOKENS</p>
+  <h2 id="tokens-title">Does this token behave as the standard?</h2>
+  <p>The proof of the Intents ledger holds for tokens that behave as the proved NEP-141 standard. The token check answers that for one token: the verdict for its code hash from runs of the deployed code, what is switched on right now, and whether its code can change.</p>
+  <form id="token-form" class="light-form" autocomplete="off">
+    <label for="token">Token account</label>
+    <div class="field-row">
+      <input id="token" type="text" spellcheck="false" autocapitalize="none" value="batman-4.nearlytrade.near">
+      <button class="button" id="check-token" type="submit">Check the token</button>
+    </div>
+    <div class="presets">
+      <button type="button" data-token="batman-4.nearlytrade.near">a token with a transfer tax</button>
+      <button type="button" data-token="usdt.tether-token.near">USDT</button>
+      <button type="button" data-token="wrap.near">wNEAR</button>
+    </div>
+  </form>
+  <p id="token-status" role="status" aria-live="polite" class="note"></p>
+  <div id="token-result" hidden>
+    <h3 id="token-decision"></h3>
+    <pre id="token-report"></pre>
+  </div>
+</section>
+
+<section class="patch-card" id="mainnet" aria-labelledby="mainnet-title">
+  <p class="eyebrow">06 · ON NEAR MAINNET</p>
+  <h2 id="mainnet-title">The certificates live in a contract nobody can change.</h2>
+  <p><code>registry.exitproof.near</code> keeps the certificates by code hash. It has no access key and no upgrade method, and it holds nobody's funds. Each certificate pins a hash of the proof directory and names the command that re-checks the proof. The registry records who attests what; it does not check a proof on chain.</p>
+  <table class="txs">
+    <thead><tr><th>Step</th><th>Transaction</th></tr></thead>
+    <tbody>
+      <tr><td>Deploy the registry</td><td><a href="https://nearblocks.io/txns/Bb34SR1zsenLKVcjLrkacnvguYqtmGrghgN1e3Fub8t5"><code>Bb34SR1z…</code></a></td></tr>
+      <tr><td><span class="lvl l2">2</span> Exit certificate: the core staking pool, code <code>J1arLz48…</code></td><td><a href="https://nearblocks.io/txns/31oaqvX2N8WEvihboMQ7WoV4jt563F314fGoeERMdkFK"><code>31oaqvX2…</code></a></td></tr>
+      <tr><td><span class="lvl l2">2</span> Exit certificate: wNEAR, code <code>DL2f5xmZ…</code></td><td><a href="https://nearblocks.io/txns/7h4KGyi9Quu2Fo5yvwtWuj8jA341mvv77spPcMZqBmec"><code>7h4KGyi9…</code></a></td></tr>
+      <tr><td>Token-standard certificate: the reference token of near-contract-standards 5.29.0</td><td><a href="https://nearblocks.io/txns/7cnk2Urb64ELBVouhACmznGw4rLqgyNjjXwRc4NHZaVf"><code>7cnk2Urb…</code></a></td></tr>
+      <tr><td><span class="lvl l1">1</span> Upgrade-window certificate: the reference vault of the upgrade plugin</td><td><a href="https://nearblocks.io/txns/BpAq7sGTnFFfJoRQn3RcUya3qkXGny6EydeVbTTrZg7K"><code>BpAq7sGT…</code></a></td></tr>
+      <tr><td>Delete the registry's only access key</td><td><a href="https://nearblocks.io/txns/F6ypQV24ZzofmRncQhZMkTaRb5HY2mfgdUSdq8CowCam"><code>F6ypQV24…</code></a></td></tr>
+    </tbody>
+  </table>
+  <p class="note">The one attestor so far, <code>exitproof.near</code>, is the project's own account with one key: a certificate is its statement plus a command anyone can run. The stage-1 examples and a vault that refused uncertified code are on testnet: <a href="https://github.com/formalized-si/exit-proof/blob/main/EVIDENCE.md">the registry and the stage-1 examples</a>, <a href="https://github.com/formalized-si/exit-proof/blob/main/gated-upgrade/TESTNET.md">the gated vault</a>.</p>
+</section>
+
+<section class="patch-card" id="agents" aria-labelledby="agents-title">
+  <p class="eyebrow">07 · FOR AGENTS AND TEAMS</p>
+  <h2 id="agents-title">Ask before the deposit. Check before the upgrade.</h2>
+  <p>Everything on this page is a command in the repository: Python 3.10 and its standard library, public RPC, nothing signed. An answer always carries a status, and <code>unreadable</code> is never a pass.</p>
+  <div class="uses">
+    <div class="use"><b>An agent, before it deposits</b><p>An MCP server with three tools: <code>exit_check</code>, <code>exit_plan</code>, <code>token_check</code>.</p><pre>{"mcpServers": {"exit-proof": {
+  "command": "python3",
+  "args": ["tools/mcp_server.py"]}}}</pre></div>
+    <div class="use"><b>A staking agent with a rule over evidence</b><p>Stakes only at stage 2 by default, or, with <code>--min-stage 1</code>, at a certified stage 1 with a window of at least a day; otherwise it refuses and says why.</p><pre>python3 tools/agent_demo.py \
+  astro-stakers.poolv1.near 100
+# decision: PROCEED, with the
+# transaction it would sign</pre></div>
+    <div class="use"><b>A contract team, before an upgrade</b><p>Does the proof carry over to the new commit? The replay, the places that write the ledger, the exported methods.</p><pre>intents-proof/scripts/verify_upgrade.sh \
+  &lt;commit&gt;
+# CARRIES OVER, DIVERGES, or
+# NEEDS REVIEW with the files to re-read</pre></div>
+    <div class="use"><b>A token team, for its listing</b><p>Runs its own wasm on 1 000 traces with 14 monitors of the proved NEP-141 properties and writes a certificate anyone can re-run.</p><pre>token-monitors/certify.sh \
+  your.wasm your-config.json</pre></div>
+    <div class="use"><b>Anyone holding funds in a contract</b><p>A watch that reports a change of code, stage, keys, upgrade delay, staged code or token tax, and exits with 1.</p><pre>python3 tools/watch.py wrap.near \
+  --state watch.json</pre></div>
+    <div class="use"><b>A reviewer of this repository</b><p>The numbers of the documents against the evidence files, then the self-test on real accounts: one command, minutes.</p><pre>./check-all.sh
+# RESULT: PASS</pre></div>
+  </div>
+</section>
+
+<section class="patch-card limits-card" aria-labelledby="limits-title">
+  <p class="eyebrow">WHAT THIS IS NOT</p>
+  <h2 id="limits-title">A stage is evidence to weigh, not a guarantee.</h2>
+  <ul>
+    <li><b>Not a proof about the bytes.</b> A theorem is about a Lean model. The tie to the deployed wasm is hash equality plus execution on random traces, and it is measured with one-line changes of the model.</li>
+    <li><b>Not checked on chain.</b> A certificate is an attestor's statement with a command that re-checks it. The one attestor so far is an account with one key.</li>
+    <li><b>Not every risk.</b> A stage is about exits. An oracle, the economic design and a bridge are outside it.</li>
+    <li><b>Not the finder of the 2026 incidents.</b> The teams of those contracts found them, fixed them and published what happened.</li>
+  </ul>
+</section>
+</main>
+<footer><span>Exit Proof · NEAR HACKATHON 2026 · by Mike Murunov and Maksim Borisov of <a href="https://formalized.si/">formalized.si</a></span><a href="https://github.com/formalized-si/exit-proof/blob/main/CLAIMS.md">Every claim with its level</a><a href="https://github.com/formalized-si/exit-proof/blob/main/AGENTS.md">How to check it</a><a href="https://github.com/formalized-si/exit-proof/blob/main/docs/ROADMAP.md">What is missing</a><a href="https://github.com/formalized-si/exit-proof">Source</a></footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

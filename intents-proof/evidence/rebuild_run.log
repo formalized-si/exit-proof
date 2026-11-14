@@ -1,0 +1,21 @@
+89:[package.metadata.near.reproducible_build]
+90-image = "sourcescan/cargo-near:0.22.0-rust-1.97.1"
+91-image_digest = "sha256:7467038bdddc86484b73b416eeadce926ff59013e128e53dec5a19e1cb4b2234"
+92-passed_env = []
+93-container_build_command = [
+94-  "cargo",
+95-  "near",
+96-  "build",
+97-  "non-reproducible-wasm",
+--
+103:[package.metadata.near.reproducible_build.variant.far]
+104-image = "sourcescan/cargo-near:0.22.0-rust-1.97.1"
+105-image_digest = "sha256:7467038bdddc86484b73b416eeadce926ff59013e128e53dec5a19e1cb4b2234"
+106-passed_env = []
+cargo-near-near 0.22.0
+start 2026-11-12T20:10:23Z
+rc=0
+rebuilt:  a1afab98916d9f213746544dcf8e4e6bdb22c0be6bc5dfbd8ea8814c9922b547 1297551 bytes
+deployed: a1afab98916d9f213746544dcf8e4e6bdb22c0be6bc5dfbd8ea8814c9922b547 1297551 bytes
+RESULT: BYTE-IDENTICAL
+end 2026-11-12T20:11:59Z

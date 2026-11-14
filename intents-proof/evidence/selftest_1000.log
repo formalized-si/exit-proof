@@ -1,0 +1,20 @@
+49 of 80 traces are clean before doctoring
+caught   45/45  unauthorized_ran       a role-guarded method called by an account without a required role is recorded as successful
+caught   28/28  unauthorized_ran       a failed pause or lock by an account without the role is recorded with the switch changed
+caught   14/14  unauthorized_ran       a role grant by an account that is no admin is recorded as answered with true
+caught   13/13  auth_off_ran           a call by an account whose auth-by-predecessor flag is off is recorded as successful
+caught   49/49  supply_mismatch        one account's ledger balance grows in a recorded step state, the supply does not
+caught   49/49  overcredit             ledger balance and supply of a backed asset grow by more than the contract holds, in one step state
+caught   46/46  private_ran            a private callback called by a stranger is recorded as successful
+caught   49/49  failed_changed         a failed receipt is recorded with a balance change
+caught   18/18  ran_while_paused       a call of a paused entry point is recorded as successful
+caught   9/9  locked_spent           a locked account's own withdrawal or transfer is recorded as successful
+caught   38/38  tx_overcredit          the refund a withdrawal callback credits is recorded larger than what came back
+caught   21/21  tx_stranded            the refund of a failed plain transfer is dropped from the record
+caught   49/49  quiescent_gap          in a block with nothing pending the views show a smaller ledger and supply than before
+caught   19/19  holdings_taken         a token receipt that is no settlement and not the contract's call lowers the contract's balance
+caught   49/49  unknown_ledger_token   the contract enumerates a ledger token id the trace does not track
+caught   46/46  own_callback_failed    a callback the contract scheduled for itself is recorded as failed
+unauthorized_ran on the undoctored traces: 0
+auth_off_ran on the undoctored traces: 0
+PASS

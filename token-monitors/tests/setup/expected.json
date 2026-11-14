@@ -1,0 +1,30 @@
+{
+ "about": "Configs that check.sh passes to try-config.sh on a build of reference/: `exit` is the exit status it must return and `output_contains` a text it must print. With `certify_traces` the config must also get a PASS certificate from that many traces.",
+ "cases": [
+  {
+   "name": "raw-args",
+   "wasm": "reference",
+   "config": "raw-args.json",
+   "exit": 0,
+   "output_contains": "SET-UP OK",
+   "covers": "args_base64"
+  },
+  {
+   "name": "every-field",
+   "wasm": "reference",
+   "config": "every-field.json",
+   "exit": 0,
+   "output_contains": "SET-UP OK",
+   "certify_traces": 300,
+   "covers": "token_account, accounts, stubs, init.caller, gas_tgas, deposit, setup.receiver, may_fail, funder, track, token_near, timestamp_ns, transfer_memos, resolve_method"
+  },
+  {
+   "name": "setup-call-fails",
+   "wasm": "reference",
+   "config": "setup-call-fails.json",
+   "exit": 2,
+   "output_contains": "setup call ft_transfer failed",
+   "covers": "a failing setup call without may_fail stops the set-up"
+  }
+ ]
+}

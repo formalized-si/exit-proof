@@ -1,0 +1,26 @@
+# The official near-sdk-rs fungible-token example (tag near-sdk-v5.29.0, commit 1aac824,
+# examples/fungible-token/ft), with the workspace path dependencies replaced by the
+# crates.io releases of the same tag and the workspace release profile copied in.
+[package]
+name = "fungible-token"
+version = "1.1.0"
+edition = "2024"
+rust-version = "1.93"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+near-sdk = "=5.29.0"
+near-contract-standards = "=5.29.0"
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = true
+debug = false
+panic = "abort"
+overflow-checks = true
+
+[workspace]

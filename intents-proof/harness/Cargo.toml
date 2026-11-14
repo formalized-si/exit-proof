@@ -1,0 +1,19 @@
+[package]
+name = "intents-harness"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "intents-gen"
+path = "src/main.rs"
+
+[dependencies]
+# The public simulator at a pinned commit. It pins nearcore itself (tag 2.14.0); Cargo.lock records
+# the exact commits of both.
+near-contract-sim = { git = "https://github.com/near/near-contract-sim", rev = "8e4b69b999c185a1a26fa5e025db042436888856" }
+serde_json = { version = "1", features = ["arbitrary_precision", "float_roundtrip"] }
+borsh = { version = "1", features = ["derive", "rc"] }
+serde = { version = "1", features = ["derive"] }
+wat = "1"
+sha2 = "0.10"

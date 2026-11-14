@@ -1,0 +1,16 @@
+name = "pool_proof"
+version = "0.1.0"
+defaultTargets = ["StakingPool", "poolmodel", "Review"]
+
+[[lean_lib]]
+name = "StakingPool"
+
+[[lean_exe]]
+name = "poolmodel"
+root = "Main"
+
+# Non-vacuity examples of the independent review (Review/PoolVacuity.lean).
+# They use the theorems; the theorems do not depend on them.
+[[lean_lib]]
+name = "Review"
+globs = ["Review.+"]

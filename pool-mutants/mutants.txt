@@ -1,0 +1,8 @@
+P1|withdraw unlocks one epoch early|  ensure (a.availEpoch ≤ e.epoch)|  ensure (a.availEpoch ≤ e.epoch + 1)
+P2|unstake delay 3 epochs instead of 4|def NUM_EPOCHS_TO_UNLOCK : Nat := 4|def NUM_EPOCHS_TO_UNLOCK : Nat := 3
+P3|unstake pays rounded-down amount|  let recv ← c.amountUp n|  let recv ← c.amountDown n
+P4|withdraw ignores the liquid balance|  ensure (amount ≤ e.balance) "Exceeded the account balance."|  ensure (True) "Exceeded the account balance."
+P5|ping drops the total-balance check|  ensure (c.ltb ≤ tb) "The new total balance should not be less than the old total balance"|  ensure (True) "The new total balance should not be less than the old total balance"
+P6|deposit credits one yocto more|  let u ← add128 a.unstaked e.deposit|  let u ← add128 a.unstaked (e.deposit + 1)
+P7|owner fee goes to remaining twice|  let s2 ← add128 c.s ownersFee|  let s2 ← add128 c.s (ownersFee + ownersFee)
+P8|stake charges rounded-up amount|  let charge ← c.amountDown n|  let charge ← c.amountUp n

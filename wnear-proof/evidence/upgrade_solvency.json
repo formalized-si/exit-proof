@@ -1,0 +1,13 @@
+{
+ "height": 35438886,
+ "deploy_tx": "4xtccqLAv25JU4F9HPRdKAeByGpjzA94GZcXY75cNM4",
+ "amount_yocto": "43179567648315486756706569582",
+ "total_supply_yocto": "43077636025046391928689108773",
+ "storage_usage": 1764915,
+ "hypothesis_supply_plus_2stake_le_amount": true,
+ "margin_yocto": "66633323269094828017460809",
+ "surplus_yocto": "101931623269094828017460809",
+ "account_created_height": 29998009,
+ "code_before": "9kQaNiscuPh69vRs1GyzfnkEjpUPGLjJhT6RaJBQyG7p",
+ "code_after": "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1"
+}

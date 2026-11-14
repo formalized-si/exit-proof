@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a way to get a better answer from a tool than its rules allow
+    url: https://github.com/formalized-si/exit-proof/security/advisories/new
+    about: Private report, as SECURITY.md describes.

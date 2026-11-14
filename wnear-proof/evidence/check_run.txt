@@ -1,0 +1,61 @@
+== 1. Lean: build (model, proofs, non-vacuity example), no sorry, axioms
+Build completed successfully (14 jobs).
+'WNear.T_conservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WNear.inv_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WNear.T_force_unregister_burns' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WNear.T_resolve' depends on axioms: [propext, Quot.sound]
+'WNear.T_resolve_private' depends on axioms: [propext]
+'WNear.T_resolve_private_sys' depends on axioms: [propext]
+'WNear.T_resolve_never_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WNear.T_exit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WNear.exit_always' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WNear.exit_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WNear.T_no_one_else' depends on axioms: [propext, Quot.sound]
+'WNear.T_who_can_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'WNear.solvent_of_stake_bound' depends on axioms: [propext, Quot.sound]
+'WNear.calls_origin' depends on axioms: [propext, Quot.sound]
+axioms: 14 theorems, all within ['Classical.choice', 'Quot.sound', 'propext']
+== 2. harness build, deployed wasm hash, deterministic checks
+    Finished `release` profile [optimized] target(s) in 0.34s
+code hash: DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1 | foreign resolve (user): Some(Panic("Method ft_resolve_transfer is private")) | as callback: Panic("Method ft_resolve_transfer is private") | re-init: Some(Panic("The contract has already been initialized"))
+deterministic checks: PASS
+== 3. conformance: 2000 random traces on the deployed wasm vs the Lean model
+EXACT {'traces': 2000, 'receipts': 55825, 'transfers_compared': 7499, 'blocks': 58022, 'accounts_compared': 329546} mismatches: 0
+== 4. mutants (each must MISMATCH)
+M1_refund_ignores_receiver_balance: conformance MISMATCH 131 [33, 'step 16', 'resolve ret sim=3780406717802876490713111 model=0'] | proofs BREAK (error: WNear/Lemmas.lean:101)
+M2_garbage_means_all_used: conformance MISMATCH 1321 [0, 'step 9', 'resolve ret sim=0 model=4457541770574577160415279'] | proofs still compile
+M3_force_unregister_no_burn: conformance MISMATCH 2449 [0, 'h36', 'supply sim=85380979832121667897979659 model=105293231330644384183457459'] | proofs BREAK (error: WNear/Lemmas.lean:386)
+M4_withdraw_no_yocto_back: conformance MISMATCH 6533 [1, 'step 11', "near_withdraw transfers sim=[['recv2.near', '9698468279067716532672371']] model=[['recv2.near', '9698468279067716532672370']]"] | proofs BREAK (error: WNear/Theorems.lean:257)
+M5_deposit_keeps_storage_fee: conformance MISMATCH 23457 [0, 'h12', 'supply sim=82162697076466450878577379 model=82168947076466450878577379'] | proofs BREAK (error: WNear/Lemmas.lean:182)
+M6_resolve_not_private: conformance MISMATCH 2915 [3, 'step 10', 'ft_resolve_transfer: sim ok=False (Panic("Method ft_resolve_transfer is private")) model ok=True args={"amount":"30377224940179024639020646","receiver_id":"bob.near","sender_id":"evil.near"} dep=0 res={\'failed\': True}'] | proofs BREAK (error: WNear/Lemmas.lean:272)
+M7_storage_refund_to_target: conformance MISMATCH 51 [5, 'step 7', "storage_deposit transfers sim=[['recv1.near', '998750000000000000000000']] model=[['ghost.near', '998750000000000000000000']]"] | proofs still compile
+M8_unregister_without_force: conformance MISMATCH 10156 [5, 'step 8', 'storage_unregister: sim ok=False (Panic("Can\'t unregister the account with the positive balance without force")) model ok=True args={"force":false} dep=1 res=None'] | proofs BREAK (error: WNear/Lemmas.lean:392)
+== 5. pre-upgrade code 9kQaNisc: invariant after every block, 1000 traces
+traces 1000 blocks 31393 violations 0
+== 6. mainnet (read-only RPC; the snapshot the report quotes stays in evidence/mainnet_check.json)
+{
+ "block_height": 224229238,
+ "block_hash": "EA94TPN9cccdZN83o7XBD6Jmr8gjWaryeZqHTB7gVeTn",
+ "code_hash": "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1",
+ "access_keys": 0,
+ "locked": "0",
+ "amount_yocto": "36835973760144776358139665291863",
+ "total_supply_yocto": "36829207654022143482673283217687",
+ "storage_usage_bytes": 168923209,
+ "storage_amount_per_byte": "10000000000000000000",
+ "storage_stake_yocto": "1689232090000000000000000000",
+ "storage_min_balance_yocto": "1250000000000000000000",
+ "surplus_yocto": "6766106122632875466382074176",
+ "hypothesis_supply_plus_2stake_le_amount": true,
+ "margin_yocto": "3387641942632875466382074176",
+ "registered_accounts_upper_bound": 2678374,
+ "wnear_held_by_wrap_near_itself_yocto": "107550764923243453203839068",
+ "minbal_le_2x63_bytes": true,
+ "minbal_is_125_bytes": true
+}
+mainnet check at block 224229238 : PASS
+RESULT: EXACT
+
+real	1m16.349s
+user	2m20.801s
+sys	0m51.992s

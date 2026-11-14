@@ -1,0 +1,76 @@
+{
+ "verdict": "EXACT",
+ "counts": {
+  "traces": 1000,
+  "receipts": 33118,
+  "returns_compared": 20029,
+  "transfers_compared": 4751,
+  "calls_compared": 3468,
+  "events_compared": 9702,
+  "blocks": 33291,
+  "accounts_compared": 217637
+ },
+ "mismatches": 0,
+ "mismatches_by_property": {},
+ "diverging_traces": 0,
+ "diverging_traces_by_first_property": {},
+ "monitor_violations": {
+  "P1": 0,
+  "P2": 0,
+  "P3": 0,
+  "P4": 0,
+  "P5": 0
+ },
+ "monitor_examples": {},
+ "init_ok_failures": [],
+ "failed_properties": [],
+ "first_divergence": null,
+ "examples": [],
+ "receipts_by_method": {
+  "ft_balance_of fail": 147,
+  "ft_balance_of ok": 296,
+  "ft_resolve_transfer fail": 773,
+  "ft_resolve_transfer@self ok": 1734,
+  "ft_total_supply ok": 242,
+  "ft_transfer fail": 5034,
+  "ft_transfer ok": 6474,
+  "ft_transfer_call fail": 3856,
+  "ft_transfer_call ok": 1734,
+  "in ok": 613,
+  "new_default_meta fail": 210,
+  "no_such_method fail": 134,
+  "storage_balance_bounds ok": 126,
+  "storage_balance_of ok": 277,
+  "storage_deposit fail": 550,
+  "storage_deposit ok": 7871,
+  "storage_unregister fail": 1232,
+  "storage_unregister ok": 965,
+  "storage_withdraw fail": 540,
+  "storage_withdraw ok": 310
+ },
+ "settlement_branches": {
+  "refund": 1431,
+  "sender-gone:burn": 20,
+  "unused=0": 132,
+  "receiver-balance=0": 108,
+  "partial-refund": 43
+ },
+ "receiver_behaviours": {
+  "json": 2566,
+  "ft_transfer": 828,
+  "(settlement held)": 1052,
+  "storage_unregister": 454,
+  "bytes": 944,
+  "panic": 509,
+  "(forced fail)": 266
+ },
+ "ft_on_transfer_outcomes": {
+  "ok": 1202,
+  "failed": 532
+ },
+ "interleaving": {
+  "settlements": 1734,
+  "with_foreign_receipts_between": 1458,
+  "foreign_receipts_between_total": 3754
+ }
+}

@@ -1,0 +1,11 @@
+# build products and bulky generated traces (check.sh recreates them)
+lean/.lake/
+harness/target/
+out/traces.jsonl
+out/model.jsonl
+out/compare.txt
+out/lean-build.log
+out/gen.log.raw
+__pycache__/
+# the aborted overflow trace is evidence, keep it
+!out/traces.jsonl.errors

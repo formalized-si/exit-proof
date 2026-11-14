@@ -1,0 +1,276 @@
+{
+ "certificate_version": 1,
+ "result": "FAIL",
+ "wasm": {
+  "path": "fungible_token.wasm",
+  "size": 124213,
+  "sha256": "c29f1bd61a68009b3f63e71891a618e6e12ce17387ed3b3defcf72f8d8c5a868",
+  "sha256_base58": "E6ioydeX6vgm7emjX5pFRuumjCoHszG66LZKtV9qZZBd",
+  "sim_code_hash": "E6ioydeX6vgm7emjX5pFRuumjCoHszG66LZKtV9qZZBd"
+ },
+ "standard": "near-contract-standards 5.29.0: FungibleToken (NEP-141 core) + StorageManagement (NEP-145), as exposed by the near-sdk-rs fungible-token example (tag near-sdk-v5.29.0)",
+ "model": {
+  "lean": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "lean_files_sha256": {
+   "ProvedFT/Map.lean": "ff37ecee746b548f92d72bcd01e3c69142ceb7f3e279b7e431d3a7f4bc82a8db",
+   "ProvedFT/Model.lean": "3f68ca472f7486857e36ef662e3e8a13c82c5e29b944d25b5616054362d61a3f",
+   "ProvedFT/Lemmas.lean": "2f5a98b77e0b905f7eccc060cf321514cadd3d1f549392eab40d840459939a04",
+   "ProvedFT/Theorems.lean": "86304f5c621aaca4fef7677816ac33c0df72cf307663a70ad719a06faf211768"
+  },
+  "properties_json_sha256": "ff72ccaef080778ba49d9756f2e16de46374893185efddbc2ae50b4fb1c3c53b",
+  "properties_match_sources": true
+ },
+ "init": {
+  "method": "new_default_meta",
+  "args": "{\"owner_id\":\"owner.near\",\"total_supply\":\"1000000000000000000000000000000\"}",
+  "state": {
+   "h": 10,
+   "map": {
+    "owner.near": "1000000000000000000000000000000"
+   },
+   "near": "49998842169792288000000000",
+   "storage": 125285,
+   "supply": "1000000000000000000000000000000"
+  }
+ },
+ "deployment_parameters": {
+  "token_account": "token.near",
+  "accounts_map_prefix_hex": "00",
+  "storage_byte_cost": "10000000000000000000",
+  "token_reported_storage_min": "1240000000000000000000"
+ },
+ "properties": {
+  "P1": {
+   "title": "Conservation",
+   "text": "In every reachable state, total_supply equals the sum of all account balances.",
+   "theorems": [
+    {
+     "name": "ProvedFT.P1_conservation",
+     "statement_sha256": "3019c8323804101f8b70983e775f27e5c3a40cee59ef078b144899be68f7b8e7"
+    },
+    {
+     "name": "ProvedFT.P1_inv_step",
+     "statement_sha256": "d1e0d4caad76fcd2a211285fa40a4fc95d31a1ba349911e3a3cc0cbf9e04157c"
+    }
+   ],
+   "status": "not established"
+  },
+  "P2": {
+   "title": "transfer_call settlement",
+   "text": "When the settlement callback of an ft_transfer_call of `amount` from a sender to a receiver runs, whatever the receiver's ft_on_transfer did (returned any number, unparsable bytes, a value longer than 42 bytes, or failed), the refund to the sender is at most `amount` and at most what the receiver still holds; the receiver loses exactly the refund and no other account changes; if the sender is still registered, the sender gains exactly the refund, so the sender + receiver total and the supply are conserved; if the sender has unregistered, the refund is burned. In a reachable state the callback cannot fail for arithmetic reasons.",
+   "theorems": [
+    {
+     "name": "ProvedFT.P2_settlement",
+     "statement_sha256": "cb0e89b16ce1ef7cb68eae2d47205e661c1bb5af6318d76b063d4e1e617e1899"
+    },
+    {
+     "name": "ProvedFT.P2_settlement_call",
+     "statement_sha256": "9233a8e4827a8c1a664c9bed9c16d00c431afbb0b382e89572241c42eda70b23"
+    },
+    {
+     "name": "ProvedFT.P2_settlement_never_fails",
+     "statement_sha256": "4049e47341df2edb02c7c2880b76c9d6db7f923cf82714de419cf09bcfdf34c9"
+    }
+   ],
+   "status": "not established"
+  },
+  "P3": {
+   "title": "Callback ownership",
+   "text": "ft_resolve_transfer takes effect only as the token's own settlement callback: called by any other account, by another contract, as another contract's callback with promise results of its choice, or by a transaction signed with the token account's own key, it fails and changes nothing.",
+   "theorems": [
+    {
+     "name": "ProvedFT.P3_callback_private",
+     "statement_sha256": "b9d7411c7f32ba1b4529ee05af56ba162bff0424165f765285c2a73436789c3a"
+    },
+    {
+     "name": "ProvedFT.P3_callback_private_sys",
+     "statement_sha256": "97df32cd566e0311dcca240ae6eb6f5882f9a3ff7cc510150a373ebcffdde138"
+    }
+   ],
+   "status": "not established"
+  },
+  "P4": {
+   "title": "Balance ownership",
+   "text": "No step other than a call by the holder lowers the holder's balance, except the settlement of an ft_transfer_call made to that holder, which takes back at most the amount of that transfer. The holder's own calls that can lower it are exactly ft_transfer, ft_transfer_call and storage_unregister(force = true); a settlement in flight exists only for a transfer that credited the holder exactly that amount.",
+   "theorems": [
+    {
+     "name": "ProvedFT.P4_balance_ownership",
+     "statement_sha256": "7561743c3a2dfb739ca0287506b94bda34eb8237ce9c96d3c8dd63cb6a24cdfe"
+    },
+    {
+     "name": "ProvedFT.P4_who_can_lower",
+     "statement_sha256": "8781402e51068729432c406ed0a903effa89daf768962c2e2a86b218fb50d27a"
+    },
+    {
+     "name": "ProvedFT.P4_pending_origin",
+     "statement_sha256": "f83d7624df5d8ea562df501c85fab47d78e97d1e78cb6ef265ae722a3a96d79a"
+    }
+   ],
+   "status": "not established"
+  },
+  "P5": {
+   "title": "Storage",
+   "text": "storage_unregister with 1 yoctoNEAR: with force = true it removes the caller's account and burns its whole balance (total_supply drops by exactly that balance) and pays the caller the storage minimum plus 1 yoctoNEAR; with a zero balance it does the same with or without force and burns nothing; without force and with a positive balance it fails and changes nothing; for an unregistered caller it changes nothing and returns false. storage_deposit registers an account for exactly the storage minimum and refunds the rest to the caller. In every reachable state the token holds enough NEAR for its base storage plus one storage refund per registered account.",
+   "theorems": [
+    {
+     "name": "ProvedFT.P5_unregister_force",
+     "statement_sha256": "226bdbea4c0a17e0bc94d937366a8217418237850700032f2edc34d25cb86dd3"
+    },
+    {
+     "name": "ProvedFT.P5_unregister_zero",
+     "statement_sha256": "65ac74dcdf3dbe608cd0f9074eb0e47a0d8c3e8842b0703515a4566e49e531c6"
+    },
+    {
+     "name": "ProvedFT.P5_unregister_refused",
+     "statement_sha256": "1f50138132f934f5db421584292c663f70778a816360c8d3f60bb178f83b2e83"
+    },
+    {
+     "name": "ProvedFT.P5_unregister_unknown",
+     "statement_sha256": "46582eb60814454343ec34a18c13de7bd55d80d507c9aeafa86628567dbd43df"
+    },
+    {
+     "name": "ProvedFT.P5_storage_deposit",
+     "statement_sha256": "f7743a9bb852d44e9b4bc9aeb8037c7c38cb3a682e3277bc0ba468585f7e4e86"
+    },
+    {
+     "name": "ProvedFT.P5_storage_solvent",
+     "statement_sha256": "64aa0e8a09257fd39d2af0f7f45b116bd84f3d5a7a54ad43c8cf3b7d0d6a4331"
+    }
+   ],
+   "status": "FAIL"
+  }
+ },
+ "failed_properties": [
+  "P5"
+ ],
+ "reasons": [
+  "conformance: 122507 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+ ],
+ "deterministic_checks": {
+  "balances_unchanged": true,
+  "resolve_as_foreign_callback": {
+   "is_callback": true,
+   "predecessor": "evil.near",
+   "status": "Panic(\"Method ft_resolve_transfer is private\")"
+  },
+  "resolve_by_contract": "Panic(\"Method ft_resolve_transfer is private\")",
+  "resolve_by_token_key": "Host(\"Accessed invalid promise result index: 0\")",
+  "resolve_by_user": "Panic(\"Method ft_resolve_transfer is private\")",
+  "victim_balance_before_after": [
+   "500000000000000000000000000000",
+   "500000000000000000000000000000"
+  ]
+ },
+ "traces": {
+  "requested": 1000,
+  "seed": 20261112,
+  "counts": {
+   "traces": 1000,
+   "receipts": 33118,
+   "returns_compared": 7334,
+   "transfers_compared": 2789,
+   "calls_compared": 384,
+   "events_compared": 2941,
+   "blocks": 33291,
+   "accounts_compared": 217637
+  },
+  "settlement_branches": {
+   "receiver-balance=0": 1278,
+   "sender-gone:burn": 165,
+   "refund": 154,
+   "unused=0": 132,
+   "partial-refund": 5
+  },
+  "receiver_behaviours": {
+   "json": 2566,
+   "ft_transfer": 828,
+   "(settlement held)": 1052,
+   "storage_unregister": 454,
+   "bytes": 944,
+   "panic": 509,
+   "(forced fail)": 266
+  },
+  "ft_on_transfer_outcomes": {
+   "ok": 1202,
+   "failed": 532
+  },
+  "interleaving": {
+   "settlements": 1734,
+   "with_foreign_receipts_between": 1458,
+   "foreign_receipts_between_total": 3754
+  },
+  "receipts_by_method": {
+   "ft_balance_of fail": 147,
+   "ft_balance_of ok": 296,
+   "ft_resolve_transfer fail": 773,
+   "ft_resolve_transfer@self ok": 1734,
+   "ft_total_supply ok": 242,
+   "ft_transfer fail": 5034,
+   "ft_transfer ok": 6474,
+   "ft_transfer_call fail": 3856,
+   "ft_transfer_call ok": 1734,
+   "in ok": 613,
+   "new_default_meta fail": 210,
+   "no_such_method fail": 134,
+   "storage_balance_bounds ok": 126,
+   "storage_balance_of ok": 277,
+   "storage_deposit fail": 550,
+   "storage_deposit ok": 7871,
+   "storage_unregister fail": 1232,
+   "storage_unregister ok": 965,
+   "storage_withdraw fail": 540,
+   "storage_withdraw ok": 310
+  }
+ },
+ "divergences": 122507,
+ "divergences_by_property": {
+  "P5": 78247,
+  "P1": 29752,
+  "P4": 10598,
+  "P2": 3910
+ },
+ "diverging_traces": 1000,
+ "diverging_traces_by_first_property": {
+  "P5": 1000
+ },
+ "monitor_violations": {
+  "P1": 0,
+  "P2": 0,
+  "P3": 0,
+  "P4": 0,
+  "P5": 0
+ },
+ "monitor_examples": {},
+ "first_divergence": {
+  "trace": 0,
+  "h": 12,
+  "kind": "return",
+  "property": "P5",
+  "detail": "sim={'json': {'available': '0', 'total': '1240000000000000000000'}, 'kind': 'value'} model={'json': {'available': '0', 'total': '1250000000000000000000'}, 'kind': 'value'}",
+  "step": 0,
+  "method": "storage_deposit",
+  "pred": "alice.near",
+  "args": "{\"account_id\":\"alice.near\"}",
+  "deposit": "1000000000000000000000000",
+  "sim_status": "ok",
+  "trace_ops": [
+   "alice.near storage_deposit for alice.near with 1000000000000000000000000 (funding)",
+   "c1.near storage_deposit for c1.near with 1240000000000000000000 (funding)",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.near storage_deposit for aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.near with 1240000000000000000000 (funding)",
+   "bob.near storage_deposit for recv1.near with 1240000000000000000007 (funding)",
+   "recv2.near storage_deposit for recv2.near with 1240000000000000000000 (funding)",
+   "bob.near storage_deposit for evil.near (funding)",
+   "owner ft_transfer 99932807776875140174151401344 to alice.near (funding)",
+   "owner ft_transfer 111293787394832196152132436099 to evil.near (funding)",
+   "alice.near ft_transfer_call 7443316341874079949028691085 to recv2.near (deposit 0); receiver: json 0 padded to the return limit",
+   "c1.near storage_unregister {\"force\":true} (deposit 1)",
+   "recv2.near ft_transfer_call 0 to recv2.near (deposit 1); receiver: ft_transfer 0 to bob.near by recv2.near, then json 0",
+   "c1.near ft_transfer 0 to evil.near (deposit 1)",
+   "alice.near ft_transfer_call 99932807776875140174151401344 to recv2.near (deposit 1); receiver: ft_transfer 99932807776875140174151401345 to owner.near by recv2.near, then json 99932807776875140174151401345",
+   "recv1.near sends 352003202995003326254631 yocto to the token",
+   "recv2.near sends 292913208466831147029133 yocto to the token",
+   "recv2.near ft_transfer raw args \"{\\\"receiver_id\\\":\\\"bob.near\\\",\\\"amount\\\":\\\"1\\\",\\\"extra\\\":1}\""
+  ]
+ },
+ "what_pass_means": "On every generated trace the token's receipts, return values, NEAR transfers, calls (incl. the settlement callback's gas), NEP-141 events and state after every block are exactly those of the Lean model of near-contract-standards 5.29.0, on which P1-P5 are proved. This is a test of equivalence on these traces, not a proof for all inputs."
+}

@@ -1,0 +1,21 @@
+{
+  "description": "Set-up test: a setup call fails and is not marked may_fail, so the set-up stops with the token's own failure text.",
+  "init": {
+    "method": "new_default_meta",
+    "args": {
+      "owner_id": "owner.near",
+      "total_supply": "1000000000000000000000000000000"
+    }
+  },
+  "setup": [
+    {
+      "caller": "owner.near",
+      "method": "ft_transfer",
+      "args": {
+        "receiver_id": "alice.near",
+        "amount": "5"
+      },
+      "deposit": "1"
+    }
+  ]
+}

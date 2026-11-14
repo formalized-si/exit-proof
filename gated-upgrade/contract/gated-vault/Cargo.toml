@@ -1,0 +1,32 @@
+# Gated vault: the `Upgradable` and `AccessControllable` plugins of near-plugins v0.5.1 (commit
+# 312e016e, near-sdk 5.26.1 — the versions of the exit-window kit) around a NEAR vault, with a
+# certificate gate in front of the plugin's deploy method.
+[package]
+name = "gated-vault"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.86"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[features]
+# The v2 / v3 builds differ from v1 only in the value `version()` returns: they are the "new
+# code" the tests and the testnet example stage.
+v2 = []
+v3 = []
+
+[dependencies]
+near-sdk = "=5.26.1"
+near-plugins = { git = "https://github.com/near/near-plugins.git", tag = "v0.5.1" }
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = true
+debug = false
+panic = "abort"
+overflow-checks = true
+
+[workspace]

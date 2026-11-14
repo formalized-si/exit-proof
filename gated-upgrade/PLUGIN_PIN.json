@@ -1,0 +1,22 @@
+{
+ "plugin": "near-plugins (Upgradable, AccessControllable)",
+ "version": "0.5.1",
+ "tag": "v0.5.1",
+ "repository": "https://github.com/near/near-plugins.git",
+ "commit": "312e016e0574d5756f6eba37acc82d9a237b2e3e",
+ "tree": "200a5532c80570efdb418e21ed23be34fd628047",
+ "commit_date": "2026-04-08T12:29:22-07:00",
+ "sha256": {
+  "near-plugins-derive/src/upgradable.rs": "87d33db093938d0d4139f7b984d1c43197580bb9acc71e86da6ad70be2a3c95d",
+  "near-plugins/src/upgradable.rs": "086771c452d637195b69a38a55659e4698a759d400c2c710a6ab237d628fb7b7",
+  "near-plugins-derive/src/access_controllable.rs": "a4efedeac179a69c44c89611ae20d60db1577e86aac92774bb559f6ed356ec6b"
+ },
+ "pinned_as_used_by": {
+  "repository": "https://github.com/Sweat-Foundation/sweat-token",
+  "commit": "75dc5b48dcc8b3f5303ab9f1d3dbf046901f6314",
+  "cargo_lock_entry": "near-plugins 0.5.1, source = \"git+https://github.com/near/near-plugins.git?tag=v0.5.1#312e016e0574d5756f6eba37acc82d9a237b2e3e\"",
+  "near_sdk": "5.26.1",
+  "rust_toolchain": "1.86",
+  "cargo_lock_sha256": "3b652b72b3f205a483dcc1708877765a07819af2eed1f62cd971c20936bd0065"
+ }
+}

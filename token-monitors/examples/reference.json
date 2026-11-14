@@ -1,0 +1,7 @@
+{
+  "description": "The near-sdk-rs fungible-token example (near-contract-standards 5.29.0). The init gives the whole supply to owner.near, one of the accounts the simulated world already has.",
+  "init": {
+    "method": "new_default_meta",
+    "args": {"owner_id": "owner.near", "total_supply": "1000000000000000000000000000000"}
+  }
+}

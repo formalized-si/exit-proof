@@ -1,0 +1,7 @@
+{
+  "description": "Set-up test: the init arguments are given as raw bytes in base64 (here the bytes of a JSON text; a Borsh-encoded argument is passed the same way).",
+  "init": {
+    "method": "new_default_meta",
+    "args_base64": "eyJvd25lcl9pZCI6Im93bmVyLm5lYXIiLCJ0b3RhbF9zdXBwbHkiOiIxMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIn0="
+  }
+}

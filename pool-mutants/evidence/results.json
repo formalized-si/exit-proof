@@ -1,0 +1,88 @@
+{
+ "what": "one-line changes of the pool model (pool-proof/lean/StakingPool/Model.lean), each replayed against the 1149 traces of the exact staking pool wasm that pool-proof/check.sh generates",
+ "run": "an independent reviewer, on a fresh copy of the repository as of 13 November (pool-proof/ is unchanged since), on a shared Linux machine, 2026-11-14",
+ "result": "the control agrees on every trace; 8 of 8 changes are noticed",
+ "mutants": [
+  {
+   "id": "P0",
+   "change": "control: the model unchanged",
+   "traces": 1149,
+   "calls": 55955,
+   "traces_that_differ": 0,
+   "error_texts_that_differ": 0,
+   "verdict": "EXACT"
+  },
+  {
+   "id": "P1",
+   "change": "withdraw unlocks one epoch early",
+   "traces": 1149,
+   "calls": 55955,
+   "traces_that_differ": 119,
+   "error_texts_that_differ": 0,
+   "verdict": "MISMATCH"
+  },
+  {
+   "id": "P2",
+   "change": "unstake delay 3 epochs instead of 4",
+   "traces": 1149,
+   "calls": 55955,
+   "traces_that_differ": 1135,
+   "error_texts_that_differ": 0,
+   "verdict": "MISMATCH"
+  },
+  {
+   "id": "P3",
+   "change": "unstake pays rounded-down amount",
+   "traces": 1149,
+   "calls": 55955,
+   "traces_that_differ": 665,
+   "error_texts_that_differ": 0,
+   "verdict": "MISMATCH"
+  },
+  {
+   "id": "P4",
+   "change": "withdraw ignores the liquid balance",
+   "traces": 1149,
+   "calls": 55955,
+   "traces_that_differ": 51,
+   "error_texts_that_differ": 0,
+   "verdict": "MISMATCH"
+  },
+  {
+   "id": "P5",
+   "change": "ping drops the total-balance check",
+   "traces": 1149,
+   "calls": 55955,
+   "traces_that_differ": 33,
+   "error_texts_that_differ": 16,
+   "verdict": "MISMATCH"
+  },
+  {
+   "id": "P6",
+   "change": "deposit credits one yocto more",
+   "traces": 1149,
+   "calls": 55955,
+   "traces_that_differ": 1149,
+   "error_texts_that_differ": 0,
+   "verdict": "MISMATCH"
+  },
+  {
+   "id": "P7",
+   "change": "owner fee goes to remaining twice",
+   "traces": 1149,
+   "calls": 55955,
+   "traces_that_differ": 685,
+   "error_texts_that_differ": 3,
+   "verdict": "MISMATCH"
+  },
+  {
+   "id": "P8",
+   "change": "stake charges rounded-up amount",
+   "traces": 1149,
+   "calls": 55955,
+   "traces_that_differ": 695,
+   "error_texts_that_differ": 0,
+   "verdict": "MISMATCH"
+  }
+ ]
+}

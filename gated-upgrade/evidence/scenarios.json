@@ -1,0 +1,3281 @@
+{
+  "checks_total": 82,
+  "codes": {
+    "big": "3yjHpb7p6ZMoAZSr6NnERp5JzBat1ScCmgEJ369mf5sa",
+    "junk": "ecm78VTikHE1LR1zfbDGuREFq5AG8kEcVmUuUihShv1",
+    "stub": "6KukZnuXUeHQAi5eA8A2CtvkCWtafadB9oGwqaEjRf4n",
+    "v1": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+    "v2": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+    "v3": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+  },
+  "ok": true,
+  "registry_wasm_hash": "CM89kMNQzjWRkuNJE7Q2Va2Z4YrbK4MjmiLZnGbUcGkS",
+  "scenarios": [
+    {
+      "checks": [
+        {
+          "check": "the staged hash is the hash of v2 and the staging timestamp is staging time + D",
+          "holds": true
+        },
+        {
+          "check": "the registry stores the certificate",
+          "holds": true
+        },
+        {
+          "check": "refused at once: deploy too early; the registry is not even asked",
+          "holds": true
+        },
+        {
+          "check": "the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "the vault asks the registry, the registry answers, the callback accepts",
+          "holds": true
+        },
+        {
+          "check": "the deploy batch [DeployContract, up_verify_state] succeeds, created by the vault itself",
+          "holds": true
+        },
+        {
+          "check": "the transaction as a whole succeeds",
+          "holds": true
+        },
+        {
+          "check": "the account's code hash changed to the hash of v2; version() = 2",
+          "holds": true
+        },
+        {
+          "check": "after the upgrade: same gate, same roles",
+          "holds": true
+        },
+        {
+          "check": "after the upgrade: alice's balance is intact",
+          "holds": true
+        },
+        {
+          "check": "alice withdraws everything from the new code",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "certified_upgrade",
+      "statement": "Code staged by the stager and certified by the accepted attestor is deployed by anyone's deploy_certified once the staging duration has passed, and not one nanosecond earlier. The gate, the roles and the deposits are unchanged by the upgrade.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "10529560699024",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v2)"
+        },
+        {
+          "step": "attestor.near: attest(hash of v2, kind upgrade-window)",
+          "value": {
+            "index": 0
+          }
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445225999999999",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 26,
+              "block_timestamp": "1794445225999999999",
+              "gas_burnt": "10424918391011",
+              "logs": [],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": false,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Gate: deploy too early: staging ends on 1794445226000000000\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified(), 1 ns before staging + D"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 29,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228733906772",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 30,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1462197645589",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 31,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "13461427269445",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 32,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "15576311324190",
+              "logs": [],
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "mallory.near (no role): deploy_certified() at staging + D"
+        },
+        {
+          "step": "gas burnt by the whole transaction",
+          "value": "42930318202866"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 35,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1745719125057",
+              "logs": [],
+              "methods": [
+                "withdraw"
+              ],
+              "ok": true,
+              "predecessor": "alice.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "Transfer"
+              ],
+              "block": 36,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "223182562500",
+              "logs": [],
+              "methods": [],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "alice.near",
+              "status": "ok"
+            }
+          ],
+          "step": "alice.near: withdraw(5 NEAR)"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "no certificate: the callback refuses, no deploy batch, the code hash does not change",
+          "holds": true
+        },
+        {
+          "check": "certificate by an attestor the vault does not accept: the callback refuses, no deploy batch, the code hash does not change",
+          "holds": true
+        },
+        {
+          "check": "certificate of another kind: the callback refuses, no deploy batch, the code hash does not change",
+          "holds": true
+        },
+        {
+          "check": "certificate for another hash: the callback refuses, no deploy batch, the code hash does not change",
+          "holds": true
+        },
+        {
+          "check": "mallory.near cannot attest: not an attestor of the registry",
+          "holds": true
+        },
+        {
+          "check": "control: with the matching certificate the same call deploys v3",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "uncertified_refused",
+      "statement": "Staged code without a matching certificate is never deployed: no certificate at all, a certificate by an attestor the vault does not accept, a certificate of another kind, a certificate for another hash. With the matching certificate the same call deploys it.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "10529560699024",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v3)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 22,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228778335596",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 23,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1241043071841",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 24,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1294548647738",
+              "logs": [],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Gate: no valid upgrade-window certificate from an accepted attestor for 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified() — no certificate"
+        },
+        {
+          "step": "other-attestor.near (allow-listed in the registry, not accepted by the vault): attest(hash of v3, upgrade-window)",
+          "value": {
+            "index": 0
+          }
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 31,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228778335596",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 32,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1463231192851",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 33,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1325627069090",
+              "logs": [],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Gate: no valid upgrade-window certificate from an accepted attestor for 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified() — certificate by an attestor the vault does not accept"
+        },
+        {
+          "step": "attestor.near: attest(hash of v3, kind exit)",
+          "value": {
+            "index": 1
+          }
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 40,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228778335596",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 41,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1575341373144",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 42,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1325627069090",
+              "logs": [],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Gate: no valid upgrade-window certificate from an accepted attestor for 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified() — certificate of another kind"
+        },
+        {
+          "step": "attestor.near: attest(hash of v2, upgrade-window)",
+          "value": {
+            "index": 2
+          }
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 49,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228778335596",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 50,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1575341373144",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 51,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1325627069090",
+              "logs": [],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Gate: no valid upgrade-window certificate from an accepted attestor for 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified() — certificate for another hash"
+        },
+        {
+          "step": "attestor.near: attest(hash of v3, upgrade-window)",
+          "value": {
+            "index": 3
+          }
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v3",
+            "code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 3
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 61,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228778335596",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 62,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1783680969052",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 63,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "13492784959147",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 64,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "15576311324190",
+              "logs": [],
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "mallory.near: deploy_certified() — with the matching certificate"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "another code (v3), whose own delay starts: the staging ran after deploy_certified and before the callback",
+          "holds": true
+        },
+        {
+          "check": "another code (v3), whose own delay starts: the registry answered with the certificate of v2, and the plugin refuses in the callback: Upgradable: Deploy code too early",
+          "holds": true
+        },
+        {
+          "check": "another code (v3), whose own delay starts: no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "another code (v3), and the callback runs only after that code's delay: the staging ran after deploy_certified and before the callback",
+          "holds": true
+        },
+        {
+          "check": "another code (v3), and the callback runs only after that code's delay: the registry answered with the certificate of v2, and the plugin refuses in the callback: Upgradable: Cannot deploy due to wrong hash",
+          "holds": true
+        },
+        {
+          "check": "another code (v3), and the callback runs only after that code's delay: no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "the same code (v2), which restarts its delay: the staging ran after deploy_certified and before the callback",
+          "holds": true
+        },
+        {
+          "check": "the same code (v2), which restarts its delay: the registry answered with the certificate of v2, and the plugin refuses in the callback: Upgradable: Deploy code too early",
+          "holds": true
+        },
+        {
+          "check": "the same code (v2), which restarts its delay: no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "empty input (the staged code is removed): the staging ran after deploy_certified and before the callback",
+          "holds": true
+        },
+        {
+          "check": "empty input (the staged code is removed): the registry answered with the certificate of v2, and the plugin refuses in the callback: Upgradable: staging timestamp isn't set",
+          "holds": true
+        },
+        {
+          "check": "empty input (the staged code is removed): no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "the staging of v3 ran after the callback",
+          "holds": true
+        },
+        {
+          "check": "the batch installs v2, the code the registry was asked about; v3 is merely staged",
+          "holds": true
+        },
+        {
+          "check": "v3 has no certificate: refused, the code stays v2",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "restaged_between_check_and_deploy",
+      "statement": "The staged code is replaced, re-staged or removed after deploy_certified asked the registry and before the callback: the callback deploys nothing. Replaced after the callback: the batch installs the code that was checked.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "10529560699024",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v2)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 26,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228733906772",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1462197645589",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 28,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1601746281332",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Upgradable: Deploy code too early: staging ends on 1794448826000000000\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified(); gov.near stages another code (v3), whose own delay starts while the registry call is in flight"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "18440132189470",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "   the staging transaction"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794448826000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 26,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228733906772",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1462197645589",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 28,
+              "block_timestamp": "1794448826000000000",
+              "gas_burnt": "10542208102094",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Upgradable: Cannot deploy due to wrong hash: expected hash: 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified(); gov.near stages another code (v3), and the callback runs only after that code's delay while the registry call is in flight"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794448826000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "18440132189470",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "   the staging transaction"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 26,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228733906772",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1462197645589",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 28,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1601746281332",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Upgradable: Deploy code too early: staging ends on 1794448826000000000\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified(); gov.near stages the same code (v2), which restarts its delay while the registry call is in flight"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "18440132189470",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "   the staging transaction"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 26,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228733906772",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1462197645589",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 28,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1581082003366",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Upgradable: staging timestamp isn't set\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified(); gov.near stages empty input (the staged code is removed) while the registry call is in flight"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "5056828460114",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "   the staging transaction"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 26,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228733906772",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1462197645589",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 28,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "13461427269445",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 29,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "15576311324190",
+              "logs": [],
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "mallory.near: deploy_certified(); gov.near stages v3 after the registry answered"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 29,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "18440132189470",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "   the staging transaction"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794452426000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 32,
+              "block_timestamp": "1794452426000000000",
+              "gas_burnt": "11228778335596",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 33,
+              "block_timestamp": "1794452426000000000",
+              "gas_burnt": "1241043071841",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 34,
+              "block_timestamp": "1794452426000000000",
+              "gas_burnt": "1294548647738",
+              "logs": [],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Gate: no valid upgrade-window certificate from an accepted attestor for 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified() for the uncertified v3, after its delay"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "other-attestor.near cannot revoke somebody else's certificate",
+          "holds": true
+        },
+        {
+          "check": "attestor.near revokes its certificate",
+          "holds": true
+        },
+        {
+          "check": "refused: the registry's answer holds no valid certificate; the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "a new certificate next to the revoked one counts: v2 is deployed",
+          "holds": true
+        },
+        {
+          "check": "LIMIT: the revocation ran after the registry call and not after the deploy batch",
+          "holds": true
+        },
+        {
+          "check": "LIMIT: the deployment goes through; the certificate was valid when the registry was asked",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "revoked_certificate",
+      "statement": "A certificate revoked before the registry is asked does not count. A revocation that lands after the registry answered does not stop that deployment: the guarantee is about the moment of the registry call.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "10529560699024",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v2)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 32,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228733906772",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 33,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1366015265005",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 34,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1294548647738",
+              "logs": [],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Gate: no valid upgrade-window certificate from an accepted attestor for 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2\")"
+            }
+          ],
+          "step": "mallory.near: deploy_certified() after the revocation"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 41,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228733906772",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 42,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1576094581542",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 43,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "13461427269445",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 44,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "15576311324190",
+              "logs": [],
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "attestor.near attests again; mallory.near: deploy_certified()"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 26,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "11228733906772",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1462197645589",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 28,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "13461427269445",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 29,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "15576311324190",
+              "logs": [],
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "LIMIT — mallory.near: deploy_certified(); attestor.near revokes while the answer is on its way"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 28,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1510793979324",
+              "logs": [],
+              "methods": [
+                "revoke"
+              ],
+              "ok": true,
+              "predecessor": "attestor.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            }
+          ],
+          "step": "   the revocation"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "answer = a revoked certificate: refused (Gate: no valid), no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "answer = a certificate for another hash: refused (Gate: no valid), no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "answer = a certificate of another kind: refused (Gate: no valid), no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "answer = a certificate by another attestor: refused (Gate: no valid), no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "answer = all four of these at once: refused (Gate: no valid), no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "answer = an empty list: refused (Gate: no valid), no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "answer = bytes that are no certificate list: refused (Failed to deserialize), no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "answer = a failed registry call: refused (Gate: the registry call failed), no deploy batch, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "control: with a matching certificate in the answer the callback deploys — the gate relies on the answer being the registry's (hypothesis)",
+          "holds": true
+        },
+        {
+          "check": "an accepted answer for a hash that is not the staged one: the plugin refuses (wrong hash), the code is still v1",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "callback_checks_every_field",
+      "statement": "The callback's own test of the registry's answer, on answers the registry would never give (the simulator delivers the callback with a chosen promise result; no node does that): a revoked certificate, another hash, another kind, another attestor, an empty list, bytes that are no certificate list, a failed call — each refused. The registry holds no certificate at all in this scenario.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "10529560699024",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v2)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 22,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "13492005404179",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 23,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "15576311324190",
+              "logs": [],
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "control: the callback delivered with a matching certificate in the answer"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "the access-control state is the one the theorem assumes",
+          "holds": true
+        },
+        {
+          "check": "on_certificates(hash of the staged code) called directly by 7 accounts (the stager, both attestors, the registry and its owner, a depositor, a stranger): Method on_certificates is private",
+          "holds": true
+        },
+        {
+          "check": "up_deploy_code(hash of the staged code), with and without an attached call, by the same 7 accounts: Insufficient permissions",
+          "holds": true
+        },
+        {
+          "check": "77 acl calls by the 7 accounts (grant role, add admin, add / transfer / revoke super-admin, revoke role / admin, init super-admin, renounce admin): each returns null or false or panics, and the permissions are unchanged after each",
+          "holds": true
+        },
+        {
+          "check": "the three duration methods by the same 7 accounts: Insufficient permissions; the delay status is unchanged",
+          "holds": true
+        },
+        {
+          "check": "up_stage_code by the 6 accounts that are not the stager: Insufficient permissions; the staged hash is unchanged",
+          "holds": true
+        },
+        {
+          "check": "new called again (by a stranger, by the stager, by the contract account): refused; the gate is unchanged",
+          "holds": true
+        },
+        {
+          "check": "after all of the above: same code hash, same permissions, same delay status",
+          "holds": true
+        },
+        {
+          "check": "the stager can renounce its own role, and that is all: afterwards nobody can stage",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "no_way_around_the_gate",
+      "statement": "With certified code staged and its delay passed: the callback cannot be called from outside; up_deploy_code is refused for every account; no account can obtain the deployer role, become an admin or a super-admin; nobody can change the staging duration; new cannot be called again.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "10529560699024",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v3)"
+        },
+        {
+          "step": "acl calls made",
+          "value": 77
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "a stranger calling new on the uninitialised contract: Method new is private",
+          "holds": true
+        },
+        {
+          "check": "new with staging_duration = 0: refused",
+          "holds": true
+        },
+        {
+          "check": "new with registry = the contract account: refused",
+          "holds": true
+        },
+        {
+          "check": "new with empty kind: refused",
+          "holds": true
+        },
+        {
+          "check": "new with no attestors: refused",
+          "holds": true
+        },
+        {
+          "check": "after new: the gate as given, the contract account the only super-admin and code deployer, gov the code stager, nobody a duration manager, no admins",
+          "holds": true
+        },
+        {
+          "check": "after new: staging duration D, nothing staged, no duration update staged",
+          "holds": true
+        },
+        {
+          "check": "deploy_certified with nothing staged: Gate: no staged code",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "init",
+      "statement": "new is callable only by the contract account, only once, and refuses a zero duration, itself as the registry, an empty kind and an empty attestor list.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441613000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 13,
+              "block_timestamp": "1794441612000000000",
+              "gas_burnt": "6095947304521",
+              "logs": [
+                "EVENT_JSON:{\"standard\":\"AccessControllable\",\"version\":\"1.0.0\",\"event\":\"super_admin_added\",\"data\":{\"account\":\"vault.near\",\"by\":\"vault.near\"}}",
+                "EVENT_JSON:{\"standard\":\"AccessControllable\",\"version\":\"1.0.0\",\"event\":\"role_granted\",\"data\":{\"role\":\"DurationManager\",\"to\":\"vault.near\",\"by\":\"vault.near\"}}",
+                "EVENT_JSON:{\"standard\":\"AccessControllable\",\"version\":\"1.0.0\",\"event\":\"role_revoked\",\"data\":{\"role\":\"DurationManager\",\"from\":\"vault.near\",\"by\":\"vault.near\"}}",
+                "EVENT_JSON:{\"standard\":\"AccessControllable\",\"version\":\"1.0.0\",\"event\":\"role_granted\",\"data\":{\"role\":\"CodeDeployer\",\"to\":\"vault.near\",\"by\":\"vault.near\"}}",
+                "EVENT_JSON:{\"standard\":\"AccessControllable\",\"version\":\"1.0.0\",\"event\":\"role_granted\",\"data\":{\"role\":\"CodeStager\",\"to\":\"gov.near\",\"by\":\"vault.near\"}}"
+              ],
+              "methods": [
+                "new"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "vault.near: new(D = 1 h, registry.near, upgrade-window, [attestor.near], [gov.near])"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "5 Tgas is not enough: nothing is deployed and the vault is as before (code, staged code, delay status)",
+          "holds": true
+        },
+        {
+          "check": "20 Tgas is not enough: nothing is deployed and the vault is as before (code, staged code, delay status)",
+          "holds": true
+        },
+        {
+          "check": "40 Tgas is not enough: nothing is deployed and the vault is as before (code, staged code, delay status)",
+          "holds": true
+        },
+        {
+          "check": "60 Tgas is not enough: nothing is deployed and the vault is as before (code, staged code, delay status)",
+          "holds": true
+        },
+        {
+          "check": "80 Tgas is not enough: nothing is deployed and the vault is as before (code, staged code, delay status)",
+          "holds": true
+        },
+        {
+          "check": "with 300 Tgas the deployment goes through",
+          "holds": true
+        },
+        {
+          "check": "after a failed attempt the next deploy_certified deploys: the gate keeps no state",
+          "holds": true
+        },
+        {
+          "check": "1 MB of staged code: some gas amounts fail in the callback for lack of gas; every failed attempt leaves the vault as before and creates no deploy batch",
+          "holds": true
+        },
+        {
+          "check": "1 MB of staged code: with 300 Tgas the deployment goes through",
+          "holds": true
+        },
+        {
+          "check": "registry = an account that does not exist: the callback sees a failed call and refuses; the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "registry = an account without code: the callback sees a failed call and refuses; the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "the callback accepts, the deploy batch fails in up_verify_state and is rolled back: the code is still v1",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "failed_steps",
+      "statement": "A step that fails leaves nothing behind: too little gas, a registry that does not exist or has no code, a certified code that is not a contract. The same call with enough gas and a working registry deploys.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "10529560699024",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v2)"
+        },
+        {
+          "step": "deploy_certified with 5 Tgas",
+          "value": {
+            "burnt": "6420200116182",
+            "deployed": false,
+            "receipts": [
+              {
+                "methods": [
+                  "deploy_certified"
+                ],
+                "ok": false,
+                "receiver": "vault.near",
+                "status": "OutOfGas"
+              }
+            ]
+          }
+        },
+        {
+          "step": "deploy_certified with 20 Tgas",
+          "value": {
+            "burnt": "11357880208956",
+            "deployed": false,
+            "receipts": [
+              {
+                "methods": [
+                  "deploy_certified"
+                ],
+                "ok": false,
+                "receiver": "vault.near",
+                "status": "OutOfGas"
+              }
+            ]
+          }
+        },
+        {
+          "step": "deploy_certified with 40 Tgas",
+          "value": {
+            "burnt": "11757281919505",
+            "deployed": false,
+            "receipts": [
+              {
+                "methods": [
+                  "deploy_certified"
+                ],
+                "ok": false,
+                "receiver": "vault.near",
+                "status": "OutOfGas"
+              }
+            ]
+          }
+        },
+        {
+          "step": "deploy_certified with 60 Tgas",
+          "value": {
+            "burnt": "11757281919505",
+            "deployed": false,
+            "receipts": [
+              {
+                "methods": [
+                  "deploy_certified"
+                ],
+                "ok": false,
+                "receiver": "vault.near",
+                "status": "OutOfGas"
+              }
+            ]
+          }
+        },
+        {
+          "step": "deploy_certified with 80 Tgas",
+          "value": {
+            "burnt": "11757281919505",
+            "deployed": false,
+            "receipts": [
+              {
+                "methods": [
+                  "deploy_certified"
+                ],
+                "ok": false,
+                "receiver": "vault.near",
+                "status": "OutOfGas"
+              }
+            ]
+          }
+        },
+        {
+          "step": "deploy_certified with 100 Tgas",
+          "value": {
+            "burnt": "42930318202866",
+            "deployed": true,
+            "receipts": [
+              {
+                "methods": [
+                  "deploy_certified"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "get_valid_kind"
+                ],
+                "ok": true,
+                "receiver": "registry.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "on_certificates"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "up_verify_state"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "step": "deploy_certified with 120 Tgas",
+          "value": {
+            "burnt": "42930318202866",
+            "deployed": true,
+            "receipts": [
+              {
+                "methods": [
+                  "deploy_certified"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "get_valid_kind"
+                ],
+                "ok": true,
+                "receiver": "registry.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "on_certificates"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "up_verify_state"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "step": "deploy_certified with 150 Tgas",
+          "value": {
+            "burnt": "42930318202866",
+            "deployed": true,
+            "receipts": [
+              {
+                "methods": [
+                  "deploy_certified"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "get_valid_kind"
+                ],
+                "ok": true,
+                "receiver": "registry.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "on_certificates"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "up_verify_state"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "step": "deploy_certified with 200 Tgas",
+          "value": {
+            "burnt": "42930318202866",
+            "deployed": true,
+            "receipts": [
+              {
+                "methods": [
+                  "deploy_certified"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "get_valid_kind"
+                ],
+                "ok": true,
+                "receiver": "registry.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "on_certificates"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "up_verify_state"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "step": "deploy_certified with 300 Tgas",
+          "value": {
+            "burnt": "42930318202866",
+            "deployed": true,
+            "receipts": [
+              {
+                "methods": [
+                  "deploy_certified"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "get_valid_kind"
+                ],
+                "ok": true,
+                "receiver": "registry.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "on_certificates"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              },
+              {
+                "methods": [
+                  "up_verify_state"
+                ],
+                "ok": true,
+                "receiver": "vault.near",
+                "status": "ok"
+              }
+            ]
+          }
+        },
+        {
+          "step": "lowest tested gas with which the deployment went through (Tgas)",
+          "value": 100
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "3yjHpb7p6ZMoAZSr6NnERp5JzBat1ScCmgEJ369mf5sa",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "41646961751776",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v2 padded to 1 MB)"
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 100 Tgas",
+          "value": {
+            "burnt": "43089550928485",
+            "callback": null,
+            "result": "deploy_certified failed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 110 Tgas",
+          "value": {
+            "burnt": "43089550928485",
+            "callback": null,
+            "result": "deploy_certified failed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 120 Tgas",
+          "value": {
+            "burnt": "97866489286207",
+            "callback": "OutOfGas",
+            "result": "the callback failed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 130 Tgas",
+          "value": {
+            "burnt": "97866489286207",
+            "callback": "OutOfGas",
+            "result": "the callback failed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 140 Tgas",
+          "value": {
+            "burnt": "97866489286207",
+            "callback": "OutOfGas",
+            "result": "the callback failed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 150 Tgas",
+          "value": {
+            "burnt": "97866489286207",
+            "callback": "OutOfGas",
+            "result": "the callback failed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 160 Tgas",
+          "value": {
+            "burnt": "97866489286207",
+            "callback": "OutOfGas",
+            "result": "the callback failed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 170 Tgas",
+          "value": {
+            "burnt": "97866489286207",
+            "callback": "OutOfGas",
+            "result": "the callback failed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 180 Tgas",
+          "value": {
+            "burnt": "97866489286207",
+            "callback": "OutOfGas",
+            "result": "the callback failed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 190 Tgas",
+          "value": {
+            "burnt": "98075020714569",
+            "callback": "OutOfGas",
+            "result": "the callback failed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 200 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 210 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 220 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 230 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 240 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 250 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 260 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 270 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 280 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 290 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged, deploy_certified with 300 Tgas",
+          "value": {
+            "burnt": "165114379890978",
+            "callback": "ok",
+            "result": "deployed"
+          }
+        },
+        {
+          "step": "1 MB staged: attempts that failed in deploy_certified / in the callback, lowest gas that deployed (Tgas)",
+          "value": [
+            2,
+            8,
+            200
+          ]
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445223000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445223000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794445223000000000",
+              "gas_burnt": "11227311455502",
+              "logs": [
+                "Gate: asking nobody.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 20,
+              "block_timestamp": "1794445223000000000",
+              "gas_burnt": "888278621532",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "nobody.near",
+              "status": "AccountDoesNotExist(AccountId(\"nobody.near\"))"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 21,
+              "block_timestamp": "1794445223000000000",
+              "gas_burnt": "1257457503223",
+              "logs": [],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Gate: the registry call failed\")"
+            }
+          ],
+          "step": "a vault whose registry is an account that does not exist: deploy_certified()"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445223000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445223000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794445223000000000",
+              "gas_burnt": "11226381788149",
+              "logs": [
+                "Gate: asking empty.near for a upgrade-window certificate of 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 20,
+              "block_timestamp": "1794445223000000000",
+              "gas_burnt": "888278621532",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "empty.near",
+              "status": "Action(FunctionCallError(CompilationError(CodeDoesNotExist { account_id: AccountId(\"empty.near\") })))"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 21,
+              "block_timestamp": "1794445223000000000",
+              "gas_burnt": "1257362992721",
+              "logs": [],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Gate: the registry call failed\")"
+            }
+          ],
+          "step": "a vault whose registry is an account without code: deploy_certified()"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "ecm78VTikHE1LR1zfbDGuREFq5AG8kEcVmUuUihShv1",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "1769395139092",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(junk)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "ecm78VTikHE1LR1zfbDGuREFq5AG8kEcVmUuUihShv1",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 26,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "2407554385585",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of ecm78VTikHE1LR1zfbDGuREFq5AG8kEcVmUuUihShv1"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1461978170774",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 28,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "2308080941907",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for ecm78VTikHE1LR1zfbDGuREFq5AG8kEcVmUuUihShv1"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 29,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "1073956529058",
+              "logs": [],
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Action(FunctionCallError(CompilationError(PrepareError(Deserialization))))"
+            }
+          ],
+          "step": "certified bytes that are not wasm: deploy_certified()"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "v2 is running",
+          "holds": true
+        },
+        {
+          "check": "on v2: uncertified v3 is refused, the code hash does not change",
+          "holds": true
+        },
+        {
+          "check": "on v2: up_deploy_code by the stager is refused",
+          "holds": true
+        },
+        {
+          "check": "on v2: certified v3 is deployed",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "gate_survives_upgrade",
+      "statement": "After a certified upgrade to v2 the new code enforces the same gate: uncertified v3 is refused, a direct up_deploy_code is refused, certified v3 is deployed after its own delay.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "10529560699024",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v2)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 32,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "18440132189470",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v3)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794448826000000000",
+            "code": "v2",
+            "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 2
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 35,
+              "block_timestamp": "1794448826000000000",
+              "gas_burnt": "11228778335596",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 36,
+              "block_timestamp": "1794448826000000000",
+              "gas_burnt": "1241043071841",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 37,
+              "block_timestamp": "1794448826000000000",
+              "gas_burnt": "1294548647738",
+              "logs": [],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": false,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "Panic(\"Gate: no valid upgrade-window certificate from an accepted attestor for 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA\")"
+            }
+          ],
+          "step": "on v2 — mallory.near: deploy_certified() for the uncertified v3"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794448826000000000",
+            "code": "v3",
+            "code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794448826000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 3
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 47,
+              "block_timestamp": "1794448826000000000",
+              "gas_burnt": "11228778335596",
+              "logs": [
+                "Gate: asking registry.near for a upgrade-window certificate of 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+              ],
+              "methods": [
+                "deploy_certified"
+              ],
+              "ok": true,
+              "predecessor": "mallory.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 48,
+              "block_timestamp": "1794448826000000000",
+              "gas_burnt": "1462197645589",
+              "logs": [],
+              "methods": [
+                "get_valid_kind"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "registry.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 49,
+              "block_timestamp": "1794448826000000000",
+              "gas_burnt": "13461471698269",
+              "logs": [
+                "Gate: certificate of attestor.near accepted for 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA"
+              ],
+              "methods": [
+                "on_certificates"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 50,
+              "block_timestamp": "1794448826000000000",
+              "gas_burnt": "15576311324190",
+              "logs": [],
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "on v2 — attestor.near attests v3; mallory.near: deploy_certified()"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "LIMIT: with the contract account as the signer the uncertified code is deployed",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "control_contract_key",
+      "statement": "LIMIT, not a guarantee: a transaction signed by the contract account itself passes the plugin's role check and deploys uncertified code. This is why the contract account must have no access keys.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441626000000000",
+            "code": "v1",
+            "code_hash": "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 1
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 19,
+              "block_timestamp": "1794441626000000000",
+              "gas_burnt": "10529560699024",
+              "logs": [],
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "gov.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "gov.near: up_stage_code(v3)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445226000000000",
+            "code": "v3",
+            "code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": 3600000000000,
+              "staging_timestamp": 1794445226000000000
+            },
+            "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+            "version": 3
+          },
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 21,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "13378031899911",
+              "logs": [],
+              "methods": [
+                "up_deploy_code"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 22,
+              "block_timestamp": "1794445226000000000",
+              "gas_burnt": "15576311324190",
+              "logs": [],
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "receiver": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "vault.near (possible only with an access key of the contract account): up_deploy_code(hash of the uncertified v3)"
+        }
+      ]
+    }
+  ],
+  "scenarios_total": 10
+}

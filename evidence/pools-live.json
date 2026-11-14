@@ -1,0 +1,1586 @@
+{
+ "summary": {
+  "block_height": 224223218,
+  "block_hash": "HmrMKtdNcKhLfYuQZkVcWMF88WdyoyZu8yQGGjKLZm3n",
+  "block_time_ns": 1794491719592670980,
+  "pools_checked": 196,
+  "pools_failed_to_read": 0,
+  "S1_solvent": 196,
+  "S2_shares_consistent": 196,
+  "K_no_keys": 196,
+  "delegator_accounts": 256564,
+  "total_staked_NEAR": 501637444,
+  "delegators_unstaked_NEAR": 9087438,
+  "pools_balance_NEAR": 510738429
+ },
+ "pools": [
+  {
+   "pool": "astro-stakers.poolv1.near",
+   "delegators": 32363,
+   "accounts_reported": 32363,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "figment.poolv1.near",
+   "delegators": 1696,
+   "accounts_reported": 1696,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "ledgerbyfigment.poolv1.near",
+   "delegators": 13850,
+   "accounts_reported": 13850,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "staked.poolv1.near",
+   "delegators": 3475,
+   "accounts_reported": 3475,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "binancenode1.poolv1.near",
+   "delegators": 1190,
+   "accounts_reported": 1190,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "sumerian.poolv1.near",
+   "delegators": 230,
+   "accounts_reported": 230,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "zavodil.poolv1.near",
+   "delegators": 8441,
+   "accounts_reported": 8441,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "cnear-1.poolv1.near",
+   "delegators": 4,
+   "accounts_reported": 4,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "cnear-3.poolv1.near",
+   "delegators": 3,
+   "accounts_reported": 3,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "cnear-2.poolv1.near",
+   "delegators": 3,
+   "accounts_reported": 3,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "bitwise_2.poolv1.near",
+   "delegators": 86,
+   "accounts_reported": 86,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "bitwise_1.poolv1.near",
+   "delegators": 217,
+   "accounts_reported": 217,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "svrn-ai.poolv1.near",
+   "delegators": 8,
+   "accounts_reported": 8,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "kiln-1.poolv1.near",
+   "delegators": 261,
+   "accounts_reported": 261,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "epic.poolv1.near",
+   "delegators": 4674,
+   "accounts_reported": 4674,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "nearvana.poolv1.near",
+   "delegators": 18,
+   "accounts_reported": 18,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stake1.poolv1.near",
+   "delegators": 790,
+   "accounts_reported": 790,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "svrn_bitwise.poolv1.near",
+   "delegators": 6,
+   "accounts_reported": 6,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "p2p-org.poolv1.near",
+   "delegators": 871,
+   "accounts_reported": 871,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "dragonfly.poolv1.near",
+   "delegators": 581,
+   "accounts_reported": 581,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "allnodes.poolv1.near",
+   "delegators": 2150,
+   "accounts_reported": 2150,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "macrodatarefinement.poolv1.near",
+   "delegators": 10,
+   "accounts_reported": 10,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "bisontrails.poolv1.near",
+   "delegators": 861,
+   "accounts_reported": 861,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "aca87218e28c41f5a693dee3dff12238.poolv1.near",
+   "delegators": 80,
+   "accounts_reported": 80,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "svrn-twinstake.poolv1.near",
+   "delegators": 4,
+   "accounts_reported": 4,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "d1.poolv1.near",
+   "delegators": 461,
+   "accounts_reported": 461,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "legends.poolv1.near",
+   "delegators": 394,
+   "accounts_reported": 394,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stakin.poolv1.near",
+   "delegators": 3489,
+   "accounts_reported": 3489,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "northernlights.poolv1.near",
+   "delegators": 228,
+   "accounts_reported": 228,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "republic.poolv1.near",
+   "delegators": 159,
+   "accounts_reported": 159,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "okx-earn.poolv1.near",
+   "delegators": 83,
+   "accounts_reported": 83,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "rekt.poolv1.near",
+   "delegators": 1235,
+   "accounts_reported": 1235,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "ni.poolv1.near",
+   "delegators": 129,
+   "accounts_reported": 129,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "everstake.poolv1.near",
+   "delegators": 2889,
+   "accounts_reported": 2889,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "gtnode-0.poolv1.near",
+   "delegators": 17,
+   "accounts_reported": 17,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "nearfans.poolv1.near",
+   "delegators": 515,
+   "accounts_reported": 515,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "x.poolv1.near",
+   "delegators": 62,
+   "accounts_reported": 62,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "here.poolv1.near",
+   "delegators": 77419,
+   "accounts_reported": 77419,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "bitcoinsuisse.poolv1.near",
+   "delegators": 136,
+   "accounts_reported": 136,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "twinstake.poolv1.near",
+   "delegators": 98,
+   "accounts_reported": 98,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "lux.poolv1.near",
+   "delegators": 366,
+   "accounts_reported": 366,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "anonymous.poolv1.near",
+   "delegators": 249,
+   "accounts_reported": 249,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "erm.poolv1.near",
+   "delegators": 215,
+   "accounts_reported": 215,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "blockdaemon.poolv1.near",
+   "delegators": 539,
+   "accounts_reported": 539,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "dsrvlabs.poolv1.near",
+   "delegators": 238,
+   "accounts_reported": 238,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "npro.poolv1.near",
+   "delegators": 9361,
+   "accounts_reported": 9361,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "moonlet.poolv1.near",
+   "delegators": 1315,
+   "accounts_reported": 1315,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "cryptium.poolv1.near",
+   "delegators": 444,
+   "accounts_reported": 444,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "buildlinks.poolv1.near",
+   "delegators": 1141,
+   "accounts_reported": 1141,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "baziliknear.poolv1.near",
+   "delegators": 446,
+   "accounts_reported": 446,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "sofarsonear.poolv1.near",
+   "delegators": 34,
+   "accounts_reported": 34,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "chorusone.poolv1.near",
+   "delegators": 607,
+   "accounts_reported": 607,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stakesabai.poolv1.near",
+   "delegators": 2000,
+   "accounts_reported": 2000,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "meteor.poolv1.near",
+   "delegators": 29481,
+   "accounts_reported": 29481,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "autostake.poolv1.near",
+   "delegators": 2119,
+   "accounts_reported": 2119,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "openshards.poolv1.near",
+   "delegators": 1339,
+   "accounts_reported": 1339,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "lunanova.poolv1.near",
+   "delegators": 306,
+   "accounts_reported": 306,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "trust-nodes.poolv1.near",
+   "delegators": 6863,
+   "accounts_reported": 6863,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "kiln.poolv1.near",
+   "delegators": 77,
+   "accounts_reported": 77,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "qbit.poolv1.near",
+   "delegators": 181,
+   "accounts_reported": 181,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "hb436_pool.poolv1.near",
+   "delegators": 180,
+   "accounts_reported": 180,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "masternode24.poolv1.near",
+   "delegators": 1688,
+   "accounts_reported": 1688,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stardust.poolv1.near",
+   "delegators": 472,
+   "accounts_reported": 472,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "brea.poolv1.near",
+   "delegators": 62,
+   "accounts_reported": 62,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "avado.poolv1.near",
+   "delegators": 449,
+   "accounts_reported": 449,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "01node.poolv1.near",
+   "delegators": 1900,
+   "accounts_reported": 1900,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "bisontrails2.poolv1.near",
+   "delegators": 2922,
+   "accounts_reported": 2922,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stakely_io.poolv1.near",
+   "delegators": 1624,
+   "accounts_reported": 1624,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "dexagon.poolv1.near",
+   "delegators": 690,
+   "accounts_reported": 690,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "staking4all.poolv1.near",
+   "delegators": 643,
+   "accounts_reported": 643,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "lavenderfive.poolv1.near",
+   "delegators": 599,
+   "accounts_reported": 599,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "atomic-nodes.poolv1.near",
+   "delegators": 2552,
+   "accounts_reported": 2552,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "polkachu.poolv1.near",
+   "delegators": 388,
+   "accounts_reported": 388,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "smart-stake.poolv1.near",
+   "delegators": 2461,
+   "accounts_reported": 2461,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "northstakenear.poolv1.near",
+   "delegators": 7,
+   "accounts_reported": 7,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "namdokmai.poolv1.near",
+   "delegators": 303,
+   "accounts_reported": 303,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "hapi.poolv1.near",
+   "delegators": 383,
+   "accounts_reported": 383,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "near-prime.poolv1.near",
+   "delegators": 14,
+   "accounts_reported": 14,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "nodeasy.poolv1.near",
+   "delegators": 641,
+   "accounts_reported": 641,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "optimusvalidatornetwork.poolv1.near",
+   "delegators": 641,
+   "accounts_reported": 641,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "near-prime-public.poolv1.near",
+   "delegators": 14,
+   "accounts_reported": 14,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "rhea-validator.poolv1.near",
+   "delegators": 14,
+   "accounts_reported": 14,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "p2pstaking.poolv1.near",
+   "delegators": 93,
+   "accounts_reported": 93,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "hashquark.poolv1.near",
+   "delegators": 671,
+   "accounts_reported": 671,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "fresh.poolv1.near",
+   "delegators": 890,
+   "accounts_reported": 890,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "pangdao.poolv1.near",
+   "delegators": 89,
+   "accounts_reported": 89,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "wackazong.poolv1.near",
+   "delegators": 742,
+   "accounts_reported": 742,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "getblockio.poolv1.near",
+   "delegators": 7,
+   "accounts_reported": 7,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "pathrocknetwork.poolv1.near",
+   "delegators": 665,
+   "accounts_reported": 665,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "galactic.poolv1.near",
+   "delegators": 498,
+   "accounts_reported": 498,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "link.poolv1.near",
+   "delegators": 16,
+   "accounts_reported": 16,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "appload.poolv1.near",
+   "delegators": 1029,
+   "accounts_reported": 1029,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "pandateam.poolv1.near",
+   "delegators": 1163,
+   "accounts_reported": 1163,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "colossus.poolv1.near",
+   "delegators": 80,
+   "accounts_reported": 80,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "cryptoblossom.poolv1.near",
+   "delegators": 582,
+   "accounts_reported": 582,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "cryptostake.poolv1.near",
+   "delegators": 58,
+   "accounts_reported": 58,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "shurik.poolv1.near",
+   "delegators": 72,
+   "accounts_reported": 72,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "gfi-validator.poolv1.near",
+   "delegators": 485,
+   "accounts_reported": 485,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "bee1stake.poolv1.near",
+   "delegators": 120,
+   "accounts_reported": 120,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "oharanodes.poolv1.near",
+   "delegators": 85,
+   "accounts_reported": 85,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "grassets.poolv1.near",
+   "delegators": 274,
+   "accounts_reported": 274,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "avb.poolv1.near",
+   "delegators": 12,
+   "accounts_reported": 12,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "monresearch.poolv1.near",
+   "delegators": 51,
+   "accounts_reported": 51,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stakecapitalgroup.poolv1.near",
+   "delegators": 7,
+   "accounts_reported": 7,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "piertwopool.poolv1.near",
+   "delegators": 27,
+   "accounts_reported": 27,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "pinrocks.poolv1.near",
+   "delegators": 62,
+   "accounts_reported": 62,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "cryptocrew.poolv1.near",
+   "delegators": 10,
+   "accounts_reported": 10,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "oe.poolv1.near",
+   "delegators": 11,
+   "accounts_reported": 11,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "cryptogarik.poolv1.near",
+   "delegators": 1574,
+   "accounts_reported": 1574,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "2pilot.poolv1.near",
+   "delegators": 273,
+   "accounts_reported": 273,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "alphanodes.poolv1.near",
+   "delegators": 33,
+   "accounts_reported": 33,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "ursamajor.poolv1.near",
+   "delegators": 50,
+   "accounts_reported": 50,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "rockxv2.poolv1.near",
+   "delegators": 113,
+   "accounts_reported": 113,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stakecito.poolv1.near",
+   "delegators": 216,
+   "accounts_reported": 216,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "cunum.poolv1.near",
+   "delegators": 264,
+   "accounts_reported": 264,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stakerrash.poolv1.near",
+   "delegators": 79,
+   "accounts_reported": 79,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "saxemberg.poolv1.near",
+   "delegators": 14,
+   "accounts_reported": 14,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "taxistake.poolv1.near",
+   "delegators": 11,
+   "accounts_reported": 11,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "sharpdarts.poolv1.near",
+   "delegators": 425,
+   "accounts_reported": 425,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "welldonestake.poolv1.near",
+   "delegators": 47,
+   "accounts_reported": 47,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "lovali.poolv1.near",
+   "delegators": 113,
+   "accounts_reported": 113,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "buildnear.poolv1.near",
+   "delegators": 60,
+   "accounts_reported": 60,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "incrypted.poolv1.near",
+   "delegators": 346,
+   "accounts_reported": 346,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "ttt.poolv1.near",
+   "delegators": 8,
+   "accounts_reported": 8,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "staking-power.poolv1.near",
+   "delegators": 375,
+   "accounts_reported": 375,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "g20.poolv1.near",
+   "delegators": 9,
+   "accounts_reported": 9,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "epochrunner.poolv1.near",
+   "delegators": 28,
+   "accounts_reported": 28,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "sweat_validator_res_2.poolv1.near",
+   "delegators": 5,
+   "accounts_reported": 5,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "minion.poolv1.near",
+   "delegators": 142,
+   "accounts_reported": 142,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "gfs-ventures.poolv1.near",
+   "delegators": 147,
+   "accounts_reported": 147,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "n0ok.poolv1.near",
+   "delegators": 94,
+   "accounts_reported": 94,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "spectrum.poolv1.near",
+   "delegators": 314,
+   "accounts_reported": 314,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "snsmln.poolv1.near",
+   "delegators": 73,
+   "accounts_reported": 73,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "abahmane.poolv1.near",
+   "delegators": 61,
+   "accounts_reported": 61,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "consensus_finoa_00.poolv1.near",
+   "delegators": 77,
+   "accounts_reported": 77,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "near.poolv1.near",
+   "delegators": 271,
+   "accounts_reported": 271,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "letsnode.poolv1.near",
+   "delegators": 140,
+   "accounts_reported": 140,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "nearvietnamhub.poolv1.near",
+   "delegators": 67,
+   "accounts_reported": 67,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "owa.poolv1.near",
+   "delegators": 47,
+   "accounts_reported": 47,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "nearstar.poolv1.near",
+   "delegators": 15,
+   "accounts_reported": 15,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "genesislab.poolv1.near",
+   "delegators": 99,
+   "accounts_reported": 99,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "sweat_validator_res.poolv1.near",
+   "delegators": 5,
+   "accounts_reported": 5,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "originstake.poolv1.near",
+   "delegators": 10,
+   "accounts_reported": 10,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "meria-staking.poolv1.near",
+   "delegators": 236,
+   "accounts_reported": 236,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "senseinode.poolv1.near",
+   "delegators": 32,
+   "accounts_reported": 32,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "deutschetelekom.poolv1.near",
+   "delegators": 14,
+   "accounts_reported": 14,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "lionstake.poolv1.near",
+   "delegators": 143,
+   "accounts_reported": 143,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "idtcn4.poolv1.near",
+   "delegators": 21,
+   "accounts_reported": 21,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "readylayerone_staking.poolv1.near",
+   "delegators": 689,
+   "accounts_reported": 689,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "pairpoint.poolv1.near",
+   "delegators": 13,
+   "accounts_reported": 13,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "consensus_finoa_01.poolv1.near",
+   "delegators": 74,
+   "accounts_reported": 74,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stakesstone.poolv1.near",
+   "delegators": 226,
+   "accounts_reported": 226,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "accomplice.poolv1.near",
+   "delegators": 249,
+   "accounts_reported": 249,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "smartnode.poolv1.near",
+   "delegators": 39,
+   "accounts_reported": 39,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "swissstar.poolv1.near",
+   "delegators": 79,
+   "accounts_reported": 79,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "ou812.poolv1.near",
+   "delegators": 31,
+   "accounts_reported": 31,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "davaymne.poolv1.near",
+   "delegators": 89,
+   "accounts_reported": 89,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "near-fans.poolv1.near",
+   "delegators": 770,
+   "accounts_reported": 770,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "binancestaking.poolv1.near",
+   "delegators": 814,
+   "accounts_reported": 814,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "jagon.poolv1.near",
+   "delegators": 29,
+   "accounts_reported": 29,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "nansen.poolv1.near",
+   "delegators": 964,
+   "accounts_reported": 964,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "svarog.poolv1.near",
+   "delegators": 13,
+   "accounts_reported": 13,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stakecraft.poolv1.near",
+   "delegators": 11,
+   "accounts_reported": 11,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "nearuaguild.poolv1.near",
+   "delegators": 86,
+   "accounts_reported": 86,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stakeflow.poolv1.near",
+   "delegators": 84,
+   "accounts_reported": 84,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "neardevgov.poolv1.near",
+   "delegators": 30,
+   "accounts_reported": 30,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "doubletop.poolv1.near",
+   "delegators": 391,
+   "accounts_reported": 391,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "prophet.poolv1.near",
+   "delegators": 793,
+   "accounts_reported": 793,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "agrestus.poolv1.near",
+   "delegators": 48,
+   "accounts_reported": 48,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "itrocket.poolv1.near",
+   "delegators": 10,
+   "accounts_reported": 10,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "cosmicvalidator.poolv1.near",
+   "delegators": 5,
+   "accounts_reported": 5,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "encipher.poolv1.near",
+   "delegators": 86,
+   "accounts_reported": 86,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "meduza.poolv1.near",
+   "delegators": 36,
+   "accounts_reported": 36,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "gruberx.poolv1.near",
+   "delegators": 50,
+   "accounts_reported": 50,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "finoa.poolv1.near",
+   "delegators": 264,
+   "accounts_reported": 264,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "chuy.poolv1.near",
+   "delegators": 6,
+   "accounts_reported": 6,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "synclub.poolv1.near",
+   "delegators": 106,
+   "accounts_reported": 106,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "snoopfear.poolv1.near",
+   "delegators": 63,
+   "accounts_reported": 63,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "fish.poolv1.near",
+   "delegators": 641,
+   "accounts_reported": 641,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "pumpopoly.poolv1.near",
+   "delegators": 7,
+   "accounts_reported": 7,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "block-pro.poolv1.near",
+   "delegators": 6,
+   "accounts_reported": 6,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stakeup.poolv1.near",
+   "delegators": 5,
+   "accounts_reported": 5,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "posthuman.poolv1.near",
+   "delegators": 12,
+   "accounts_reported": 12,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "bonynode.poolv1.near",
+   "delegators": 4,
+   "accounts_reported": 4,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "nodefleet.poolv1.near",
+   "delegators": 4,
+   "accounts_reported": 4,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "noders.poolv1.near",
+   "delegators": 4,
+   "accounts_reported": 4,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "madwisp.poolv1.near",
+   "delegators": 5,
+   "accounts_reported": 5,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "conqueror.poolv1.near",
+   "delegators": 4,
+   "accounts_reported": 4,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "mexa-staking.poolv1.near",
+   "delegators": 93,
+   "accounts_reported": 93,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "simplystaking.poolv1.near",
+   "delegators": 13,
+   "accounts_reported": 13,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "profit.poolv1.near",
+   "delegators": 48,
+   "accounts_reported": 48,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "solidstate.poolv1.near",
+   "delegators": 40,
+   "accounts_reported": 40,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "frensvalidator.poolv1.near",
+   "delegators": 72,
+   "accounts_reported": 72,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "foundry.poolv1.near",
+   "delegators": 320,
+   "accounts_reported": 320,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "restake.poolv1.near",
+   "delegators": 111,
+   "accounts_reported": 111,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  },
+  {
+   "pool": "stingray.poolv1.near",
+   "delegators": 23,
+   "accounts_reported": 23,
+   "S1_solvent": true,
+   "S2_shares_consistent": true,
+   "K_no_keys": true
+  }
+ ]
+}

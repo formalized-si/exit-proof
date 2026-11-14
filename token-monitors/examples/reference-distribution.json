@@ -1,0 +1,22 @@
+{
+  "description": "The same reference token set up the way a launch often goes: the init gives the supply to a treasury account, the treasury registers two users and a vesting account and sends each a share. Shows `accounts`, `setup`, `track` and `funder`.",
+  "accounts": ["treasury.near"],
+  "init": {
+    "method": "new",
+    "args": {
+      "owner_id": "treasury.near",
+      "total_supply": "1000000000000000000000000000",
+      "metadata": {"spec": "ft-1.0.0", "name": "Example", "symbol": "EX", "decimals": 18}
+    }
+  },
+  "setup": [
+    {"caller": "treasury.near", "method": "storage_deposit", "args": {"account_id": "owner.near"}, "deposit": "1250000000000000000000"},
+    {"caller": "treasury.near", "method": "storage_deposit", "args": {"account_id": "alice.near"}, "deposit": "1250000000000000000000"},
+    {"caller": "treasury.near", "method": "storage_deposit", "args": {"account_id": "vesting.near"}, "deposit": "1250000000000000000000"},
+    {"caller": "treasury.near", "method": "ft_transfer", "args": {"receiver_id": "owner.near", "amount": "600000000000000000000000000"}, "deposit": "1"},
+    {"caller": "treasury.near", "method": "ft_transfer", "args": {"receiver_id": "alice.near", "amount": "50000000000000000000000000"}, "deposit": "1"},
+    {"caller": "treasury.near", "method": "ft_transfer", "args": {"receiver_id": "vesting.near", "amount": "100000000000000000000000000"}, "deposit": "1"}
+  ],
+  "track": ["vesting.near"],
+  "funder": "owner.near"
+}

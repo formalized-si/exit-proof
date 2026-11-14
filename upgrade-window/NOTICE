@@ -1,0 +1,22 @@
+Third-party material in this directory
+
+contract/out/vault_v{1,2,3}.wasm and contract/out-unchecked/vault_v{1,2,3}.wasm
+  Builds of the example contract in contract/vault (this repository), with and without overflow
+  checks. They contain compiled code of the contract's dependencies in the versions locked in
+  contract/vault/Cargo.lock, chiefly
+    near-plugins v0.5.1, https://github.com/near/near-plugins, commit
+      312e016e0574d5756f6eba37acc82d9a237b2e3e, licensed CC0-1.0;
+    near-sdk 5.26.1, https://github.com/near/near-sdk-rs, licensed MIT OR Apache-2.0;
+  and the crates these depend on, each under the license stated in its own package.
+  The hashes are pinned in contract/VAULT_WASM_SHA256 and contract/VAULT_UNCHECKED_WASM_SHA256;
+  ./check.sh rebuilds the six files from source with cargo-near and compares.
+
+contract/vault/Cargo.lock
+  The dependency versions follow the Cargo.lock of
+  https://github.com/Sweat-Foundation/sweat-token at commit
+  75dc5b48dcc8b3f5303ab9f1d3dbf046901f6314 (see PLUGIN_PIN.json).
+
+plugin/near-plugins (not part of this repository)
+  scripts/fetch-plugin.sh clones near-plugins at tag v0.5.1 into this directory and checks the
+  commit and the source hashes against PLUGIN_PIN.json. scripts/mutants.py compiles one-line
+  modifications of that source; evidence/mutants.diff quotes the modified lines.

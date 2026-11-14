@@ -1,0 +1,30 @@
+# ./check.sh --mutants --tla on a fresh copy of the repository tree (no build products, no TLC jar), run by
+# ./check-all.sh --proofs; clean toolchain directories, shared 32-core machine at load 27 to 39, JOBS=8
+# part of the ./check-all.sh run that started 2026-11-13T12:45:38Z; this part took 2250 s; sources 58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb
+== 1. pinned wasm files
+intents.wasm: OK
+ft.wasm: OK
+w_near.wasm: OK
+mock_fee_token.wasm: OK
+mock_reply_token.wasm: OK
+== 2. Lean: build, no sorry, axioms
+   136 statements, axioms within propext, Quot.sound, Classical.choice
+== 3. harness
+== 4. monitors on 1000 traces of the deployed wasm, 200 of the mock token
+   deployed wasm: 1000 traces, 115598 receipts, 462392 backing checks; backing and access monitors that fired: none; simulator failures: none
+   guarded calls by accounts without the permission: 5709, calls with the auth-by-predecessor flag off: 572; none ran
+   mock token: backing monitors fired 1842 times on 200 of 200 traces
+== 5. replay through the Lean model
+   standard_token: 64834 receipts on the contract, agree 64177, disagree 0, outcome not compared: 657 {"gas: a failure forced by the harness": 378, "gas: ran out of the attached gas": 246, "signature: not checked by the model": 33}
+   standard_token, token and contract in one world: 21102 receipts on the token, 31451 on the contract; agree 52085, disagree 0, failed for gas with nothing changed 468
+   fee_mock: 12944 receipts on the contract, agree 12815, disagree 0, outcome not compared: 129 {"gas: a failure forced by the harness": 74, "gas: ran out of the attached gas": 44, "signature: not checked by the model": 11}
+   reply_mock: 12949 receipts on the contract, agree 12822, disagree 0, outcome not compared: 127 {"gas: a failure forced by the harness": 72, "gas: ran out of the attached gas": 44, "signature: not checked by the model": 11}
+== 6. one-line changes of the model
+mutants: 121; detected: 114; equivalent: 7; not detected or failed: 0 []; control: PASS
+== 8. TLA+ specification, model-checked by TLC
+TLC not found at tla2tools.jar: downloading https://github.com/tlaplus/tlaplus/releases/download/v1.8.0/tla2tools.jar
+Standard: no violation; 6149730 states generated, 1029218 distinct states found, 0 states left on queue.
+FeeToken: Backing violated, as expected; counterexample of 3 states
+RefundFailedCall: Backing violated, as expected; counterexample of 8 states
+RESULT: PASS
+wall=2250s rc=0

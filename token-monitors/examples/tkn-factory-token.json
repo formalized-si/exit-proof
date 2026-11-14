@@ -1,0 +1,11 @@
+{
+  "description": "Token created by the tkn.near factory (the code of blackdragon.tkn.near, code hash 4AVV1KUV...). `new(owner_id, total_supply, metadata)` mints the whole supply to the owner.",
+  "init": {
+    "method": "new",
+    "args": {
+      "owner_id": "owner.near",
+      "total_supply": "1000000000000000000000000000000",
+      "metadata": {"spec": "ft-1.0.0", "name": "Test Token", "symbol": "TT", "decimals": 18}
+    }
+  }
+}

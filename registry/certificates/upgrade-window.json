@@ -1,0 +1,39 @@
+{
+ "code_hash": "7m2GRykdzJxaH4r8fmjZg5BJnVvvkKFqDm55GcLLfdPv",
+ "dir": "upgrade-window",
+ "certificate": {
+  "kind": "upgrade-window",
+  "family": "near-plugins v0.5.1 Upgradable (commit 312e016e); reference vault contract built with the plugin",
+  "statement": "In the Lean model of the plugin: a successful up_deploy_code deploys exactly the code of the last up_stage_code, no earlier than the staging time plus the staging duration in force when it was staged; between staging and deploy up_staged_code_hash is constant and is the only hash a deploy accepts; no deploy is accepted before safeUntil = min(now + D, staging timestamp of staged code, effect time of a pending duration change plus its value), and this bound is tight; with no duration set, staging and an accepted deploy can share one block timestamp. This wasm conforms to the model on the kit's traces.",
+  "theorems": [
+   "UpgradeWindow.W1_delay",
+   "UpgradeWindow.deploy_origin",
+   "UpgradeWindow.W2_visibility",
+   "UpgradeWindow.W3_no_deploy_before",
+   "UpgradeWindow.W3_tight",
+   "UpgradeWindow.W4_no_window",
+   "UpgradeWindow.W5_quiet_reading",
+   "UpgradeWindow.W5_notice",
+   "UpgradeWindow.W5_code_change"
+  ],
+  "axioms": [
+   "propext",
+   "Quot.sound",
+   "Classical.choice"
+  ],
+  "assumptions": [
+   "Conformance of the wasm to the model is tested on 6000 traces, not proved for all inputs.",
+   "The build has overflow checks on (a separate lower bound is proved for builds without them).",
+   "Code-change paths outside the plugin (access keys, custom upgrade methods, global contracts by account id) are not covered and must be checked separately.",
+   "That a user's exit completes within the window is a hypothesis about the host contract, not proved here."
+  ],
+  "binding": "reference vault wasm sha256 646d1bd2759eabb7264b1c979c930ed9e65b2af8ca93b4891eff05fc3d6d4781, rebuilt byte-identically with cargo-near from upgrade-window/contract",
+  "conformance": {
+   "traces": 6000,
+   "calls": 223178,
+   "mismatches": 0,
+   "runtime": "nearcore 2.14.0 (protocol 88) via near-contract-sim; 230173 receipts; 12/12 one-line plugin mutants detected"
+  },
+  "check_command": "upgrade-window/check.sh"
+ }
+}

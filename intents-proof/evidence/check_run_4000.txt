@@ -1,0 +1,20 @@
+== 1. pinned wasm files
+intents.wasm: OK
+ft.wasm: OK
+w_near.wasm: OK
+mock_fee_token.wasm: OK
+mock_reply_token.wasm: OK
+== 2. Lean: build, no sorry, axioms
+   136 statements, axioms within propext, Quot.sound, Classical.choice
+== 3. harness
+== 4. monitors on 4000 traces of the deployed wasm, 400 of the mock token
+   deployed wasm: 4000 traces, 463687 receipts, 1854748 backing checks; backing and access monitors that fired: none; simulator failures: none
+   guarded calls by accounts without the permission: 23106, calls with the auth-by-predecessor flag off: 2189; none ran
+   mock token: backing monitors fired 3688 times on 400 of 400 traces
+== 5. replay through the Lean model
+   standard_token: 260321 receipts on the contract, agree 257605, disagree 0, outcome not compared: 2716 {"gas: a failure forced by the harness": 1615, "gas: ran out of the attached gas": 966, "signature: not checked by the model": 135}
+   standard_token, token and contract in one world: 84636 receipts on the token, 126755 on the contract; agree 209557, disagree 0, failed for gas with nothing changed 1834
+   fee_mock: 25688 receipts on the contract, agree 25432, disagree 0, outcome not compared: 256 {"gas: a failure forced by the harness": 146, "gas: ran out of the attached gas": 97, "signature: not checked by the model": 13}
+   reply_mock: 25688 receipts on the contract, agree 25432, disagree 0, outcome not compared: 256 {"gas: a failure forced by the harness": 145, "gas: ran out of the attached gas": 98, "signature: not checked by the model": 13}
+RESULT: PASS
+exit status 0

@@ -1,0 +1,220 @@
+[
+ {
+  "id": "S0_control",
+  "change": "no change",
+  "file": null,
+  "code_hash": "BUKP6UyFNkjRRRnuxPaD7WkbXtFSJcEWZ7j5PHC9ueUm",
+  "verdict": "CARRIES OVER",
+  "monitors_fired": {},
+  "replay_disagree": 0,
+  "replay_steps": 16099,
+  "world_disagree": 0,
+  "world_receipts": 10439,
+  "static": {
+   "S3_exports_added": 0,
+   "S3_exports_removed": 0,
+   "S1_modelled_files_changed": 0,
+   "S2_ledger_write_sites": 53,
+   "S2_sites_added": 0,
+   "S2_sites_removed": 0
+  },
+  "seen_by_run": false,
+  "rejected_by": "nothing",
+  "result": "PASS"
+ },
+ {
+  "id": "S1_unparsable_reply_means_used",
+  "change": "an unparsable reply of ft_transfer_call is taken as everything delivered",
+  "file": "contracts/defuse/src/contract/tokens/nep141/withdraw.rs",
+  "code_hash": "H8ECEJ5JrZNtTMK6G1z7dP7uTNfKNFkbWQmEhvJBcMyd",
+  "verdict": "DIVERGES",
+  "monitors_fired": {},
+  "replay_disagree": 39,
+  "replay_steps": 16089,
+  "world_disagree": 0,
+  "world_receipts": 10439,
+  "static": {
+   "S3_exports_added": 0,
+   "S3_exports_removed": 0,
+   "S1_modelled_files_changed": 1,
+   "S2_ledger_write_sites": 53,
+   "S2_sites_added": 0,
+   "S2_sites_removed": 0
+  },
+  "seen_by_run": true,
+  "rejected_by": "the run",
+  "result": "REJECTED"
+ },
+ {
+  "id": "S2_failed_call_refunded",
+  "change": "a failed ft_transfer_call is refunded in full",
+  "file": "contracts/defuse/src/contract/tokens/nep141/withdraw.rs",
+  "code_hash": "H1mdzss29aPULpEa25enCZxH88K6W5LVtz8ZCh4FMPYc",
+  "verdict": "DIVERGES",
+  "monitors_fired": {
+   "overcredit": 24,
+   "tx_overcredit": 12
+  },
+  "replay_disagree": 165,
+  "replay_steps": 16095,
+  "world_disagree": 1504,
+  "world_receipts": 10430,
+  "static": {
+   "S3_exports_added": 0,
+   "S3_exports_removed": 0,
+   "S1_modelled_files_changed": 1,
+   "S2_ledger_write_sites": 53,
+   "S2_sites_added": 0,
+   "S2_sites_removed": 0
+  },
+  "seen_by_run": true,
+  "rejected_by": "the run",
+  "result": "REJECTED"
+ },
+ {
+  "id": "S3_failed_transfer_kept",
+  "change": "a failed plain transfer is taken as delivered",
+  "file": "contracts/defuse/src/contract/tokens/nep141/withdraw.rs",
+  "code_hash": "C1f6vkL4vE45DC5Tp1GhXkxdk3pYEka3qHDNEwWTPptV",
+  "verdict": "DIVERGES",
+  "monitors_fired": {},
+  "replay_disagree": 218,
+  "replay_steps": 16100,
+  "world_disagree": 1928,
+  "world_receipts": 10434,
+  "static": {
+   "S3_exports_added": 0,
+   "S3_exports_removed": 0,
+   "S1_modelled_files_changed": 1,
+   "S2_ledger_write_sites": 53,
+   "S2_sites_added": 0,
+   "S2_sites_removed": 0
+  },
+  "seen_by_run": true,
+  "rejected_by": "the run",
+  "result": "REJECTED"
+ },
+ {
+  "id": "S4_refund_whole_amount",
+  "change": "the withdrawal callback always credits back the whole amount",
+  "file": "contracts/defuse/src/contract/tokens/nep141/withdraw.rs",
+  "code_hash": "7BZVrjbFrXwpkxfwAAWDeukRVc2VR5iiWMVxw3iRGuLg",
+  "verdict": "DIVERGES",
+  "monitors_fired": {
+   "overcredit": 538,
+   "tx_overcredit": 582
+  },
+  "replay_disagree": 1085,
+  "replay_steps": 16090,
+  "world_disagree": 5180,
+  "world_receipts": 10446,
+  "static": {
+   "S3_exports_added": 0,
+   "S3_exports_removed": 0,
+   "S1_modelled_files_changed": 1,
+   "S2_ledger_write_sites": 53,
+   "S2_sites_added": 0,
+   "S2_sites_removed": 0
+  },
+  "seen_by_run": true,
+  "rejected_by": "the run",
+  "result": "REJECTED"
+ },
+ {
+  "id": "S5_deposit_one_more",
+  "change": "a deposit credits one unit more than it is told",
+  "file": "contracts/defuse/src/contract/tokens/nep141/deposit.rs",
+  "code_hash": "ADvm4VTvtD8f22P4yMe8CGDsA2sZ8TMdRvJL2Lg4RJtu",
+  "verdict": "DIVERGES",
+  "monitors_fired": {
+   "overcredit": 788,
+   "tx_overcredit": 2077
+  },
+  "replay_disagree": 3245,
+  "replay_steps": 16082,
+  "world_disagree": 10019,
+  "world_receipts": 10384,
+  "static": {
+   "S3_exports_added": 0,
+   "S3_exports_removed": 0,
+   "S1_modelled_files_changed": 1,
+   "S2_ledger_write_sites": 53,
+   "S2_sites_added": 1,
+   "S2_sites_removed": 1
+  },
+  "seen_by_run": true,
+  "rejected_by": "the run",
+  "result": "REJECTED"
+ },
+ {
+  "id": "S6_new_entry_point",
+  "change": "a new public method credits the ledger with no token arriving",
+  "file": "contracts/defuse/src/contract/tokens/nep141/deposit.rs",
+  "code_hash": "7uGyRGARHwva31ywX3R51NJEAa6hPZrfdcQh5tGnavt9",
+  "verdict": "NEEDS REVIEW",
+  "monitors_fired": {},
+  "replay_disagree": 0,
+  "replay_steps": 16099,
+  "world_disagree": 0,
+  "world_receipts": 10439,
+  "static": {
+   "S3_exports_added": 1,
+   "S3_exports_removed": 0,
+   "S1_modelled_files_changed": 1,
+   "S2_ledger_write_sites": 53,
+   "S2_sites_added": 1,
+   "S2_sites_removed": 0
+  },
+  "seen_by_run": false,
+  "rejected_by": "the static part only",
+  "result": "REJECTED"
+ },
+ {
+  "id": "S7_role_check_removed",
+  "change": "the role check of the forced internal transfer is gone (both methods)",
+  "file": "contracts/defuse/src/contract/tokens/nep245/force.rs",
+  "code_hash": "4uh2YVutAPhoBWzpuNwvTVVdWqDU9yMpqe4ZKPgjSFk6",
+  "verdict": "DIVERGES",
+  "monitors_fired": {
+   "unauthorized_ran": 56
+  },
+  "replay_disagree": 71,
+  "replay_steps": 16103,
+  "world_disagree": 329,
+  "world_receipts": 10432,
+  "static": {
+   "S3_exports_added": 0,
+   "S3_exports_removed": 0,
+   "S1_modelled_files_changed": 1,
+   "S2_ledger_write_sites": 53,
+   "S2_sites_added": 0,
+   "S2_sites_removed": 0
+  },
+  "seen_by_run": true,
+  "rejected_by": "the run",
+  "result": "REJECTED"
+ },
+ {
+  "id": "S8_one_amount_doubled",
+  "change": "a deposit of one particular amount is credited twice over",
+  "file": "contracts/defuse/src/contract/tokens/nep141/deposit.rs",
+  "code_hash": "AJgN8FTk27Ub9VQy74qSXYhCmzsdp341xvJKFg2iaPef",
+  "verdict": "NEEDS REVIEW",
+  "monitors_fired": {},
+  "replay_disagree": 0,
+  "replay_steps": 16099,
+  "world_disagree": 0,
+  "world_receipts": 10439,
+  "static": {
+   "S3_exports_added": 0,
+   "S3_exports_removed": 0,
+   "S1_modelled_files_changed": 1,
+   "S2_ledger_write_sites": 53,
+   "S2_sites_added": 1,
+   "S2_sites_removed": 1
+  },
+  "seen_by_run": false,
+  "rejected_by": "the static part only",
+  "result": "REJECTED"
+ }
+]

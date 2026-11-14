@@ -1,0 +1,10 @@
+Third-party material in this directory
+
+token/example-ft/src/lib.rs and token/out/fungible_token.wasm
+  The fungible-token example of near-sdk-rs, copied unmodified from
+  https://github.com/near/near-sdk-rs at commit 1aac824cc543b2f201831f888c85396529716742
+  (tag near-sdk-v5.29.0), path examples/fungible-token/ft/src/lib.rs, and the wasm built from it
+  with cargo-near (sha256 in token/EXAMPLE_WASM_SHA256). token/example-ft/Cargo.toml replaces the
+  example's workspace path dependencies with the crates.io releases of the same tag.
+  near-sdk-rs is licensed under MIT OR Apache-2.0 (LICENSE-MIT and LICENSE-APACHE in that
+  repository). ./fetch-wasm.sh downloads the source again from that commit and compares it.

@@ -1,0 +1,14 @@
+{
+  "description": "A token that only its factory may initialize and that has no supply until the factory mints. The wasm is the test fixture F1_factory_minted (the reference token with `new_by_factory` and `mint` added, see reference/mutants.json). The token is deployed on a sub-account of the factory, the factory sends the init, a user registers, the factory mints to that user.",
+  "token_account": "tok.factory.near",
+  "accounts": ["factory.near"],
+  "init": {
+    "caller": "factory.near",
+    "method": "new_by_factory",
+    "args": {"metadata": {"spec": "ft-1.0.0", "name": "Factory Token", "symbol": "FT", "decimals": 18}}
+  },
+  "setup": [
+    {"caller": "owner.near", "method": "storage_deposit", "args": {}, "deposit": "1250000000000000000000"},
+    {"caller": "factory.near", "method": "mint", "args": {"account_id": "owner.near", "amount": "1000000000000000000000000000000"}}
+  ]
+}

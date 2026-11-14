@@ -1,0 +1,154 @@
+{
+ "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1": {
+  "family": "wNEAR (near-contract-standards 3.1.0 fungible token)",
+  "statement": "in the Lean model: in any state satisfying the invariant Inv, a registered holder u != wrap.near that calls near_withdraw(b) with 1 yocto, b being its balance when the call executes, always succeeds and the contract sends u b+1 yocto; only u's own calls or the refund of a transfer made to u can lower u's balance",
+  "theorem": "WNear.T_exit (under Inv), inv_step, T_no_one_else, T_resolve_private, T_conservation; exit_always for states reachable from new() (wnear-proof/lean/WNear/Theorems.lean)",
+  "axioms": "propext, Quot.sound, Classical.choice; no sorry",
+  "assumptions": [
+   "the deployed bytes behave as the Lean model (tested on 2000 traces, not proved)",
+   "mainnet satisfies Inv: its solvency part is checked at block 224128229 (margin 3388 NEAR); supply = sum of balances over ~2.68M records is not checked on mainnet",
+   "the code was swapped in 2021 by a key without migration; the pre-swap code is tested, not proved; no temporary swap between heights 35438886 and 40858544 is sampled, not indexed",
+   "the holder has a full-access key (1 yocto) and attaches enough gas; ft_transfer_call needs >= 30 Tgas (not modelled)"
+  ],
+  "binding": "deployed hash == w-near/res/w_near.wasm at near/core-contracts@54f8267; account has 0 keys since height 40858545",
+  "conformance": "2000 random traces on the exact wasm, nearcore 2.14.0 runtime: EXACT, 0 mismatches; 8/8 model mutants caught",
+  "report": "wnear-proof/REPORT.md",
+  "review": "independent adversarial review 2026-11-12: non-vacuous (concrete worlds built), leanchecker --fresh and nanoda 0.4.19 pass; one-line claims narrowed accordingly (docs/REVIEW.md)",
+  "kind": "exit",
+  "origin": {
+   "wrap.near": {
+    "deployments": [
+     "GhAWeFhuoDNrpyGN2pCUWt1oy6yTEL8nhfyn2eBQo7Kz",
+     "4xtccqLAv25JU4F9HPRdKAeByGpjzA94GZcXY75cNM4"
+    ],
+    "note": "the first code ran from 2021-02-15, the certified code replaced it on 2021-04-22 with no migration; what the earlier code left is tested, not proved (wnear-proof/REPORT.md)",
+    "full_history": {
+     "deployments": [
+      "GhAWeFhuoDNrpyGN2pCUWt1oy6yTEL8nhfyn2eBQo7Kz",
+      "4xtccqLAv25JU4F9HPRdKAeByGpjzA94GZcXY75cNM4"
+     ],
+     "read": "every deployment receipt of wrap.near, read on 2026-11-14",
+     "evidence": "evidence/wrap-near-deployments.json (tools/deploy_history.py)"
+    }
+   }
+  },
+  "stage_condition": "the theorem holds in states that satisfy an invariant; on mainnet its solvency part is checked at one block and 'supply = sum of balances' is not checked; the state left by the code the account ran before 2021-04-22 is tested, not proved"
+ },
+ "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY": {
+  "family": "core staking pool v0.4.0 (near/core-contracts@1cacc9d), code of *.poolv1.near pools",
+  "statement": "in the Lean model: from any state reachable from new() without outflow from the pool account, a delegator's unstake_all succeeds at once and leaves it at least get_account_total_balance; then, if it calls nothing else, in any later state 4+ epochs on where the protocol has returned the unstaked stake (PUA), withdraw_all succeeds and sends it at least that amount; no other account, the owner included, can lower its balance, unlock epoch or shares",
+  "theorem": "StakingPool.exit_guarantee, unstake_all_ok, withdraw_all_ok, liquid_covers, solvency, Reach.inv, others_call, others_preserve, owner_methods, exec_price, deposit_claim (pool-proof/lean/StakingPool/)",
+  "axioms": "propext, Quot.sound, Classical.choice; no sorry",
+  "assumptions": [
+   "the deployed bytes behave as the Lean model (tested on 1149 traces, not proved)",
+   "the pool's state was made by this code alone, from its own new(): the theorem says nothing about an account that ran other code before. The scanner takes this from the deployment history (one deployment; an indexer's answer) and gives no stage 2 without it",
+   "PUA at withdrawal time: the protocol has returned the stake (an assumption about NEAR, not a theorem); checked on 54342 simulator calls with a one-validator epoch model",
+   "no outflow from the pool account other than withdraw (no keys, no slashing in NEAR today)",
+   "storage staking is not modelled: if the storage cost exceeded the pool's remaining balance, the last withdrawal would wait for a top-up",
+   "enough gas attached; staking-key validity rules unchanged; 'sends' means the transfer receipt is issued"
+  ],
+  "neutralized_methods": [
+   "pause_staking",
+   "resume_staking",
+   "update_reward_fee_fraction",
+   "update_staking_key",
+   "vote"
+  ],
+  "binding": "deployed hash == staking-pool/res/staking_pool.wasm at near/core-contracts@1cacc9d; pool accounts have no access keys",
+  "conformance": "1149 random traces (55955 calls) on the exact wasm, nearcore 2.14.0 runtime: EXACT, 0 mismatches; 20998/20998 error texts equal",
+  "coverage": "196 validators, 500880513 NEAR = 86.2% of all stake (census 2026-11-11)",
+  "report": "pool-proof/REPORT.md",
+  "review": "independent adversarial review 2026-11-12: non-vacuous (concrete worlds built), leanchecker --fresh and nanoda 0.4.19 pass; one-line claims narrowed accordingly (docs/REVIEW.md)",
+  "kind": "exit"
+ },
+ "3Ty4ENxJ4EicohgXi9E2txgbqMh3DWSshPrtXxY8pksm": {
+  "family": "near-contract-standards 5.29.0 FungibleToken (near-sdk-rs example)",
+  "statement": "total supply equals the sum of balances; transfer_call settlement refunds at most the amount sent and at most what the receiver holds; only the token can trigger the settlement callback; nobody else lowers a holder balance",
+  "theorem": "ProvedFT.P1_conservation, P2_settlement, P3_callback_private, P4_balance_ownership, P5_storage_solvent (token-standard/lean/ProvedFT/Theorems.lean)",
+  "axioms": "propext, Quot.sound, Classical.choice; no sorry",
+  "assumptions": [
+   "the wasm behaves as the model (1000 traces, not proved)",
+   "no access keys on the token account",
+   "custom methods outside the certificate"
+  ],
+  "binding": "byte-identical rebuild of near-sdk-rs examples/fungible-token at near-sdk-v5.29.0",
+  "conformance": "certify-token.sh PASS: 1000 traces, 33118 receipts, 0 mismatches; 10/10 mutants FAIL",
+  "report": "token-standard/README.md",
+  "kind": "token-standard"
+ },
+ "7m2GRykdzJxaH4r8fmjZg5BJnVvvkKFqDm55GcLLfdPv": {
+  "family": "near-plugins v0.5.1 Upgradable (commit 312e016e); reference vault contract built with the plugin",
+  "statement": "In the Lean model of the plugin: a successful up_deploy_code deploys exactly the code of the last up_stage_code, no earlier than the staging time plus the staging duration in force when it was staged; between staging and deploy up_staged_code_hash is constant and is the only hash a deploy accepts; no deploy is accepted before safeUntil = min(now + D, staging timestamp of staged code, effect time of a pending duration change plus its value), and this bound is tight; with no duration set, staging and an accepted deploy can share one block timestamp. This wasm conforms to the model on the kit's traces.",
+  "theorem": "UpgradeWindow.W1_delay, UpgradeWindow.deploy_origin, UpgradeWindow.W2_visibility, UpgradeWindow.W3_no_deploy_before, UpgradeWindow.W3_tight, UpgradeWindow.W4_no_window, UpgradeWindow.W5_quiet_reading, UpgradeWindow.W5_notice, UpgradeWindow.W5_code_change (upgrade-window/lean/UpgradeWindow/Theorems.lean)",
+  "axioms": "propext, Quot.sound, Classical.choice; no sorry",
+  "assumptions": [
+   "Conformance of the wasm to the model is tested on 6000 traces, not proved for all inputs.",
+   "The build has overflow checks on (a separate lower bound is proved for builds without them).",
+   "Code-change paths outside the plugin (access keys, custom upgrade methods, global contracts by account id) are not covered and must be checked separately.",
+   "That a user's exit completes within the window is a hypothesis about the host contract, not proved here."
+  ],
+  "binding": "reference vault wasm sha256 646d1bd2759eabb7264b1c979c930ed9e65b2af8ca93b4891eff05fc3d6d4781, rebuilt byte-identically with cargo-near from upgrade-window/contract",
+  "conformance": "6000 random traces (223178 calls, 230173 receipts) on the reference vault wasm, nearcore 2.14.0 runtime: 0 divergences; 12/12 one-line plugin mutants detected",
+  "report": "upgrade-window/README.md",
+  "kind": "upgrade-window"
+ },
+ "BtA1BEFNS619KkvXFsgcpQ21Tb5yMm32aaUkn7xNothk": {
+  "kind": "ledger-backing",
+  "attested": false,
+  "family": "NEAR Intents (near/intents@16d04f6e, version 0.4.5), fungible-token paths",
+  "statement": "in the Lean model of the contract together with a token that behaves as the proved NEP-141 standard, or with wNEAR: in every state reachable from an empty ledger, in any order of receipts and with any receipt failing, the sum of the ledger balances of the token is at most the tokens the contract holds; a withdrawal debits exactly its amount and settles exactly, except a withdrawal with msg whose ft_transfer_call receipt fails, where the debit is kept; a credit happens only in ft_on_transfer called by the token after the tokens have arrived; for the standard token, one step lowers a balance only by the account's own call, its signed payload (a registered key, an unused nonce, at most the amount its intents name), the refund of a transfer call made to it (at most that transfer, once), or a forced operation by a holder of DAO or UnrestrictedWithdrawer",
+  "theorem": "Intents.T1_backing, T1_supply, T1_can_pay, T1_exact, T2_debit, T2_settles, T3_credit_only_on_arrival, T4_who_can_lower, T4_authorised, T4_calls, T4_key_power, T4_role_change; IntentsW.W1_backing, W2_settles, W3_credit_only_on_arrival, N2_burn, N3_forward (intents-proof/lean)",
+  "axioms": "propext, Quot.sound, Classical.choice; no sorry",
+  "assumptions": [
+   "the token behaves as the standard one; false for a token that keeps part of a transfer (T5_fee_token_breaks_backing). tools/token_check.py gives the verdict for a token's deployed code, tools/intents_backing.py reads the live ledger against the holdings",
+   "the deployed bytes behave as the Lean model: tested (311 697 receipts replayed, 308 469 agree, 0 disagree; 114 of 121 one-line changes of the model noticed, the other 7 rejected by the Lean build), not proved",
+   "no receipt leaves the contract's own account other than those its code creates: a holder of the role DAO (a call from the contract's account, a full-access key, a code upgrade) can break every statement",
+   "not covered: the multi-token (NEP-245) and NFT paths, the signature standards themselves and the matching of TokenDiff intents, gas"
+  ],
+  "binding": "deployed wasm sha256 a1afab98916d9f213746544dcf8e4e6bdb22c0be6bc5dfbd8ea8814c9922b547 = the build of near/intents@16d04f6e with cargo near build reproducible-wasm, byte for byte",
+  "conformance": "4000 random traces on the exact wasm, nearcore 2.14.0 runtime: 260 321 receipts on the contract replayed through the model, 257 605 agree, 0 disagree; token and contract together through the world's step function: 209 557 receipts agree, 0 disagree",
+  "report": "intents-proof/README.md"
+ },
+ "6ZebT4oBmsftwqdjnTcaha1227dARNU9uzXNae2VaNPf": {
+  "kind": "gated-upgrade",
+  "family": "certificate-gated vault of this repository (gated-upgrade/contract/gated-vault), build v1; the three builds differ only in version()",
+  "statement": "In the Lean model of this vault: every code change installs code that was staged at least the staging delay earlier and whose hash had a certificate of an accepted attestor in the registry when the registry answered; code without a certificate is never installed. The scanner exempts deploy_certified from the upgrade methods without a delay only for these builds.",
+  "theorem": "GatedUpgrade.gated_code_change, GatedUpgrade.uncertified_never_installed (gated-upgrade/lean/GatedUpgrade/Theorems.lean)",
+  "axioms": "propext, Quot.sound, Classical.choice; no sorry",
+  "assumptions": [
+   "No receipt comes from the contract's own account.",
+   "The registry answers with the certificates it holds; who attests is the reader's trust.",
+   "Conformance of the wasm to the model is tested, not proved."
+  ],
+  "binding": "wasm sha256 52a787345f263ca02219a787be84be9e0a2d3dd5e8fd3a84552b8586a0e8c25e (gated-upgrade/contract/WASM_SHA256), rebuilt byte-identically with cargo-near",
+  "report": "gated-upgrade/README.md"
+ },
+ "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2": {
+  "kind": "gated-upgrade",
+  "family": "certificate-gated vault of this repository (gated-upgrade/contract/gated-vault), build v2; the three builds differ only in version()",
+  "statement": "In the Lean model of this vault: every code change installs code that was staged at least the staging delay earlier and whose hash had a certificate of an accepted attestor in the registry when the registry answered; code without a certificate is never installed. The scanner exempts deploy_certified from the upgrade methods without a delay only for these builds.",
+  "theorem": "GatedUpgrade.gated_code_change, GatedUpgrade.uncertified_never_installed (gated-upgrade/lean/GatedUpgrade/Theorems.lean)",
+  "axioms": "propext, Quot.sound, Classical.choice; no sorry",
+  "assumptions": [
+   "No receipt comes from the contract's own account.",
+   "The registry answers with the certificates it holds; who attests is the reader's trust.",
+   "Conformance of the wasm to the model is tested, not proved."
+  ],
+  "binding": "wasm sha256 4119617a3df44a476ec8f1aa6ed58b942fc37ce24155403bc307b23e56f13a85 (gated-upgrade/contract/WASM_SHA256), rebuilt byte-identically with cargo-near",
+  "report": "gated-upgrade/README.md"
+ },
+ "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA": {
+  "kind": "gated-upgrade",
+  "family": "certificate-gated vault of this repository (gated-upgrade/contract/gated-vault), build v3; the three builds differ only in version()",
+  "statement": "In the Lean model of this vault: every code change installs code that was staged at least the staging delay earlier and whose hash had a certificate of an accepted attestor in the registry when the registry answered; code without a certificate is never installed. The scanner exempts deploy_certified from the upgrade methods without a delay only for these builds.",
+  "theorem": "GatedUpgrade.gated_code_change, GatedUpgrade.uncertified_never_installed (gated-upgrade/lean/GatedUpgrade/Theorems.lean)",
+  "axioms": "propext, Quot.sound, Classical.choice; no sorry",
+  "assumptions": [
+   "No receipt comes from the contract's own account.",
+   "The registry answers with the certificates it holds; who attests is the reader's trust.",
+   "Conformance of the wasm to the model is tested, not proved."
+  ],
+  "binding": "wasm sha256 4ca962328a229ab2336882df5aa19ef585c5c636e776216e22adca03822774f9 (gated-upgrade/contract/WASM_SHA256), rebuilt byte-identically with cargo-near",
+  "report": "gated-upgrade/README.md"
+ }
+}

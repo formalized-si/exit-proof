@@ -1,0 +1,1586 @@
+{
+ "summary": {
+  "read_utc": "2026-11-13T14:05:41Z",
+  "pools": 196,
+  "read": 196,
+  "one_deployment": 196,
+  "one_deployment_made_by_another_account": 196,
+  "made_by": [
+   "poolv1.near"
+  ],
+  "more_than_one_deployment": 0,
+  "no_deployment_listed": 0,
+  "not_read": 0,
+  "source": "NearBlocks API, contract/deployments of each pool account"
+ },
+ "pools": [
+  {
+   "pool": "astro-stakers.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-23"
+  },
+  {
+   "pool": "figment.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-07"
+  },
+  {
+   "pool": "ledgerbyfigment.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-01-18"
+  },
+  {
+   "pool": "staked.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-08-26"
+  },
+  {
+   "pool": "binancenode1.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-12-21"
+  },
+  {
+   "pool": "sumerian.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-07-12"
+  },
+  {
+   "pool": "zavodil.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-04"
+  },
+  {
+   "pool": "cnear-1.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-09-29"
+  },
+  {
+   "pool": "cnear-3.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-10-12"
+  },
+  {
+   "pool": "cnear-2.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-10-12"
+  },
+  {
+   "pool": "bitwise_2.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-08-18"
+  },
+  {
+   "pool": "bitwise_1.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-04-09"
+  },
+  {
+   "pool": "svrn-ai.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-11-27"
+  },
+  {
+   "pool": "kiln-1.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-03-03"
+  },
+  {
+   "pool": "epic.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-15"
+  },
+  {
+   "pool": "nearvana.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-11-26"
+  },
+  {
+   "pool": "stake1.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-03-28"
+  },
+  {
+   "pool": "svrn_bitwise.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-12-12"
+  },
+  {
+   "pool": "p2p-org.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-01-14"
+  },
+  {
+   "pool": "dragonfly.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-12-29"
+  },
+  {
+   "pool": "allnodes.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-07-15"
+  },
+  {
+   "pool": "macrodatarefinement.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-03-19"
+  },
+  {
+   "pool": "bisontrails.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-01"
+  },
+  {
+   "pool": "aca87218e28c41f5a693dee3dff12238.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-12-13"
+  },
+  {
+   "pool": "svrn-twinstake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-12-23"
+  },
+  {
+   "pool": "d1.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-24"
+  },
+  {
+   "pool": "legends.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-03-14"
+  },
+  {
+   "pool": "stakin.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-07"
+  },
+  {
+   "pool": "northernlights.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-18"
+  },
+  {
+   "pool": "republic.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-02-02"
+  },
+  {
+   "pool": "okx-earn.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-04-17"
+  },
+  {
+   "pool": "rekt.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-15"
+  },
+  {
+   "pool": "ni.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-11-13"
+  },
+  {
+   "pool": "everstake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-07"
+  },
+  {
+   "pool": "gtnode-0.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-06-20"
+  },
+  {
+   "pool": "nearfans.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-02"
+  },
+  {
+   "pool": "x.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-08-08"
+  },
+  {
+   "pool": "here.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-02-25"
+  },
+  {
+   "pool": "bitcoinsuisse.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-07-11"
+  },
+  {
+   "pool": "twinstake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-10-20"
+  },
+  {
+   "pool": "lux.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-29"
+  },
+  {
+   "pool": "anonymous.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-23"
+  },
+  {
+   "pool": "erm.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-08-28"
+  },
+  {
+   "pool": "blockdaemon.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-08"
+  },
+  {
+   "pool": "dsrvlabs.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-08-26"
+  },
+  {
+   "pool": "npro.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-09-11"
+  },
+  {
+   "pool": "moonlet.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-09"
+  },
+  {
+   "pool": "cryptium.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-08-28"
+  },
+  {
+   "pool": "buildlinks.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-08-28"
+  },
+  {
+   "pool": "baziliknear.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-05"
+  },
+  {
+   "pool": "sofarsonear.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-08-23"
+  },
+  {
+   "pool": "chorusone.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-17"
+  },
+  {
+   "pool": "stakesabai.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-04"
+  },
+  {
+   "pool": "meteor.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-05-05"
+  },
+  {
+   "pool": "autostake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-05-12"
+  },
+  {
+   "pool": "openshards.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-08"
+  },
+  {
+   "pool": "lunanova.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-05"
+  },
+  {
+   "pool": "trust-nodes.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-09-11"
+  },
+  {
+   "pool": "kiln.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-07-13"
+  },
+  {
+   "pool": "qbit.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-01-26"
+  },
+  {
+   "pool": "hb436_pool.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-11"
+  },
+  {
+   "pool": "masternode24.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-05"
+  },
+  {
+   "pool": "stardust.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-23"
+  },
+  {
+   "pool": "brea.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-06-22"
+  },
+  {
+   "pool": "avado.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-01-10"
+  },
+  {
+   "pool": "01node.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-10"
+  },
+  {
+   "pool": "bisontrails2.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-04-29"
+  },
+  {
+   "pool": "stakely_io.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-10-25"
+  },
+  {
+   "pool": "dexagon.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-10-18"
+  },
+  {
+   "pool": "staking4all.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-01"
+  },
+  {
+   "pool": "lavenderfive.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-11-19"
+  },
+  {
+   "pool": "atomic-nodes.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-08-02"
+  },
+  {
+   "pool": "polkachu.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-21"
+  },
+  {
+   "pool": "smart-stake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-15"
+  },
+  {
+   "pool": "northstakenear.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-07-01"
+  },
+  {
+   "pool": "namdokmai.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-12-03"
+  },
+  {
+   "pool": "hapi.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-12"
+  },
+  {
+   "pool": "near-prime.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-08-01"
+  },
+  {
+   "pool": "nodeasy.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-18"
+  },
+  {
+   "pool": "optimusvalidatornetwork.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-10-27"
+  },
+  {
+   "pool": "near-prime-public.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-07-09"
+  },
+  {
+   "pool": "rhea-validator.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-05-01"
+  },
+  {
+   "pool": "p2pstaking.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-07"
+  },
+  {
+   "pool": "hashquark.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-01"
+  },
+  {
+   "pool": "fresh.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-08-29"
+  },
+  {
+   "pool": "pangdao.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-10-05"
+  },
+  {
+   "pool": "wackazong.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-25"
+  },
+  {
+   "pool": "getblockio.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-05-12"
+  },
+  {
+   "pool": "pathrocknetwork.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-10-20"
+  },
+  {
+   "pool": "galactic.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-12-24"
+  },
+  {
+   "pool": "link.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-10-10"
+  },
+  {
+   "pool": "appload.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-08"
+  },
+  {
+   "pool": "pandateam.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-12-01"
+  },
+  {
+   "pool": "colossus.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-06-19"
+  },
+  {
+   "pool": "cryptoblossom.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-11-11"
+  },
+  {
+   "pool": "cryptostake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-04-24"
+  },
+  {
+   "pool": "shurik.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-12-03"
+  },
+  {
+   "pool": "gfi-validator.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-05-19"
+  },
+  {
+   "pool": "bee1stake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-16"
+  },
+  {
+   "pool": "oharanodes.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-03-10"
+  },
+  {
+   "pool": "grassets.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-11-30"
+  },
+  {
+   "pool": "avb.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-12-11"
+  },
+  {
+   "pool": "monresearch.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-05"
+  },
+  {
+   "pool": "stakecapitalgroup.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-06-14"
+  },
+  {
+   "pool": "piertwopool.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-02-14"
+  },
+  {
+   "pool": "pinrocks.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-04"
+  },
+  {
+   "pool": "cryptocrew.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-12-23"
+  },
+  {
+   "pool": "oe.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-11-07"
+  },
+  {
+   "pool": "cryptogarik.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-11-18"
+  },
+  {
+   "pool": "2pilot.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-15"
+  },
+  {
+   "pool": "alphanodes.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-01-05"
+  },
+  {
+   "pool": "ursamajor.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-05-01"
+  },
+  {
+   "pool": "rockxv2.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-02"
+  },
+  {
+   "pool": "stakecito.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-04-01"
+  },
+  {
+   "pool": "cunum.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-10-07"
+  },
+  {
+   "pool": "stakerrash.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-12"
+  },
+  {
+   "pool": "saxemberg.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-06-22"
+  },
+  {
+   "pool": "taxistake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-11-15"
+  },
+  {
+   "pool": "sharpdarts.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-06"
+  },
+  {
+   "pool": "welldonestake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-12"
+  },
+  {
+   "pool": "lovali.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-14"
+  },
+  {
+   "pool": "buildnear.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-26"
+  },
+  {
+   "pool": "incrypted.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-10-27"
+  },
+  {
+   "pool": "ttt.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-01-15"
+  },
+  {
+   "pool": "staking-power.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-11-18"
+  },
+  {
+   "pool": "g20.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-05-30"
+  },
+  {
+   "pool": "epochrunner.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-10-29"
+  },
+  {
+   "pool": "sweat_validator_res_2.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-03-11"
+  },
+  {
+   "pool": "minion.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-18"
+  },
+  {
+   "pool": "gfs-ventures.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-06-19"
+  },
+  {
+   "pool": "n0ok.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-12-03"
+  },
+  {
+   "pool": "spectrum.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-10-22"
+  },
+  {
+   "pool": "snsmln.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-15"
+  },
+  {
+   "pool": "abahmane.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-16"
+  },
+  {
+   "pool": "consensus_finoa_00.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-08-05"
+  },
+  {
+   "pool": "near.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-03"
+  },
+  {
+   "pool": "letsnode.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-10-25"
+  },
+  {
+   "pool": "nearvietnamhub.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-10-30"
+  },
+  {
+   "pool": "owa.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-09"
+  },
+  {
+   "pool": "nearstar.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-03-20"
+  },
+  {
+   "pool": "genesislab.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-20"
+  },
+  {
+   "pool": "sweat_validator_res.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-02-24"
+  },
+  {
+   "pool": "originstake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-01-24"
+  },
+  {
+   "pool": "meria-staking.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-02-15"
+  },
+  {
+   "pool": "senseinode.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-11-13"
+  },
+  {
+   "pool": "deutschetelekom.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-10-11"
+  },
+  {
+   "pool": "lionstake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-01-12"
+  },
+  {
+   "pool": "idtcn4.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-19"
+  },
+  {
+   "pool": "readylayerone_staking.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-05"
+  },
+  {
+   "pool": "pairpoint.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-06-25"
+  },
+  {
+   "pool": "consensus_finoa_01.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-08-05"
+  },
+  {
+   "pool": "stakesstone.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-12-02"
+  },
+  {
+   "pool": "accomplice.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-26"
+  },
+  {
+   "pool": "smartnode.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-30"
+  },
+  {
+   "pool": "swissstar.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-05"
+  },
+  {
+   "pool": "ou812.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-20"
+  },
+  {
+   "pool": "davaymne.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-03"
+  },
+  {
+   "pool": "near-fans.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-12-13"
+  },
+  {
+   "pool": "binancestaking.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-03-01"
+  },
+  {
+   "pool": "jagon.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-24"
+  },
+  {
+   "pool": "nansen.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-11-28"
+  },
+  {
+   "pool": "svarog.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-24"
+  },
+  {
+   "pool": "stakecraft.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-02-07"
+  },
+  {
+   "pool": "nearuaguild.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-20"
+  },
+  {
+   "pool": "stakeflow.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-08-16"
+  },
+  {
+   "pool": "neardevgov.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-11-30"
+  },
+  {
+   "pool": "doubletop.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-10-25"
+  },
+  {
+   "pool": "prophet.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-12-24"
+  },
+  {
+   "pool": "agrestus.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-26"
+  },
+  {
+   "pool": "itrocket.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-03-18"
+  },
+  {
+   "pool": "cosmicvalidator.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-06-23"
+  },
+  {
+   "pool": "encipher.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-29"
+  },
+  {
+   "pool": "meduza.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-01"
+  },
+  {
+   "pool": "gruberx.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-01-30"
+  },
+  {
+   "pool": "finoa.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-10-05"
+  },
+  {
+   "pool": "chuy.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-03-24"
+  },
+  {
+   "pool": "synclub.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-09-16"
+  },
+  {
+   "pool": "snoopfear.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-03-01"
+  },
+  {
+   "pool": "fish.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2020-09-28"
+  },
+  {
+   "pool": "pumpopoly.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-10-30"
+  },
+  {
+   "pool": "block-pro.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-12-23"
+  },
+  {
+   "pool": "stakeup.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-02-04"
+  },
+  {
+   "pool": "posthuman.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-02-05"
+  },
+  {
+   "pool": "bonynode.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-10-28"
+  },
+  {
+   "pool": "nodefleet.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-03-24"
+  },
+  {
+   "pool": "noders.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-01-16"
+  },
+  {
+   "pool": "madwisp.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2025-03-24"
+  },
+  {
+   "pool": "conqueror.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2026-03-11"
+  },
+  {
+   "pool": "mexa-staking.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-12-07"
+  },
+  {
+   "pool": "simplystaking.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2024-12-18"
+  },
+  {
+   "pool": "profit.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2023-10-28"
+  },
+  {
+   "pool": "solidstate.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-12-02"
+  },
+  {
+   "pool": "frensvalidator.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-11-09"
+  },
+  {
+   "pool": "foundry.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-08-05"
+  },
+  {
+   "pool": "restake.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2022-03-22"
+  },
+  {
+   "pool": "stingray.poolv1.near",
+   "deployments": 1,
+   "by": [
+    "poolv1.near"
+   ],
+   "first": "2021-11-30"
+  }
+ ]
+}

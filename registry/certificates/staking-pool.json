@@ -1,0 +1,42 @@
+{
+ "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+ "dir": "pool-proof",
+ "certificate": {
+  "kind": "exit",
+  "family": "NEAR core staking pool v0.4.0 (near/core-contracts@1cacc9d), the code of *.poolv1.near pools",
+  "statement": "In the Lean model: from any state reachable from new() without outflow from the pool account, a delegator with stake can call unstake_all, which succeeds and leaves it at least get_account_total_balance; then, with no further calls by it, in any state 4 or more epochs later in which the protocol has returned the unstaked stake, withdraw_all succeeds and sends it at least that amount. No call by another account, the pool owner included, lowers its unstaked balance, unlock epoch or shares; the share price never decreases.",
+  "theorems": [
+   "StakingPool.exit_guarantee",
+   "StakingPool.unstake_all_ok",
+   "StakingPool.withdraw_all_ok",
+   "StakingPool.liquid_covers",
+   "StakingPool.solvency",
+   "StakingPool.Reach.inv",
+   "StakingPool.others_call",
+   "StakingPool.others_preserve",
+   "StakingPool.owner_methods",
+   "StakingPool.exec_price",
+   "StakingPool.deposit_claim"
+  ],
+  "axioms": [
+   "propext",
+   "Quot.sound",
+   "Classical.choice"
+  ],
+  "assumptions": [
+   "The theorem is about a model; the deployed bytes are tied to it by hash equality with the committed artifact and by execution on the nearcore runtime (tested, not proved).",
+   "The protocol has returned the unstaked stake by the time of withdraw_all (an assumption about NEAR, checked on simulator runs).",
+   "No outflow from the pool account other than withdraw (no access keys; no slashing in NEAR today).",
+   "Storage staking is not modelled: if the storage cost exceeded the pool's remaining balance, the last withdrawal would wait for a top-up.",
+   "Fewer than 10^12 calls to the pool in its lifetime; enough gas attached; staking-key validity rules unchanged."
+  ],
+  "binding": "deployed code hash equals staking-pool/res/staking_pool.wasm committed at near/core-contracts@1cacc9d; pool accounts created by poolv1.near have no access keys",
+  "conformance": {
+   "traces": 1149,
+   "calls": 55955,
+   "mismatches": 0,
+   "runtime": "nearcore 2.14.0 (protocol 88) via near-contract-sim; state compared after every step; 20998/20998 error texts equal"
+  },
+  "check_command": "pool-proof/check.sh"
+ }
+}

@@ -1,0 +1,211 @@
+{
+ "account": "intents.near",
+ "what": "every code hash the account has had, with the block from which each was in force",
+ "read": "2026-11-13, a read-only sweep of archival state (view_account at sampled heights, a binary search for the exact block of each change, then EXPERIMENTAL_changes contract_code_changes at that block); the sweep itself is not in this repository",
+ "state_read_at_height": 224401617,
+ "endpoints": [
+  "https://archival-rpc.mainnet.fastnear.com",
+  "https://archival-rpc.mainnet.near.org"
+ ],
+ "check_one_row": "curl -s https://archival-rpc.mainnet.fastnear.com -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"query\",\"params\":{\"request_type\":\"view_account\",\"account_id\":\"intents.near\",\"block_id\":<height>}}'  — code_hash at <from> is the row's hash, at <from> - 1 the previous row's",
+ "counts": {
+  "code_hashes": 19,
+  "code_changes": 18,
+  "deployment_receipts": 18,
+  "deployments_the_indexer_lists": 2,
+  "note": "18 is the number of code changes and of deployment receipts; the indexer lists the first and the latest deployment (2); the number of deployment transactions is not established"
+ },
+ "limit": "a code version that was in force for less than the sampling interval of the pass that looked for it can be missed. This is not a hypothetical limit: the coarse pass stepped over the era of code hash HYkKzPcv... (52 816 blocks, 2025-12-03) and the refinement pass found it. A code version shorter than the refinement interval of its own era could still hide; a scan of every block would be needed to rule that out, and the chain's own contract_code_changes view answers at any block",
+ "eras": [
+  {
+   "era": "E0",
+   "from_height": 131734076,
+   "from_utc": "2024-11-01T21:08:49Z",
+   "to_height": 131976416,
+   "code_hash": "11111111111111111111111111111111",
+   "sha256": null,
+   "bytes": null,
+   "deployment_receipt": null
+  },
+  {
+   "era": "E1",
+   "from_height": 131976417,
+   "from_utc": "2024-11-05T00:20:58Z",
+   "to_height": 132090343,
+   "code_hash": "HcCyTjgBM4GP73PXTWoce1LGH9TbFAPMqWUBdwhgmipR",
+   "sha256": "f6bfdb8a4e7da7b823e3a35418cdd2a152d94ca260235a45d242b33d6ca26a52",
+   "bytes": 646023,
+   "deployment_receipt": "5J6NnVLRyWRWLyZiLp6ZuK5WgdBZ6fKNZDcypo9FFxMy"
+  },
+  {
+   "era": "E2",
+   "from_height": 132090344,
+   "from_utc": "2024-11-06T12:28:35Z",
+   "to_height": 133306615,
+   "code_hash": "9waR3Q6fSdERYEPApFihf7cjaiXeRRanFNhoR24xrDCz",
+   "sha256": "84d8a418ca5f4abc6ed57fd638a633d13bff8dc278f82f97c7ffc4d625ba859f",
+   "bytes": 646023,
+   "deployment_receipt": "2o7HotJbPWBcEmLGi8GPMBkyjJmrpdHmcoXgtsWadfdp"
+  },
+  {
+   "era": "E3",
+   "from_height": 133306616,
+   "from_utc": "2024-11-22T18:37:32Z",
+   "to_height": 134662135,
+   "code_hash": "ASm7WDQTuZV6rkrbDbGo5645gmaikHuSj3oSKtQJmsB6",
+   "sha256": "8c52948f4874ef2f6091c05e1d84022abbd3510206a6dfda3aeb02a6f8538a61",
+   "bytes": 657121,
+   "deployment_receipt": "9iN7v1q7JS5q28CaNqwop8MEAF98woV39CWtzeqkAEyg"
+  },
+  {
+   "era": "E4",
+   "from_height": 134662136,
+   "from_utc": "2024-12-10T12:31:23Z",
+   "to_height": 137938795,
+   "code_hash": "2QLSTWx4W4aXhd8raRMuA4m1FYSZETpLU7YcvLVXohTE",
+   "sha256": "14d60672c040f80d251f39206d9c52f76a0ad5dbaece510c00469a5f2c4eb861",
+   "bytes": 756285,
+   "deployment_receipt": "6Hv9opssWAEasF2XYe5EBUrMuMR2yBJZTYz6xzhZTZG6"
+  },
+  {
+   "era": "E5",
+   "from_height": 137938796,
+   "from_utc": "2025-01-22T09:08:24Z",
+   "to_height": 138876895,
+   "code_hash": "GwhXceRD2ib9PBcCvWNQcgsTnepnSi7MYDZTg9WHRWau",
+   "sha256": "ece27e183ad08f4989262262eccbaa3b57e5d171d7d20b714f7a58264d39ea22",
+   "bytes": 757837,
+   "deployment_receipt": "9XE4pYyAnqqRvSYW6hQPtvBne4iq1S6t3Qb5rJHyrupB"
+  },
+  {
+   "era": "E6",
+   "from_height": 138876896,
+   "from_utc": "2025-02-03T15:38:26Z",
+   "to_height": 140057089,
+   "code_hash": "BCub7PHNoLMZuWTNZ2eNqoTztxfG1FPdF9LrdGGZpe1v",
+   "sha256": "97a1b83fc25f03d9d0876f19432c1047409ca0ee4b240675a1fad6104bd780e1",
+   "bytes": 981427,
+   "deployment_receipt": "DkHebyDTYX3kykUKUAudYcMcpg1SgDKVBdZtM4WkKFii"
+  },
+  {
+   "era": "E7",
+   "from_height": 140057090,
+   "from_utc": "2025-02-18T22:06:47Z",
+   "to_height": 148436852,
+   "code_hash": "jHXcjMtDUDc6iGQcX7yKCxHRcGFnAGBBWvh4NBwCxH8",
+   "sha256": "0ad51504303c501136f3828e15e7e398e3740e32b01c8004fd719abf195ea07b",
+   "bytes": 996912,
+   "deployment_receipt": "8CNnphxHjzsV9iJGWBu3NKYDyjGYtFN5eAnnw8sK6tcU"
+  },
+  {
+   "era": "E8",
+   "from_height": 148436853,
+   "from_utc": "2025-05-26T20:17:26Z",
+   "to_height": 150351829,
+   "code_hash": "HWjj9aDiHTBXTxb7Zfv24dzUHtkqPY7ZtwRq2Ne9Tkta",
+   "sha256": "f559253faffa10cb51f83656595c5aa33f46797a3418d0c1927fa2f493b74f2b",
+   "bytes": 1178637,
+   "deployment_receipt": "98L9vkL9eU5RxzaR4ZsQoHzPpYbsvnureXf1tNGu9ztR"
+  },
+  {
+   "era": "E9",
+   "from_height": 150351830,
+   "from_utc": "2025-06-09T10:17:16Z",
+   "to_height": 150410853,
+   "code_hash": "H6aUnHYZK3ugc3rNsfdns7Zc1c7Vd6sZeqNCECtnscm",
+   "sha256": "041f9960bacc77efe391338386480703b5233538102ef8221f16983a945fa7fa",
+   "bytes": 1187702,
+   "deployment_receipt": "8dmFDCvLje2FbadhjtVME75H4KuoqB8feWNKoEgWsvHF"
+  },
+  {
+   "era": "E10",
+   "from_height": 150410854,
+   "from_utc": "2025-06-09T20:22:00Z",
+   "to_height": 152609198,
+   "code_hash": "6Wbz1NrjRCYMnfxZ2rkeMHA8yHeesawDCvJuJWkWnLKX",
+   "sha256": "51dfd5569d4be7bc8a24cb01a264f32bc35e6b763203bdadec5741513d4d7556",
+   "bytes": 1187702,
+   "deployment_receipt": "7PgXG9oVgEhTAahsV5KECREfUVHFyrvH7StvdyHWKDBH"
+  },
+  {
+   "era": "E11",
+   "from_height": 152609199,
+   "from_utc": "2025-06-25T13:49:33Z",
+   "to_height": 163557438,
+   "code_hash": "5U2BH1NSyWKhGLds5y5cSydcYhq3q22x9AABZB8VP2ie",
+   "sha256": "425ac2b590f6b33f94dd3d80dbf96e9a261e50b693df3053f022307f0cc0b1a3",
+   "bytes": 1254129,
+   "deployment_receipt": "BnCdRN68KoRDwpYqrXAmXe75XsjuGoYwb554yWJM1qhN"
+  },
+  {
+   "era": "E12",
+   "from_height": 163557439,
+   "from_utc": "2025-09-11T08:16:22Z",
+   "to_height": 170334330,
+   "code_hash": "DM3gsdVFG3XV9BJdJfsnSerq92jsrUsRSFKDFPCZB5VM",
+   "sha256": "b76ee5e4d64646586bee19c346b269a18c1abdf5ac15990614d28eaa5ead8cec",
+   "bytes": 1274464,
+   "deployment_receipt": "AKfLzrhXYd5CnAskBQgsCbFstyQEeMyECRkWpcSVvhQ3"
+  },
+  {
+   "era": "E13",
+   "from_height": 170334331,
+   "from_utc": "2025-10-29T08:09:27Z",
+   "to_height": 175257650,
+   "code_hash": "BkbeAqwqV8Y9x9v8WtbXCnV3KZkppQ953DkovtgQKCcG",
+   "sha256": "9fc003397cee249c06496eb5e322768af7db7210a781fed1bfa30ea46d4abe69",
+   "bytes": 1389907,
+   "deployment_receipt": "GS6gfaKB2MaKLQ6qE86kFDDsiUS1cnAab3foVW6V4nkW"
+  },
+  {
+   "era": "E14",
+   "from_height": 175257651,
+   "from_utc": "2025-12-03T10:58:07Z",
+   "to_height": 175310466,
+   "code_hash": "HYkKzPcvMsCVVYeduwUGuN1QGiaMPhb6y6rv6N7j92UJ",
+   "sha256": "f5dcfc81d0ed0255e7727fc637c007ea5d5ceeae72dc06b3aff37988dba335b3",
+   "bytes": 1347058,
+   "deployment_receipt": "57JaG16wM2rCrui8kR9gvtoUc6edYeMBDiiWqzJAAAiL"
+  },
+  {
+   "era": "E15",
+   "from_height": 175310467,
+   "from_utc": "2025-12-03T21:12:50Z",
+   "to_height": 181290541,
+   "code_hash": "DWtF8fWvm67j8BMy1SjdbSF1ByfjpaKkyKuUVK3LSk4j",
+   "sha256": "b9f40728e4d20e241fd1d68b720a5a7e4900bca764b17e341ead5a188a71f8bc",
+   "bytes": 1340477,
+   "deployment_receipt": "GGJMUYHQG1Pq76PzeYNaxBTy7q3wd2gEJHGNZfd38GcC"
+  },
+  {
+   "era": "E16",
+   "from_height": 181290542,
+   "from_utc": "2026-01-15T18:12:02Z",
+   "to_height": 218252119,
+   "code_hash": "HUJ89jxFhsXF17XS8L5kmxz7te8AKfdWw2xzrVYo7aoj",
+   "sha256": "f4b908b631562d62c133cc58b0a053dab41d6e243990c54694ac42264679f4ea",
+   "bytes": 1340709,
+   "deployment_receipt": "HqU1FTdDEYVKuQu6dV68gJtZcdG5LD6cRXtDbjTGiCR4"
+  },
+  {
+   "era": "E17",
+   "from_height": 218252120,
+   "from_utc": "2026-10-02T20:31:45Z",
+   "to_height": 218982374,
+   "code_hash": "EHTzkKyabhTGuKpvET5hBi7xPdKacuesMc91dDGkWvqb",
+   "sha256": "c55fbf3ee278b54c499c0084e42b57fc802e9887f125d2e4eb43efd837d9310e",
+   "bytes": 1308183,
+   "deployment_receipt": "HHUzMtUDMSRXhwiy7dphJm9G12jkef9L1r6UhspMxxok"
+  },
+  {
+   "era": "E18",
+   "from_height": 218982375,
+   "from_utc": "2026-10-07T19:53:19Z",
+   "to_height": null,
+   "code_hash": "BtA1BEFNS619KkvXFsgcpQ21Tb5yMm32aaUkn7xNothk",
+   "sha256": "a1afab98916d9f213746544dcf8e4e6bdb22c0be6bc5dfbd8ea8814c9922b547",
+   "bytes": 1297551,
+   "deployment_receipt": "DT9k3aEn1RNmejzPRpJdK5eum3gD7UwYtrdH2B7gkKHJ"
+  }
+ ]
+}

@@ -1,0 +1,2490 @@
+{
+ "traces": 400,
+ "mock_traces": 400,
+ "seeds": [
+  20261112
+ ],
+ "receipts": 45833,
+ "gas_and_deposit_refund_receipts_not_listed": 52111,
+ "blocks_observed": 38838,
+ "blocks_with_nothing_pending": 11251,
+ "backing_inequalities_checked_after_receipts": 183332,
+ "quiescent_equalities_checked": 45004,
+ "operations": {
+  "acl": 909,
+  "auth": 956,
+  "deposit": 4851,
+  "donate": 345,
+  "force_transfer": 569,
+  "force_withdraw": 700,
+  "guarded": 468,
+  "intent": 1939,
+  "key": 312,
+  "lock": 717,
+  "mt_deposit": 1540,
+  "mt_donate": 111,
+  "mt_withdraw": 802,
+  "noise": 217,
+  "pause": 779,
+  "private_callback": 451,
+  "private_direct": 832,
+  "self_token": 445,
+  "stub_deposit": 1075,
+  "transfer": 1102,
+  "transfer_call": 474,
+  "unpause": 538,
+  "withdraw": 3025
+ },
+ "operations_with_injected_faults": 3098,
+ "operations_with_gas_limit": 361,
+ "max_operations_pending_at_once": 11,
+ "calls": {
+  "alice.near::<Transfer>": {
+   "ok": 6,
+   "failed": 0
+  },
+  "alice.near::ft_on_transfer": {
+   "ok": 0,
+   "failed": 40
+  },
+  "alice.near::ft_transfer": {
+   "ok": 0,
+   "failed": 6
+  },
+  "alice.near::ft_transfer_call": {
+   "ok": 0,
+   "failed": 1
+  },
+  "alice.near::mt_on_transfer": {
+   "ok": 0,
+   "failed": 45
+  },
+  "bob.near::<Transfer>": {
+   "ok": 21,
+   "failed": 0
+  },
+  "bob.near::ft_on_transfer": {
+   "ok": 0,
+   "failed": 43
+  },
+  "bob.near::ft_transfer": {
+   "ok": 0,
+   "failed": 4
+  },
+  "bob.near::ft_transfer_call": {
+   "ok": 0,
+   "failed": 3
+  },
+  "bob.near::mt_on_transfer": {
+   "ok": 0,
+   "failed": 30
+  },
+  "carol.near::<Transfer>": {
+   "ok": 7,
+   "failed": 0
+  },
+  "carol.near::ft_on_transfer": {
+   "ok": 0,
+   "failed": 41
+  },
+  "carol.near::mt_on_transfer": {
+   "ok": 0,
+   "failed": 20
+  },
+  "evil.near::f_do_ft_withdraw": {
+   "ok": 25,
+   "failed": 0
+  },
+  "evil.near::f_do_mt_withdraw": {
+   "ok": 27,
+   "failed": 0
+  },
+  "evil.near::f_do_native_withdraw": {
+   "ok": 25,
+   "failed": 0
+  },
+  "evil.near::f_do_storage_deposit": {
+   "ok": 21,
+   "failed": 0
+  },
+  "evil.near::f_ft_resolve_deposit": {
+   "ok": 25,
+   "failed": 0
+  },
+  "evil.near::f_ft_resolve_withdraw": {
+   "ok": 24,
+   "failed": 0
+  },
+  "evil.near::f_mt_resolve_deposit": {
+   "ok": 29,
+   "failed": 0
+  },
+  "evil.near::f_mt_resolve_transfer": {
+   "ok": 27,
+   "failed": 0
+  },
+  "evil.near::f_mt_resolve_withdraw": {
+   "ok": 16,
+   "failed": 0
+  },
+  "evil.near::nope": {
+   "ok": 0,
+   "failed": 219
+  },
+  "evil.near::s_do_ft_withdraw": {
+   "ok": 20,
+   "failed": 0
+  },
+  "evil.near::s_do_mt_withdraw": {
+   "ok": 28,
+   "failed": 0
+  },
+  "evil.near::s_do_native_withdraw": {
+   "ok": 28,
+   "failed": 0
+  },
+  "evil.near::s_do_storage_deposit": {
+   "ok": 30,
+   "failed": 0
+  },
+  "evil.near::s_ft_resolve_deposit": {
+   "ok": 31,
+   "failed": 0
+  },
+  "evil.near::s_ft_resolve_withdraw": {
+   "ok": 19,
+   "failed": 0
+  },
+  "evil.near::s_mt_resolve_deposit": {
+   "ok": 23,
+   "failed": 0
+  },
+  "evil.near::s_mt_resolve_transfer": {
+   "ok": 28,
+   "failed": 0
+  },
+  "evil.near::s_mt_resolve_withdraw": {
+   "ok": 25,
+   "failed": 0
+  },
+  "evil.near::yes": {
+   "ok": 232,
+   "failed": 0
+  },
+  "forcer.near::ft_on_transfer": {
+   "ok": 0,
+   "failed": 4
+  },
+  "forcer.near::mt_on_transfer": {
+   "ok": 0,
+   "failed": 7
+  },
+  "ghost.near::<Transfer>": {
+   "ok": 0,
+   "failed": 13
+  },
+  "ghost.near::ft_on_transfer": {
+   "ok": 0,
+   "failed": 1
+  },
+  "ghost.near::mt_on_transfer": {
+   "ok": 0,
+   "failed": 68
+  },
+  "intents.near::<AddKey>": {
+   "ok": 6,
+   "failed": 1
+  },
+  "intents.near::<DeleteKey>": {
+   "ok": 0,
+   "failed": 9
+  },
+  "intents.near::<Transfer>": {
+   "ok": 245,
+   "failed": 0
+  },
+  "intents.near::acl_add_admin": {
+   "ok": 84,
+   "failed": 3
+  },
+  "intents.near::acl_add_super_admin": {
+   "ok": 99,
+   "failed": 0
+  },
+  "intents.near::acl_grant_role": {
+   "ok": 183,
+   "failed": 10
+  },
+  "intents.near::acl_init_super_admin": {
+   "ok": 0,
+   "failed": 97
+  },
+  "intents.near::acl_renounce_admin": {
+   "ok": 78,
+   "failed": 3
+  },
+  "intents.near::acl_renounce_role": {
+   "ok": 47,
+   "failed": 3
+  },
+  "intents.near::acl_revoke_admin": {
+   "ok": 70,
+   "failed": 4
+  },
+  "intents.near::acl_revoke_role": {
+   "ok": 129,
+   "failed": 4
+  },
+  "intents.near::acl_revoke_super_admin": {
+   "ok": 48,
+   "failed": 1
+  },
+  "intents.near::acl_transfer_super_admin": {
+   "ok": 106,
+   "failed": 0
+  },
+  "intents.near::add_full_access_key": {
+   "ok": 7,
+   "failed": 24
+  },
+  "intents.near::add_public_key": {
+   "ok": 76,
+   "failed": 80
+  },
+  "intents.near::add_relayer_key": {
+   "ok": 13,
+   "failed": 32
+  },
+  "intents.near::admin_call": {
+   "ok": 14,
+   "failed": 23
+  },
+  "intents.near::cleanup_nonces": {
+   "ok": 18,
+   "failed": 25
+  },
+  "intents.near::delete_key": {
+   "ok": 9,
+   "failed": 39
+  },
+  "intents.near::delete_relayer_key": {
+   "ok": 0,
+   "failed": 39
+  },
+  "intents.near::disable_auth_by_predecessor_id": {
+   "ok": 181,
+   "failed": 91
+  },
+  "intents.near::do_add_relayer_key": {
+   "ok": 13,
+   "failed": 50
+  },
+  "intents.near::do_auth_call": {
+   "ok": 0,
+   "failed": 54
+  },
+  "intents.near::do_ft_withdraw": {
+   "ok": 76,
+   "failed": 104
+  },
+  "intents.near::do_mt_withdraw": {
+   "ok": 5,
+   "failed": 108
+  },
+  "intents.near::do_native_withdraw": {
+   "ok": 57,
+   "failed": 119
+  },
+  "intents.near::do_nft_withdraw": {
+   "ok": 0,
+   "failed": 46
+  },
+  "intents.near::do_storage_deposit": {
+   "ok": 50,
+   "failed": 95
+  },
+  "intents.near::execute_intents": {
+   "ok": 1057,
+   "failed": 882
+  },
+  "intents.near::force_disable_auth_by_predecessor_ids": {
+   "ok": 92,
+   "failed": 78
+  },
+  "intents.near::force_enable_auth_by_predecessor_ids": {
+   "ok": 357,
+   "failed": 157
+  },
+  "intents.near::force_lock_account": {
+   "ok": 179,
+   "failed": 141
+  },
+  "intents.near::force_unlock_account": {
+   "ok": 198,
+   "failed": 148
+  },
+  "intents.near::ft_force_withdraw": {
+   "ok": 210,
+   "failed": 250
+  },
+  "intents.near::ft_on_transfer": {
+   "ok": 5260,
+   "failed": 676
+  },
+  "intents.near::ft_resolve_deposit": {
+   "ok": 0,
+   "failed": 100
+  },
+  "intents.near::ft_resolve_withdraw": {
+   "ok": 2475,
+   "failed": 129
+  },
+  "intents.near::ft_withdraw": {
+   "ok": 1707,
+   "failed": 1428
+  },
+  "intents.near::invalidate_salts": {
+   "ok": 15,
+   "failed": 33
+  },
+  "intents.near::mt_balance_of": {
+   "ok": 72,
+   "failed": 0
+  },
+  "intents.near::mt_batch_transfer": {
+   "ok": 13,
+   "failed": 260
+  },
+  "intents.near::mt_force_batch_transfer": {
+   "ok": 34,
+   "failed": 92
+  },
+  "intents.near::mt_force_batch_transfer_call": {
+   "ok": 42,
+   "failed": 115
+  },
+  "intents.near::mt_force_transfer": {
+   "ok": 43,
+   "failed": 98
+  },
+  "intents.near::mt_force_transfer_call": {
+   "ok": 37,
+   "failed": 108
+  },
+  "intents.near::mt_force_withdraw": {
+   "ok": 32,
+   "failed": 96
+  },
+  "intents.near::mt_on_transfer": {
+   "ok": 1334,
+   "failed": 140
+  },
+  "intents.near::mt_resolve_deposit": {
+   "ok": 0,
+   "failed": 108
+  },
+  "intents.near::mt_resolve_transfer": {
+   "ok": 223,
+   "failed": 163
+  },
+  "intents.near::mt_resolve_withdraw": {
+   "ok": 493,
+   "failed": 112
+  },
+  "intents.near::mt_transfer": {
+   "ok": 278,
+   "failed": 551
+  },
+  "intents.near::mt_transfer_call": {
+   "ok": 183,
+   "failed": 291
+  },
+  "intents.near::mt_withdraw": {
+   "ok": 263,
+   "failed": 539
+  },
+  "intents.near::new": {
+   "ok": 0,
+   "failed": 71
+  },
+  "intents.near::nft_force_withdraw": {
+   "ok": 0,
+   "failed": 112
+  },
+  "intents.near::nft_resolve_deposit": {
+   "ok": 0,
+   "failed": 56
+  },
+  "intents.near::nft_resolve_withdraw": {
+   "ok": 0,
+   "failed": 43
+  },
+  "intents.near::pa_pause_feature": {
+   "ok": 357,
+   "failed": 258
+  },
+  "intents.near::pa_unpause_feature": {
+   "ok": 523,
+   "failed": 179
+  },
+  "intents.near::remove_public_key": {
+   "ok": 76,
+   "failed": 80
+  },
+  "intents.near::set_fee": {
+   "ok": 7,
+   "failed": 20
+  },
+  "intents.near::set_fee_collector": {
+   "ok": 11,
+   "failed": 57
+  },
+  "intents.near::state_migrate": {
+   "ok": 0,
+   "failed": 47
+  },
+  "intents.near::update_current_salt": {
+   "ok": 14,
+   "failed": 32
+  },
+  "intents.near::upgrade": {
+   "ok": 0,
+   "failed": 36
+  },
+  "mt.near::force_lock_account": {
+   "ok": 7,
+   "failed": 12
+  },
+  "mt.near::force_unlock_account": {
+   "ok": 14,
+   "failed": 18
+  },
+  "mt.near::ft_on_transfer": {
+   "ok": 27,
+   "failed": 4
+  },
+  "mt.near::mt_batch_transfer": {
+   "ok": 236,
+   "failed": 59
+  },
+  "mt.near::mt_batch_transfer_call": {
+   "ok": 392,
+   "failed": 78
+  },
+  "mt.near::mt_on_transfer": {
+   "ok": 0,
+   "failed": 4
+  },
+  "mt.near::mt_resolve_transfer": {
+   "ok": 1565,
+   "failed": 0
+  },
+  "mt.near::mt_transfer": {
+   "ok": 76,
+   "failed": 35
+  },
+  "mt.near::mt_transfer_call": {
+   "ok": 1173,
+   "failed": 89
+  },
+  "mt.near::storage_deposit": {
+   "ok": 0,
+   "failed": 16
+  },
+  "owner.near::ft_on_transfer": {
+   "ok": 0,
+   "failed": 13
+  },
+  "owner.near::mt_on_transfer": {
+   "ok": 0,
+   "failed": 12
+  },
+  "recv1.near::ft_on_transfer": {
+   "ok": 162,
+   "failed": 26
+  },
+  "recv1.near::mt_on_transfer": {
+   "ok": 157,
+   "failed": 19
+  },
+  "recv2.near::ft_on_transfer": {
+   "ok": 172,
+   "failed": 26
+  },
+  "recv2.near::mt_on_transfer": {
+   "ok": 55,
+   "failed": 14
+  },
+  "stub.near::ft_transfer": {
+   "ok": 328,
+   "failed": 16
+  },
+  "stub.near::ft_transfer_call": {
+   "ok": 231,
+   "failed": 11
+  },
+  "stub.near::mint": {
+   "ok": 1075,
+   "failed": 0
+  },
+  "stub.near::storage_deposit": {
+   "ok": 13,
+   "failed": 1
+  },
+  "token.near::ft_resolve_transfer": {
+   "ok": 3339,
+   "failed": 20
+  },
+  "token.near::ft_transfer": {
+   "ok": 864,
+   "failed": 251
+  },
+  "token.near::ft_transfer_call": {
+   "ok": 3351,
+   "failed": 367
+  },
+  "token.near::storage_deposit": {
+   "ok": 33,
+   "failed": 2
+  },
+  "unreg.near::<Transfer>": {
+   "ok": 10,
+   "failed": 0
+  },
+  "unreg.near::ft_on_transfer": {
+   "ok": 0,
+   "failed": 4
+  },
+  "unreg.near::mt_on_transfer": {
+   "ok": 0,
+   "failed": 5
+  },
+  "unreg.near::storage_deposit": {
+   "ok": 0,
+   "failed": 9
+  },
+  "wrap.near::ft_resolve_transfer": {
+   "ok": 1700,
+   "failed": 3
+  },
+  "wrap.near::ft_transfer": {
+   "ok": 324,
+   "failed": 77
+  },
+  "wrap.near::ft_transfer_call": {
+   "ok": 1690,
+   "failed": 179
+  },
+  "wrap.near::near_withdraw": {
+   "ok": 188,
+   "failed": 13
+  },
+  "wrap.near::storage_deposit": {
+   "ok": 49,
+   "failed": 8
+  }
+ },
+ "deposits": {
+  "caller that is no token: credited": 1117,
+  "caller that is no token: rejected": 403,
+  "token: credited": 5477,
+  "token: rejected": 413
+ },
+ "withdrawals": {
+  "ft/mt transfer delivered": 797,
+  "ft/mt transfer delivered (nested calls)": 2,
+  "of an id no contract backs": 512,
+  "transfer failed, refunded": 240,
+  "transfer_call accepted in full": 114,
+  "transfer_call accepted in full (nested calls)": 3,
+  "transfer_call accepted in part": 75,
+  "transfer_call accepted in part (nested calls)": 44,
+  "transfer_call failed": 108,
+  "transfer_call returned everything": 334,
+  "transfer_call returned everything (nested calls)": 3
+ },
+ "withdrawals_with_other_ledger_changes_before_their_callback": 759,
+ "signed_intents": {
+  "ft_withdraw: call failed": 468,
+  "ft_withdraw: executed": 581,
+  "mt_withdraw: call failed": 150,
+  "mt_withdraw: executed": 198,
+  "native_withdraw: call failed": 89,
+  "native_withdraw: executed": 62,
+  "set_auth_by_predecessor_id: call failed": 37,
+  "set_auth_by_predecessor_id: executed": 51,
+  "storage_deposit: call failed": 30,
+  "storage_deposit: executed": 55,
+  "transfer: call failed": 287,
+  "transfer: executed": 233
+ },
+ "private_callback_attempts": {
+  "direct": 905,
+  "as_callback": 451
+ },
+ "calls_to_paused_entry_points": 204,
+ "spends_by_locked_accounts": 130,
+ "calls_by_accounts_with_auth_by_predecessor_off": 223,
+ "guarded_calls_by_accounts_without_the_permission": 2268,
+ "of_them_rejected_with_insufficient_permissions": 1834,
+ "guarded_calls": {
+  "acl_add_admin": {
+   "may change the role table": {
+    "ok": 55,
+    "failed": 1
+   },
+   "may not": {
+    "ok": 29,
+    "failed": 2
+   }
+  },
+  "acl_add_super_admin": {
+   "may change the role table": {
+    "ok": 25,
+    "failed": 0
+   },
+   "may not": {
+    "ok": 74,
+    "failed": 0
+   }
+  },
+  "acl_grant_role": {
+   "may change the role table": {
+    "ok": 74,
+    "failed": 1
+   },
+   "may not": {
+    "ok": 109,
+    "failed": 9
+   }
+  },
+  "acl_revoke_admin": {
+   "may change the role table": {
+    "ok": 17,
+    "failed": 1
+   },
+   "may not": {
+    "ok": 53,
+    "failed": 3
+   }
+  },
+  "acl_revoke_role": {
+   "may change the role table": {
+    "ok": 41,
+    "failed": 1
+   },
+   "may not": {
+    "ok": 88,
+    "failed": 3
+   }
+  },
+  "acl_revoke_super_admin": {
+   "may change the role table": {
+    "ok": 22,
+    "failed": 1
+   },
+   "may not": {
+    "ok": 26,
+    "failed": 0
+   }
+  },
+  "acl_transfer_super_admin": {
+   "may change the role table": {
+    "ok": 78,
+    "failed": 0
+   },
+   "may not": {
+    "ok": 28,
+    "failed": 0
+   }
+  },
+  "add_full_access_key": {
+   "holds a required role": {
+    "ok": 7,
+    "failed": 0
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 6
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 16
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 2
+   }
+  },
+  "add_relayer_key": {
+   "holds a required role": {
+    "ok": 13,
+    "failed": 2
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 3
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 27
+   }
+  },
+  "admin_call": {
+   "holds a required role": {
+    "ok": 14,
+    "failed": 0
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 4
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 19
+   }
+  },
+  "cleanup_nonces": {
+   "holds a required role": {
+    "ok": 18,
+    "failed": 2
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 1
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 20
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 2
+   }
+  },
+  "delete_key": {
+   "holds a required role": {
+    "ok": 9,
+    "failed": 0
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 6
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 31
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 2
+   }
+  },
+  "delete_relayer_key": {
+   "holds a required role": {
+    "ok": 0,
+    "failed": 12
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 5
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 20
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 2
+   }
+  },
+  "force_disable_auth_by_predecessor_ids": {
+   "admin of a required role, holds none": {
+    "ok": 0,
+    "failed": 4
+   },
+   "holds a required role": {
+    "ok": 92,
+    "failed": 8
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 14
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 46
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 6
+   }
+  },
+  "force_enable_auth_by_predecessor_ids": {
+   "holds a required role": {
+    "ok": 357,
+    "failed": 5
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 37
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 109
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 6
+   }
+  },
+  "force_lock_account": {
+   "admin of a required role, holds none": {
+    "ok": 0,
+    "failed": 3
+   },
+   "holds a required role": {
+    "ok": 179,
+    "failed": 7
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 37
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 90
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 4
+   }
+  },
+  "force_unlock_account": {
+   "holds a required role": {
+    "ok": 198,
+    "failed": 4
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 32
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 108
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 4
+   }
+  },
+  "ft_force_withdraw": {
+   "admin of a required role, holds none": {
+    "ok": 0,
+    "failed": 7
+   },
+   "holds a required role": {
+    "ok": 210,
+    "failed": 53
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 43
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 137
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 10
+   }
+  },
+  "invalidate_salts": {
+   "holds a required role": {
+    "ok": 15,
+    "failed": 0
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 5
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 28
+   }
+  },
+  "mt_force_batch_transfer": {
+   "admin of a required role, holds none": {
+    "ok": 0,
+    "failed": 3
+   },
+   "holds a required role": {
+    "ok": 34,
+    "failed": 35
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 4
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 49
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 1
+   }
+  },
+  "mt_force_batch_transfer_call": {
+   "admin of a required role, holds none": {
+    "ok": 0,
+    "failed": 4
+   },
+   "holds a required role": {
+    "ok": 42,
+    "failed": 32
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 11
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 64
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 4
+   }
+  },
+  "mt_force_transfer": {
+   "admin of a required role, holds none": {
+    "ok": 0,
+    "failed": 3
+   },
+   "holds a required role": {
+    "ok": 43,
+    "failed": 29
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 8
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 55
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 3
+   }
+  },
+  "mt_force_transfer_call": {
+   "admin of a required role, holds none": {
+    "ok": 0,
+    "failed": 1
+   },
+   "holds a required role": {
+    "ok": 37,
+    "failed": 47
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 13
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 43
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 4
+   }
+  },
+  "mt_force_withdraw": {
+   "admin of a required role, holds none": {
+    "ok": 0,
+    "failed": 1
+   },
+   "holds a required role": {
+    "ok": 32,
+    "failed": 37
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 12
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 41
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 5
+   }
+  },
+  "nft_force_withdraw": {
+   "admin of a required role, holds none": {
+    "ok": 0,
+    "failed": 2
+   },
+   "holds a required role": {
+    "ok": 0,
+    "failed": 48
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 10
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 52
+   }
+  },
+  "pa_pause_feature": {
+   "admin of a required role, holds none": {
+    "ok": 0,
+    "failed": 16
+   },
+   "holds a required role": {
+    "ok": 357,
+    "failed": 8
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 46
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 177
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 11
+   }
+  },
+  "pa_unpause_feature": {
+   "holds a required role": {
+    "ok": 523,
+    "failed": 5
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 53
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 112
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 9
+   }
+  },
+  "set_fee": {
+   "holds a required role": {
+    "ok": 7,
+    "failed": 1
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 4
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 14
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 1
+   }
+  },
+  "set_fee_collector": {
+   "holds a required role": {
+    "ok": 11,
+    "failed": 12
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 9
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 36
+   }
+  },
+  "update_current_salt": {
+   "holds a required role": {
+    "ok": 14,
+    "failed": 1
+   },
+   "holds no role": {
+    "ok": 0,
+    "failed": 8
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 21
+   },
+   "super-admin, holds no role": {
+    "ok": 0,
+    "failed": 2
+   }
+  },
+  "upgrade": {
+   "holds no role": {
+    "ok": 0,
+    "failed": 7
+   },
+   "holds other roles only": {
+    "ok": 0,
+    "failed": 29
+   }
+  }
+ },
+ "guarded_calls_by_role_of_the_caller": {
+  "add_full_access_key": {
+   "DAO": {
+    "ok": 7,
+    "failed": 0
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 3
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 1
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 1
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 8
+   }
+  },
+  "add_relayer_key": {
+   "DAO": {
+    "ok": 8,
+    "failed": 0
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 3
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "RelayerKeysManager": {
+    "ok": 5,
+    "failed": 2
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 3
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 2
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 3
+   }
+  },
+  "admin_call": {
+   "DAO": {
+    "ok": 14,
+    "failed": 0
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 2
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 2
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 1
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 4
+   }
+  },
+  "cleanup_nonces": {
+   "DAO": {
+    "ok": 6,
+    "failed": 0
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "GarbageCollector": {
+    "ok": 12,
+    "failed": 2
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 3
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 3
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 3
+   }
+  },
+  "delete_key": {
+   "DAO": {
+    "ok": 9,
+    "failed": 0
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 2
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 7
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 2
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 2
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 8
+   }
+  },
+  "delete_relayer_key": {
+   "DAO": {
+    "ok": 0,
+    "failed": 8
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 1
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 3
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 1
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 7
+   }
+  },
+  "force_disable_auth_by_predecessor_ids": {
+   "DAO": {
+    "ok": 17,
+    "failed": 2
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 5
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 9
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 7
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 10
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 51,
+    "failed": 3
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 24,
+    "failed": 3
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 28,
+    "failed": 5
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 6
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 2
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 24
+   }
+  },
+  "force_enable_auth_by_predecessor_ids": {
+   "DAO": {
+    "ok": 88,
+    "failed": 2
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 10
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 10
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 19
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 10
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 12
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 19
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 94,
+    "failed": 8
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 79,
+    "failed": 0
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 190,
+    "failed": 3
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 12
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 16
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 43
+   }
+  },
+  "force_lock_account": {
+   "DAO": {
+    "ok": 26,
+    "failed": 2
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 6
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 11
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 6
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 14
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 120,
+    "failed": 1
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 33,
+    "failed": 4
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 75,
+    "failed": 38
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 1,
+    "failed": 8
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 7
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 44
+   }
+  },
+  "force_unlock_account": {
+   "DAO": {
+    "ok": 28,
+    "failed": 0
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 8
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 11
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 12
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 6
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 14
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 91,
+    "failed": 40
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 30,
+    "failed": 2
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 140,
+    "failed": 2
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 10
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 7
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 36
+   }
+  },
+  "ft_force_withdraw": {
+   "DAO": {
+    "ok": 93,
+    "failed": 27
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 9
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 8
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 24
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 15
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 11
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 19
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 22
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 11
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 19
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 117,
+    "failed": 26
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 11
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 60
+   }
+  },
+  "invalidate_salts": {
+   "DAO": {
+    "ok": 7,
+    "failed": 0
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 3
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "SaltManager": {
+    "ok": 8,
+    "failed": 0
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 2
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 2
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 5
+   }
+  },
+  "mt_force_batch_transfer": {
+   "DAO": {
+    "ok": 18,
+    "failed": 14
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 7
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 3
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 10
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 10
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 7
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 8
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 16,
+    "failed": 21
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 2
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 8
+   }
+  },
+  "mt_force_batch_transfer_call": {
+   "DAO": {
+    "ok": 20,
+    "failed": 15
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 6
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 5
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 6
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 9
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 6
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 9
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 6
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 8
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 22,
+    "failed": 17
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 8
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 19
+   }
+  },
+  "mt_force_transfer": {
+   "DAO": {
+    "ok": 17,
+    "failed": 20
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 4
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 7
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 6
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 10
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 13
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 26,
+    "failed": 9
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 3
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 14
+   }
+  },
+  "mt_force_transfer_call": {
+   "DAO": {
+    "ok": 20,
+    "failed": 31
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 3
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 6
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 7
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 10
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 17,
+    "failed": 16
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 4
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 18
+   }
+  },
+  "mt_force_withdraw": {
+   "DAO": {
+    "ok": 18,
+    "failed": 18
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 4
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 6
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 14,
+    "failed": 19
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 5
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 18
+   }
+  },
+  "nft_force_withdraw": {
+   "DAO": {
+    "ok": 0,
+    "failed": 27
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 5
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 7
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 7
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 6
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 7
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 7
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 21
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 4
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 12
+   }
+  },
+  "pa_pause_feature": {
+   "DAO": {
+    "ok": 109,
+    "failed": 3
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 13
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 14
+   },
+   "PauseManager": {
+    "ok": 248,
+    "failed": 5
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 14
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 14
+   },
+   "UnpauseManager": {
+    "ok": 119,
+    "failed": 59
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 23
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 1,
+    "failed": 12
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 18
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 1,
+    "failed": 16
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 9
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 73
+   }
+  },
+  "pa_unpause_feature": {
+   "DAO": {
+    "ok": 74,
+    "failed": 2
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 10
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 4
+   },
+   "PauseManager": {
+    "ok": 344,
+    "failed": 48
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 7
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnpauseManager": {
+    "ok": 449,
+    "failed": 3
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 14
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 8
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 16
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 6
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 5
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 62
+   }
+  },
+  "set_fee": {
+   "DAO": {
+    "ok": 3,
+    "failed": 1
+   },
+   "FeesManager": {
+    "ok": 4,
+    "failed": 0
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 6
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 2
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 5
+   }
+  },
+  "set_fee_collector": {
+   "DAO": {
+    "ok": 6,
+    "failed": 4
+   },
+   "FeesManager": {
+    "ok": 5,
+    "failed": 8
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 3
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 3
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 4
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 9
+   }
+  },
+  "update_current_salt": {
+   "DAO": {
+    "ok": 6,
+    "failed": 0
+   },
+   "FeesManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 4
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "SaltManager": {
+    "ok": 8,
+    "failed": 1
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 2
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 2
+   },
+   "Upgrader": {
+    "ok": 0,
+    "failed": 2
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 10
+   }
+  },
+  "upgrade": {
+   "FeesManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "GarbageCollector": {
+    "ok": 0,
+    "failed": 4
+   },
+   "PauseManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "RelayerKeysManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "SaltManager": {
+    "ok": 0,
+    "failed": 1
+   },
+   "UnpauseManager": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnrestrictedAccountLocker": {
+    "ok": 0,
+    "failed": 4
+   },
+   "UnrestrictedAccountManager": {
+    "ok": 0,
+    "failed": 3
+   },
+   "UnrestrictedAccountUnlocker": {
+    "ok": 0,
+    "failed": 5
+   },
+   "UnrestrictedWithdrawer": {
+    "ok": 0,
+    "failed": 4
+   },
+   "no role": {
+    "ok": 0,
+    "failed": 7
+   }
+  }
+ },
+ "guarded_method_and_role_pairs_never_tried": [
+  "set_fee by GarbageCollector",
+  "set_fee by RelayerKeysManager",
+  "set_fee by SaltManager",
+  "set_fee by Upgrader",
+  "upgrade by DAO",
+  "upgrade by Upgrader"
+ ],
+ "token_replies_read_by_ft_resolve_withdraw": {
+  "ft_transfer: failed": 325,
+  "ft_transfer: succeeded with a value": 75,
+  "ft_transfer: succeeded with no value": 1133,
+  "ft_transfer_call: 43 bytes": 22,
+  "ft_transfer_call: 44 bytes": 42,
+  "ft_transfer_call: 45 bytes": 40,
+  "ft_transfer_call: 46 bytes": 25,
+  "ft_transfer_call: failed": 187,
+  "ft_transfer_call: reports more than the amount": 35,
+  "ft_transfer_call: up to 42 bytes": 649
+ },
+ "probe_operations": {
+  "auth_flag": 317,
+  "bounds": 350,
+  "edges": 370,
+  "forced": 274,
+  "grants": 508,
+  "intents_pause": 210,
+  "keys": 606,
+  "lock_roles": 445,
+  "pause_roles": 341,
+  "replies": 212,
+  "role_sweep": 453
+ },
+ "receipts_moving_2^127_or_more": 149,
+ "times_a_supply_reached_u128_max": 78,
+ "unnotified_inflows": 414,
+ "traces_with_violations": 400,
+ "violations": {
+  "overcredit": 800,
+  "own_callback_failed": 75,
+  "tx_overcredit": 2888,
+  "tx_stranded": 185,
+  "withdraw_inexact": 108
+ },
+ "violation_detail": {
+  "own_callback_failed | fault injected | do_ft_withdraw: Panic(\"near_withdraw failed\")": 2,
+  "own_callback_failed | fault injected | do_mt_withdraw: Panic(\"near_withdraw failed\")": 1,
+  "own_callback_failed | fault injected | do_native_withdraw: Panic(\"near_withdraw failed\")": 5,
+  "own_callback_failed | fault injected | do_storage_deposit: Panic(\"near_withdraw failed\")": 5,
+  "own_callback_failed | fault injected | ft_resolve_withdraw: Panic(\"insufficient balance or overflow\") | in the probe bounds": 23,
+  "own_callback_failed | fault injected | mt_resolve_transfer: OutOfGas | in the probe edges": 39,
+  "tx_overcredit | fault injected | other": 419,
+  "tx_overcredit | fault injected | the token's own *_resolve_transfer failed": 2,
+  "tx_overcredit | no fault injected | other": 2467,
+  "tx_stranded | fault injected | other": 1,
+  "tx_stranded | fault injected | the contract's *_transfer_call to the token failed; the debit was kept": 70,
+  "tx_stranded | fault injected | the contract's near_withdraw on wNEAR failed; the wNEAR debit was kept": 12,
+  "tx_stranded | fault injected | the token's own *_resolve_transfer failed": 1,
+  "tx_stranded | no fault injected | other": 1,
+  "tx_stranded | no fault injected | the contract's *_transfer_call to the token failed; the debit was kept": 100,
+  "withdraw_inexact | fault injected | is_call=True token_call_ok=False": 50,
+  "withdraw_inexact | no fault injected | is_call=True token_call_ok=False": 58
+ },
+ "simulator_and_harness_failures": {
+  "sim_panic": 0,
+  "unsettled": 0,
+  "derive_mismatch": 0,
+  "view_errors": 0,
+  "derive_errors": 0
+ }
+}

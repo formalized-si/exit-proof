@@ -1,0 +1,10 @@
+Third-party material in this directory
+
+wasm/staking_pool.wasm
+  Unmodified build artifact of the NEAR staking-pool contract v0.4.0, copied from
+  https://github.com/near/core-contracts at commit 1cacc9dbd57db7af2504c181edd707299869bce7,
+  path staking-pool/res/staking_pool.wasm
+  (sha256 fcbcf3f3721d9ca92be6b3ecd109c91909bfc435a969bf4c7c43215be6c4a6b7,
+  NEAR code hash J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY).
+  near/core-contracts is licensed under MIT OR Apache-2.0 (LICENSE-MIT and LICENSE-APACHE in
+  that repository). ./fetch-wasm.sh downloads the file again from that commit and checks it.

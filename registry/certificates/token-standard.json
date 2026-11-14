@@ -1,0 +1,40 @@
+{
+ "code_hash": "3Ty4ENxJ4EicohgXi9E2txgbqMh3DWSshPrtXxY8pksm",
+ "dir": "token-standard",
+ "certificate": {
+  "kind": "token-standard",
+  "family": "near-contract-standards 5.29.0 FungibleToken + storage management; reference build of near-sdk-rs examples/fungible-token (tag near-sdk-v5.29.0)",
+  "statement": "In the Lean model of the library: total_supply equals the sum of balances in every reachable state; the ft_transfer_call settlement refunds at most the transferred amount and at most what the receiver still holds, conserving sender plus receiver (or burning if the sender unregistered); the settlement callback has effect only when the token itself is the caller; no call by anyone else lowers a holder's balance except the settlement of a transfer made to that holder; unregister and storage deposit behave as stated in PROPERTIES.md. This wasm conforms to the model on the kit's traces.",
+  "theorems": [
+   "ProvedFT.P1_conservation",
+   "ProvedFT.P1_inv_step",
+   "ProvedFT.P2_settlement",
+   "ProvedFT.P2_settlement_call",
+   "ProvedFT.P2_settlement_never_fails",
+   "ProvedFT.P3_callback_private",
+   "ProvedFT.P3_callback_private_sys",
+   "ProvedFT.P4_balance_ownership",
+   "ProvedFT.P4_who_can_lower",
+   "ProvedFT.P5_storage_solvent"
+  ],
+  "axioms": [
+   "propext",
+   "Quot.sound",
+   "Classical.choice"
+  ],
+  "assumptions": [
+   "Conformance of the wasm to the model is tested on 1000 traces, not proved for all inputs.",
+   "No access keys on the token account.",
+   "Methods a token adds on top of the library (mint, burn, pause, owner) are outside this certificate.",
+   "The settlement callback gets exactly 5 Tgas as in the library; running out of gas is a failed receipt."
+  ],
+  "binding": "wasm sha256 249fdb762cce89e47ca7fd6a1265ce4896ba5a23a47c49cd3335b19b518f5f74, rebuilt byte-identically from near-sdk-rs tag near-sdk-v5.29.0 with cargo-near",
+  "conformance": {
+   "traces": 1000,
+   "calls": 33118,
+   "mismatches": 0,
+   "runtime": "nearcore 2.14.0 (protocol 88) via near-contract-sim; 10/10 one-line mutants (9 of the library, 1 of the example token) detected"
+  },
+  "check_command": "token-standard/check.sh; for another token: token-standard/certify-token.sh <token.wasm>"
+ }
+}

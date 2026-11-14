@@ -1,0 +1,6 @@
+{"export_file_path": ".lake/intents.ndjson", "use_stdin": false,
+ "permitted_axioms": ["propext","Classical.choice","Quot.sound"],
+ "unpermitted_axiom_hard_error": false, "nat_extension": true, "string_extension": true,
+ "pp_declars": ["Intents.T1_backing","Intents.T1_ledger_covered","Intents.T2_settles","Intents.T3_credit_only_on_arrival","Intents.T4_who_can_lower","IntentsW.W1_backing","IntentsW.W1_ledger_covered","IntentsW.W2_settles","IntentsW.W3_credit_only_on_arrival","IntentsW.W4_who_can_lower","IntentsW.N2_burn","IntentsW.N3_near_le"],
+ "pp_to_stdout": false, "pp_output_path": ".lake/intents.pp.txt",
+ "print_success_message": true}

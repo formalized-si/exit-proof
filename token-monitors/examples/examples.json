@@ -1,0 +1,23 @@
+{
+ "about": "The example configs check.sh runs. `built` names a wasm that check.sh builds from reference/; `mainnet_account` names a public mainnet account whose code check.sh downloads with a read-only view_code query and compares with `sha256` (third-party code is not stored in the kit). The mainnet examples exercise the plain NEP-141 behaviour of the code only.",
+ "examples": [
+  {"name": "reference", "config": "reference.json", "wasm": {"built": "reference"},
+   "shows": "the shortest config: an init that gives the supply to owner.near"},
+  {"name": "reference-distribution", "config": "reference-distribution.json", "wasm": {"built": "reference"},
+   "shows": "extra accounts, setup calls after init (registration and distribution), a watched account that is not an actor, a named funder"},
+  {"name": "factory-minted", "config": "factory-minted.json", "wasm": {"built": "F1_factory_minted"},
+   "shows": "an init only the factory may call, storage registration and minting after init"},
+  {"name": "tkn-factory-token", "config": "tkn-factory-token.json",
+   "wasm": {"mainnet_account": "blackdragon.tkn.near", "sha256": "2f017e64cdab85f51888572f25dbf1df24afbbd5533c8097174f03a31aefa518"},
+   "shows": "init new(owner_id, total_supply, metadata)"},
+  {"name": "ref-token", "config": "ref-token.json",
+   "wasm": {"mainnet_account": "token.v2.ref-finance.near", "sha256": "f65c41659fee5fd64afdb39ed7074dbe7bbac83d2ad5aa3c0f8d7e34b195f35a"},
+   "shows": "init new(owner, total_supply)"},
+  {"name": "default-meta-token", "config": "default-meta-token.json",
+   "wasm": {"mainnet_account": "token-emrld_pit.tesseras-labs.near", "sha256": "1403019e9dae94d1f0fd6e00609d534af61b4a97c1999e47b35e4b89ebfb1df6"},
+   "shows": "init new_default_meta(owner_id, total_supply)"},
+  {"name": "launchpad-token", "config": "launchpad-token.json",
+   "wasm": {"mainnet_account": "4illia-222.meme-cooking.near", "sha256": "d4b7b2859f63c82eea90830ac355bd9d10084f9063878fc7f2871f752e432308"},
+   "shows": "an init sent by a platform account, a token account under the platform's name, a stub for the exchange the init calls"}
+ ]
+}

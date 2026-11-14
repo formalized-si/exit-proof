@@ -1,0 +1,68 @@
+{
+ "verdict": "EXACT",
+ "counts": {
+  "traces": 2000,
+  "receipts": 55825,
+  "transfers_compared": 7499,
+  "blocks": 58022,
+  "accounts_compared": 329546
+ },
+ "mismatches": 0,
+ "first_mismatches": [],
+ "receipts_by_method": {
+  "ft_balance_of fail": 187,
+  "ft_balance_of ok": 187,
+  "ft_metadata ok": 198,
+  "ft_on_transfer fail": 203,
+  "ft_on_transfer@self fail": 4,
+  "ft_resolve_transfer fail": 1227,
+  "ft_resolve_transfer@self ok": 3122,
+  "ft_total_supply ok": 199,
+  "ft_transfer fail": 3274,
+  "ft_transfer ok": 1322,
+  "ft_transfer_call fail": 5811,
+  "ft_transfer_call ok": 3122,
+  "in ok": 1166,
+  "near_deposit fail": 1197,
+  "near_deposit ok": 16190,
+  "near_withdraw fail": 3059,
+  "near_withdraw ok": 3830,
+  "new fail": 383,
+  "storage_balance_bounds ok": 213,
+  "storage_balance_of ok": 186,
+  "storage_deposit fail": 753,
+  "storage_deposit ok": 5099,
+  "storage_minimum_balance ok": 214,
+  "storage_unregister fail": 1759,
+  "storage_unregister ok": 1686,
+  "storage_withdraw fail": 596,
+  "storage_withdraw ok": 638
+ },
+ "resolve_branches": {
+  "refund": 2507,
+  "sender-gone:burn": 38,
+  "unused=0": 301,
+  "receiver-balance=0": 187,
+  "partial-refund": 89
+ },
+ "receiver_behaviours": {
+  "bytes": 1329,
+  "json": 3534,
+  "(resolve held)": 1781,
+  "ft_transfer": 1322,
+  "panic": 894,
+  "(forced fail)": 392,
+  "storage_unregister": 614,
+  "near_withdraw": 988
+ },
+ "interleaving": {
+  "resolves": 3122,
+  "with_foreign_receipts_between": 2672,
+  "foreign_receipts_between_total": 6809
+ },
+ "resolve_max_gas_burnt": 1789126465862,
+ "actions_sent_by_wrap_near": {
+  "FunctionCall": 6244,
+  "Transfer": 7499
+ }
+}

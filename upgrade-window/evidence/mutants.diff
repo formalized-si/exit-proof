@@ -1,0 +1,95 @@
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M1_deploy_check_flipped)
+@@ -198,3 +198,3 @@
+ 
+-                if ::near_sdk::env::block_timestamp() < staging_timestamp {
++                if ::near_sdk::env::block_timestamp() > staging_timestamp {
+                     ::near_sdk::env::panic_str(
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M2_deploy_one_ns_early)
+@@ -198,3 +198,3 @@
+ 
+-                if ::near_sdk::env::block_timestamp() < staging_timestamp {
++                if ::near_sdk::env::block_timestamp().saturating_add(1) < staging_timestamp {
+                     ::near_sdk::env::panic_str(
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M3_stage_ignores_duration)
+@@ -176,3 +176,3 @@
+                     let duration = self.up_get_duration(__UpgradableStorageKey::StagingDuration).unwrap_or(0);
+-                    let timestamp = ::near_sdk::env::block_timestamp().saturating_add(duration);
++                    let timestamp = ::near_sdk::env::block_timestamp().saturating_add(duration.min(0));
+ 
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M4_hash_check_removed)
+@@ -210,3 +210,3 @@
+                 let expected_hash = ::near_sdk::bs58::encode(Self::up_hash_code(code.as_ref())).into_string();
+-                if hash != expected_hash {
++                if false && hash != expected_hash {
+                     near_sdk::env::panic_str(
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M5_duration_update_no_delay)
+@@ -249,3 +249,3 @@
+                 self.up_set_duration(__UpgradableStorageKey::NewStagingDuration, staging_duration);
+-                let staging_duration_timestamp = ::near_sdk::env::block_timestamp() + current_staging_duration;
++                let staging_duration_timestamp = ::near_sdk::env::block_timestamp() + current_staging_duration.min(0);
+                 self.up_set_timestamp(__UpgradableStorageKey::NewStagingDurationTimestamp, staging_duration_timestamp);
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M6_duration_update_written_directly)
+@@ -248,3 +248,3 @@
+ 
+-                self.up_set_duration(__UpgradableStorageKey::NewStagingDuration, staging_duration);
++                self.up_set_duration(__UpgradableStorageKey::StagingDuration, staging_duration);
+                 let staging_duration_timestamp = ::near_sdk::env::block_timestamp() + current_staging_duration;
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M7_apply_check_removed)
+@@ -258,3 +258,3 @@
+ 
+-                if ::near_sdk::env::block_timestamp() < staging_timestamp {
++                if false {
+                     ::near_sdk::env::panic_str(
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M8_reinit_allowed)
+@@ -239,3 +239,3 @@
+             fn up_init_staging_duration(&mut self, staging_duration: ::near_sdk::Duration) {
+-                ::near_sdk::require!(self.up_get_duration(__UpgradableStorageKey::StagingDuration).is_none(), "Upgradable: staging duration was already initialized");
++                ::near_sdk::require!(self.up_get_duration(__UpgradableStorageKey::StagingDuration).is_none() || true, "Upgradable: staging duration was already initialized");
+                 self.up_set_staging_duration_unchecked(staging_duration);
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M9_update_timestamp_wraps)
+@@ -249,3 +249,3 @@
+                 self.up_set_duration(__UpgradableStorageKey::NewStagingDuration, staging_duration);
+-                let staging_duration_timestamp = ::near_sdk::env::block_timestamp() + current_staging_duration;
++                let staging_duration_timestamp = ::near_sdk::env::block_timestamp().wrapping_add(current_staging_duration);
+                 self.up_set_timestamp(__UpgradableStorageKey::NewStagingDurationTimestamp, staging_duration_timestamp);
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M10_stage_timestamp_wraps)
+@@ -176,3 +176,3 @@
+                     let duration = self.up_get_duration(__UpgradableStorageKey::StagingDuration).unwrap_or(0);
+-                    let timestamp = ::near_sdk::env::block_timestamp().saturating_add(duration);
++                    let timestamp = ::near_sdk::env::block_timestamp().wrapping_add(duration);
+ 
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M11_removal_keeps_timestamp)
+@@ -172,3 +172,3 @@
+                     ::near_sdk::env::storage_remove(self.up_storage_key(__UpgradableStorageKey::Code).as_ref());
+-                    ::near_sdk::env::storage_remove(self.up_storage_key(__UpgradableStorageKey::StagingTimestamp).as_ref());
++                    let _ = self.up_storage_key(__UpgradableStorageKey::StagingTimestamp);
+                 } else {
+
+--- a/near-plugins-derive/src/upgradable.rs
++++ b/near-plugins-derive/src/upgradable.rs (M12_deploy_guarded_by_stager_roles)
+@@ -193,3 +193,3 @@
+ 
+-            #[#cratename::access_control_any(roles(#(#acl_roles_code_deployers),*))]
++            #[#cratename::access_control_any(roles(#(#acl_roles_code_stagers),*))]
+             fn up_deploy_code(&mut self, hash: String, function_call_args: Option<#cratename::upgradable::FunctionCallArgs>) -> near_sdk::Promise {

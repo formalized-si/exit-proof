@@ -1,0 +1,221 @@
+{
+ "traces": 1149,
+ "steps": 65538,
+ "calls": 55955,
+ "model_compared": true,
+ "exact_traces": 1149,
+ "mismatch_traces": 0,
+ "model_missing": 0,
+ "errtext_match": 20998,
+ "errtext_mismatch_count": 0,
+ "errtext_mismatch_examples": [],
+ "families": {
+  "faults": {
+   "traces": 100,
+   "steps": 5602,
+   "calls": 4804,
+   "fault_steps": 92,
+   "errtext_ok": 2248,
+   "exact": 100
+  },
+  "normal": {
+   "traces": 1000,
+   "steps": 57020,
+   "calls": 48687,
+   "fault_steps": 0,
+   "errtext_ok": 17669,
+   "exact": 1000
+  },
+  "overflow": {
+   "traces": 49,
+   "steps": 2916,
+   "calls": 2464,
+   "fault_steps": 20,
+   "errtext_ok": 1081,
+   "exact": 49
+  }
+ },
+ "fault_step_outcomes": [
+  {
+   "kind": "hold",
+   "step": "call",
+   "sim": "sim FAIL Exceeded the account balance.",
+   "model": "model FAIL Exceeded the account balance.",
+   "count": 44
+  },
+  {
+   "kind": "drain",
+   "step": "call",
+   "sim": "sim FAIL Exceeded the account balance.",
+   "model": "model FAIL Exceeded the account balance.",
+   "count": 22
+  },
+  {
+   "kind": "drain",
+   "step": "call",
+   "sim": "sim FAIL panicked at 'The new total balance should not be less than the old total balance', src/internal.rs:N:9",
+   "model": "model FAIL The new total balance should not be less than the old total balance",
+   "count": 22
+  },
+  {
+   "kind": "overflow",
+   "step": "env",
+   "sim": "sim ok",
+   "model": "model ok",
+   "count": 20
+  },
+  {
+   "kind": "hold",
+   "step": "call",
+   "sim": "sim FAIL panicked at 'The new total balance should not be less than the old total balance', src/internal.rs:N:9",
+   "model": "model FAIL The new total balance should not be less than the old total balance",
+   "count": 4
+  }
+ ],
+ "mismatch_kinds": {},
+ "first_mismatch_causes": [],
+ "mismatch_details": [],
+ "op_histogram": {
+  "stake_all": 3389,
+  "deposit_and_stake": 7894,
+  "unstake": 5536,
+  "withdraw": 5378,
+  "stake": 5278,
+  "env:epochs": 8927,
+  "deposit": 8067,
+  "withdraw_all": 4138,
+  "ping": 3396,
+  "unstake_all": 4025,
+  "update_staking_key": 1401,
+  "on_stake_action": 633,
+  "pause_staking": 1387,
+  "update_reward_fee_fraction": 2015,
+  "env:reward": 636,
+  "resume_staking": 1316,
+  "new": 698,
+  "vote": 1404,
+  "env:overflow": 20
+ },
+ "ok_fail_per_method": {
+  "deposit": {
+   "ok": 7964,
+   "fail": 103
+  },
+  "deposit_and_stake": {
+   "ok": 7022,
+   "fail": 872
+  },
+  "new": {
+   "fail": 698
+  },
+  "on_stake_action": {
+   "fail": 633
+  },
+  "pause_staking": {
+   "ok": 759,
+   "fail": 628
+  },
+  "ping": {
+   "ok": 3229,
+   "fail": 167
+  },
+  "resume_staking": {
+   "ok": 265,
+   "fail": 1051
+  },
+  "stake": {
+   "ok": 2193,
+   "fail": 3085
+  },
+  "stake_all": {
+   "fail": 1375,
+   "ok": 2014
+  },
+  "unstake": {
+   "ok": 2584,
+   "fail": 2952
+  },
+  "unstake_all": {
+   "ok": 2773,
+   "fail": 1252
+  },
+  "update_reward_fee_fraction": {
+   "ok": 1187,
+   "fail": 828
+  },
+  "update_staking_key": {
+   "fail": 451,
+   "ok": 950
+  },
+  "vote": {
+   "fail": 810,
+   "ok": 594
+  },
+  "withdraw": {
+   "fail": 3889,
+   "ok": 1489
+  },
+  "withdraw_all": {
+   "fail": 2204,
+   "ok": 1934
+  }
+ },
+ "error_histogram": {
+  "panicked at 'Staking amount should be positive', src/internal.rs:N:9": 2943,
+  "panicked at 'Withdrawal amount should be positive', src/internal.rs:N:9": 2374,
+  "panicked at 'Unstaking amount should be positive', src/internal.rs:N:9": 2295,
+  "panicked at 'Not enough unstaked balance to withdraw', src/internal.rs:N:9": 1636,
+  "panicked at 'The unstaked balance is not yet available due to unstaking delay', src/internal.rs:N:9": 1597,
+  "panicked at 'Not enough staked balance to unstake', src/internal.rs:N:9": 1545,
+  "panicked at 'Not enough unstaked balance to stake', src/internal.rs:N:9": 1470,
+  "Method doesn't accept deposit": 1172,
+  "panicked at 'The staking is not paused', src/lib.rs:N:9": 744,
+  "panicked at 'Already initialized', src/lib.rs:N:9": 684,
+  "panicked at 'The new total balance should not be less than the old total balance', src/internal.rs:N:9": 569,
+  "panicked at 'Invalid voting account ID', src/lib.rs:N:9": 551,
+  "panicked at 'The calculated number of \"stake\" shares received for staking should be positive', src/internal.rs:N:9": 486,
+  "panicked at 'The staking is already paused', src/lib.rs:N:9": 329,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"dave.near\"`,\n right: `\"owner.near\"`: Can only be called by the owner', src/internal.rs:N:9": 256,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"carol.near\"`,\n right: `\"owner.near\"`: Can only be called by the owner', src/internal.rs:N:9": 246,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"eve.near\"`,\n right: `\"owner.near\"`: Can only be called by the owner', src/internal.rs:N:9": 244,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"bob.near\"`,\n right: `\"owner.near\"`: Can only be called by the owner', src/internal.rs:N:9": 242,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"alice.near\"`,\n right: `\"owner.near\"`: Can only be called by the owner', src/internal.rs:N:9": 224,
+  "panicked at 'The reward fee must be less or equal to 1', src/lib.rs:N:9": 221,
+  "NewReceiptValidationError: An new action receipt created during a FunctionCall is not valid: The staking key must be ristretto compatible EDN key. secpNk1:NWji1": 216,
+  "panicked at 'assertion failed: `(left != right)`\n  left: `0`,\n right: `0`: Denominator must be a positive number', src/lib.rs:N:9": 214,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"pool.near\"`,\n right: `\"owner.near\"`: Can be called only as a callback', src/lib.rs:N:9": 108,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"pool.near\"`,\n right: `\"bob.near\"`: Can be called only as a callback', src/lib.rs:N:9": 107,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"pool.near\"`,\n right: `\"dave.near\"`: Can be called only as a callback', src/lib.rs:N:9": 105,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"pool.near\"`,\n right: `\"alice.near\"`: Can be called only as a callback', src/lib.rs:N:9": 103,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"pool.near\"`,\n right: `\"eve.near\"`: Can be called only as a callback', src/lib.rs:N:9": 100,
+  "panicked at 'assertion failed: `(left == right)`\n  left: `\"pool.near\"`,\n right: `\"carol.near\"`: Can be called only as a callback', src/lib.rs:N:9": 90,
+  "Exceeded the account balance.": 81,
+  "panicked at 'attempt to add with overflow', src/internal.rs:N:N": 46
+ },
+ "env": {
+  "conservation_violations": 0,
+  "conservation_examples": [],
+  "model_vs_sim_transfer_mismatch": 0,
+  "pua_checked": 54342,
+  "pua_violations": 0,
+  "pua_examples": [],
+  "negative_R": 0,
+  "pua_obs_only_violations": 1610,
+  "lean_pua_checked": 54342,
+  "lean_pua_violations": 0,
+  "lean_pua_examples": [],
+  "lean_cons_violations": 0,
+  "env_income_by_step_kind": {
+   "epochs": "1818329346116008728289824557",
+   "reward": "438947420955500084488470543844476136602"
+  },
+  "env_negative_delta": 0,
+  "pre_call_env_mismatch": 0,
+  "calls_crossing_epoch": 0,
+  "fault_steps_not_env_checked": 112,
+  "post_fault_steps_not_env_checked": 1780,
+  "sim_fail_model_ok": []
+ },
+ "verdict": "EXACT",
+ "problems": []
+}

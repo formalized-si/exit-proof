@@ -1,0 +1,85 @@
+{
+ "files": {
+  "axioms.txt": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:24:43Z"
+  },
+  "check_run.txt": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:24:43Z"
+  },
+  "check_run_4000.txt": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:24:43Z"
+  },
+  "clean_check_run.txt": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:55:44Z"
+  },
+  "conformance.json": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:24:43Z"
+  },
+  "conformance_1000.json": {
+   "sources": "earlier",
+   "note": "the run of 2026-11-13 by the generator with nine probes, described in harness/README.md and lean/NOTES.md, section 15"
+  },
+  "intents-code-history.json": {
+   "sources": "chain",
+   "note": "a reading of archival chain state (the code hash of intents.near at each block, 2026-11-13); it does not depend on the model or the generator"
+  },
+  "kernel_check.txt": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:24:43Z"
+  },
+  "model_mutants.json": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:24:43Z"
+  },
+  "model_mutants_by_guard.json": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:24:43Z"
+  },
+  "monitors_summary.json": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:24:43Z"
+  },
+  "monitors_summary_1000.json": {
+   "sources": "earlier",
+   "note": "the run of 2026-11-13 by the generator with nine probes, described in harness/README.md and lean/NOTES.md, section 15"
+  },
+  "monitors_summary_mock.json": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:24:43Z"
+  },
+  "monitors_summary_mock_200.json": {
+   "sources": "earlier",
+   "note": "the run of 2026-11-13 by the generator with nine probes, described in harness/README.md and lean/NOTES.md, section 15"
+  },
+  "rebuild_run.log": {
+   "sources": "earlier",
+   "note": "the rebuild of the deployed bytes from the public source (scripts/rebuild.sh); it does not depend on the model or the generator"
+  },
+  "selftest_1000.log": {
+   "sources": "earlier",
+   "note": "the run of 2026-11-13 by the generator with nine probes, described in harness/README.md and lean/NOTES.md, section 15"
+  },
+  "source_mutants.json": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:55:08Z"
+  },
+  "tla_run.txt": {
+   "sources": "earlier",
+   "note": "Standard, FeeToken and RefundFailedCall are repeated by every ./check.sh --tla; Large is the run of 2026-11-12; the specification files are unchanged since"
+  },
+  "unauthorized_ran_on_a_variant.json": {
+   "sources": "earlier",
+   "note": "a run of a source variant by the generator with nine probes (harness/README.md)"
+  },
+  "upgrade_4PMYYWqio2Q3.json": {
+   "sources": "58fdc9a2e75d1c5881cee0d6939b77bad75a210d56c88320c48b6099a70981cb",
+   "stamped_utc": "2026-11-13T13:28:08Z"
+  }
+ },
+ "what": "which sources each evidence file was made from: the hash printed by scripts/source_hash.py, or a note for a dated record"
+}

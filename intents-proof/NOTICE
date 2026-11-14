@@ -1,0 +1,27 @@
+Third-party material in this directory
+
+harness/wasm/intents.wasm
+  The contract code deployed at intents.near on NEAR mainnet (code hash
+  BtA1BEFNS619KkvXFsgcpQ21Tb5yMm32aaUkn7xNothk, sha256 a1afab98916d9f213746544dcf8e4e6bdb22c0be6bc5dfbd8ea8814c9922b547),
+  as returned by a public RPC (harness/fetch-wasm.sh downloads it again and checks the hash). It is byte-identical
+  to the build of https://github.com/near/intents at commit 16d04f6ec4401263f8914638710260da50bb46b0
+  (contracts/defuse, version 0.4.5) with `cargo near build reproducible-wasm` (scripts/rebuild.sh).
+  near/intents is licensed under the MIT License, Copyright (c) 2025 NEAR Foundation.
+
+harness/wasm/ft.wasm
+  The fungible-token example of near-sdk-rs at tag near-sdk-v5.29.0 (examples/fungible-token/ft), the build used
+  in ../token-standard (sha256 249fdb762cce89e47ca7fd6a1265ce4896ba5a23a47c49cd3335b19b518f5f74).
+  near-sdk-rs is licensed under MIT OR Apache-2.0.
+
+harness/wasm/w_near.wasm
+  Unmodified build artifact of the wNEAR contract, from https://github.com/near/core-contracts at commit
+  54f8267436058567b66efdaba3e790394f7f1529, path w-near/res/w_near.wasm
+  (sha256 b72c26d390b23f4517d091a8aab06b0369d465356ec5fb337d5fda076da38ac0); see ../wnear-proof/NOTICE.
+  near/core-contracts is licensed under MIT OR Apache-2.0.
+
+harness/mock-token, harness/mock-reply-token
+  Two deliberately non-standard tokens written for the tests, derived from the same near-sdk-rs example
+  (MIT OR Apache-2.0); their builds are harness/wasm/mock_fee_token.wasm and mock_reply_token.wasm.
+
+lean/ProvedFT, lean/WNear
+  Copies of the proved models of ../token-standard/lean and ../wnear-proof/lean of this repository, unchanged.

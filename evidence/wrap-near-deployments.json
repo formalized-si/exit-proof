@@ -1,0 +1,35 @@
+{
+ "account": "wrap.near",
+ "network": "mainnet",
+ "read_at_utc": "2026-11-14T00:23:05Z",
+ "method": "every successful receipt to the account with a DEPLOY_CONTRACT action, from the indexer's receipt list (NearBlocks /v1/account/wrap.near/receipts); the short list of tools/exitproof.py beside it",
+ "deployments": [
+  {
+   "tx": "GhAWeFhuoDNrpyGN2pCUWt1oy6yTEL8nhfyn2eBQo7Kz",
+   "receipt": "HBWNDPyXupqht2PhdW7CA7YDXUVDYTGHZpsBfZU3Q3ar",
+   "block": 29998148,
+   "ts": 1613398382,
+   "by": "wrap.near"
+  },
+  {
+   "tx": "4xtccqLAv25JU4F9HPRdKAeByGpjzA94GZcXY75cNM4",
+   "receipt": "2Tt7ypAnk6UkG2VeCpFfWLW48nAVnBt1FwcxGMZb9fRD",
+   "block": 35438886,
+   "ts": 1619090101,
+   "by": "wrap.near"
+  }
+ ],
+ "count": 2,
+ "indexer_short_list": [
+  {
+   "tx": "GhAWeFhuoDNrpyGN2pCUWt1oy6yTEL8nhfyn2eBQo7Kz",
+   "ts": 1613398382,
+   "by": "wrap.near"
+  },
+  {
+   "tx": "4xtccqLAv25JU4F9HPRdKAeByGpjzA94GZcXY75cNM4",
+   "ts": 1619090101,
+   "by": "wrap.near"
+  }
+ ]
+}

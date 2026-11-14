@@ -1,0 +1,80 @@
+scenario 2: gov stages the v3 build (no certificate) | EuwVKGE3qbofEkybamvC8chhY5wyQf5omVH6BiYq9vVH | success 
+staging timestamp: 1794531902352836063
+final block timestamp: 1794531908148847576 (5.8 s after the staging timestamp)
+scenario 2: deploy_certified after the delay (must be refused) | BqssNoHvStwbBXBtAAn3YXZiXqq4t1TzBRqKuDAfGocu | failure Smart contract panicked: Gate: no valid upgrade-window certificate from an accepted attestor for 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA
+scenario 2: up_deploy_code by the stager (must be refused) | EtonGXeR47dnfKUUz7FVkGw9wSg1DpAnEZUXDUzCiNas | failure Smart contract panicked: Insufficient permissions for method up_deploy_code restricted by access control. Requires one of these roles: ["CodeDeployer"]
+{
+ "vault": "vault.gated-upgrade.testnet",
+ "account": {
+  "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+  "code_sha256": "4119617a3df44a476ec8f1aa6ed58b942fc37ce24155403bc307b23e56f13a85",
+  "balance_near": 5.647644297686042,
+  "storage_bytes": 441448,
+  "access_keys": 0,
+  "block_height": 277440591
+ },
+ "version": 2,
+ "gate": {
+  "registry": "registry.gated-upgrade.testnet",
+  "kind": "upgrade-window",
+  "attestors": [
+   "attestor.gated-upgrade.testnet"
+  ]
+ },
+ "up_get_delay_status": {
+  "staging_duration": 180000000000,
+  "staging_timestamp": 1794531902352836063,
+  "new_staging_duration": null,
+  "new_staging_duration_timestamp": null
+ },
+ "up_staged_code_hash": "6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA",
+ "acl_get_permissioned_accounts": {
+  "super_admins": [
+   "vault.gated-upgrade.testnet"
+  ],
+  "roles": {
+   "DurationManager": {
+    "admins": [],
+    "grantees": []
+   },
+   "CodeDeployer": {
+    "admins": [],
+    "grantees": [
+     "vault.gated-upgrade.testnet"
+    ]
+   },
+   "CodeStager": {
+    "admins": [],
+    "grantees": [
+     "gov.gated-upgrade.testnet"
+    ]
+   }
+  }
+ },
+ "registry": {
+  "account_id": "registry.gated-upgrade.testnet",
+  "account": {
+   "code_hash": "CM89kMNQzjWRkuNJE7Q2Va2Z4YrbK4MjmiLZnGbUcGkS",
+   "code_sha256": "a8984200f13b774e71ac24cfa260ee69efaaa6123e8da498e4b5cc815ce4ca9b",
+   "balance_near": 2.320603883298105,
+   "storage_bytes": 173154,
+   "access_keys": 0,
+   "block_height": 277440593
+  },
+  "attestors": [
+   "gated-upgrade.testnet",
+   "attestor.gated-upgrade.testnet"
+  ],
+  "owner": "gated-upgrade.testnet",
+  "count": 1,
+  "valid_certificates_for_running_code": [
+   {
+    "attestor": "attestor.gated-upgrade.testnet",
+    "kind": "upgrade-window",
+    "revoked": false,
+    "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+   }
+  ],
+  "valid_certificates_for_staged_code": []
+ }
+}

@@ -1,0 +1,14 @@
+Third-party material in this directory
+
+token/src/lib.rs
+  The fungible-token example of near-sdk-rs, copied unmodified from
+  https://github.com/near/near-sdk-rs at commit 1aac824cc543b2f201831f888c85396529716742
+  (tag near-sdk-v5.29.0), path examples/fungible-token/ft/src/lib.rs.
+  token/Cargo.toml replaces the example's workspace path dependencies with the crates.io releases
+  of the same tag and copies the workspace release profile; token/Cargo.lock pins every crate.
+  near-sdk-rs is licensed under MIT OR Apache-2.0 (LICENSE-MIT and LICENSE-APACHE in that
+  repository).
+
+The mutants (mutants.json) are one-line changes applied at build time to a copy of
+near-contract-standards 5.29.0 taken from the local cargo registry (the crates.io release, same
+licence) or to a copy of token/src/lib.rs. Neither the library source nor any wasm is stored here.

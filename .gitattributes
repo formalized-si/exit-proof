@@ -1,0 +1,23 @@
+# No end-of-line conversion for any file, whatever a clone's core.autocrlf says: four proof directories are pinned
+# in the on-chain registry by a hash of their bytes, and several records are compared byte for byte.
+* -text
+
+# Binary files.
+*.wasm binary
+*.png  binary
+*.woff2 binary
+*.gz   binary
+*.mp4  binary
+*.jpg  binary
+
+# Records of runs are data, not source: collapse them in diffs and keep them out of the language statistics.
+evidence/**                 linguist-generated
+**/evidence/**              linguist-generated
+intents-proof/tla/out/**    linguist-generated
+**/axioms.txt               linguist-generated
+**/Cargo.lock               linguist-generated
+
+# Code of other authors, kept as the object of a proof or of a test.
+**/wasm/**                              linguist-vendored
+token-standard/token/example-ft/**      linguist-vendored
+token-monitors/reference/token/**       linguist-vendored

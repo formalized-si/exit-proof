@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  records:
+    name: Numbers check and offline self-test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      # The numbers the documents quote against the evidence files, the hashes of the attested directories, the
+      # stage rules and the MCP server. Python 3 only, no network.
+      - run: ./check-all.sh --offline
+
+  proofs:
+    name: Lean proofs build, no sorry and no axiom declared
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install elan
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      # Each directory pins Lean 4.35.0 in its lean-toolchain. A build fails on an error or a `sorry` turned into
+      # an error by the checks below.
+      - name: Build the six proof directories
+        run: |
+          for d in pool-proof wnear-proof token-standard upgrade-window gated-upgrade intents-proof; do
+            echo "::group::$d"
+            (cd "$d/lean" && lake build)
+            echo "::endgroup::"
+          done
+      - name: No sorry, no added axiom
+        run: |
+          ! grep -R -n -E "\bsorry\b|^\s*axiom\b" --include='*.lean' \
+            pool-proof/lean wnear-proof/lean token-standard/lean upgrade-window/lean gated-upgrade/lean intents-proof/lean \
+            --exclude-dir=.lake

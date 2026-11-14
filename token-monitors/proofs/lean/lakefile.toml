@@ -1,0 +1,6 @@
+name = "proved_ft"
+version = "0.1.0"
+defaultTargets = ["ProvedFT"]
+
+[[lean_lib]]
+name = "ProvedFT"

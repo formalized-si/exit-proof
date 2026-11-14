@@ -1,0 +1,79 @@
+{
+ "what": "The monitor unauthorized_ran and the two replays on a wasm built from the source at 16d04f6ec4401263f8914638710260da50bb46b0 with one change: the attribute #[access_control_any(roles(Role::DAO, Role::UnrestrictedWithdrawer))] removed from mt_force_transfer and mt_force_batch_transfer (contracts/defuse/src/contract/tokens/nep245/force.rs). A local variant; nothing was deployed.",
+ "built_with": "docker, image sourcescan/cargo-near:0.22.0-rust-1.97.1@sha256:7467038bdddc86484b73b416eeadce926ff59013e128e53dec5a19e1cb4b2234, cargo near build non-reproducible-wasm --locked --features=contract --abi-features=abi,contract",
+ "variant_wasm_sha256": "3a12856551e5b70c235f22ec43823a2ec72fe9b6d836c17e36038cf3d6793823",
+ "traces": 200,
+ "seed": 20261112,
+ "receipts": 22861,
+ "monitors_fired": {
+  "own_callback_failed": 17,
+  "tx_stranded": 86,
+  "unauthorized_ran": 49,
+  "withdraw_inexact": 54
+ },
+ "unauthorized_ran_by_method": {
+  "mt_force_transfer": 18,
+  "mt_force_batch_transfer": 31
+ },
+ "calls_by_accounts_without_the_role": {
+  "mt_force_transfer": {
+   "calls": 29,
+   "succeeded": 18
+  },
+  "mt_force_batch_transfer": {
+   "calls": 38,
+   "succeeded": 31
+  }
+ },
+ "receipt_replay": {
+  "contract_steps": 12858,
+  "agree": 12704,
+  "disagree": 49,
+  "disagreements_by_method": {
+   "mt_force_transfer": 18,
+   "mt_force_batch_transfer": 31
+  },
+  "model_says": "fails",
+  "wasm_did": "succeeded"
+ },
+ "world_replay": {
+  "agree": 9930,
+  "contract_receipts": 6226,
+  "contract_receipts_of_other_ledger_ids": 6632,
+  "disagree": 295,
+  "env": 91,
+  "mock_traces_left_out": 0,
+  "token_receipts": 4090,
+  "traces": 200,
+  "note": "the world replay does not resynchronise: after the first unauthorised move the ledger of the token differs for the rest of the trace"
+ },
+ "same_generator_on_the_deployed_wasm": "unauthorized_ran 0, no disagreement in either replay (evidence/monitors_summary_1000.json, evidence/conformance_1000.json)",
+ "second_variant": {
+  "what": "The same attribute removed from mt_force_transfer only. That method delegates to mt_force_batch_transfer, which still carries the attribute, so the role is still tested.",
+  "variant_wasm_sha256": "116093cac14eb17ff5ffd72591cd5faaabc9e7ac21613c10073791968e2560b4",
+  "traces": 200,
+  "seed": 20261112,
+  "receipts": 22855,
+  "unauthorized_ran": 0,
+  "mt_force_transfer_by_accounts_without_the_role": {
+   "calls": 29,
+   "succeeded": 0
+  },
+  "receipt_replay": {
+   "contract_steps": 12856,
+   "agree": 12752,
+   "disagree": 0
+  },
+  "world_replay": {
+   "agree": 10216,
+   "contract_receipts": 6225,
+   "contract_receipts_of_other_ledger_ids": 6631,
+   "disagree": 0,
+   "env": 95,
+   "mock_traces_left_out": 0,
+   "token_receipts": 4086,
+   "traces": 200
+  },
+  "reading": "this change of the source does not change the behaviour the traces see; only a comparison of the source can notice it"
+ }
+}

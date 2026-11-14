@@ -1,0 +1,7 @@
+{
+  "description": "Token with a default-metadata init (the code of token-emrld_pit.tesseras-labs.near, code hash 2M7p99LH...). `new_default_meta(owner_id, total_supply)` mints the whole supply to the owner.",
+  "init": {
+    "method": "new_default_meta",
+    "args": {"owner_id": "owner.near", "total_supply": "1000000000000000000000000000000"}
+  }
+}

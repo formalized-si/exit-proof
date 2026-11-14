@@ -1,0 +1,18 @@
+{
+  "description": "Launch-platform token (the code of 4illia-222.meme-cooking.near, code hash FKMtu667...). The platform creates the token as its sub-account and sends `new`; the token hands the pool share to the exchange contract through ft_on_transfer and gives the rest to the caller. If the exchange call fails the token deletes its own account, so a stub stands in for the exchange.",
+  "token_account": "tok.launchpad.near",
+  "accounts": ["launchpad.near"],
+  "stubs": [
+    {"account": "pool.near", "methods": {"ft_on_transfer": "0"}}
+  ],
+  "init": {
+    "caller": "launchpad.near",
+    "method": "new",
+    "args": {
+      "name": "Test Token", "symbol": "TT", "icon": "x", "decimals": 18,
+      "total_supply": "1000000000000000000000000000000",
+      "ref_contract_id": "pool.near",
+      "pool_amount": "100000000000000000000000000000"
+    }
+  }
+}

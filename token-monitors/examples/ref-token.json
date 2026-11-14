@@ -1,0 +1,7 @@
+{
+  "description": "REF token (the code of token.v2.ref-finance.near, code hash HagtKcVn...). `new(owner, total_supply)` mints the whole supply to the owner; note the argument is `owner`, not `owner_id`.",
+  "init": {
+    "method": "new",
+    "args": {"owner": "owner.near", "total_supply": "1000000000000000000000000000000"}
+  }
+}

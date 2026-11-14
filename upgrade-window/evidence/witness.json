@@ -1,0 +1,1143 @@
+{
+  "ok": true,
+  "scenarios": [
+    {
+      "checks": [
+        {
+          "check": "both calls ran in one receipt and succeeded",
+          "holds": true
+        },
+        {
+          "check": "the deploy batch ran at the same block timestamp and succeeded",
+          "holds": true
+        },
+        {
+          "check": "the account now runs the staged code",
+          "holds": true
+        },
+        {
+          "check": "alice's withdrawal fails: the method is gone",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "W4_no_window",
+      "statement": "With no staging duration, one transaction stages and deploys new code; here the new code has no withdraw method.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "stub",
+            "staged": "stub",
+            "up_get_delay_status": null,
+            "up_staged_code_hash": null,
+            "version": null
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall",
+                "FunctionCall"
+              ],
+              "block": 11,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_stage_code",
+                "up_deploy_code"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 12,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "dao.near: one transaction [up_stage_code(stub), up_deploy_code(hash of stub)]"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "stub",
+            "staged": "stub",
+            "up_get_delay_status": null,
+            "up_staged_code_hash": null,
+            "version": null
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 15,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "withdraw"
+              ],
+              "ok": false,
+              "predecessor": "alice.near",
+              "status": "Action(FunctionCallError(MethodResolveError(MethodNotFound)))"
+            }
+          ],
+          "step": "alice.near: withdraw(5 NEAR)"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "staging timestamp = block timestamp of staging + D",
+          "holds": true
+        },
+        {
+          "check": "up_staged_code_hash shows the hash of v2",
+          "holds": true
+        },
+        {
+          "check": "alice's withdrawal succeeds inside the window",
+          "holds": true
+        },
+        {
+          "check": "refused: Deploy code too early",
+          "holds": true
+        },
+        {
+          "check": "the staged hash is still the hash of v2, the code is still v1",
+          "holds": true
+        },
+        {
+          "check": "refused: wrong hash",
+          "holds": true
+        },
+        {
+          "check": "accepted at exactly staging + D; the batch deploys v2",
+          "holds": true
+        },
+        {
+          "check": "accepted at once: the staged copy left after the upgrade is deployable at any time, and the #[private] method runs with the contract as caller",
+          "holds": true
+        },
+        {
+          "check": "the same method called directly is refused (private)",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "W1_W2_W5_window",
+      "statement": "With staging duration D = 1 h: the staged hash is visible from staging to deploy, a user withdraws inside the window, the deploy is refused one nanosecond before staging + D and accepted at staging + D.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441620000000000",
+            "code": "v1",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": "1794445220000000000"
+            },
+            "up_staged_code_hash": "Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X",
+            "version": 1
+          },
+          "clock": "1794441620000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 13,
+              "block_timestamp": "1794441620000000000",
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "stager.near",
+              "status": "ok"
+            }
+          ],
+          "step": "stager.near: up_stage_code(v2)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794443420000000000",
+            "code": "v1",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": "1794445220000000000"
+            },
+            "up_staged_code_hash": "Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X",
+            "version": 1
+          },
+          "clock": "1794443420000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 16,
+              "block_timestamp": "1794443420000000000",
+              "methods": [
+                "withdraw"
+              ],
+              "ok": true,
+              "predecessor": "alice.near",
+              "status": "ok"
+            }
+          ],
+          "step": "alice.near: withdraw(5 NEAR), half-way through the window"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445219999999999",
+            "code": "v1",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": "1794445220000000000"
+            },
+            "up_staged_code_hash": "Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X",
+            "version": 1
+          },
+          "clock": "1794445219999999999",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 20,
+              "block_timestamp": "1794445219999999999",
+              "methods": [
+                "up_deploy_code"
+              ],
+              "ok": false,
+              "predecessor": "deployer.near",
+              "status": "Panic(\"Upgradable: Deploy code too early: staging ends on 1794445220000000000\")"
+            }
+          ],
+          "step": "deployer.near: up_deploy_code(hash of v2), 1 ns before staging + D"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445220000000000",
+            "code": "v1",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": "1794445220000000000"
+            },
+            "up_staged_code_hash": "Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X",
+            "version": 1
+          },
+          "clock": "1794445220000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 23,
+              "block_timestamp": "1794445220000000000",
+              "methods": [
+                "up_deploy_code"
+              ],
+              "ok": false,
+              "predecessor": "deployer.near",
+              "status": "Panic(\"Upgradable: Cannot deploy due to wrong hash: expected hash: Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X\")"
+            }
+          ],
+          "step": "deployer.near: up_deploy_code(hash of v3) at staging + D"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445220000000000",
+            "code": "v2",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": "1794445220000000000"
+            },
+            "up_staged_code_hash": "Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X",
+            "version": 2
+          },
+          "clock": "1794445220000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 26,
+              "block_timestamp": "1794445220000000000",
+              "methods": [
+                "up_deploy_code"
+              ],
+              "ok": true,
+              "predecessor": "deployer.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 27,
+              "block_timestamp": "1794445220000000000",
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "deployer.near: up_deploy_code(hash of v2) at staging + D"
+        },
+        {
+          "after": {
+            "block_timestamp": "1797033620000000000",
+            "code": "v2",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": "1794445220000000000"
+            },
+            "up_staged_code_hash": "Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X",
+            "version": 2
+          },
+          "clock": "1797033620000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 30,
+              "block_timestamp": "1797033620000000000",
+              "methods": [
+                "up_deploy_code"
+              ],
+              "ok": true,
+              "predecessor": "deployer.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall",
+                "FunctionCall"
+              ],
+              "block": 31,
+              "block_timestamp": "1797033620000000000",
+              "methods": [
+                "migrate_ok",
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "deployer.near, 30 days later, nothing newly staged: up_deploy_code(hash of v2, function call migrate_ok)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1797033620000000000",
+            "code": "v2",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": "1794445220000000000"
+            },
+            "up_staged_code_hash": "Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X",
+            "version": 2
+          },
+          "clock": "1797033620000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 34,
+              "block_timestamp": "1797033620000000000",
+              "methods": [
+                "migrate_ok"
+              ],
+              "ok": false,
+              "predecessor": "deployer.near",
+              "status": "Panic(\"Method migrate_ok is private\")"
+            }
+          ],
+          "step": "deployer.near: migrate_ok() directly"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "the status now shows a 7-day duration and a staging timestamp that is not in the future",
+          "holds": true
+        },
+        {
+          "check": "accepted; the account runs v2",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "W3_prestaged",
+      "statement": "Code staged while no duration is set stays deployable at once after up_init_staging_duration(7 days).",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v1",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": null,
+              "staging_timestamp": "1794441618000000000"
+            },
+            "up_staged_code_hash": "Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X",
+            "version": 1
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 11,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            }
+          ],
+          "step": "dao.near: up_stage_code(v2), no duration set"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v1",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "604800000000000",
+              "staging_timestamp": "1794441618000000000"
+            },
+            "up_staged_code_hash": "Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X",
+            "version": 1
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 14,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_init_staging_duration"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            }
+          ],
+          "step": "dao.near: up_init_staging_duration(7 days)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v2",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "604800000000000",
+              "staging_timestamp": "1794441618000000000"
+            },
+            "up_staged_code_hash": "Cq3X1GtMCfYsrbjnpWj96jbi642iKRoZxXJ6HJyh3g5X",
+            "version": 2
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 17,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_deploy_code"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 18,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "dao.near: up_deploy_code(hash of v2), same block timestamp"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "the status shows the staged update and its timestamp = now + D",
+          "holds": true
+        },
+        {
+          "check": "refused: Update duration too early",
+          "holds": true
+        },
+        {
+          "check": "accepted; the duration is 0",
+          "holds": true
+        },
+        {
+          "check": "accepted at the block timestamp of staging; the account runs v3",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "W3_shrink",
+      "statement": "From duration D = 1 h: a duration update to 0 is staged, applicable only D later; once applied, new code is staged and deployed in one transaction. The warning visible for D was the staged duration update, not the code.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v1",
+            "staged": null,
+            "up_get_delay_status": {
+              "new_staging_duration": "0",
+              "new_staging_duration_timestamp": "1794445218000000000",
+              "staging_duration": "3600000000000",
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 11,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_stage_update_staging_duration"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            }
+          ],
+          "step": "dao.near: up_stage_update_staging_duration(0)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445217999999999",
+            "code": "v1",
+            "staged": null,
+            "up_get_delay_status": {
+              "new_staging_duration": "0",
+              "new_staging_duration_timestamp": "1794445218000000000",
+              "staging_duration": "3600000000000",
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "clock": "1794445217999999999",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 14,
+              "block_timestamp": "1794445217999999999",
+              "methods": [
+                "up_apply_update_staging_duration"
+              ],
+              "ok": false,
+              "predecessor": "dao.near",
+              "status": "Panic(\"Upgradable: Update duration too early: staging ends on 1794445218000000000\")"
+            }
+          ],
+          "step": "dao.near: up_apply_update_staging_duration(), 1 ns early"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445218000000000",
+            "code": "v1",
+            "staged": null,
+            "up_get_delay_status": {
+              "new_staging_duration": "0",
+              "new_staging_duration_timestamp": "1794445218000000000",
+              "staging_duration": "0",
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "clock": "1794445218000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 17,
+              "block_timestamp": "1794445218000000000",
+              "methods": [
+                "up_apply_update_staging_duration"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            }
+          ],
+          "step": "dao.near: up_apply_update_staging_duration() at now + D"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794445218000000000",
+            "code": "v3",
+            "staged": "v3",
+            "up_get_delay_status": {
+              "new_staging_duration": "0",
+              "new_staging_duration_timestamp": "1794445218000000000",
+              "staging_duration": "0",
+              "staging_timestamp": "1794445218000000000"
+            },
+            "up_staged_code_hash": "8HtRwBgrn9xhSMnNWpFaP8SJPvwZEv3pdbo63WTcZJie",
+            "version": 3
+          },
+          "clock": "1794445218000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall",
+                "FunctionCall"
+              ],
+              "block": 20,
+              "block_timestamp": "1794445218000000000",
+              "methods": [
+                "up_stage_code",
+                "up_deploy_code"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 21,
+              "block_timestamp": "1794445218000000000",
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "dao.near: one transaction [up_stage_code(v3), up_deploy_code(hash of v3)]"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "accepted; the update's timestamp wrapped to (now + D) mod 2^64, which is in the past",
+          "holds": true
+        },
+        {
+          "check": "accepted at once; the duration is 0",
+          "holds": true
+        },
+        {
+          "check": "accepted; the code is replaced with all calls at one block timestamp",
+          "holds": true
+        },
+        {
+          "check": "the checked build panics: attempt to add with overflow",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "W3_unchecked_build",
+      "statement": "The same contract built without overflow checks (cargo's default release profile), duration D = u64::MAX - 10: staging an update to 0 wraps its timestamp into the past, so it is applicable at once; the checked build panics instead.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v1",
+            "staged": null,
+            "up_get_delay_status": {
+              "new_staging_duration": "0",
+              "new_staging_duration_timestamp": "1794441617999999989",
+              "staging_duration": "18446744073709551605",
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 11,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_stage_update_staging_duration"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            }
+          ],
+          "step": "unchecked build, dao.near: up_stage_update_staging_duration(0)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v1",
+            "staged": null,
+            "up_get_delay_status": {
+              "new_staging_duration": "0",
+              "new_staging_duration_timestamp": "1794441617999999989",
+              "staging_duration": "0",
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 14,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_apply_update_staging_duration"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            }
+          ],
+          "step": "unchecked build, dao.near: up_apply_update_staging_duration(), same block timestamp"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v2",
+            "staged": "v2",
+            "up_get_delay_status": {
+              "new_staging_duration": "0",
+              "new_staging_duration_timestamp": "1794441617999999989",
+              "staging_duration": "0",
+              "staging_timestamp": "1794441618000000000"
+            },
+            "up_staged_code_hash": "59hCc1EgtEmojhkC7eBYK5XZCcujSbUApp7SYtuCCfir",
+            "version": 2
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall",
+                "FunctionCall"
+              ],
+              "block": 17,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_stage_code",
+                "up_deploy_code"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 18,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "unchecked build, dao.near: one transaction [up_stage_code(v2), up_deploy_code(hash of v2)]"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v1",
+            "staged": null,
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "18446744073709551605",
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 11,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_stage_update_staging_duration"
+              ],
+              "ok": false,
+              "predecessor": "dao.near",
+              "status": "Panic(\"panicked at src/lib.rs:40:10:\\nattempt to add with overflow\")"
+            }
+          ],
+          "step": "checked build (the example), dao.near: up_stage_update_staging_duration(0)"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "staging succeeds: the deposits cover the new storage",
+          "holds": true
+        },
+        {
+          "check": "alice's full withdrawal fails: LackBalanceForState",
+          "holds": true
+        },
+        {
+          "check": "a partial withdrawal that leaves the storage stake succeeds",
+          "holds": true
+        },
+        {
+          "check": "the staged code is removed",
+          "holds": true
+        },
+        {
+          "check": "the rest can be withdrawn again",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "A5_storage_staking",
+      "statement": "The vault holds its storage cost, alice's 5 NEAR and 0.1 NEAR more. Staging 199 KB of code locks about 2 NEAR as storage stake: alice's full withdrawal fails until the staged code is removed.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v1",
+            "staged": "v3",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": "1794445218000000000"
+            },
+            "up_staged_code_hash": "8HtRwBgrn9xhSMnNWpFaP8SJPvwZEv3pdbo63WTcZJie",
+            "version": 1
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 11,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "stager.near",
+              "status": "ok"
+            }
+          ],
+          "step": "stager.near: up_stage_code(v3)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441678000000000",
+            "code": "v1",
+            "staged": "v3",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": "1794445218000000000"
+            },
+            "up_staged_code_hash": "8HtRwBgrn9xhSMnNWpFaP8SJPvwZEv3pdbo63WTcZJie",
+            "version": 1
+          },
+          "clock": "1794441678000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 14,
+              "block_timestamp": "1794441678000000000",
+              "methods": [
+                "withdraw"
+              ],
+              "ok": false,
+              "predecessor": "alice.near",
+              "status": "Action(LackBalanceForState { account_id: AccountId(\"vault.near\"), amount: NearToken { inner: 1889100000000000000000000 } })"
+            }
+          ],
+          "step": "alice.near: withdraw(5 NEAR)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441678000000000",
+            "code": "v1",
+            "staged": "v3",
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": "1794445218000000000"
+            },
+            "up_staged_code_hash": "8HtRwBgrn9xhSMnNWpFaP8SJPvwZEv3pdbo63WTcZJie",
+            "version": 1
+          },
+          "clock": "1794441678000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 17,
+              "block_timestamp": "1794441678000000000",
+              "methods": [
+                "withdraw"
+              ],
+              "ok": true,
+              "predecessor": "alice.near",
+              "status": "ok"
+            }
+          ],
+          "step": "alice.near: withdraw(3 NEAR)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441738000000000",
+            "code": "v1",
+            "staged": null,
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "clock": "1794441738000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 21,
+              "block_timestamp": "1794441738000000000",
+              "methods": [
+                "up_stage_code"
+              ],
+              "ok": true,
+              "predecessor": "stager.near",
+              "status": "ok"
+            }
+          ],
+          "step": "stager.near: up_stage_code(<empty>)"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441738000000000",
+            "code": "v1",
+            "staged": null,
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "3600000000000",
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "clock": "1794441738000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall"
+              ],
+              "block": 24,
+              "block_timestamp": "1794441738000000000",
+              "methods": [
+                "withdraw"
+              ],
+              "ok": true,
+              "predecessor": "alice.near",
+              "status": "ok"
+            }
+          ],
+          "step": "alice.near: withdraw(2 NEAR)"
+        }
+      ]
+    },
+    {
+      "checks": [
+        {
+          "check": "the reading is quiet: 7-day duration, no staging timestamp, nothing staged, no staged update",
+          "holds": true
+        },
+        {
+          "check": "the account still runs v1 at that reading",
+          "holds": true
+        },
+        {
+          "check": "one block later the account runs v2, with the status still quiet",
+          "holds": true
+        }
+      ],
+      "ok": true,
+      "scenario": "inflight_invisible",
+      "statement": "With no duration set, one transaction stages v2, deploys it, removes the staged code and initialises a 7-day duration. The reading one block later shows a 7-day duration, nothing staged, the old code; the block after that the code is v2.",
+      "steps": [
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v1",
+            "staged": null,
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "604800000000000",
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 1
+          },
+          "clock": "1794441618000000000",
+          "step": "dao.near: one transaction [up_stage_code(v2), up_deploy_code(hash of v2), up_stage_code(<empty>), up_init_staging_duration(7 days)]; reading after the block in which the calls ran"
+        },
+        {
+          "after": {
+            "block_timestamp": "1794441618000000000",
+            "code": "v2",
+            "staged": null,
+            "up_get_delay_status": {
+              "new_staging_duration": null,
+              "new_staging_duration_timestamp": null,
+              "staging_duration": "604800000000000",
+              "staging_timestamp": null
+            },
+            "up_staged_code_hash": null,
+            "version": 2
+          },
+          "clock": "1794441618000000000",
+          "receipts": [
+            {
+              "actions": [
+                "FunctionCall",
+                "FunctionCall",
+                "FunctionCall",
+                "FunctionCall"
+              ],
+              "block": 11,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_stage_code",
+                "up_deploy_code",
+                "up_stage_code",
+                "up_init_staging_duration"
+              ],
+              "ok": true,
+              "predecessor": "dao.near",
+              "status": "ok"
+            },
+            {
+              "actions": [
+                "DeployContract",
+                "FunctionCall"
+              ],
+              "block": 12,
+              "block_timestamp": "1794441618000000000",
+              "methods": [
+                "up_verify_state"
+              ],
+              "ok": true,
+              "predecessor": "vault.near",
+              "status": "ok"
+            }
+          ],
+          "step": "next block: the deploy batch runs"
+        }
+      ]
+    }
+  ]
+}

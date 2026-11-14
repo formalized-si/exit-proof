@@ -1,0 +1,553 @@
+/* Shared with the other project pages of formalized.si and taken as it is: this page uses a part of it, and the
+   rules for elements this page does not have (a wallet page, a patch checker) are left in place so that the two
+   files stay identical to their source. What is specific to this page is in exit.css. */
+/* The main page: a dark stage with the title and the checker, a row of numbers, then sections with a label column. */
+.stage-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 40px 56px;
+  max-width: 1500px;
+  min-height: calc(100svh - 78px);
+  margin: 0 auto;
+  padding: 44px var(--gutter) 84px;
+}
+.patch-hero {
+  max-width: 640px;
+}
+.patch-hero .eyebrow {
+  margin-bottom: 26px;
+}
+.patch-hero .lead {
+  margin: 28px 0 34px;
+  max-width: 58ch;
+  font-size: clamp(16px, 1.2vw, 18.5px);
+  line-height: 1.58;
+  color: rgb(255 255 255 / 0.74);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.license {
+  margin-left: 6px;
+  font: 11px/1.5 var(--mono);
+  letter-spacing: 0.08em;
+  color: rgb(255 255 255 / 0.45);
+}
+
+/* The checker: a dark panel in the stage, in the place where a project page of formalized.si has its figure. */
+.try-card {
+  position: relative;
+  min-width: 0;
+  padding: 30px 30px 26px;
+  background: rgb(11 12 10 / 0.62);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.14),
+    0 30px 60px -30px rgb(0 0 0 / 0.7);
+}
+.try-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--orange), rgb(233 67 34 / 0));
+}
+.try-card .eyebrow {
+  margin-bottom: 14px;
+}
+.try-card h2 {
+  margin: 0 0 12px;
+  max-width: none;
+  font-size: clamp(22px, 1.9vw, 28px);
+  color: #fff;
+}
+.try-card p {
+  margin: 0 0 16px;
+  max-width: none;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgb(255 255 255 / 0.74);
+}
+.try-card a {
+  color: #fff;
+}
+.try-card label {
+  display: block;
+  margin: 18px 0 8px;
+  font: 500 11px/1.5 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.6);
+}
+.try-card select {
+  width: 100%;
+  appearance: none;
+  padding: 11px 40px 11px 14px;
+  border: 0;
+  border-radius: 0;
+  background: rgb(255 255 255 / 0.06)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E")
+    no-repeat right 14px center / 12px 8px;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.25);
+  color: #fff;
+  font: 13px/1.5 var(--mono);
+}
+.try-card select option {
+  background: var(--ink-deep);
+  color: #fff;
+}
+.try-card pre {
+  margin: 10px 0 0;
+  padding: 12px 14px;
+  background: rgb(255 255 255 / 0.045);
+  color: rgb(255 255 255 / 0.86);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+.try-card label.damage {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 14px 0 0;
+  font: 12px/1.5 var(--mono);
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgb(255 255 255 / 0.55);
+}
+.try-card label.damage input {
+  flex: none;
+  accent-color: var(--orange);
+}
+#check-patch {
+  margin-top: 18px;
+}
+#patch-status {
+  margin: 16px 0 0;
+  font: 12.5px/1.6 var(--mono);
+  color: rgb(255 255 255 / 0.86);
+}
+#patch-result {
+  margin-top: 18px;
+  padding-left: 18px;
+  border-left: 2px solid var(--orange);
+}
+#patch-result h3 {
+  margin: 0 0 8px;
+}
+#decision.good {
+  color: #8fd19e;
+}
+#decision.bad {
+  color: #ff8466;
+}
+.try-card table {
+  margin: 0 0 6px;
+  border-top-color: rgb(255 255 255 / 0.28);
+}
+.try-card th,
+.try-card td {
+  width: 50%;
+  padding: 8px 12px 8px 0;
+  border-bottom-color: rgb(255 255 255 / 0.12);
+  font: 12.5px/1.5 var(--mono);
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgb(255 255 255 / 0.86);
+}
+.try-card th {
+  color: rgb(255 255 255 / 0.55);
+}
+.try-card details {
+  margin-top: 10px;
+}
+.try-card summary {
+  font: 12px/1.6 var(--mono);
+  color: rgb(255 255 255 / 0.6);
+}
+.try-card #check-note {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: rgb(255 255 255 / 0.5);
+}
+.hash {
+  margin: 8px 0 0;
+  font: 11px/1.5 var(--mono);
+  overflow-wrap: anywhere;
+}
+.try-card .hash {
+  font: 11px/1.5 var(--mono);
+  color: rgb(255 255 255 / 0.4);
+}
+.live-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 34px;
+  margin: 20px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+.live-strip div {
+  min-width: 0;
+}
+.live-strip dt {
+  font: 500 10px/1.5 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.45);
+}
+.live-strip dd {
+  margin: 4px 0 0;
+  font: 12.5px/1.5 var(--mono);
+  overflow-wrap: anywhere;
+  color: #fff;
+}
+
+/* The row of numbers under the stage. */
+.pj-facts {
+  padding: 0 var(--gutter);
+}
+.facts {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  max-width: 1500px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--line);
+}
+.fact {
+  padding: 40px 26px 36px;
+  border-left: 1px solid var(--line);
+}
+.fact:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.fact b {
+  display: block;
+  font: 500 clamp(46px, 4.6vw, 76px) / 1 var(--sans);
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s;
+}
+.fact span {
+  display: block;
+  margin-top: 14px;
+  max-width: 20ch;
+  font: 12px/1.45 var(--mono);
+  color: var(--muted);
+}
+@media (hover: hover) {
+  .fact:hover b {
+    color: var(--orange);
+  }
+}
+
+/* A section: the label in a narrow left column, the content in the right one. */
+.patch-card {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  column-gap: 60px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 110px var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+.patch-card > * {
+  grid-column: 2;
+  min-width: 0;
+  max-width: 880px;
+}
+.patch-card > .eyebrow {
+  grid-column: 1;
+  grid-row: 1 / span 40;
+  align-self: start;
+  position: sticky;
+  top: 40px;
+}
+.patch-card h3 {
+  margin: 44px 0 14px;
+}
+.patch-card pre {
+  margin: 8px 0 24px;
+  padding: 22px 24px;
+  border-top: 2px solid var(--orange);
+  background: var(--ink-deep);
+  color: #e9e8e3;
+  font: 12.5px/1.7 var(--mono);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  box-shadow: 0 30px 60px -30px rgb(16 18 15 / 0.45);
+}
+.patch-card pre .row {
+  display: block;
+  padding-left: 4ch;
+  text-indent: -2ch;
+}
+.patch-card pre .row.head {
+  padding-left: 2ch;
+}
+.patch-card pre .row.note {
+  margin-top: 0.35rem;
+  color: rgb(255 255 255 / 0.5);
+}
+.patch-card details {
+  margin: 4px 0 18px;
+}
+.patch-card summary {
+  font: 500 12px/1.6 var(--mono);
+  letter-spacing: 0.04em;
+}
+.patch-card details p {
+  margin-top: 14px;
+}
+.patch-comparison {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 0 34px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.patch-comparison > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 26px 22px 30px;
+  border-left: 1px solid var(--line);
+}
+.patch-comparison > div:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.patch-comparison .muted {
+  display: block;
+  font: 12px/1.45 var(--mono);
+}
+.patch-comparison strong {
+  display: block;
+  margin-top: 16px;
+  font: 500 clamp(46px, 4.6vw, 76px) / 1 var(--sans);
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+}
+.bad {
+  color: var(--orange);
+}
+.good {
+  color: var(--ok);
+}
+.evidence-error {
+  color: var(--orange-ink);
+}
+.tx-table {
+  overflow-x: auto;
+  margin: 6px 0 26px;
+}
+.tx-table th,
+.tx-table td {
+  overflow-wrap: break-word;
+}
+.tx-table td:first-child {
+  width: 40%;
+  color: var(--ink);
+}
+.tx-table td:last-child {
+  font: 12.5px/1.8 var(--mono);
+  white-space: nowrap;
+}
+.tx-table td code {
+  overflow-wrap: break-word;
+}
+#open-bounties .tx-table td:first-child,
+#agent-evidence .tx-table td:first-child {
+  width: auto;
+}
+#open-bounties .tx-table td:last-child,
+#agent-evidence .tx-table td:last-child {
+  font: 15.5px/1.5 var(--sans);
+  white-space: normal;
+}
+#open-bounties .tx-table td:nth-child(2) {
+  white-space: nowrap;
+}
+#kernel-bounty,
+#open-bounties {
+  margin-top: 6px;
+}
+
+/* What the proof does not cover: a dark panel with an orange edge. */
+.callout {
+  --fill: #fff;
+  --fill-ink: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 34px 34px 36px;
+  background: var(--ink-deep);
+  color: rgb(255 255 255 / 0.8);
+}
+.callout::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--orange);
+}
+.callout h2 {
+  color: #fff;
+}
+.callout ul {
+  list-style: none;
+  max-width: 68ch;
+  margin: 0 0 28px;
+  padding: 0;
+}
+.callout li {
+  position: relative;
+  padding: 16px 0 16px 26px;
+  border-top: 1px solid rgb(255 255 255 / 0.12);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.callout li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 7px;
+  height: 7px;
+  background: var(--orange);
+}
+
+@media (max-width: 1200px) {
+  .patch-card {
+    grid-template-columns: 180px minmax(0, 1fr);
+    column-gap: 40px;
+  }
+}
+@media (min-width: 1001px) and (max-height: 760px) {
+  .stage-grid {
+    align-items: start;
+  }
+}
+@media (max-width: 1000px) {
+  .stage-grid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding-top: 48px;
+  }
+  .facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .fact:nth-child(4) {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .fact:nth-child(n + 4) {
+    border-top: 1px solid var(--line);
+  }
+  .patch-card {
+    grid-template-columns: 1fr;
+  }
+  .patch-card > * {
+    grid-column: 1;
+  }
+  .patch-card > .eyebrow {
+    grid-row: auto;
+    position: static;
+    margin-bottom: 26px;
+  }
+}
+@media (max-width: 760px) {
+  .stage-grid {
+    padding: 36px var(--gutter) 56px;
+  }
+  h1 {
+    font-size: clamp(38px, 11vw, 50px);
+  }
+  .actions .button {
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+  .license {
+    margin: 6px 0 0;
+  }
+  .try-card {
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 22px 16px;
+  }
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .fact,
+  .fact:first-child,
+  .fact:nth-child(4) {
+    padding: 26px 14px 24px 0;
+    border-left: 0;
+  }
+  .fact:nth-child(even) {
+    padding-left: 16px;
+    border-left: 1px solid var(--line);
+  }
+  .fact:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+  .fact:last-child {
+    grid-column: 1 / -1;
+    padding-left: 0;
+    border-left: 0;
+  }
+  .patch-card {
+    padding: 64px var(--gutter);
+  }
+  .patch-card pre {
+    margin-left: calc(var(--gutter) * -1);
+    margin-right: calc(var(--gutter) * -1);
+    padding: 18px 16px;
+    font-size: 11.5px;
+  }
+  .patch-comparison > div {
+    padding: 18px 10px 22px;
+  }
+  .patch-comparison > div:first-child {
+    padding-left: 0;
+  }
+  .patch-comparison strong {
+    font-size: clamp(30px, 9.5vw, 46px);
+  }
+  .callout {
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 26px 20px 28px;
+  }
+}
+@media (max-width: 700px) {
+  .tx-table table,
+  .tx-table tbody,
+  .tx-table tr,
+  .tx-table td {
+    display: block;
+    width: 100%;
+  }
+  .tx-table thead {
+    display: none;
+  }
+  .tx-table tr {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .tx-table td {
+    border: 0;
+    padding: 2px 0;
+  }
+  .tx-table td:first-child {
+    width: 100%;
+    font-weight: 500;
+  }
+  .live-strip {
+    gap: 12px 24px;
+  }
+}

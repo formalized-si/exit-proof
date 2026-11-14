@@ -1,0 +1,10 @@
+name = "proved_ft"
+version = "0.1.0"
+defaultTargets = ["ProvedFT", "ftmodel"]
+
+[[lean_lib]]
+name = "ProvedFT"
+
+[[lean_exe]]
+name = "ftmodel"
+root = "Main"

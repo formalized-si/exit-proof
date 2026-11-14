@@ -1,0 +1,4 @@
+Standard: no violation; 6149730 states generated, 1029218 distinct states found, 0 states left on queue.
+FeeToken: Backing violated, as expected; counterexample of 3 states
+RefundFailedCall: Backing violated, as expected; counterexample of 8 states
+Large (run of 2026-11-12, LARGE=1): no violation; 599938047 states generated, 78961324 distinct states found, 0 states left on queue.

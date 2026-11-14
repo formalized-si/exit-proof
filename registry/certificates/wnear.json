@@ -1,0 +1,39 @@
+{
+ "code_hash": "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1",
+ "dir": "wnear-proof",
+ "certificate": {
+  "kind": "exit",
+  "family": "wNEAR (near/core-contracts@54f8267 w-near, near-contract-standards 3.1.0), the code of wrap.near",
+  "statement": "In the Lean model: in any state satisfying the invariant Inv, a registered holder u other than the contract itself that calls near_withdraw(b) with 1 yocto attached, b being its balance when the call executes, succeeds, and the contract sends u b+1 yocto. Only u's own calls, or the settlement of a transfer made to u (bounded by that transfer), lower u's balance. ft_resolve_transfer has effect only when the contract itself is the caller. total_supply equals the sum of balances.",
+  "theorems": [
+   "WNear.T_exit",
+   "WNear.exit_always",
+   "WNear.exit_full",
+   "WNear.inv_step",
+   "WNear.T_conservation",
+   "WNear.T_no_one_else",
+   "WNear.T_who_can_lower",
+   "WNear.T_resolve",
+   "WNear.T_resolve_private"
+  ],
+  "axioms": [
+   "propext",
+   "Quot.sound",
+   "Classical.choice"
+  ],
+  "assumptions": [
+   "The theorem is about a model; the deployed bytes are tied to it by hash equality with the committed artifact and by execution on the nearcore runtime (tested, not proved).",
+   "Mainnet satisfies Inv: its solvency part was checked at block 224128229 (margin 3388 NEAR); supply = sum of balances over all records was not checked on mainnet.",
+   "The code was swapped once in 2021 by a key, without migration; the earlier code is tested, not proved; the account has had no keys since block 40858545.",
+   "The holder can attach 1 yocto (needs a full-access key or a contract) and enough gas; ft_transfer_call needs at least 30 Tgas (gas is not modelled)."
+  ],
+  "binding": "deployed code hash equals w-near/res/w_near.wasm committed at near/core-contracts@54f8267; wrap.near has no access keys",
+  "conformance": {
+   "traces": 2000,
+   "calls": 55825,
+   "mismatches": 0,
+   "runtime": "nearcore 2.14.0 (protocol 88) via near-contract-sim; 329546 balance comparisons; 8/8 model mutants detected"
+  },
+  "check_command": "wnear-proof/check.sh"
+ }
+}

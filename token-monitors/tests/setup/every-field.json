@@ -1,0 +1,68 @@
+{
+  "description": "Set-up test: every key of the config format at once, on the reference token.",
+  "token_account": "token.issuer.near",
+  "accounts": [
+    "issuer.near"
+  ],
+  "stubs": [
+    {
+      "account": "oracle.near",
+      "methods": {
+        "price": "1"
+      }
+    }
+  ],
+  "init": {
+    "caller": "issuer.near",
+    "method": "new_default_meta",
+    "args": {
+      "owner_id": "owner.near",
+      "total_supply": "1000000000000000000000000"
+    },
+    "gas_tgas": 100
+  },
+  "setup": [
+    {
+      "caller": "alice.near",
+      "method": "storage_deposit",
+      "args": {},
+      "deposit": "1250000000000000000000",
+      "gas_tgas": 30
+    },
+    {
+      "caller": "owner.near",
+      "method": "ft_transfer",
+      "args": {
+        "receiver_id": "alice.near",
+        "amount": "1000"
+      },
+      "deposit": "1"
+    },
+    {
+      "caller": "owner.near",
+      "receiver": "oracle.near",
+      "method": "price",
+      "args": {}
+    },
+    {
+      "caller": "bob.near",
+      "method": "ft_transfer",
+      "args": {
+        "receiver_id": "alice.near",
+        "amount": "1"
+      },
+      "deposit": "1",
+      "may_fail": true
+    }
+  ],
+  "funder": "owner.near",
+  "track": [
+    "burn.near"
+  ],
+  "token_near": 100,
+  "timestamp_ns": 1800000000000000000,
+  "transfer_memos": [
+    "memo-a"
+  ],
+  "resolve_method": "ft_resolve_transfer"
+}

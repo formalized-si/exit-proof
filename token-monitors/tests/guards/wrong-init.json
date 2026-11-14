@@ -1,0 +1,4 @@
+{
+  "description": "Guard test: the init method does not exist in the wasm.",
+  "init": {"method": "initialize", "args": {"owner_id": "owner.near", "total_supply": "1000000000000000000000000000000"}}
+}

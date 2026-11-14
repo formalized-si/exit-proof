@@ -1,0 +1,88 @@
+scenario 1: gov stages the v2 build | oZHkyNXrkiD2miRHtzr5DMaNDT6Q9y8iXUGZRgvG8ei | success 
+scenario 1: the attestor attests the hash of v2 | EDwj8A131hbVnNNEFuGYWFkoijMDst9gTByXEjgj89o1 | success 
+scenario 1: deploy_certified before the delay (must be refused) | GjzZAVL51qWQYmaT5hYUNFvMWQU2SvxHQ7hA3o8UsKcq | failure Smart contract panicked: Gate: deploy too early: staging ends on 1794524885108635419
+staging timestamp: 1794524885108635419
+final block timestamp: 1794524892300880644 (7.2 s after the staging timestamp)
+scenario 1: deploy_certified after the delay, by an account with no role | Bk2dvYM2f24dtujK7ji9V8di4jSXKcodptcFesJLZeDL | success 
+{
+ "vault": "vault.gated-upgrade.testnet",
+ "account": {
+  "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+  "code_sha256": "4119617a3df44a476ec8f1aa6ed58b942fc37ce24155403bc307b23e56f13a85",
+  "balance_near": 5.647644297686042,
+  "storage_bytes": 441448,
+  "access_keys": 0,
+  "block_height": 277428721
+ },
+ "version": 2,
+ "gate": {
+  "registry": "registry.gated-upgrade.testnet",
+  "kind": "upgrade-window",
+  "attestors": [
+   "attestor.gated-upgrade.testnet"
+  ]
+ },
+ "up_get_delay_status": {
+  "staging_duration": 180000000000,
+  "staging_timestamp": 1794524885108635419,
+  "new_staging_duration": null,
+  "new_staging_duration_timestamp": null
+ },
+ "up_staged_code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+ "acl_get_permissioned_accounts": {
+  "super_admins": [
+   "vault.gated-upgrade.testnet"
+  ],
+  "roles": {
+   "DurationManager": {
+    "admins": [],
+    "grantees": []
+   },
+   "CodeDeployer": {
+    "admins": [],
+    "grantees": [
+     "vault.gated-upgrade.testnet"
+    ]
+   },
+   "CodeStager": {
+    "admins": [],
+    "grantees": [
+     "gov.gated-upgrade.testnet"
+    ]
+   }
+  }
+ },
+ "registry": {
+  "account_id": "registry.gated-upgrade.testnet",
+  "account": {
+   "code_hash": "CM89kMNQzjWRkuNJE7Q2Va2Z4YrbK4MjmiLZnGbUcGkS",
+   "code_sha256": "a8984200f13b774e71ac24cfa260ee69efaaa6123e8da498e4b5cc815ce4ca9b",
+   "balance_near": 2.320603883298105,
+   "storage_bytes": 173154,
+   "access_keys": 0,
+   "block_height": 277428723
+  },
+  "attestors": [
+   "gated-upgrade.testnet",
+   "attestor.gated-upgrade.testnet"
+  ],
+  "owner": "gated-upgrade.testnet",
+  "count": 1,
+  "valid_certificates_for_running_code": [
+   {
+    "attestor": "attestor.gated-upgrade.testnet",
+    "kind": "upgrade-window",
+    "revoked": false,
+    "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+   }
+  ],
+  "valid_certificates_for_staged_code": [
+   {
+    "attestor": "attestor.gated-upgrade.testnet",
+    "kind": "upgrade-window",
+    "revoked": false,
+    "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2"
+   }
+  ]
+ }
+}

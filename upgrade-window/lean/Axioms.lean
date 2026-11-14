@@ -1,0 +1,36 @@
+import UpgradeWindow
+open UpgradeWindow
+#print axioms W1_delay
+#print axioms W2_visibility
+#print axioms deploy_origin
+#print axioms W3a_duration_change
+#print axioms W3b_update_staged
+#print axioms W3_no_deploy_before
+#print axioms W3_code_change
+#print axioms W3_code_change_any
+#print axioms W3_prestaged_shortcut
+#print axioms W3_shrink_shortcut
+#print axioms W4_no_window
+#print axioms W4_witness
+#print axioms W5_notice
+#print axioms W5_exit_window
+#print axioms W5_code_change
+#print axioms W5_exit_before_code_change
+#print axioms W5_quiet_reading
+#print axioms W5_quiet_reading_code
+#print axioms W5_quiet_reading_code_any
+#print axioms W5_polling_call
+#print axioms W5_polling
+#print axioms callU_eq_call
+#print axioms W3U_no_deploy_before
+#print axioms W5U_quiet_reading
+#print axioms alarmU_flags_huge_update
+#print axioms W3U_grow_then_remove
+#print axioms W3_tight
+#print axioms safeUntil_run
+#print axioms quiet_safeUntil
+#print axioms wf_run
+#print axioms stageDurUnchecked_eq
+#print axioms W3_unchecked_shortcut
+#print axioms vault_exit
+#print axioms vault_others

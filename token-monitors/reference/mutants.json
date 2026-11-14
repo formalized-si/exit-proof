@@ -1,0 +1,175 @@
+{
+ "library": "near-contract-standards-5.29.0",
+ "sources_sha256": {
+  "library:src/fungible_token/core_impl.rs": "7f818d86401f3fbdb0575b0c4299c66f7bc98e649e46a5d7e5be68d6ecff721a",
+  "library:src/fungible_token/storage_impl.rs": "3f616ce77c53aa03827f7eca2ba3181290d0777989e6aef61015fbd158f16335",
+  "token:src/lib.rs": "24d6797f4177cfc122241f4f0342475d3a17c2ef07c2e604b2cfc64a3c3b698b"
+ },
+ "mutants": [
+  {
+   "id": "M0_control",
+   "in": "library",
+   "file": "src/fungible_token/core_impl.rs",
+   "old": null,
+   "new": null,
+   "what": "the unmutated library, built through the same path patch as the mutants",
+   "breaks": null,
+   "expect": "PASS"
+  },
+  {
+   "id": "M1_refund_not_capped",
+   "in": "library",
+   "file": "src/fungible_token/core_impl.rs",
+   "old": "            .min(amount.0);",
+   "new": "            .min(u128::MAX);",
+   "what": "the unused amount reported by the receiver is no longer capped by the transferred amount",
+   "breaks": "P2",
+   "expect": "FAIL",
+   "must_fire": [
+    "P2.settlement_completed"
+   ]
+  },
+  {
+   "id": "M2_unparsable_means_used",
+   "in": "library",
+   "file": "src/fungible_token/core_impl.rs",
+   "old": "            .unwrap_or(amount)",
+   "new": "            .unwrap_or(U128(0))",
+   "what": "an unparsable, failed or too long receiver result counts as fully used instead of fully refunded",
+   "breaks": "P2",
+   "expect": "FAIL",
+   "must_fire": [
+    "P2.refund_follows_reply"
+   ]
+  },
+  {
+   "id": "M3_receiver_not_debited",
+   "in": "library",
+   "file": "src/fungible_token/core_impl.rs",
+   "old": "                    self.accounts.insert(&receiver_id, &new_receiver_balance);",
+   "new": "                    let _ = new_receiver_balance;",
+   "what": "the refund is credited to the sender without debiting the receiver",
+   "breaks": "P2",
+   "expect": "FAIL",
+   "must_fire": [
+    "P2.receiver_keeps_used",
+    "P2.pair_conserved",
+    "P1.supply_eq_sum"
+   ]
+  },
+  {
+   "id": "M4_storage_off_by_one",
+   "in": "library",
+   "file": "src/fungible_token/core_impl.rs",
+   "old": "        self.account_storage_usage = env::storage_usage() - initial_storage_usage;",
+   "new": "        self.account_storage_usage = env::storage_usage() - initial_storage_usage - 1;",
+   "what": "the storage minimum is measured one byte short",
+   "breaks": "P5 (NEAR side)",
+   "expect": "OUTSIDE",
+   "why_outside": "changes only how much NEAR a registration costs; no monitor reads NEAR balances"
+  },
+  {
+   "id": "M5_resolve_gas_3tgas",
+   "in": "library",
+   "file": "src/fungible_token/core_impl.rs",
+   "old": "const GAS_FOR_RESOLVE_TRANSFER: Gas = Gas::from_tgas(5);",
+   "new": "const GAS_FOR_RESOLVE_TRANSFER: Gas = Gas::from_tgas(3);",
+   "what": "the settlement callback gets 3 Tgas instead of 5",
+   "breaks": "gas",
+   "expect": "OUTSIDE",
+   "why_outside": "changes only the gas attached to the callback, which still completes in the simulator; no monitor reads gas"
+  },
+  {
+   "id": "M6_withdraw_overdraft",
+   "in": "library",
+   "file": "src/fungible_token/core_impl.rs",
+   "old": "        if let Some(new_balance) = balance.checked_sub(amount) {",
+   "new": "        if let Some(new_balance) = Some(balance.saturating_sub(amount)) {",
+   "what": "a withdrawal larger than the balance empties the account instead of being refused, while the receiver is credited in full",
+   "breaks": "P1",
+   "expect": "FAIL",
+   "must_fire": [
+    "P1.exact_transfer",
+    "P1.supply_eq_sum"
+   ]
+  },
+  {
+   "id": "M7_force_unregister_no_burn",
+   "in": "library",
+   "file": "src/fungible_token/storage_impl.rs",
+   "old": "                self.total_supply -= balance;",
+   "new": "                self.total_supply -= 0;",
+   "what": "a forced unregistration removes the balance but leaves it in the total supply",
+   "breaks": "P1",
+   "expect": "FAIL",
+   "must_fire": [
+    "P1.supply_eq_sum"
+   ]
+  },
+  {
+   "id": "M8_unregister_default_force",
+   "in": "library",
+   "file": "src/fungible_token/storage_impl.rs",
+   "old": "        let force = force.unwrap_or(false);",
+   "new": "        let force = force.unwrap_or(true);",
+   "what": "storage_unregister without the force argument burns a positive balance",
+   "breaks": "P5",
+   "expect": "FAIL",
+   "must_fire": [
+    "P5.unregister_refused"
+   ]
+  },
+  {
+   "id": "M9_deposit_refund_to_account",
+   "in": "library",
+   "file": "src/fungible_token/storage_impl.rs",
+   "old": "                Promise::new(env::predecessor_account_id()).transfer(refund).detach();",
+   "new": "                Promise::new(account_id.clone()).transfer(refund).detach();",
+   "what": "storage_deposit refunds the excess NEAR to the registered account instead of the payer",
+   "breaks": "P5 (NEAR side)",
+   "expect": "OUTSIDE",
+   "why_outside": "changes only who receives a NEAR refund; no monitor reads NEAR balances"
+  },
+  {
+   "id": "M10_resolve_not_private",
+   "in": "token",
+   "file": "src/lib.rs",
+   "old": "    #[private]\n    fn ft_resolve_transfer(",
+   "new": "    fn ft_resolve_transfer(",
+   "what": "#[private] removed from the token's ft_resolve_transfer",
+   "breaks": "P3",
+   "expect": "FAIL",
+   "must_fire": [
+    "P3.foreign_resolve_fails",
+    "P3.foreign_resolve_no_effect",
+    "P4.lowered_only_by_holder"
+   ]
+  }
+ ],
+ "fixtures": [
+  {
+   "id": "F1_factory_minted",
+   "in": "token",
+   "file": "src/lib.rs",
+   "edits": [
+    {
+     "old": "        this\n    }\n}\n\n#[near]\nimpl FungibleTokenCore for Contract {",
+     "new": "        this\n    }\n\n    /// Test fixture: an init that only the parent (\"factory\") account may call. It creates no\n    /// tokens; the factory mints afterwards.\n    #[init]\n    pub fn new_by_factory(metadata: FungibleTokenMetadata) -> Self {\n        require!(!env::state_exists(), \"Already initialized\");\n        require!(\n            Self::is_factory(&env::predecessor_account_id()),\n            \"Only the factory account can init this contract\"\n        );\n        metadata.assert_valid();\n        Self {\n            token: FungibleToken::new(StorageKey::FungibleToken),\n            metadata: LazyOption::new(StorageKey::Metadata, Some(&metadata)),\n        }\n    }\n\n    /// Test fixture: the factory mints to an account that is already registered.\n    pub fn mint(&mut self, account_id: AccountId, amount: U128) {\n        require!(Self::is_factory(&env::predecessor_account_id()), \"Only the factory account can mint\");\n        self.token.internal_deposit(&account_id, amount.into());\n        near_contract_standards::fungible_token::events::FtMint {\n            owner_id: &account_id,\n            amount,\n            memo: None,\n        }\n        .emit();\n    }\n\n    fn is_factory(caller: &AccountId) -> bool {\n        let me = env::current_account_id();\n        match me.as_str().split_once('.') {\n            Some((_, parent)) => caller.as_str() == parent,\n            None => false,\n        }\n    }\n}\n\n#[near]\nimpl FungibleTokenCore for Contract {"
+    }
+   ],
+   "what": "the reference token with two added methods: an init that only the parent (factory) account may call and that creates no tokens, and a mint that only the factory may call"
+  },
+  {
+   "id": "F2_transfer_call_disabled",
+   "in": "token",
+   "file": "src/lib.rs",
+   "edits": [
+    {
+     "old": "        self.token.ft_transfer_call(receiver_id, amount, memo, msg)\n",
+     "new": "        let _ = (&receiver_id, &amount, &memo, &msg);\n        env::panic_str(\"ft_transfer_call is disabled\")\n"
+    }
+   ],
+   "what": "the reference token with ft_transfer_call made to fail always; nothing it does is wrong, but half of the monitors have nothing to judge"
+  }
+ ]
+}

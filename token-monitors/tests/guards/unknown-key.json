@@ -1,0 +1,5 @@
+{
+  "description": "Guard test: a misspelled key must be refused, not ignored.",
+  "init": {"method": "new_default_meta", "args": {"owner_id": "owner.near", "total_supply": "1000000000000000000000000000000"}},
+  "fundr": "owner.near"
+}

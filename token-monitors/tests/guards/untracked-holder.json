@@ -1,0 +1,4 @@
+{
+  "description": "Guard test: the init gives the supply to an account the config does not list, so the monitors cannot see who holds it.",
+  "init": {"method": "new_default_meta", "args": {"owner_id": "treasury.near", "total_supply": "1000000000000000000000000000000"}}
+}

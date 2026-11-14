@@ -1,0 +1,92 @@
+{
+ "seed": 20261112,
+ "traces_standard_token": 4000,
+ "traces_each_mock": 400,
+ "intents_wasm_sha256": "a1afab98916d9f213746544dcf8e4e6bdb22c0be6bc5dfbd8ea8814c9922b547",
+ "replay": {
+  "standard_token": {
+   "agree": 257605,
+   "disagree": 0,
+   "auth": 135,
+   "env": 2581,
+   "skipped": 0,
+   "contract_steps": 260321,
+   "not_compared": {
+    "gas: a failure forced by the harness": 1615,
+    "gas: ran out of the attached gas": 966,
+    "signature: not checked by the model": 135
+   },
+   "unwrap_callbacks": 2353,
+   "wnear": 41796,
+   "wnear_agree": 41217,
+   "wnear_disagree": 0,
+   "world": {
+    "agree": 209557,
+    "contract_receipts": 126755,
+    "contract_receipts_of_other_ledger_ids": 133566,
+    "disagree": 0,
+    "env": 1834,
+    "mock_traces_left_out": 0,
+    "token_receipts": 84636,
+    "traces": 4000
+   },
+   "traces_replayed": 4000
+  },
+  "fee_mock": {
+   "agree": 25432,
+   "disagree": 0,
+   "auth": 13,
+   "env": 243,
+   "skipped": 0,
+   "contract_steps": 25688,
+   "not_compared": {
+    "gas: a failure forced by the harness": 146,
+    "gas: ran out of the attached gas": 97,
+    "signature: not checked by the model": 13
+   },
+   "unwrap_callbacks": 201,
+   "wnear": 4000,
+   "wnear_agree": 3955,
+   "wnear_disagree": 0,
+   "world": {
+    "agree": 0,
+    "contract_receipts": 0,
+    "contract_receipts_of_other_ledger_ids": 0,
+    "disagree": 0,
+    "env": 0,
+    "mock_traces_left_out": 400,
+    "token_receipts": 0,
+    "traces": 0
+   },
+   "traces_replayed": 400
+  },
+  "reply_mock": {
+   "agree": 25432,
+   "disagree": 0,
+   "auth": 13,
+   "env": 243,
+   "skipped": 0,
+   "contract_steps": 25688,
+   "not_compared": {
+    "gas: a failure forced by the harness": 145,
+    "gas: ran out of the attached gas": 98,
+    "signature: not checked by the model": 13
+   },
+   "unwrap_callbacks": 196,
+   "wnear": 3977,
+   "wnear_agree": 3932,
+   "wnear_disagree": 0,
+   "world": {
+    "agree": 0,
+    "contract_receipts": 0,
+    "contract_receipts_of_other_ledger_ids": 0,
+    "disagree": 0,
+    "env": 0,
+    "mock_traces_left_out": 400,
+    "token_receipts": 0,
+    "traces": 0
+   },
+   "traces_replayed": 400
+  }
+ }
+}

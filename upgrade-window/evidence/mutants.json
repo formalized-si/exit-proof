@@ -1,0 +1,363 @@
+[
+ {
+  "id": "M0_control",
+  "mutation": "unmutated source through the same path patch",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "-",
+  "wasm_sha256_v1": "7b3a23d14f260968c270f9371a966cbe98786e111af343e7392585837cdb7177",
+  "result": "PASS",
+  "traces": 1000,
+  "diverging_traces": 0,
+  "diverging_traces_by_first_property": {},
+  "first_divergence": null,
+  "monitor_violations": {},
+  "exit_status": 0
+ },
+ {
+  "id": "M1_deploy_check_flipped",
+  "mutation": "up_deploy_code: comparison flipped (deploy allowed only before the staging timestamp)",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W1",
+  "wasm_sha256_v1": "7abbdf2f147e5e1f62203ec6742549f75bb151deb7798fec489a6ddb82ffcb89",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 657,
+  "diverging_traces_by_first_property": {
+   "W1": 471,
+   "W2": 186
+  },
+  "first_divergence": {
+   "trace": 0,
+   "h": 27,
+   "kind": "outcome",
+   "property": "W1",
+   "method": "up_deploy_code",
+   "field": null,
+   "pred": "dao.near",
+   "args": "{\"function_call_args\":null,\"hash\":\"ecm78VTikHE1LR1zfbDGuREFq5AG8kEcVmUuUihShv1\"}",
+   "detail": "wasm Panic(\"Upgradable: Deploy code too early: staging ends on 1794528056515215393\") / model ok"
+  },
+  "monitor_violations": {
+   "deploy_before_safe_until": 330,
+   "deploy_before_staging_timestamp": 324
+  },
+  "exit_status": 1
+ },
+ {
+  "id": "M2_deploy_one_ns_early",
+  "mutation": "up_deploy_code: accepted one nanosecond before the staging timestamp",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W1",
+  "wasm_sha256_v1": "2769b7ed31e25a95dcdeba4af90b67f98f1d8876d2444496030ce5f2b771409c",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 27,
+  "diverging_traces_by_first_property": {
+   "W1": 25,
+   "W2": 2
+  },
+  "first_divergence": {
+   "trace": 27,
+   "h": 26,
+   "kind": "outcome",
+   "property": "W1",
+   "method": "up_deploy_code",
+   "field": null,
+   "pred": "deployer.near",
+   "args": "{\"function_call_args\":null,\"hash\":\"3erQ6QGyeUvoRRov1CDcT2kLSLJ25p4yfwxzVj2T2HZu\"}",
+   "detail": "wasm ok / model Upgradable: Deploy code too early: staging ends on 1795046438000000001"
+  },
+  "monitor_violations": {
+   "deploy_before_safe_until": 27,
+   "deploy_before_staging_timestamp": 27
+  },
+  "exit_status": 1
+ },
+ {
+  "id": "M3_stage_ignores_duration",
+  "mutation": "up_stage_code: staging timestamp = block timestamp, the duration is not added",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W1",
+  "wasm_sha256_v1": "d647525c9ac304e5d6b8774d737a0bbb12e25cca97ceb056fde4e7e881007267",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 603,
+  "diverging_traces_by_first_property": {
+   "W1": 595,
+   "W2": 8
+  },
+  "first_divergence": {
+   "trace": 2,
+   "h": 32,
+   "kind": "state",
+   "property": "W1",
+   "method": null,
+   "field": "staging_timestamp",
+   "pred": null,
+   "args": null,
+   "detail": "storage 1794535236001304848 / model 1794538836001304848"
+  },
+  "monitor_violations": {
+   "safe_until_decreased": 453,
+   "deploy_before_safe_until": 233
+  },
+  "exit_status": 1
+ },
+ {
+  "id": "M4_hash_check_removed",
+  "mutation": "up_deploy_code: the hash argument is not checked",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W2",
+  "wasm_sha256_v1": "49b7f18fe985b4d6c13f0fe051d3afdf882fcdea154e75cadba7e6a905a9ea7d",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 227,
+  "diverging_traces_by_first_property": {
+   "W2": 227
+  },
+  "first_divergence": {
+   "trace": 6,
+   "h": 16,
+   "kind": "outcome",
+   "property": "W2",
+   "method": "up_deploy_code",
+   "field": null,
+   "pred": "dao.near",
+   "args": "{\"function_call_args\":{\"amount\":\"0\",\"arguments\":[],\"function_name\":\"no_such_method\",\"gas\":\"3000000000000\"},\"hash\":\"GnWL8JVfA5pkXTvmZXPPUwiCrcVzMBabgvzYWDBJ3Kuq\"}",
+   "detail": "wasm ok / model Upgradable: Cannot deploy due to wrong hash: expected hash: BASis9L2kQze6kL4hc7YfDZo1BYnqm99VkSH5o42j16W"
+  },
+  "monitor_violations": {
+   "deploy_with_other_hash": 289
+  },
+  "exit_status": 1
+ },
+ {
+  "id": "M5_duration_update_no_delay",
+  "mutation": "up_stage_update_staging_duration: the update is applicable at once",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W3",
+  "wasm_sha256_v1": "b08ca15e3d881c94d6c5be4ac8d2275d312dc98707c191e79e1dc99487ad7fe5",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 612,
+  "diverging_traces_by_first_property": {
+   "W3": 612
+  },
+  "first_divergence": {
+   "trace": 2,
+   "h": 20,
+   "kind": "state",
+   "property": "W3",
+   "method": null,
+   "field": "new_staging_duration_timestamp",
+   "pred": null,
+   "args": null,
+   "detail": "storage 1794531615000000000 / model 1794535215000000000"
+  },
+  "monitor_violations": {
+   "safe_until_decreased": 325,
+   "deploy_before_safe_until": 36
+  },
+  "exit_status": 1
+ },
+ {
+  "id": "M6_duration_update_written_directly",
+  "mutation": "up_stage_update_staging_duration: writes the staging duration itself",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W3",
+  "wasm_sha256_v1": "a5f8ca2ab3c7703b33b715f333694a84706ccd379b45e5bf6ac3fee0de86679f",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 653,
+  "diverging_traces_by_first_property": {
+   "W3": 653
+  },
+  "first_divergence": {
+   "trace": 0,
+   "h": 16,
+   "kind": "state",
+   "property": "W3",
+   "method": null,
+   "field": "staging_duration",
+   "pred": null,
+   "args": null,
+   "detail": "storage 7917522923 / model 0"
+  },
+  "monitor_violations": {
+   "safe_until_decreased": 232,
+   "deploy_before_safe_until": 29
+  },
+  "exit_status": 1
+ },
+ {
+  "id": "M7_apply_check_removed",
+  "mutation": "up_apply_update_staging_duration: the timestamp is not checked",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W3",
+  "wasm_sha256_v1": "713b79f0a958d171c2c691113e9cca93e4aff2b0135d9e6dd3966cc2e6fba43f",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 145,
+  "diverging_traces_by_first_property": {
+   "W3": 145
+  },
+  "first_divergence": {
+   "trace": 21,
+   "h": 29,
+   "kind": "outcome",
+   "property": "W3",
+   "method": "up_apply_update_staging_duration",
+   "field": null,
+   "pred": "durmgr.near",
+   "args": "{}",
+   "detail": "wasm ok / model Upgradable: Update duration too early: staging ends on 1796860816356734800"
+  },
+  "monitor_violations": {
+   "safe_until_decreased": 55,
+   "deploy_before_safe_until": 7
+  },
+  "exit_status": 1
+ },
+ {
+  "id": "M8_reinit_allowed",
+  "mutation": "up_init_staging_duration: allowed when a duration is already set",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W3",
+  "wasm_sha256_v1": "a8ca4e2fa9d17389c8f83dbf1a9410bc248b45147afd9d57b455d6e019112e6c",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 545,
+  "diverging_traces_by_first_property": {
+   "W3": 545
+  },
+  "first_divergence": {
+   "trace": 0,
+   "h": 41,
+   "kind": "outcome",
+   "property": "W3",
+   "method": "up_init_staging_duration",
+   "field": null,
+   "pred": "durmgr.near",
+   "args": "{\"staging_duration\":1}",
+   "detail": "wasm ok / model Upgradable: staging duration was already initialized"
+  },
+  "monitor_violations": {
+   "safe_until_decreased": 237,
+   "deploy_before_safe_until": 66
+  },
+  "exit_status": 1
+ },
+ {
+  "id": "M9_update_timestamp_wraps",
+  "mutation": "up_stage_update_staging_duration: wrapping instead of checked addition",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W3",
+  "wasm_sha256_v1": "d1a500d5c68ba3dee1042233d7c81e1b71121981541b2b12699fb2fd6ac34fa3",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 94,
+  "diverging_traces_by_first_property": {
+   "W3": 94
+  },
+  "first_divergence": {
+   "trace": 3,
+   "h": 30,
+   "kind": "outcome",
+   "property": "W3",
+   "method": "up_stage_update_staging_duration",
+   "field": null,
+   "pred": "durmgr.near",
+   "args": "{\"staging_duration\":2000000000}",
+   "detail": "wasm ok / model attempt to add with overflow"
+  },
+  "monitor_violations": {
+   "safe_until_decreased": 84,
+   "deploy_before_safe_until": 20
+  },
+  "exit_status": 1
+ },
+ {
+  "id": "M10_stage_timestamp_wraps",
+  "mutation": "up_stage_code: wrapping instead of saturating addition",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W1",
+  "wasm_sha256_v1": "47f5d14e901fbaad1d8cbe1371c6839a53ddbd976af925b8ba1e6122e402d54d",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 99,
+  "diverging_traces_by_first_property": {
+   "W1": 96,
+   "W2": 3
+  },
+  "first_divergence": {
+   "trace": 3,
+   "h": 29,
+   "kind": "state",
+   "property": "W1",
+   "method": null,
+   "field": "staging_timestamp",
+   "pred": null,
+   "args": null,
+   "detail": "storage 1794441681308499140 / model 18446744073709551615"
+  },
+  "monitor_violations": {
+   "safe_until_decreased": 80,
+   "deploy_before_safe_until": 61
+  },
+  "exit_status": 1
+ },
+ {
+  "id": "M11_removal_keeps_timestamp",
+  "mutation": "up_stage_code with empty input: the staging timestamp is left in storage",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "W1",
+  "wasm_sha256_v1": "a0a29ba80ad49340c649cdc10d9f7ab404ad176003d1c63d3fc1bbeffe2960aa",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 295,
+  "diverging_traces_by_first_property": {
+   "W1": 292,
+   "W2": 3
+  },
+  "first_divergence": {
+   "trace": 0,
+   "h": 44,
+   "kind": "state",
+   "property": "W1",
+   "method": null,
+   "field": "staging_timestamp",
+   "pred": null,
+   "args": null,
+   "detail": "storage 1795219262515215393 / model None"
+  },
+  "monitor_violations": {},
+  "exit_status": 1
+ },
+ {
+  "id": "M12_deploy_guarded_by_stager_roles",
+  "mutation": "up_deploy_code: checks the code stagers' roles instead of the deployers'",
+  "file": "near-plugins-derive/src/upgradable.rs",
+  "expected": "ACL",
+  "wasm_sha256_v1": "a22e5d7da848134413167f0d990e47f65c868fcc17c1408ff3c85dc92c799b83",
+  "result": "FAIL",
+  "traces": 1000,
+  "diverging_traces": 793,
+  "diverging_traces_by_first_property": {
+   "ACL": 738,
+   "W2": 55
+  },
+  "first_divergence": {
+   "trace": 0,
+   "h": 15,
+   "kind": "error text",
+   "property": "ACL",
+   "method": "up_deploy_code",
+   "field": null,
+   "pred": "deployer.near",
+   "args": "{\"hash\":\"6KukZnuXUeHQAi5eA8A2CtvkCWtafadB9oGwqaEjRf4n\"}",
+   "detail": "wasm Panic(\"Insufficient permissions for method up_deploy_code restricted by access control. Requires one of these roles: [\\\"CodeStager\\\", \\\"DAO\\\"]\") / model Upgradable: staging timestamp isn't set"
+  },
+  "monitor_violations": {},
+  "exit_status": 1
+ }
+]

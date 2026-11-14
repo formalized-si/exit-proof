@@ -1,0 +1,36 @@
+{
+ "code_hash": "5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2",
+ "certificate": {
+  "kind": "upgrade-window",
+  "family": "gated vault: near-plugins v0.5.1 Upgradable behind a certificate gate, build v2",
+  "statement": "Testnet demonstration certificate. In the Lean model of the gated vault, every change of the code installs code whose hash had, when the registry was asked, a certificate that was not revoked, of the accepted kind and from an accepted attestor; that code was staged at least the staging duration before the deploy call and its hash was the visible staged hash all that time; the deploy batch was created by the contract's own callback. This wasm is a feature build of the modelled source: it differs from build v1 in the value version() returns and in nothing else.",
+  "theorems": [
+   "GatedUpgrade.gated_code_change",
+   "GatedUpgrade.gated_no_deploy_before",
+   "GatedUpgrade.uncertified_never_installed",
+   "GatedUpgrade.aclInv_run"
+  ],
+  "axioms": [
+   "propext",
+   "Quot.sound",
+   "Classical.choice"
+  ],
+  "assumptions": [
+   "The contract account has no access keys, and no receipt calling a plugin or acl method has it as predecessor.",
+   "The registry account runs the pinned registry wasm, has no access keys, and its answer reaches the callback unchanged.",
+   "The model is a transcription of the contract by hand; the wasm was compared with it by scenarios and a trace monitor on the nearcore runtime, not by proof.",
+   "After a code change the statement continues only if the installed code is again the modelled contract.",
+   "Gas, storage staking, JSON decoding and collisions of sha256 are outside the model."
+  ],
+  "binding": "gated_vault_v2.wasm sha256 4119617a3df44a476ec8f1aa6ed58b942fc37ce24155403bc307b23e56f13a85, rebuilt from contract/gated-vault with cargo-near (contract/WASM_SHA256)",
+  "conformance": {
+   "traces": 2000,
+   "calls": 281198,
+   "mismatches": 0,
+   "runtime": "nearcore 2.14.0 via near-contract-sim; monitor on random traces, 117568 blocks; 10 scenarios with 82 checks, all holding"
+  },
+  "artifact_sha256": "09a3d698b27c9b12302320d138f3a336369cd756328c9285164a5ae73911d617",
+  "artifact_location": "gated-upgrade kit, directories contract/ lean/ harness/ (33 files); recompute with: python3 scripts/bundle_hash.py",
+  "check_command": "./check.sh"
+ }
+}

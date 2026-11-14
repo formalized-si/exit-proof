@@ -1,0 +1,60 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Where NEAR stands on the exit ladder</title>
+<link rel="stylesheet" href="design.css" />
+<style>
+  body { height: 440px; }
+  main { padding: 18px 44px 0; }
+  h2 { margin: 8px 0 16px; font: 500 27px/1.15 var(--sans); letter-spacing: -0.03em; color: var(--ink-deep); }
+  .label { font: 500 11px/1.5 var(--mono); letter-spacing: 0.04em; color: var(--muted); }
+  .bar { display: flex; height: 40px; margin: 6px 0 16px; }
+  .bar div { display: flex; align-items: center; padding: 0 12px; font: 500 15px/1 var(--sans); letter-spacing: -0.01em; color: #fff; white-space: nowrap; }
+  .bar .two { flex: 86.2; background: var(--ok); justify-content: space-between; }
+  .bar .zero { flex: 13.8; background: var(--orange); justify-content: center; padding: 0 6px; font-size: 13px; }
+  .bar small { font: 400 11px/1 var(--mono); color: rgb(255 255 255 / .8); }
+  .cells { display: grid; grid-template-columns: repeat(28, 1fr); gap: 4px; margin: 6px 0 6px; }
+  .cells i { display: block; height: 22px; background: var(--orange); }
+  .cells i.two { background: var(--ok); }
+  .cells i.u { background: #b9bbb2; }
+  .under { display: flex; justify-content: space-between; font: 400 11px/1.5 var(--mono); color: var(--muted); }
+  .ladder { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 18px; border-top: 1px solid var(--ink); }
+  .ladder > div { padding: 12px 14px 0; border-left: 1px solid var(--line); }
+  .ladder > div:first-child { padding-left: 0; border-left: 0; }
+  .ladder b { display: flex; align-items: center; gap: 8px; font: 500 15px/1.2 var(--sans); letter-spacing: -0.02em; color: var(--ink-deep); }
+  .ladder b::before { content: attr(data-n); display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; font: 500 12px/1 var(--mono); color: #fff; background: var(--c); }
+  .ladder p { margin: 6px 0 0; font: 400 12px/1.45 var(--sans); color: var(--text); }
+</style>
+<body class="paper">
+  <div class="band">
+    <div class="brand-line">
+      <img src="../../../web/assets/formalized-white.svg" alt="formalized" />
+      <div class="brand">Exit Proof</div>
+    </div>
+  </div>
+  <main>
+    <p class="eyebrow">Where NEAR stands · snapshot of 11 and 12 November 2026</p>
+    <h2>If I put money into this contract, can I always get it back?</h2>
+
+    <div class="label">STAKED NEAR, BY THE STAGE OF THE POOL THAT HOLDS IT</div>
+    <div class="bar">
+      <div class="two"><span>Stage 2 · proven exit · 86.2%</span><small>one pool code, 196 validators</small></div>
+      <div class="zero">Stage 0 · 13.8%</div>
+    </div>
+
+    <div class="label">28 LARGE CONTRACTS: BRIDGES, TOKENS, DEFI</div>
+    <div class="cells">
+      <i class="two"></i><i class="two"></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i>
+    </div>
+    <div class="under"><span>2 at stage 2 · 22 at stage 0: the code can change with no delay, for 9 of them by a single key</span><span>4 unproven</span></div>
+
+    <div class="ladder">
+      <div><b data-n="2" style="--c: var(--ok)">Proven exit</b><p>The code cannot change, and a Lean theorem tied to its hash says a depositor can always withdraw.</p></div>
+      <div><b data-n="1" style="--c: var(--warn)">Exit window</b><p>The code can change only after a visible delay. No contract on mainnet yet.</p></div>
+      <div><b data-n="0" style="--c: var(--orange)">Keyholder trust</b><p>The code can change with no notice, or exits can be paused.</p></div>
+      <div><b data-n="U" style="--c: #8f9189">Unproven</b><p>No code-change path was found, and no theorem covers this account.</p></div>
+    </div>
+  </main>
+</body>

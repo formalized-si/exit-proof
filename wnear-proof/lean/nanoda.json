@@ -1,0 +1,5 @@
+{"export_file_path": ".lake/wnear.ndjson", "use_stdin": false,
+ "permitted_axioms": ["propext","Classical.choice","Quot.sound"],
+ "unpermitted_axiom_hard_error": false, "nat_extension": true, "string_extension": true,
+ "pp_declars": ["WNear.exit_always","WNear.T_exit","WNear.T_no_one_else"], "pp_to_stdout": false, "pp_output_path": ".lake/wnear.pp.txt",
+ "print_success_message": true}

@@ -1,0 +1,292 @@
+[
+ {
+  "account": "token.sweat",
+  "block_height": 224225057,
+  "block_hash": "DUAyeRnpWvDevzrUqQj9CVEjqmx3mHA8ggeH566SEptZ",
+  "block_timestamp_ns": 1794492765202803872,
+  "block_time": "2026-11-12 14:12:45 UTC",
+  "account_exists": true,
+  "code_hash": "9EUtV11wgCZ4N16xa24ETnn8E78GjeSit1r7gMyQZ6Zi",
+  "global_contract": null,
+  "full_access_keys": 0,
+  "function_call_keys": 0,
+  "plugin": "ok",
+  "delay_status": {
+   "staging_duration": null,
+   "staging_timestamp": 1791497949490331446,
+   "new_staging_duration": null,
+   "new_staging_duration_timestamp": null
+  },
+  "staged_code_hash_view": "ok",
+  "staged_code_hash": "9EUtV11wgCZ4N16xa24ETnn8E78GjeSit1r7gMyQZ6Zi",
+  "acl": {
+   "super_admins": 1,
+   "roles": {
+    "DenylistManager": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "Oracle": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "PauseManager": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "StagingManager": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "UnpauseManager": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "UpgradeManager": {
+     "admins": 0,
+     "grantees": 1
+    }
+   }
+  },
+  "safe_until_ns": 1791497949490331446,
+  "window_now_ns": 0,
+  "staged": {
+   "hash": "9EUtV11wgCZ4N16xa24ETnn8E78GjeSit1r7gMyQZ6Zi",
+   "earliest_deploy_ns": 1791497949490331446,
+   "deployable_now": true,
+   "same_as_deployed_code": true
+  },
+  "pending_duration": null,
+  "verdict": "NO_WINDOW",
+  "notes": [
+   "staging duration is not set: code can be staged and its deployment accepted at the same block timestamp (theorem W4_no_window)",
+   "staged code is deployable now (it equals the code deployed now)"
+  ]
+ },
+ {
+  "account": "lst.rhealab.near",
+  "block_height": 224225062,
+  "block_hash": "2aS3fz16v2hZDokVi23ajn3taBFjpeqmjvy5bH4L6WBf",
+  "block_timestamp_ns": 1794492767878204708,
+  "block_time": "2026-11-12 14:12:47 UTC",
+  "account_exists": true,
+  "code_hash": "EPLT4C61pkVYf5Km6dC4X9x5PMo6rfBwuEwo7vgKpmuv",
+  "global_contract": null,
+  "full_access_keys": 0,
+  "function_call_keys": 0,
+  "plugin": "ok",
+  "delay_status": {
+   "staging_duration": null,
+   "staging_timestamp": null,
+   "new_staging_duration": null,
+   "new_staging_duration_timestamp": null
+  },
+  "staged_code_hash_view": "ok",
+  "staged_code_hash": null,
+  "acl": {
+   "super_admins": 1,
+   "roles": {
+    "DAO": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "OpManager": {
+     "admins": 0,
+     "grantees": 3
+    },
+    "PauseManager": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "UnpauseManager": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "UpgradableCodeDeployer": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "UpgradableCodeStager": {
+     "admins": 0,
+     "grantees": 2
+    }
+   }
+  },
+  "safe_until_ns": 1794492767878204708,
+  "window_now_ns": 0,
+  "staged": null,
+  "pending_duration": null,
+  "verdict": "NO_WINDOW",
+  "notes": [
+   "staging duration is not set: code can be staged and its deployment accepted at the same block timestamp (theorem W4_no_window)"
+  ]
+ },
+ {
+  "account": "ctl-intents.near",
+  "block_height": 224225066,
+  "block_hash": "6D99jifVocpva2Tum5MvtdJZJ3R3vz1kwvL75RQhjkUp",
+  "block_timestamp_ns": 1794492770140098976,
+  "block_time": "2026-11-12 14:12:50 UTC",
+  "account_exists": true,
+  "code_hash": "5ndbayBGx3kZc43QJHUn9WsoD6ZHo31L9ZWa83qkjywq",
+  "global_contract": null,
+  "full_access_keys": 0,
+  "function_call_keys": 0,
+  "plugin": "ok",
+  "delay_status": {
+   "staging_duration": null,
+   "staging_timestamp": 1749463409227021144,
+   "new_staging_duration": null,
+   "new_staging_duration_timestamp": null
+  },
+  "staged_code_hash_view": "ok",
+  "staged_code_hash": "5ndbayBGx3kZc43QJHUn9WsoD6ZHo31L9ZWa83qkjywq",
+  "acl": {
+   "super_admins": 2,
+   "roles": {
+    "DAO": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "Deployer": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "Downgrader": {
+     "admins": 0,
+     "grantees": 2
+    },
+    "Pauser": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "Releaser": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "Unpauser": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "Updater": {
+     "admins": 0,
+     "grantees": 1
+    }
+   }
+  },
+  "safe_until_ns": 1749463409227021144,
+  "window_now_ns": 0,
+  "staged": {
+   "hash": "5ndbayBGx3kZc43QJHUn9WsoD6ZHo31L9ZWa83qkjywq",
+   "earliest_deploy_ns": 1749463409227021144,
+   "deployable_now": true,
+   "same_as_deployed_code": true
+  },
+  "pending_duration": null,
+  "verdict": "NO_WINDOW",
+  "notes": [
+   "staging duration is not set: code can be staged and its deployment accepted at the same block timestamp (theorem W4_no_window)",
+   "staged code is deployable now (it equals the code deployed now)"
+  ]
+ },
+ {
+  "account": "omni.bridge.near",
+  "block_height": 224225073,
+  "block_hash": "A6DNvb2uP8mbxssC7DuJ3mQsYwbHHRsw3N8qu3ZddYdw",
+  "block_timestamp_ns": 1794492774072152440,
+  "block_time": "2026-11-12 14:12:54 UTC",
+  "account_exists": true,
+  "code_hash": "F2no3vqrFxm2c34mZqoMNawhRYYHbp22WuRqN6vEd3KP",
+  "global_contract": null,
+  "full_access_keys": 0,
+  "function_call_keys": 0,
+  "plugin": "ok",
+  "delay_status": {
+   "staging_duration": null,
+   "staging_timestamp": 1793136162705294087,
+   "new_staging_duration": null,
+   "new_staging_duration_timestamp": null
+  },
+  "staged_code_hash_view": "ok",
+  "staged_code_hash": "F2no3vqrFxm2c34mZqoMNawhRYYHbp22WuRqN6vEd3KP",
+  "acl": {
+   "super_admins": 1,
+   "roles": {
+    "DAO": {
+     "admins": 0,
+     "grantees": 2
+    },
+    "MetadataManager": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "NativeFeeRestricted": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "PauseManager": {
+     "admins": 0,
+     "grantees": 2
+    },
+    "RbfOperator": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "RelayerManager": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "TokenControllerUpdater": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "TokenDeployer": {
+     "admins": 0,
+     "grantees": 1
+    },
+    "TokenLockController": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "TokenUpgrader": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "UnpauseManager": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "UnrestrictedDeposit": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "UnrestrictedRelayer": {
+     "admins": 0,
+     "grantees": 3
+    },
+    "UpgradableCodeDeployer": {
+     "admins": 0,
+     "grantees": 0
+    },
+    "UpgradableCodeStager": {
+     "admins": 0,
+     "grantees": 1
+    }
+   }
+  },
+  "safe_until_ns": 1793136162705294087,
+  "window_now_ns": 0,
+  "staged": {
+   "hash": "F2no3vqrFxm2c34mZqoMNawhRYYHbp22WuRqN6vEd3KP",
+   "earliest_deploy_ns": 1793136162705294087,
+   "deployable_now": true,
+   "same_as_deployed_code": true
+  },
+  "pending_duration": null,
+  "verdict": "NO_WINDOW",
+  "notes": [
+   "staging duration is not set: code can be staged and its deployment accepted at the same block timestamp (theorem W4_no_window)",
+   "staged code is deployable now (it equals the code deployed now)"
+  ]
+ }
+]

@@ -1,0 +1,30 @@
+{
+ "keys_at_lo": [
+  [
+   "ed25519:Ht1Wd4CwixgnyEbnGxA93VkeUDuTY6tfXnMWwg8fnEop",
+   "FullAccess"
+  ]
+ ],
+ "keys_at_hi": [],
+ "last_with_keys": 40858544,
+ "first_without_keys": 40858545,
+ "keys_before": [
+  [
+   "ed25519:Ht1Wd4CwixgnyEbnGxA93VkeUDuTY6tfXnMWwg8fnEop",
+   "FullAccess"
+  ]
+ ],
+ "code_before": "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1",
+ "code_after": "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1",
+ "txs": [
+  {
+   "block": 40858545,
+   "hash": "DUzJv1DVj3tyEgewoKK8ihHaq72SrJ38xMYeMeGoyFNh",
+   "signer": "wrap.near",
+   "receiver": "wrap.near",
+   "actions": [
+    "DeleteKey"
+   ]
+  }
+ ]
+}

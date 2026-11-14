@@ -1,0 +1,9 @@
+# build products and generated output (check.sh recreates them)
+**/target/
+**/.lake/
+# the plugin source cloned by scripts/fetch-plugin.sh
+plugin/
+runs/
+mutants/
+__pycache__/
+*.pyc

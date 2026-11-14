@@ -1,0 +1,4 @@
+d5837ffd278eeedc4f97104586b3851ed9e7c32449de8b54e8d752f22498588e  near-contract-standards-3.1.0.crate
+c7383e242d3e07bf0951e8589d6eebd7f18bb1c1fc5fbec3fad796041a6aebd1  near-sdk-3.1.0.crate
+284a78d9eb8eda58330462fa0023a6d7014c941df1f0387095e7dfd1dc0f2bce  near-sdk-core-3.1.0.crate
+2037337438f97d1ce5f7c896cf229dc56dacd5c01142d1ef95a7d778cde6ce7d  near-sdk-macros-3.1.0.crate

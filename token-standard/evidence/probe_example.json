@@ -1,0 +1,34 @@
+{
+  "checks": {
+    "balances_unchanged": true,
+    "resolve_as_foreign_callback": {
+      "is_callback": true,
+      "predecessor": "evil.near",
+      "status": "Panic(\"Method ft_resolve_transfer is private\")"
+    },
+    "resolve_by_contract": "Panic(\"Method ft_resolve_transfer is private\")",
+    "resolve_by_token_key": "Host(\"Accessed invalid promise result index: 0\")",
+    "resolve_by_user": "Panic(\"Method ft_resolve_transfer is private\")",
+    "victim_balance_before_after": [
+      "500000000000000000000000000000",
+      "500000000000000000000000000000"
+    ]
+  },
+  "init_state": {
+    "h": 10,
+    "map": {
+      "owner.near": "1000000000000000000000000000000"
+    },
+    "near": "49998842402206703200000000",
+    "storage": 125253,
+    "supply": "1000000000000000000000000000000"
+  },
+  "ok": true,
+  "prefix_hex": "00",
+  "reported_storage_min": "1250000000000000000000",
+  "sim_code_hash": "3Ty4ENxJ4EicohgXi9E2txgbqMh3DWSshPrtXxY8pksm",
+  "storage_byte_cost": "10000000000000000000",
+  "token": "token.near",
+  "wasm_sha256": "249fdb762cce89e47ca7fd6a1265ce4896ba5a23a47c49cd3335b19b518f5f74",
+  "wasm_sha256_base58": "3Ty4ENxJ4EicohgXi9E2txgbqMh3DWSshPrtXxY8pksm"
+}

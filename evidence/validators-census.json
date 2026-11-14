@@ -1,0 +1,2386 @@
+{
+ "epoch_start_height": 224092337,
+ "fetched": "2026-11-11T22:17:56Z",
+ "rows": [
+  {
+   "pool": "astro-stakers.poolv1.near",
+   "stake": 33158202330335200506518231786198,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "figment.poolv1.near",
+   "stake": 28648104743649678187034103826833,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "ledgerbyfigment.poolv1.near",
+   "stake": 23213915207933751664683649104732,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "staked.poolv1.near",
+   "stake": 21244326084131867914127694285295,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "binancenode1.poolv1.near",
+   "stake": 20151318800059309967734121649568,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "sumerian.poolv1.near",
+   "stake": 18792357754610414172714015801409,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "zavodil.poolv1.near",
+   "stake": 17830472378533488728222403329174,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "liver.pool.near",
+   "stake": 16290882326417427321778425743320,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cnear-1.poolv1.near",
+   "stake": 15908003354494619091465763275578,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cnear-3.poolv1.near",
+   "stake": 15896336085117767613710600642730,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cnear-2.poolv1.near",
+   "stake": 15894884438734303057612845892204,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "bitwise_2.poolv1.near",
+   "stake": 15759210817387174178936676726839,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "bitwise_1.poolv1.near",
+   "stake": 14052091985073056672143116742493,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "svrn-ai.poolv1.near",
+   "stake": 12083903963292919191765976892628,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "svrn.pool.near",
+   "stake": 12051762727276224923038736010765,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "kiln-1.poolv1.near",
+   "stake": 12050203250675928839848249403672,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "epic.poolv1.near",
+   "stake": 11815032330479279821866391083239,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "svrn-luganodes.pool.near",
+   "stake": 11408788029232320293587635130340,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nearvana.poolv1.near",
+   "stake": 10467956265044130909257778164363,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stake1.poolv1.near",
+   "stake": 10446129472957431831568409456526,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "svrn_bitwise.poolv1.near",
+   "stake": 10420178299294620007680821442490,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "metapool01.pool.near",
+   "stake": 10362015492703719028995144901906,
+   "code_hash": "GGfKUF9TuAFN4AzbecPonNGuRTuVqx8UPXmViogN8pRm",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "p2p-org.poolv1.near",
+   "stake": 7990743412160274959941722884928,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "dragonfly.poolv1.near",
+   "stake": 7937445695150974243796274357107,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "allnodes.poolv1.near",
+   "stake": 6920910055929010840468647560031,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "macrodatarefinement.poolv1.near",
+   "stake": 6722247776625892228997914560797,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "bisontrails.poolv1.near",
+   "stake": 6604905379313856532609899196024,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "aca87218e28c41f5a693dee3dff12238.poolv1.near",
+   "stake": 6380092143792560010366695736051,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "silentnodes.pool.near",
+   "stake": 6067310604532664872675385315224,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "svrn-twinstake.poolv1.near",
+   "stake": 6019545108232272582340776915176,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "d1.poolv1.near",
+   "stake": 5937559022510385222950497730107,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "legends.poolv1.near",
+   "stake": 4951386372065586621554228136851,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "lst-pool.near",
+   "stake": 4774243944151201513853900560638,
+   "code_hash": "DqKkcbjBiPJju2tqis8G7ayfBePvq9Gn8mjvykNupYxx",
+   "global": null,
+   "fak": 1
+  },
+  {
+   "pool": "stakin.poolv1.near",
+   "stake": 4648915012863238626409061864237,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "northernlights.poolv1.near",
+   "stake": 4586040679575356799863782679623,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "republic.poolv1.near",
+   "stake": 4317662362261589807241734457809,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "okx-earn.poolv1.near",
+   "stake": 4221673011155654221833588613635,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "rekt.poolv1.near",
+   "stake": 3799200111623948376034080971620,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "ni.poolv1.near",
+   "stake": 3555709537539456177563626249711,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "everstake.poolv1.near",
+   "stake": 3391521827723708432141645810198,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "gtnode-0.poolv1.near",
+   "stake": 3321719463449623887312134639549,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nearfans.poolv1.near",
+   "stake": 3128181325157280432092143201338,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nearone.pool.near",
+   "stake": 2929439342089276940494358737517,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "x.poolv1.near",
+   "stake": 2803069152449663233859515733913,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "here.poolv1.near",
+   "stake": 2665213186534544303410774782176,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "bitcoinsuisse.poolv1.near",
+   "stake": 2374481323926821211370033730819,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "twinstake.poolv1.near",
+   "stake": 2303825242576439104021364533562,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "lux.poolv1.near",
+   "stake": 2270000982104724968892409972269,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "anonymous.poolv1.near",
+   "stake": 2255504264387687009480307784676,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "erm.poolv1.near",
+   "stake": 2253556665833796675832702561064,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "blockdaemon.poolv1.near",
+   "stake": 2145216902739685419364956562513,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "dsrvlabs.poolv1.near",
+   "stake": 2143187085965297918051346951069,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "npro.poolv1.near",
+   "stake": 2069614705024788626126305542906,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "moonlet.poolv1.near",
+   "stake": 2066610438223547806472724197564,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cryptium.poolv1.near",
+   "stake": 2049655358606643711875065554674,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "buildlinks.poolv1.near",
+   "stake": 2039402891823295581259878761797,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "baziliknear.poolv1.near",
+   "stake": 2020300266750290791136360425406,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "sofarsonear.poolv1.near",
+   "stake": 1999714606636739668349207102010,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "chorusone.poolv1.near",
+   "stake": 1940517605323469112200774462770,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakesabai.poolv1.near",
+   "stake": 1931227364728099979541171499720,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "meteor.poolv1.near",
+   "stake": 1901769930327079190010818012597,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "autostake.poolv1.near",
+   "stake": 1786170835949075149129030116714,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "falcon.pool.near",
+   "stake": 1780161788111600734498712310777,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "openshards.poolv1.near",
+   "stake": 1615451208948153707477575799161,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "lunanova.poolv1.near",
+   "stake": 1576627310818822019436523589139,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "trust-nodes.poolv1.near",
+   "stake": 1561221997214287861723683937773,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "kiln.poolv1.near",
+   "stake": 1510827895815939336781672865650,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "qbit.poolv1.near",
+   "stake": 1484780851316308621839812670095,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nearai.pool.near",
+   "stake": 1449443772328798570524576302024,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "eno-blockdaemon0.pool.near",
+   "stake": 1407511969423924342267840536240,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "hb436_pool.poolv1.near",
+   "stake": 1378879144663404277952463721864,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "masternode24.poolv1.near",
+   "stake": 1283600882896953481348390741989,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stardust.poolv1.near",
+   "stake": 1241605466763700609493070779182,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "luganodes.pool.near",
+   "stake": 1224446761914824935734811432001,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "brea.poolv1.near",
+   "stake": 1199890840010339991871071408387,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "avado.poolv1.near",
+   "stake": 1172853616542395166570984290800,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "01node.poolv1.near",
+   "stake": 1114978282988865990614407706160,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "bisontrails2.poolv1.near",
+   "stake": 1109630587542053395259547295728,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakely_io.poolv1.near",
+   "stake": 1084141480316950401432056825723,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "dexagon.poolv1.near",
+   "stake": 1073258073271342664911797873710,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "staking4all.poolv1.near",
+   "stake": 1063144000559294710973352768530,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "lavenderfive.poolv1.near",
+   "stake": 1024316421845444475052121729261,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "atomic-nodes.poolv1.near",
+   "stake": 1021953832074944127783769487718,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "polkachu.poolv1.near",
+   "stake": 930023340822679504079127111942,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "smart-stake.poolv1.near",
+   "stake": 920815266822276932372685549043,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "northstakenear.poolv1.near",
+   "stake": 909468461034795722495637103013,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "namdokmai.poolv1.near",
+   "stake": 861874179483843658134103282936,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "hapi.poolv1.near",
+   "stake": 855108424956662563503404809777,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "near-prime.poolv1.near",
+   "stake": 833276986517686468843798058998,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nodeasy.poolv1.near",
+   "stake": 829297705774524445533912056234,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "optimusvalidatornetwork.poolv1.near",
+   "stake": 798544151997575403762792126289,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "near-prime-public.poolv1.near",
+   "stake": 770859152479541752683539252587,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "rhea-validator.poolv1.near",
+   "stake": 764794122795111824292026616355,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "p2pstaking.poolv1.near",
+   "stake": 747880990455170697098809161520,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "hashquark.poolv1.near",
+   "stake": 705027962862712679985147922342,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "fresh.poolv1.near",
+   "stake": 692936399557341885275422585888,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "pangdao.poolv1.near",
+   "stake": 678489587945157725775421099497,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "wackazong.poolv1.near",
+   "stake": 674489164918353195411680577043,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "getblockio.poolv1.near",
+   "stake": 657351065173917133486031406152,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "pathrocknetwork.poolv1.near",
+   "stake": 636312824653643634350152381149,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "galactic.poolv1.near",
+   "stake": 621695972913808916512207117461,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "link.poolv1.near",
+   "stake": 608522353866580898074012890862,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "appload.poolv1.near",
+   "stake": 584603974955653637539915508643,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "pandateam.poolv1.near",
+   "stake": 544446753517000897539555963666,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "colossus.poolv1.near",
+   "stake": 521177204492816268608030611629,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "aurora.pool.near",
+   "stake": 511368800176811393040023788619,
+   "code_hash": "5vf2Jkqpk11H7szLnY4XdPA6maJi1ND8xe346xtbtX8e",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cryptoblossom.poolv1.near",
+   "stake": 502298206307990830067200452379,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cryptostake.poolv1.near",
+   "stake": 501122427501602673843064043140,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "shurik.poolv1.near",
+   "stake": 491700998610760446194397830480,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "gfi-validator.poolv1.near",
+   "stake": 478988366204708096529138721163,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "thecoding.pool.near",
+   "stake": 473713399758065724681912630755,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "bee1stake.poolv1.near",
+   "stake": 447617901849511643161034821876,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "oharanodes.poolv1.near",
+   "stake": 437168931409350126285182207343,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "grassets.poolv1.near",
+   "stake": 430691373082444991235854523488,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "avb.poolv1.near",
+   "stake": 429111909859682661920146737219,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "monresearch.poolv1.near",
+   "stake": 413945150979540546161476675945,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakecapitalgroup.poolv1.near",
+   "stake": 404004387655371761710631050617,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "piertwopool.poolv1.near",
+   "stake": 402169666325042459118582384248,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "pinrocks.poolv1.near",
+   "stake": 397001158206031114026117660337,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cryptocrew.poolv1.near",
+   "stake": 393735262122219896983454193836,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "oe.poolv1.near",
+   "stake": 393728806393300576519672515499,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cryptogarik.poolv1.near",
+   "stake": 383628771767788165430884047371,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "2pilot.poolv1.near",
+   "stake": 383070088078828816775718303778,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "alphanodes.poolv1.near",
+   "stake": 380370762781308939234633454637,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "ursamajor.poolv1.near",
+   "stake": 364932255698321225536400196822,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "rockxv2.poolv1.near",
+   "stake": 348182626375198197780196101900,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakecito.poolv1.near",
+   "stake": 338881280322060975642723688703,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cunum.poolv1.near",
+   "stake": 336007150692578992975478217157,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakerrash.poolv1.near",
+   "stake": 334349007716848960388636321339,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "shitzuapes-nf.pool.near",
+   "stake": 320130397740504258374323224325,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "saxemberg.poolv1.near",
+   "stake": 317108107727543578718997394924,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "caribnode.pool.near",
+   "stake": 316696808637182615133048665197,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "taxistake.poolv1.near",
+   "stake": 314659193204632707061818440736,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "sharpdarts.poolv1.near",
+   "stake": 313441811978737096585549206996,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "welldonestake.poolv1.near",
+   "stake": 311803712047156427379379642761,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "city-node-1.pool.near",
+   "stake": 302814294899031499027425013856,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "lovali.poolv1.near",
+   "stake": 302328070060954012537366341111,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "buildnear.poolv1.near",
+   "stake": 301869513050203592745680145926,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "incrypted.poolv1.near",
+   "stake": 301061349970849803897561229752,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "ttt.poolv1.near",
+   "stake": 300583667940729947571719723176,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "city-node-4.pool.near",
+   "stake": 300446729293700236401230902642,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "city-node-2.pool.near",
+   "stake": 300341695985789385573052509077,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "city-node-3.pool.near",
+   "stake": 300257715524504551854689963589,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "staking-power.poolv1.near",
+   "stake": 300033751652574148555703941702,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "g20.poolv1.near",
+   "stake": 298056506400291980791018400316,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "epochrunner.poolv1.near",
+   "stake": 291644120304493912907345999017,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "intear.pool.near",
+   "stake": 288682810278458562434845747845,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "sweat_validator_res_2.poolv1.near",
+   "stake": 287631479505031855142735418709,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "node_jkt.pool.near",
+   "stake": 287536898276363935345391434941,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "minion.poolv1.near",
+   "stake": 282797388111856948421164594767,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "gfs-ventures.poolv1.near",
+   "stake": 278467564786444270035527024825,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "n0ok.poolv1.near",
+   "stake": 278179983142511073435741576651,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "spectrum.poolv1.near",
+   "stake": 276361751187247605303326700958,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nodosigiloso.pool.near",
+   "stake": 272192591325736781462732989326,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "snsmln.poolv1.near",
+   "stake": 261420466587722152436949603960,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "abahmane.poolv1.near",
+   "stake": 253021857444787301859798623900,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stardust.pool.near",
+   "stake": 248394423575165241508840844760,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "consensus_finoa_00.poolv1.near",
+   "stake": 247650999049219247462632215531,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nodeshub.pool.near",
+   "stake": 245811840198342891254330408813,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "near.poolv1.near",
+   "stake": 238829156133838498613843300803,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "letsnode.poolv1.near",
+   "stake": 236212088968478417896675467557,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nearvietnamhub.poolv1.near",
+   "stake": 229470058623581186331542982823,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "manexus.pool.near",
+   "stake": 226648835806192646296473616915,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "owa.poolv1.near",
+   "stake": 223673133557647700602787559053,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nearstar.poolv1.near",
+   "stake": 220277423287279645668683542335,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "genesislab.poolv1.near",
+   "stake": 216231216827048832172069827247,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "sweat_validator_res.poolv1.near",
+   "stake": 210216420208095028383867201162,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "originstake.poolv1.near",
+   "stake": 208706847122565791907267019800,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "frontlinedefi.pool.near",
+   "stake": 206019397402813887618365153378,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "digitalizados.pool.near",
+   "stake": 196436554509170016767038459097,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "camelandgoat.pool.near",
+   "stake": 192787280648730348210717340614,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "encapsulate.pool.near",
+   "stake": 188533084455743066484124102828,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "meria-staking.poolv1.near",
+   "stake": 182643563915510705845707761794,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "senseinode.poolv1.near",
+   "stake": 178887763769717054519234032718,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "dteamtech.pool.near",
+   "stake": 160668241643475215925324593028,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "deutschetelekom.poolv1.near",
+   "stake": 155969950544777132613512410069,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "spacenode.pool.near",
+   "stake": 147414470074956746386707848798,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "lionstake.poolv1.near",
+   "stake": 143579737259446574350102819717,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "idtcn4.poolv1.near",
+   "stake": 142223944098626999019219747847,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakinghub.pool.near",
+   "stake": 136212331432838772400546693178,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "shitzu.pool.near",
+   "stake": 129141121122595476619406774511,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "readylayerone_staking.poolv1.near",
+   "stake": 120944331109858040865755230116,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "pairpoint.poolv1.near",
+   "stake": 119725932652578783500415700344,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "consensus_finoa_01.poolv1.near",
+   "stake": 115400604054638231138961247505,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakesstone.poolv1.near",
+   "stake": 115215803133679885396607747274,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "pingpay.pool.near",
+   "stake": 112594449771883857139130923091,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "artemis.pool.near",
+   "stake": 101838839644924616534595342938,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "accomplice.poolv1.near",
+   "stake": 96342467269851893366501781199,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "smartnode.poolv1.near",
+   "stake": 94048872198244345938844674651,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "swissstar.poolv1.near",
+   "stake": 92266862657845189534895498389,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "kiso_pool.pool.near",
+   "stake": 91482748512285486558685751593,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "ou812.poolv1.near",
+   "stake": 89668468144464637499249411253,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nodoethlima.pool.near",
+   "stake": 88431750802146992148299434823,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nightly-pool.pool.near",
+   "stake": 86801311831319740423146427005,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "davaymne.poolv1.near",
+   "stake": 86496523883117158379522181812,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "near-fans.poolv1.near",
+   "stake": 86157122264710450853821416356,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "binancestaking.poolv1.near",
+   "stake": 84831557954548261902900105126,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "jagon.poolv1.near",
+   "stake": 82527549180962120600740879757,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nansen.poolv1.near",
+   "stake": 80950748516039226200202779594,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "yanshekki.pool.near",
+   "stake": 80129069565090655801782353794,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "svarog.poolv1.near",
+   "stake": 78823141707426744338907132417,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakecraft.poolv1.near",
+   "stake": 76776201804741377321028029397,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "vitalpoint.pool.near",
+   "stake": 72606767969801440434798461728,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "axianetwork.pool.near",
+   "stake": 71548374734730507082237622155,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nearuaguild.poolv1.near",
+   "stake": 69182561137330417796510301445,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakeflow.poolv1.near",
+   "stake": 66956801327410501508862551879,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "neardevgov.poolv1.near",
+   "stake": 66695333777489363787024339870,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "doubletop.poolv1.near",
+   "stake": 66453592846422608785952509632,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "prophet.poolv1.near",
+   "stake": 65105497106158198169772643332,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "agrestus.poolv1.near",
+   "stake": 61263684931117900053396182638,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "takeshi7.pool.near",
+   "stake": 60509504305209064131353911752,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "itrocket.poolv1.near",
+   "stake": 56972886400453663891978311812,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cosmicvalidator.poolv1.near",
+   "stake": 55370199115646297803002421898,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "criptoplebada.pool.near",
+   "stake": 54877779106100921275769133163,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "lanceprotocol.pool.near",
+   "stake": 51580542728544769073214255827,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "encipher.poolv1.near",
+   "stake": 51418476934262989963257467734,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "meduza.poolv1.near",
+   "stake": 51227714715485172637728446740,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "keystake.pool.near",
+   "stake": 51006291121801395300308513131,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "web3edu.pool.near",
+   "stake": 50708592058300907762093642568,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "gruberx.poolv1.near",
+   "stake": 50421095530791231169203398865,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "finoa.poolv1.near",
+   "stake": 48493564651247515756531044217,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "chuy.poolv1.near",
+   "stake": 47613821559583872560659819295,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "pho-crypto.pool.near",
+   "stake": 47534403376389959626399502288,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "calimero.pool.near",
+   "stake": 47426135183321958170574631529,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakesaurus.pool.near",
+   "stake": 45584679450130635783210064396,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "endorphinestake.pool.near",
+   "stake": 44940249444960672532292712375,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "generatusueldo.pool.near",
+   "stake": 44113034358844581163621191140,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "ultravioletadao.pool.near",
+   "stake": 43224185622790512347759362094,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "clau_web3.pool.near",
+   "stake": 42590325459240643869489115876,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "frutero.pool.near",
+   "stake": 42294900469989647940833967564,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "synclub.poolv1.near",
+   "stake": 41976933296990996381659952674,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "dustinhuynh.pool.near",
+   "stake": 41842208241228720574073710920,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "flarebank.pool.near",
+   "stake": 41775647709648531406876971621,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "snoopfear.poolv1.near",
+   "stake": 41439382626550463174247588092,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "fish.poolv1.near",
+   "stake": 41207737762962190683462145142,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "pumpopoly.poolv1.near",
+   "stake": 41179257547872456035958071137,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "suryayoga.pool.near",
+   "stake": 41152470220449582969544020340,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "imtroyphung.pool.near",
+   "stake": 41087328816389048018615579798,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "tme.pool.near",
+   "stake": 41078020718251953992179995642,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "realtuantv.pool.near",
+   "stake": 40624044663204255189355231792,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "arterianodes.pool.near",
+   "stake": 40557563107956669267951160706,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "sparklenode.pool.near",
+   "stake": 40383737613594139519230289331,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nearlove.pool.near",
+   "stake": 40369568529365944432368446177,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "asmolianin.pool.near",
+   "stake": 40280715413040072092749142959,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "block-pro.poolv1.near",
+   "stake": 40270722563659731759103125786,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "poolarize.pool.near",
+   "stake": 40264465133542708504472617428,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stakeup.poolv1.near",
+   "stake": 40243744353797599373831257628,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "herdaomx.pool.near",
+   "stake": 40241874969990899985871893933,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "kcdappnode.pool.near",
+   "stake": 40232314220836882676435648453,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nearbus.pool.near",
+   "stake": 40230351079342248350885788034,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "moko.pool.near",
+   "stake": 40210311151310149890619044023,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "vyquocvu.pool.near",
+   "stake": 40207385116044024922123250917,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "griff.pool.near",
+   "stake": 40206673822365665327167268806,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "cygnus.pool.near",
+   "stake": 40203796761556447350368341952,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "zklatitudzero.pool.near",
+   "stake": 40181010751422903887241598384,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "zolanear.pool.near",
+   "stake": 40178538039401539860664220344,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "waveslatam.pool.near",
+   "stake": 40175598786043674146527634247,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "el3m3nt.pool.near",
+   "stake": 40165889229478187279724654184,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "zenith.pool.near",
+   "stake": 40155791134147607613984815837,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "gabrululu.pool.near",
+   "stake": 40152930663797650241944998257,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "axol.pool.near",
+   "stake": 40152901915418050338893293310,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "perfect-nodes.pool.near",
+   "stake": 40151571064720599088386628411,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "metatarz.pool.near",
+   "stake": 40150266071502544641279035914,
+   "code_hash": "GGfKUF9TuAFN4AzbecPonNGuRTuVqx8UPXmViogN8pRm",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "posthuman.poolv1.near",
+   "stake": 40146612110649511013352400057,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "secrypto.pool.near",
+   "stake": 40142124280791647492886715744,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nodevalidaorarif.pool.near",
+   "stake": 40141323663110146370419321999,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "bonynode.poolv1.near",
+   "stake": 40137767736882189225719445012,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nodevalidatorswimax.pool.near",
+   "stake": 40134728334153052424100194282,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "tothemoon.pool.near",
+   "stake": 40133986134884951909447528084,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nodefleet.poolv1.near",
+   "stake": 40130247897102807346263968964,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "paradise.pool.near",
+   "stake": 40117218511082887999528841973,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "descilatam.pool.near",
+   "stake": 40115422363163244324917565080,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "arkila.pool.near",
+   "stake": 40113071953849960195631548666,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "frogling.pool.near",
+   "stake": 40111918605949875150523626257,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "hightower.pool.near",
+   "stake": 40109280642374756048489500620,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stefco.pool.near",
+   "stake": 40105795269464325829205088793,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "droo.pool.near",
+   "stake": 40102882808747416780312680636,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "kaitenkenbu.pool.near",
+   "stake": 40101501476074737247969985164,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "noders.poolv1.near",
+   "stake": 40061081468158979080314302212,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "owlstakev2.pool.near",
+   "stake": 40053984339371972217844629042,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "madwisp.poolv1.near",
+   "stake": 40039746291585566031135860989,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "orpheus.pool.near",
+   "stake": 40039689138090250955519477309,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "conqueror.poolv1.near",
+   "stake": 40037871255011878230695797305,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "zeycanode.pool.near",
+   "stake": 40037120903990476773037787272,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "krews.pool.near",
+   "stake": 40033327261328689743665994775,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "medium-rare.pool.near",
+   "stake": 40028574583729925811593637249,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "chainflow.pool.near",
+   "stake": 40028458990489262335144811697,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "onnode.pool.near",
+   "stake": 40028019713050059654795932542,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "wilbur.pool.near",
+   "stake": 40027232837888203232817375874,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "seewhy.pool.near",
+   "stake": 40026956266123158759132409584,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "paleogarci.pool.near",
+   "stake": 40022561853267750649364056952,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "tortugastaking.pool.near",
+   "stake": 40022506601201166536460839342,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "orion.pool.near",
+   "stake": 40022386711273323903564332395,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "thacsithinh.pool.near",
+   "stake": 40022033428068487770932053270,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "latam-pool.pool.near",
+   "stake": 40020546451978402433591195668,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "thedomain.pool.near",
+   "stake": 40020015046476852310460015616,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "chop.pool.near",
+   "stake": 40018480057574118794131839539,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "ryo.pool.near",
+   "stake": 40018459865401390496635924266,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "darkfiber.pool.near",
+   "stake": 40017245353345677322717157831,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "zionnode.pool.near",
+   "stake": 40017245307516614401820857911,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "archer.pool.near",
+   "stake": 40015980386987973999304604269,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nodestake.pool.near",
+   "stake": 40015342922319143278662903741,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "chilldao.pool.near",
+   "stake": 40014963131794605625104894722,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "plasma.pool.near",
+   "stake": 40014940620979022687784104088,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "decentra.pool.near",
+   "stake": 40014729584350980924472074759,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "fliskodappnode.pool.near",
+   "stake": 40014686078793455972378506142,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "ismail09.pool.near",
+   "stake": 40014337724703399164785012058,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "lemuria.pool.near",
+   "stake": 40013707615123656355342125980,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "00aboo203.pool.near",
+   "stake": 40013521519953210610637103650,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "volk.pool.near",
+   "stake": 40013298478968854660440060905,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "sqrnode.pool.near",
+   "stake": 40012902319660755763955702967,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "arubencastillog.pool.near",
+   "stake": 40012510662567896299337866674,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "kristian_diary.pool.near",
+   "stake": 40012349799073712546466852390,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nerdlabs.pool.near",
+   "stake": 40012300779500675741654074956,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "rashid.pool.near",
+   "stake": 40012166571386037832305718744,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "arcis.pool.near",
+   "stake": 40012089329070246476559940373,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "gmal22.pool.near",
+   "stake": 40011901343641580835163460490,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "nova-consortium.pool.near",
+   "stake": 40011741555864477506577222760,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "medo198926.pool.near",
+   "stake": 40010609332204563654531268411,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "zool.pool.near",
+   "stake": 40010331942005905471737281068,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "lospinosdefi.pool.near",
+   "stake": 40010313149470648981559402182,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "lantern.pool.near",
+   "stake": 40009304126879135959447093489,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "zenzenode.pool.near",
+   "stake": 40008005811502636085006905845,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "henym.pool.near",
+   "stake": 40007999957811161253753185988,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "staker-rene.pool.near",
+   "stake": 40007441922069335344487985477,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "pojokripto.pool.near",
+   "stake": 40006996851568016144320195278,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "magnavoxodyssey.pool.near",
+   "stake": 38914384838990477117882751545,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "mexa-staking.poolv1.near",
+   "stake": 37141706062601530857354070091,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "simplystaking.poolv1.near",
+   "stake": 35107043456616747293646688333,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "croutondigital.pool.near",
+   "stake": 28854511658971627470322627820,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "profit.poolv1.near",
+   "stake": 25145637295978135843405637625,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "solidstate.poolv1.near",
+   "stake": 19741763574297882999015710475,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "wyvernomics.pool.near",
+   "stake": 19226179671340492919717403691,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "frensvalidator.poolv1.near",
+   "stake": 14930506635518935209419462423,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "foundry.poolv1.near",
+   "stake": 12349849813034910642910375467,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "restake.poolv1.near",
+   "stake": 11497021320818594477498359699,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "stingray.poolv1.near",
+   "stake": 11344796311676643817749026587,
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "r1m.pool.near",
+   "stake": 11000452793115901615375318802,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "ishak.pool.near",
+   "stake": 11000000076262376577574619388,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  },
+  {
+   "pool": "said.pool.near",
+   "stake": 11000000037056039188348425994,
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "global": null,
+   "fak": 0
+  }
+ ]
+}

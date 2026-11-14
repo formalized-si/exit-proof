@@ -1,0 +1,57 @@
+{
+  "alice_after[json 0 at return limit]": "9998750000000000000000000",
+  "alice_after[json 0]": "9998749999999999999999000",
+  "alice_after[panic]": "9998750000000000000000000",
+  "balances_after_foreign_resolves": {
+    "alice.near": "9998750000000000000000000",
+    "bob.near": "4998750000000000000000000",
+    "evil.near": "0",
+    "recv1.near": "998750000000000000000000"
+  },
+  "bob_balance_before_after_attack": [
+    "4998750000000000000000000",
+    "4998750000000000000000000"
+  ],
+  "exit_gas_burnt": {
+    "near_withdraw": 2741663843213,
+    "storage_unregister": 2684219449193
+  },
+  "exit_unregister": {
+    "near_to_alice": "1250000000000000000001",
+    "ok": true,
+    "registered_after": false
+  },
+  "exit_withdraw": {
+    "balance": "9998750000000000000000000",
+    "near_to_alice": "9998750000000000000000001",
+    "ok": true
+  },
+  "min_storage_balance": "1250000000000000000000",
+  "new_again": "Some(Panic(\"The contract has already been initialized\"))",
+  "resolve_as_foreign_callback": {
+    "is_callback": true,
+    "predecessor": "evil.near",
+    "receiver": "wrap.near",
+    "status": "Panic(\"Method ft_resolve_transfer is private\")"
+  },
+  "resolve_by_contract": "Some(Panic(\"Method ft_resolve_transfer is private\"))",
+  "resolve_by_user": "Some(Panic(\"Method ft_resolve_transfer is private\"))",
+  "resolve_gas[json 0 at return limit]": {
+    "attached": 5000000000000,
+    "burnt": 1721017839757,
+    "status": "ok"
+  },
+  "resolve_gas[json 0]": {
+    "attached": 5000000000000,
+    "burnt": 1332161234822,
+    "status": "ok"
+  },
+  "resolve_gas[panic]": {
+    "attached": 5000000000000,
+    "burnt": 1721017839757,
+    "status": "ok"
+  },
+  "sim_code_hash": "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1",
+  "storage_byte_cost": "10000000000000000000",
+  "wasm_sha256_base58": "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1"
+}

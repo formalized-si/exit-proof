@@ -1,0 +1,58 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>How a stage is earned and read</title>
+<link rel="stylesheet" href="design.css" />
+<style>
+  body { height: 505px; }
+  main { padding: 18px 44px 0; }
+  h2 { margin: 8px 0 14px; font: 500 27px/1.15 var(--sans); letter-spacing: -0.03em; color: var(--ink-deep); }
+  .name { display: flex; align-items: baseline; gap: 10px; padding: 0 0 6px; font: 400 11px/1.45 var(--mono); letter-spacing: 0.04em; color: var(--muted); }
+  .name b { font-weight: 500; letter-spacing: 0.1em; color: var(--ink-deep); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); }
+  .step { position: relative; padding: 10px 14px 12px; background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .step:first-child { border-left: 1px solid var(--line); }
+  .step .n { font: 500 11px/1 var(--mono); color: var(--orange); }
+  .step b { display: block; margin: 6px 0 4px; font: 500 15px/1.2 var(--sans); letter-spacing: -0.02em; color: var(--ink-deep); }
+  .step p { margin: 0; font: 400 12px/1.42 var(--sans); color: var(--text); }
+  .step:not(:last-child)::after { content: '→'; position: absolute; right: -9px; top: 8px; z-index: 1; width: 17px; height: 17px; display: flex; align-items: center; justify-content: center; font: 500 11px/1 var(--mono); color: #fff; background: var(--ink-deep); }
+  .step.end { background: var(--ink-deep); border-color: var(--ink-deep); }
+  .step.end b { color: #fff; } .step.end p { color: rgb(255 255 255 / .72); }
+  .step.end:not(:last-child)::after { background: var(--orange); }
+  .join { display: flex; align-items: center; justify-content: flex-end; gap: 8px; height: 34px; padding-right: 14px; white-space: nowrap; font: 500 11px/1 var(--mono); letter-spacing: 0.04em; color: var(--orange-ink); }
+  .join::before { content: '↓'; display: inline-flex; align-items: center; justify-content: center; width: 17px; height: 17px; color: #fff; background: var(--orange); }
+  .stage2 { color: #8fd19e; } .stage0 { color: #ff8466; }
+</style>
+<body class="paper">
+  <div class="band">
+    <div class="brand-line">
+      <img src="../../../web/assets/formalized-white.svg" alt="formalized" />
+      <div class="brand">Exit Proof</div>
+    </div>
+  </div>
+  <main>
+    <p class="eyebrow">How a stage is earned and how it is read</p>
+    <h2>Proved once for a code hash. Read for every account.</h2>
+
+    <div class="lane">
+      <div class="name"><b>PROVE</b>once per code hash</div>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><b>Deployed code</b><p>The exact wasm of a contract on mainnet, named by its code hash.</p></div>
+        <div class="step"><span class="n">02</span><b>Lean model and theorems</b><p>Written from the source. Any receipt may fail, in any order.</p></div>
+        <div class="step"><span class="n">03</span><b>Replay</b><p>The wasm runs on the nearcore runtime. Every receipt is compared with the model.</p></div>
+        <div class="step end"><span class="n">04</span><b>Certificate</b><p>In a registry on NEAR mainnet, with the command that re-checks it.</p></div>
+      </div>
+    </div>
+
+    <div class="join">the scanner looks the code hash up in the registry</div>
+
+    <div class="lane">
+      <div class="name"><b>READ</b>on every question</div>
+      <div class="steps">
+        <div class="step"><span class="n">05</span><b>An account</b><p>Its keys, the methods of its code, its roles, its deployment history.</p></div>
+        <div class="step"><span class="n">06</span><b>Scanner</b><p>Applies the stage rules. If the chain cannot be read, there is no verdict.</p></div>
+        <div class="step end"><span class="n">07</span><b>Exit stage</b><p><span class="stage2">2 proven exit</span> · 1 exit window · <span class="stage0">0 keyholder trust</span> · U unproven</p></div>
+        <div class="step"><span class="n">08</span><b>Who asks</b><p>A depositor, an agent through MCP, a watch that reports a change.</p></div>
+      </div>
+    </div>
+  </main>
+</body>

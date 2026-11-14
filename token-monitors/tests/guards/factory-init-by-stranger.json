@@ -1,0 +1,10 @@
+{
+  "description": "Guard test: the factory-only init of the fixture F1_factory_minted is sent by an account that is not the factory.",
+  "token_account": "tok.factory.near",
+  "accounts": ["factory.near"],
+  "init": {
+    "caller": "owner.near",
+    "method": "new_by_factory",
+    "args": {"metadata": {"spec": "ft-1.0.0", "name": "Factory Token", "symbol": "FT", "decimals": 18}}
+  }
+}

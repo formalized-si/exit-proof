@@ -1,0 +1,16 @@
+name = "wnear_proof"
+version = "0.1.0"
+defaultTargets = ["WNear", "wnearmodel", "Review"]
+
+[[lean_lib]]
+name = "WNear"
+
+[[lean_exe]]
+name = "wnearmodel"
+root = "Main"
+
+# Non-vacuity examples of the independent review (Review/WNearVacuity.lean).
+# They use the theorems; the theorems do not depend on them.
+[[lean_lib]]
+name = "Review"
+globs = ["Review.+"]

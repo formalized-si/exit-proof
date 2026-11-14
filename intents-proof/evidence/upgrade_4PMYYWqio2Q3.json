@@ -1,0 +1,52 @@
+{
+ "candidate": "near/intents@fce0936b1699e0591204ce152a78afc1c1338b35 (2026-11-10)",
+ "code_hash": "4PMYYWqio2Q3tc2BDZ764pSnrnqYrTca8RP2XLKHE4Jc",
+ "sha256": "324d114d400d40852116258a756f21d562e4cccf65a514ed84719502c078cc71",
+ "bytes": 1296990,
+ "source_changes_since_certified_commit": "99 files changed, 3198 insertions(+), 445 deletions(-)",
+ "static": {
+  "S3_exports_added": [],
+  "S3_exports_removed": [],
+  "S1_modelled_files_changed": [
+   "contracts/defuse/core/src/engine/state/cached.rs",
+   "contracts/defuse/src/contract/accounts/account/entry/mod.rs",
+   "contracts/defuse/src/contract/accounts/account/mod.rs"
+  ],
+  "S2_ledger_write_sites": 53,
+  "S2_sites_added": [],
+  "S2_sites_removed": []
+ },
+ "traces": 625,
+ "receipts": 57246,
+ "backing_checks": 228984,
+ "monitors_fired": {},
+ "simulator_failures": {},
+ "replay": {
+  "contract_steps": 40279,
+  "agree": 39893,
+  "disagree": 0,
+  "auth": 27,
+  "env": 359,
+  "skipped": 0,
+  "not_compared": {
+   "gas: a failure forced by the harness": 218,
+   "gas: ran out of the attached gas": 141,
+   "signature: not checked by the model": 27
+  },
+  "world": {
+   "agree": 25652,
+   "contract_receipts": 15472,
+   "contract_receipts_of_other_ledger_ids": 16659,
+   "disagree": 0,
+   "env": 227,
+   "mock_traces_left_out": 125,
+   "token_receipts": 10407,
+   "traces": 500
+  },
+  "unwrap_callbacks": 312,
+  "wnear": 6197,
+  "wnear_agree": 6128,
+  "wnear_disagree": 0
+ },
+ "verdict": "NEEDS REVIEW"
+}

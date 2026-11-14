@@ -1,0 +1,1 @@
+{"family":"overflow","id":1122,"panic":"Runtime::apply failed at the block that applies epoch 18's boundary: UnexpectedIntegerOverflow(\"update_validator_accounts - set_amount\"). If this is nearcore's staking invariant, a staked account's locked balance is below its stake: did a direct write (`apply_state_records`) lower it?","seed":16134485778998042437}

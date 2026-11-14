@@ -1,0 +1,8 @@
+# build products and bulky generated output (check.sh recreates them)
+lean/.lake/
+harness/target/
+out/
+mutants/
+__pycache__/
+# local reference copy of the near-sdk 3.1.0 crates the model was written from (hashes: evidence/crates_sha256.txt)
+/crates/

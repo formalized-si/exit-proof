@@ -1,0 +1,1407 @@
+[
+ {
+  "account": "wrap.near",
+  "stage": {
+   "level": "2",
+   "label": "PROVEN EXIT",
+   "delay_seconds": null,
+   "why": [
+    "no code-change path found",
+    "exit theorem registered for this code hash"
+   ]
+  },
+  "code_hash": "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1",
+  "near": 36793980.804503426,
+  "no_code_change_path_found": true,
+  "capabilities": {
+   "code_change": [],
+   "funds_control": [],
+   "freeze": []
+  },
+  "deployments": 2,
+  "last_deploy": "2021-04-22",
+  "source_link": null,
+  "exit_proof": {
+   "family": "wNEAR (near-contract-standards 3.1.0 fungible token)",
+   "statement": "in the Lean model: in any state satisfying the invariant Inv, a registered holder u != wrap.near that calls near_withdraw(b) with 1 yocto, b being its balance when the call executes, always succeeds and the contract sends u b+1 yocto; only u's own calls or the refund of a transfer made to u can lower u's balance",
+   "theorem": "WNear.T_exit (under Inv), inv_step, T_no_one_else, T_resolve_private, T_conservation; exit_always for states reachable from new() (wnear-proof/lean/WNear/Theorems.lean)",
+   "axioms": "propext, Quot.sound, Classical.choice; no sorry",
+   "assumptions": [
+    "the deployed bytes behave as the Lean model (tested on 2000 traces, not proved)",
+    "mainnet satisfies Inv: its solvency part is checked at block 224128229 (margin 3388 NEAR); supply = sum of balances over ~2.68M records is not checked on mainnet",
+    "the code was swapped in 2021 by a key without migration; the pre-swap code is tested, not proved; no temporary swap between heights 35438886 and 40858544 is sampled, not indexed",
+    "the holder has a full-access key (1 yocto) and attaches enough gas; ft_transfer_call needs >= 30 Tgas (not modelled)"
+   ],
+   "binding": "deployed hash == w-near/res/w_near.wasm at near/core-contracts@54f8267; account has 0 keys since height 40858545",
+   "conformance": "2000 random traces on the exact wasm, nearcore 2.14.0 runtime: EXACT, 0 mismatches; 8/8 model mutants caught",
+   "report": "wnear-proof/REPORT.md",
+   "review": "independent adversarial review 2026-11-12: non-vacuous (concrete worlds built), leanchecker --fresh and nanoda 0.4.19 pass; one-line claims narrowed accordingly (docs/REVIEW.md)",
+   "kind": "exit"
+  },
+  "onchain_certificates": [
+   {
+    "registry": "registry.exitproof.near",
+    "kind": "exit",
+    "attestor": "exitproof.near",
+    "attested_at_ns": 1794496174599379912,
+    "theorems": [
+     "WNear.T_exit",
+     "WNear.exit_always",
+     "WNear.exit_full",
+     "WNear.inv_step",
+     "WNear.T_conservation",
+     "WNear.T_no_one_else",
+     "WNear.T_who_can_lower",
+     "WNear.T_resolve",
+     "WNear.T_resolve_private"
+    ],
+    "artifact_sha256": "6c29def20cc0b1a9499559383bddfe729ff909b88ccbb81889acc46c40c875ee",
+    "check_command": "wnear-proof/check.sh"
+   }
+  ]
+ },
+ {
+  "account": "intents.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: add_full_access_key, upgrade"
+   ]
+  },
+  "code_hash": "BtA1BEFNS619KkvXFsgcpQ21Tb5yMm32aaUkn7xNothk",
+  "near": 136985.67836610656,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) add_full_access_key, upgrade; role(s) DAO[1], Upgrader[1]",
+     "src": "code+view",
+     "guard": {
+      "holders": 3,
+      "by_kind": {
+       "contract": 1,
+       "unknown": 1,
+       "multi-key account": 1
+      },
+      "weakest": "multi-key account",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 2
+    }
+   ],
+   "funds_control": [
+    {
+     "how": "method(s) admin_call, do_auth_call, force_disable_auth_by_predecessor_ids, force_enable_auth_by_predecessor_ids, force_lock_account, force_unlock_account, ft_force_withdraw, mt_force_batch_transfer, mt_force_batch_transfer_call, mt_force_transfer, mt_force_transfer_call, mt_force_withdraw, nft_force_withdraw; role(s) DAO[1], UnrestrictedWithdrawer[0], UnrestrictedAccountManager[0]",
+     "src": "code+view",
+     "guard": {
+      "holders": 2,
+      "by_kind": {
+       "unknown": 1,
+       "multi-key account": 1
+      },
+      "weakest": "multi-key account",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 2
+    }
+   ],
+   "freeze": [
+    {
+     "how": "method(s) force_lock_account, force_unlock_account, is_account_locked, pa_all_paused, pa_is_paused, pa_pause_feature, pa_unpause_feature; role(s) DAO[1], PauseManager[7], UnrestrictedAccountLocker[2]",
+     "src": "code+view",
+     "guard": {
+      "holders": 10,
+      "by_kind": {
+       "single-key": 8,
+       "unknown": 1,
+       "multi-key account": 1
+      },
+      "weakest": "single-key",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 2
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2026-10-07",
+  "source_link": "https://github.com/near/intents/tree/16d04f6ec4401263f8914638710260da50bb46b0",
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "aurora",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "1 full-access key(s) on the account",
+    "upgrade method(s) without a delay: deploy_code, deploy_upgrade, set_upgrade_delay_blocks, stage_upgrade"
+   ]
+  },
+  "code_hash": "HrtBWvCMmVXRLG9vsYAFT7LfJ6mZtCSNTvYnXMF6fwzT",
+  "near": 145768.49718140968,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "full-access key on the contract account",
+     "src": "chain",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "single-key": 1
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 0
+    },
+    {
+     "how": "method(s) deploy_code, deploy_upgrade, set_upgrade_delay_blocks, stage_upgrade, upgrade",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "contract": 1
+      },
+      "weakest": "contract"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) get_paused_precompiles, pause_contract, pause_precompiles",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "contract": 1
+      },
+      "weakest": "contract"
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2026-10-07",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "meta-pool.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade"
+   ]
+  },
+  "code_hash": "J6pS9R23vzbwxGB8eMq4qrn8UhciEYHsVbR9UJPyLNxh",
+  "near": 334078.17348167766,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) upgrade",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "multi-key account": 1
+      },
+      "weakest": "multi-key account",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [
+    {
+     "how": "method(s) force_rebalance_unstake",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "multi-key account": 1
+      },
+      "weakest": "multi-key account",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "freeze": [
+    {
+     "how": "method(s) pause_staking, un_pause_staking, is_staking_paused",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "multi-key account": 1
+      },
+      "weakest": "multi-key account",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2024-04-19",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "linear-protocol.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade"
+   ]
+  },
+  "code_hash": "5LiDVDd1gh7ofVNbiA9VXrWwkv2m8tw46jZqYeuoC3SG",
+  "near": 1086877.6065763773,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) upgrade",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "multi-key account": 1
+      },
+      "weakest": "multi-key account",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) pause, is_paused",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "multi-key account": 1
+      },
+      "weakest": "multi-key account",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2025-09-27",
+  "source_link": "https://github.com/linear-protocol/LiNEAR",
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "lst.rhealab.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade plugin with no exit window: no staging delay is set, or staged code is already deployable"
+   ]
+  },
+  "code_hash": "EPLT4C61pkVYf5Km6dC4X9x5PMo6rfBwuEwo7vgKpmuv",
+  "near": 30709.716727332667,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) up_stage_code, up_deploy_code, up_init_staging_duration, up_stage_update_staging_duration, up_apply_update_staging_duration; role(s) DAO[1], UpgradableCodeStager[2], UpgradableCodeDeployer[1]",
+     "src": "code+view",
+     "guard": {
+      "holders": 3,
+      "by_kind": {
+       "single-key": 2,
+       "dao": 1
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 1
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) is_paused, pa_is_paused, pa_all_paused, pa_pause_feature, pa_unpause_feature; role(s) DAO[1], PauseManager[1]",
+     "src": "code+view",
+     "guard": {
+      "holders": 2,
+      "by_kind": {
+       "dao": 1,
+       "single-key": 1
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 1
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2026-10-30",
+  "source_link": "https://github.com/rhea-finance/rnear-contract/tree/c04e9008bfbf7a44d99c8f66179deb715a7357f9",
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "v2.ref-finance.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade"
+   ]
+  },
+  "code_hash": "GZmkbfVLcN7ErxU9RDxP24YTaKmoVixhM6XyycP15Qvi",
+  "near": 32618.585671579942,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) upgrade",
+     "src": "code+view",
+     "guard": {
+      "holders": 3,
+      "by_kind": {
+       "single-key": 2,
+       "dao": 1
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) extend_blacklisted_users, remove_blacklisted_users, get_blacklisted_users, get_blacklisted_users_count, is_blacklisted_user, extend_blacklist_managers, remove_blacklist_managers, get_blacklist_managers",
+     "src": "code+view",
+     "guard": {
+      "holders": 3,
+      "by_kind": {
+       "single-key": 2,
+       "dao": 1
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2026-10-30",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "contract.main.burrow.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade"
+   ]
+  },
+  "code_hash": "6Nek1MZ8cwJJ2xMQAUWup9V5AToYS9rkTxJfwo6BCpFa",
+  "near": 11021.433142260865,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) upgrade",
+     "src": "code+view",
+     "guard": {
+      "holders": 2,
+      "by_kind": {
+       "single-key": 2
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [
+    {
+     "how": "method(s) update_force_closing_enabled, callback_process_shadow_force_close_result",
+     "src": "code+view",
+     "guard": {
+      "holders": 2,
+      "by_kind": {
+       "single-key": 2
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "freeze": [
+    {
+     "how": "method(s) update_pause_operator_id, pause_contract, extend_blacklist_of_farmers, remove_blacklist_of_farmers, get_blacklist_of_farmers",
+     "src": "code+view",
+     "guard": {
+      "holders": 2,
+      "by_kind": {
+       "single-key": 2
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2026-07-17",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "usdt.tether-token.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade"
+   ]
+  },
+  "code_hash": "51tHbmQkA8qAi8c6MoUor5mCx6CnL6tZyC2sqQifKPZC",
+  "near": 4589.591568397315,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) upgrade",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) get_blacklist_status, add_to_blacklist, remove_from_blacklist, pause",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2022-09-13",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "17208628f84f5d6ad33f0da3bbbeb27ffcb398eac501a31bd6ad2011e36133a1",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "1 full-access key(s) on the account",
+    "upgrade method(s) without a delay: upgrade"
+   ]
+  },
+  "code_hash": "DVJx7F3dHEHJYwpYPwXHu8K9Uo7h4kXFcALucY5oNX8q",
+  "near": 7301.362342270991,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "full-access key on the contract account",
+     "src": "chain",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "single-key": 1
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 0
+    },
+    {
+     "how": "method(s) upgrade",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) blocklist, unblocklist, blocklister, pausers, is_blocklisted",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2023-10-24",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "token.sweat",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade plugin with no exit window: no staging delay is set, or staged code is already deployable"
+   ]
+  },
+  "code_hash": "9EUtV11wgCZ4N16xa24ETnn8E78GjeSit1r7gMyQZ6Zi",
+  "near": 44314.30526237367,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) up_stage_code, up_deploy_code, up_init_staging_duration, up_stage_update_staging_duration, up_apply_update_staging_duration; role(s) StagingManager[1], UpgradeManager[1]",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "multi-key account": 1
+      },
+      "weakest": "multi-key account",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 1
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) is_feature_paused, get_paused_features, pause_features, unpause_features; role(s) PauseManager[1], DenylistManager[1]",
+     "src": "code+view",
+     "guard": {
+      "holders": 2,
+      "by_kind": {
+       "single-key": 1,
+       "multi-key account": 1
+      },
+      "weakest": "single-key",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 1
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2026-10-08",
+  "source_link": "https://github.com/Sweat-Foundation/sweat-token/tree/75dc5b48dcc8b3f5303ab9f1d3dbf046901f6314",
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "token.burrow.near",
+  "stage": {
+   "level": "U",
+   "label": "UNPROVEN",
+   "delay_seconds": null,
+   "why": [
+    "no code-change path found by these checks",
+    "no exit theorem for this code hash"
+   ]
+  },
+  "code_hash": "2dLsFG6E2feEcpk9HJxMQH6PMNqC5DvgCUkVDtP1XmZC",
+  "near": 219.19201191820656,
+  "no_code_change_path_found": true,
+  "capabilities": {
+   "code_change": [],
+   "funds_control": [],
+   "freeze": []
+  },
+  "deployments": 1,
+  "last_deploy": "2021-12-29",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "token.v2.ref-finance.near",
+  "stage": {
+   "level": "U",
+   "label": "UNPROVEN",
+   "delay_seconds": null,
+   "why": [
+    "no code-change path found by these checks",
+    "no exit theorem for this code hash"
+   ]
+  },
+  "code_hash": "HagtKcVnSk6eJrg9e4X4Rpvw4ACCrpJjkrdWavLNtggZ",
+  "near": 435.0287555414079,
+  "no_code_change_path_found": true,
+  "capabilities": {
+   "code_change": [],
+   "funds_control": [],
+   "freeze": []
+  },
+  "deployments": 1,
+  "last_deploy": "2021-08-24",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "dac17f958d2ee523a2206206994597c13d831ec7.factory.bridge.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade_and_migrate"
+   ]
+  },
+  "code_hash": "C5YXdd31N6a2pCqAtY3dBarMuBaQsee4UER1AuGeryeo",
+  "near": 605.4572319459043,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) upgrade_and_migrate",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) is_paused, set_paused",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2025-04-06",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.factory.bridge.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade_and_migrate"
+   ]
+  },
+  "code_hash": "C5YXdd31N6a2pCqAtY3dBarMuBaQsee4UER1AuGeryeo",
+  "near": 881.8835442365496,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) upgrade_and_migrate",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) is_paused, set_paused",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "2260fac5e5542a773aa44fbcfedf7c193bc2c599.factory.bridge.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade_and_migrate"
+   ]
+  },
+  "code_hash": "C5YXdd31N6a2pCqAtY3dBarMuBaQsee4UER1AuGeryeo",
+  "near": 117.027478205756,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) upgrade_and_migrate",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) is_paused, set_paused",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2025-04-06",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "aaaaaa20d9e0e2461697782ef11675f668207961.factory.bridge.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade_and_migrate"
+   ]
+  },
+  "code_hash": "C5YXdd31N6a2pCqAtY3dBarMuBaQsee4UER1AuGeryeo",
+  "near": 677.9117777033943,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) upgrade_and_migrate",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) is_paused, set_paused",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2025-04-06",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "factory.bridge.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade_bridge_token"
+   ]
+  },
+  "code_hash": "CC9dZfmmnYtYCtPzwEdgBmT1wpWYTAL5nNvK4RHEUgAg",
+  "near": 2558.244870480636,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) up_stage_code, up_deploy_code, up_init_staging_duration, up_stage_update_staging_duration, up_apply_update_staging_duration, upgrade_bridge_token; role(s) DAO[1], TokenUpgradableManager[0], UnrestrictedDeployBridgeToken[0], UpgradableCodeStager[0], UpgradableCodeDeployer[0]",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "dao": 1
+      },
+      "weakest": "dao"
+     },
+     "super_admins_can_grant": 1
+    }
+   ],
+   "funds_control": [
+    {
+     "how": "method(s) force_withdraw; role(s) DAO[1], ForceWithdrawer[0]",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "dao": 1
+      },
+      "weakest": "dao"
+     },
+     "super_admins_can_grant": 1
+    }
+   ],
+   "freeze": [
+    {
+     "how": "method(s) pa_is_paused, pa_all_paused, pa_pause_feature, pa_unpause_feature, pause_withdraw, unpause_withdraw; role(s) DAO[1], PauseManager[3]",
+     "src": "code+view",
+     "guard": {
+      "holders": 4,
+      "by_kind": {
+       "single-key": 3,
+       "dao": 1
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 1
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2025-04-03",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "omft.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: add_full_access_key"
+   ]
+  },
+  "code_hash": "Ar8QnDvvksbFZCk5J5F4m46ZwoWxynF2aXN2xvJ1gAr2",
+  "near": 5973.069074712611,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) add_full_access_key; role(s) DAO[1], TokenDeployer[2]",
+     "src": "code+view",
+     "guard": {
+      "holders": 4,
+      "by_kind": {
+       "single-key": 1,
+       "multi-key account": 2,
+       "unknown": 1
+      },
+      "weakest": "single-key",
+      "dao_code_follows_factory": 2
+     },
+     "super_admins_can_grant": 2
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) pa_is_paused, pa_all_paused, pa_pause_feature, pa_unpause_feature; role(s) DAO[1], PauseManager[0]",
+     "src": "code+view",
+     "guard": {
+      "holders": 2,
+      "by_kind": {
+       "multi-key account": 1,
+       "unknown": 1
+      },
+      "weakest": "multi-key account",
+      "dao_code_follows_factory": 1
+     },
+     "super_admins_can_grant": 2
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2025-04-24",
+  "source_link": "https://github.com/near/intents",
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "omni.bridge.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade plugin with no exit window: no staging delay is set, or staged code is already deployable"
+   ]
+  },
+  "code_hash": "F2no3vqrFxm2c34mZqoMNawhRYYHbp22WuRqN6vEd3KP",
+  "near": 2282.3832761510066,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) up_apply_update_staging_duration, up_deploy_code, up_init_staging_duration, up_stage_code, up_stage_update_staging_duration; role(s) DAO[2], UpgradableCodeStager[1], UpgradableCodeDeployer[0], TokenUpgrader[0], TokenDeployer[1]",
+     "src": "code+view",
+     "guard": {
+      "holders": 3,
+      "by_kind": {
+       "multi-key account": 1,
+       "unknown": 1,
+       "dao": 1
+      },
+      "weakest": "multi-key account"
+     },
+     "super_admins_can_grant": 1
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) pa_all_paused, pa_is_paused, pa_pause_feature, pa_unpause_feature; role(s) DAO[2], PauseManager[2], TokenLockController[0]",
+     "src": "code+view",
+     "guard": {
+      "holders": 3,
+      "by_kind": {
+       "multi-key account": 1,
+       "unknown": 1,
+       "dao": 1
+      },
+      "weakest": "multi-key account"
+     },
+     "super_admins_can_grant": 1
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2026-10-28",
+  "source_link": "https://github.com/Near-One/omni-bridge/tree/83e3ac1eeef6b1330744f53d68dd037fa53aab0f",
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "nbtc.bridge.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade method(s) without a delay: upgrade_and_migrate"
+   ]
+  },
+  "code_hash": "4ELM6EPYWg9NXHGkYHPqeGFBrGCs4vQMZf7pMFQAnP4H",
+  "near": 65.74832494409617,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) upgrade_and_migrate",
+     "src": "code",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "unknown": 1
+      },
+      "weakest": "unknown"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": []
+  },
+  "deployments": 2,
+  "last_deploy": "2026-04-27",
+  "source_link": "https://github.com/Near-One/btc-bridge/tree/f17f022503084856e2db6b5408cfbdba4668aefd",
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "btc-connector.bridge.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "upgrade plugin with no exit window: no staging delay is set, or staged code is already deployable"
+   ]
+  },
+  "code_hash": "H5mH14wdLG6uRZsSCXJaDMnuatAztuWNSNbXxHnigZ29",
+  "near": 2086.740157804349,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "method(s) up_apply_update_staging_duration, up_deploy_code, up_init_staging_duration, up_stage_code, up_stage_update_staging_duration; role(s) DAO[1], UpgradableCodeStager[1], UpgradableCodeDeployer[0]",
+     "src": "code+view",
+     "guard": {
+      "holders": 2,
+      "by_kind": {
+       "multi-key account": 1,
+       "dao": 1
+      },
+      "weakest": "multi-key account"
+     },
+     "super_admins_can_grant": 1
+    }
+   ],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) pa_all_paused, pa_is_paused, pa_pause_feature, pa_unpause_feature; role(s) DAO[1], PauseManager[3]",
+     "src": "code+view",
+     "guard": {
+      "holders": 4,
+      "by_kind": {
+       "multi-key account": 1,
+       "unknown": 1,
+       "single-key": 1,
+       "dao": 1
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 1
+    }
+   ]
+  },
+  "deployments": 2,
+  "last_deploy": "2026-08-27",
+  "source_link": "https://github.com/Near-One/btc-bridge/tree/7740fae0ed8dc56571adfe2aaf36bd4edee0d441",
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "game.hot.tg",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "66 full-access key(s) on the account"
+   ]
+  },
+  "code_hash": "GH7Zs8zab1YHiTkdveDj18Uu2je6fpiXcHmXkqYNCuew",
+  "near": 23581.137361148125,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "full-access key on the contract account",
+     "src": "chain",
+     "guard": {
+      "holders": 66,
+      "by_kind": {
+       "single-key": 66
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": []
+  },
+  "deployments": 2,
+  "last_deploy": "2026-09-15",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "blackdragon.tkn.near",
+  "stage": {
+   "level": "U",
+   "label": "UNPROVEN",
+   "delay_seconds": null,
+   "why": [
+    "no code-change path found by these checks",
+    "no exit theorem for this code hash"
+   ]
+  },
+  "code_hash": "4AVV1KUVgi17XoXkqxUPzyMhERXu15mGawriPQvWmBKD",
+  "near": 1680.1289114962453,
+  "no_code_change_path_found": true,
+  "capabilities": {
+   "code_change": [],
+   "funds_control": [],
+   "freeze": []
+  },
+  "deployments": 1,
+  "last_deploy": "2023-12-20",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "poolv1.near",
+  "stage": {
+   "level": "U",
+   "label": "UNPROVEN",
+   "delay_seconds": null,
+   "why": [
+    "no code-change path found by these checks",
+    "no exit theorem for this code hash"
+   ]
+  },
+  "code_hash": "FjtxkkaKDKCW1F6HgsuYvnQ9GMxrzhnkQwCm52G9gYuA",
+  "near": 50.56666917233226,
+  "no_code_change_path_found": true,
+  "capabilities": {
+   "code_change": [],
+   "funds_control": [],
+   "freeze": []
+  },
+  "deployments": 1,
+  "last_deploy": "2020-08-24",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "lockup.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "1 full-access key(s) on the account"
+   ]
+  },
+  "code_hash": "5R7Lnqvyggga6YAn81M64UvQcGGmzrUQiCCsMeoryP33",
+  "near": 171054.4327917918,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "full-access key on the contract account",
+     "src": "chain",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "single-key": 1
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": []
+  },
+  "deployments": 2,
+  "last_deploy": "2022-12-21",
+  "source_link": null,
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "sputnik-dao.near",
+  "stage": {
+   "level": "0",
+   "label": "KEYHOLDER TRUST",
+   "delay_seconds": null,
+   "why": [
+    "3 full-access key(s) on the account"
+   ]
+  },
+  "code_hash": "BXd5idTXSnC7WRfxHmi7z4crw2F5WXQJ6MZUEv8DfnnY",
+  "near": 121.3667014864679,
+  "no_code_change_path_found": false,
+  "capabilities": {
+   "code_change": [
+    {
+     "how": "full-access key on the contract account",
+     "src": "chain",
+     "guard": {
+      "holders": 3,
+      "by_kind": {
+       "single-key": 3
+      },
+      "weakest": "single-key"
+     },
+     "super_admins_can_grant": 0
+    }
+   ],
+   "funds_control": [],
+   "freeze": []
+  },
+  "deployments": 2,
+  "last_deploy": "2026-03-01",
+  "source_link": "https://github.com/near-daos/sputnik-dao-contract/tree/2b0f34a3860460f285307ec2ccf36345acbe05a2",
+  "exit_proof": null,
+  "onchain_certificates": []
+ },
+ {
+  "account": "astro-stakers.poolv1.near",
+  "stage": {
+   "level": "2",
+   "label": "PROVEN EXIT",
+   "delay_seconds": null,
+   "why": [
+    "no code-change path found",
+    "exit theorem registered for this code hash"
+   ]
+  },
+  "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+  "near": 34177361.95508728,
+  "no_code_change_path_found": true,
+  "capabilities": {
+   "code_change": [],
+   "funds_control": [],
+   "freeze": [
+    {
+     "how": "method(s) is_staking_paused, pause_staking",
+     "src": "code+view",
+     "guard": {
+      "holders": 1,
+      "by_kind": {
+       "multi-key account": 1
+      },
+      "weakest": "multi-key account"
+     },
+     "super_admins_can_grant": 0,
+     "neutralized_by_proof": true
+    }
+   ]
+  },
+  "deployments": 1,
+  "last_deploy": "2020-09-23",
+  "source_link": null,
+  "exit_proof": {
+   "family": "core staking pool v0.4.0 (near/core-contracts@1cacc9d), code of *.poolv1.near pools",
+   "statement": "in the Lean model: from any state reachable from new() without outflow from the pool account, a delegator's unstake_all succeeds at once and leaves it at least get_account_total_balance; then, if it calls nothing else, in any later state 4+ epochs on where the protocol has returned the unstaked stake (PUA), withdraw_all succeeds and sends it at least that amount; no other account, the owner included, can lower its balance, unlock epoch or shares",
+   "theorem": "StakingPool.exit_guarantee, unstake_all_ok, withdraw_all_ok, liquid_covers, solvency, Reach.inv, others_call, others_preserve, owner_methods, exec_price, deposit_claim (pool-proof/lean/StakingPool/)",
+   "axioms": "propext, Quot.sound, Classical.choice; no sorry",
+   "assumptions": [
+    "the deployed bytes behave as the Lean model (tested on 1149 traces, not proved)",
+    "PUA at withdrawal time: the protocol has returned the stake (an assumption about NEAR, not a theorem); checked on 54342 simulator calls with a one-validator epoch model",
+    "no outflow from the pool account other than withdraw (no keys, no slashing in NEAR today)",
+    "storage staking is not modelled: if the storage cost exceeded the pool's remaining balance, the last withdrawal would wait for a top-up",
+    "enough gas attached; staking-key validity rules unchanged; 'sends' means the transfer receipt is issued"
+   ],
+   "neutralized_methods": [
+    "pause_staking",
+    "resume_staking",
+    "update_reward_fee_fraction",
+    "update_staking_key",
+    "vote"
+   ],
+   "binding": "deployed hash == staking-pool/res/staking_pool.wasm at near/core-contracts@1cacc9d; pool accounts have no access keys",
+   "conformance": "1149 random traces (55955 calls) on the exact wasm, nearcore 2.14.0 runtime: EXACT, 0 mismatches; 20998/20998 error texts equal",
+   "coverage": "196 validators, 500880513 NEAR = 86.2% of all stake (census 2026-11-11)",
+   "report": "pool-proof/REPORT.md",
+   "review": "independent adversarial review 2026-11-12: non-vacuous (concrete worlds built), leanchecker --fresh and nanoda 0.4.19 pass; one-line claims narrowed accordingly (docs/REVIEW.md)",
+   "kind": "exit"
+  },
+  "onchain_certificates": [
+   {
+    "registry": "registry.exitproof.near",
+    "kind": "exit",
+    "attestor": "exitproof.near",
+    "attested_at_ns": 1794496147341331857,
+    "theorems": [
+     "StakingPool.exit_guarantee",
+     "StakingPool.unstake_all_ok",
+     "StakingPool.withdraw_all_ok",
+     "StakingPool.liquid_covers",
+     "StakingPool.solvency",
+     "StakingPool.Reach.inv",
+     "StakingPool.others_call",
+     "StakingPool.others_preserve",
+     "StakingPool.owner_methods",
+     "StakingPool.exec_price",
+     "StakingPool.deposit_claim"
+    ],
+    "artifact_sha256": "2d4d8251bb777f346a4ee5b2367dc4a71d37e5643e7da925027e0ba63ee5b618",
+    "check_command": "pool-proof/check.sh"
+   }
+  ]
+ }
+]

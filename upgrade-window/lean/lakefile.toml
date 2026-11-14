@@ -1,0 +1,10 @@
+name = "upgrade_window"
+version = "0.1.0"
+defaultTargets = ["UpgradeWindow", "uwmodel"]
+
+[[lean_lib]]
+name = "UpgradeWindow"
+
+[[lean_exe]]
+name = "uwmodel"
+root = "Main"

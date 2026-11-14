@@ -1,0 +1,21 @@
+Third-party material in this directory
+
+contract/out/gated_vault_v{1,2,3}.wasm
+  Builds of the gated vault in contract/gated-vault (this repository); v2 and v3 differ from v1 only in
+  version(). They contain compiled code of the contract's dependencies in the versions locked in
+  contract/gated-vault/Cargo.lock, chiefly
+    near-plugins v0.5.1, https://github.com/near/near-plugins, commit
+      312e016e0574d5756f6eba37acc82d9a237b2e3e, licensed CC0-1.0 (pinned in PLUGIN_PIN.json);
+    near-sdk 5.26.1, https://github.com/near/near-sdk-rs, licensed MIT OR Apache-2.0;
+  and the crates these depend on, each under the license stated in its own package.
+  The hashes are pinned in contract/WASM_SHA256; ./check.sh rebuilds the files from source with cargo-near and
+  compares.
+
+contract/out/exitproof_registry.wasm, contract/registry/
+  The registry contract of this repository (a copy of ../registry/, contract/REGISTRY_SOURCE_SHA256), built with
+  near-sdk 5.30.1 (MIT OR Apache-2.0); the build is the code of registry.exitproof.near on mainnet
+  (contract/REGISTRY_MAINNET_SHA256).
+
+lean/UpgradeWindow*, lean/UPGRADE_WINDOW_SHA256
+  The Lean model of the upgrade plugin from ../upgrade-window/lean (this repository), copied unchanged; the copy
+  is pinned by hash.

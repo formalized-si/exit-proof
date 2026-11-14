@@ -1,0 +1,51 @@
+== 1. Lean: build, no sorry, axioms
+Build completed successfully (12 jobs).
+'ProvedFT.P1_conservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvedFT.P1_inv_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvedFT.P2_settlement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvedFT.P2_settlement_call' depends on axioms: [propext, Quot.sound]
+'ProvedFT.P2_settlement_never_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvedFT.P3_callback_private' depends on axioms: [propext]
+'ProvedFT.P3_callback_private_sys' depends on axioms: [propext]
+'ProvedFT.P4_balance_ownership' depends on axioms: [propext, Quot.sound]
+'ProvedFT.P4_who_can_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvedFT.P4_pending_origin' depends on axioms: [propext, Quot.sound]
+'ProvedFT.P5_storage_solvent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvedFT.P5_unregister_force' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvedFT.P5_unregister_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvedFT.P5_unregister_refused' depends on axioms: [propext, Quot.sound]
+'ProvedFT.P5_unregister_unknown' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProvedFT.P5_storage_deposit' depends on axioms: [propext, Classical.choice, Quot.sound]
+axioms: 16 theorems, all within ['Classical.choice', 'Quot.sound', 'propext']
+== 2. properties.json matches the Lean sources
+{"ok": true, "problems": []}
+== 3. example token (near-sdk-rs examples/fungible-token/ft, tag near-sdk-v5.29.0)
+249fdb762cce89e47ca7fd6a1265ce4896ba5a23a47c49cd3335b19b518f5f74  token/out/fungible_token.wasm
+the committed wasm has the pinned hash (token/EXAMPLE_WASM_SHA256)
+     -                  Size: 124.2 KB (124181 bytes)
+     - SHA-256 checksum hex : 249fdb762cce89e47ca7fd6a1265ce4896ba5a23a47c49cd3335b19b518f5f74
+     - SHA-256 checksum bs58: 3Ty4ENxJ4EicohgXi9E2txgbqMh3DWSshPrtXxY8pksm
+rebuild from source: same bytes as the pinned build
+== 4. harness
+    Finished `release` profile [optimized] target(s) in 0.42s
+== 5. certify the example token
+PASS  249fdb762cce89e47ca7fd6a1265ce4896ba5a23a47c49cd3335b19b518f5f74  traces=1000 receipts=33118 blocks=33291  failed=[]
+certificate: runs/example/certificate.json
+== 6. mutants (each must FAIL; M0_control must PASS)
+M0_control: PASS failed=[] first=None None None | expected -
+M1_refund_not_capped: FAIL failed=['P2'] first=P2 success ft_resolve_transfer | expected P2
+M2_unparsable_means_used: FAIL failed=['P2'] first=P2 return ft_resolve_transfer | expected P2
+M3_receiver_not_debited: FAIL failed=['P1', 'P2', 'P4', 'P5'] first=P2 block-map None | expected P2
+M4_storage_off_by_one: FAIL failed=['P5'] first=P5 return storage_deposit | expected P5
+M5_resolve_gas_3tgas: FAIL failed=['P2'] first=P2 calls-gas ft_transfer_call | expected P2
+M6_withdraw_overdraft: FAIL failed=['P1', 'P4'] first=P4 success ft_transfer | expected P4
+M7_force_unregister_no_burn: FAIL failed=['P1'] first=P1 block-supply None | expected P1
+M8_unregister_default_force: FAIL failed=['P5'] first=P5 success storage_unregister | expected P5
+M9_deposit_refund_to_account: FAIL failed=['P5'] first=P5 near-transfers storage_deposit | expected P5
+M10_resolve_not_private: FAIL failed=['P3', 'P4'] first=P3 success ft_resolve_transfer | expected P3
+mutants: 11 builds, all as expected
+RESULT: PASS
+
+real	2m19.321s
+user	8m29.692s
+sys	3m17.876s

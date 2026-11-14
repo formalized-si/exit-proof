@@ -1,0 +1,77 @@
+{
+ "snapshot": "2026-11-11T22:17:56Z",
+ "total_stake_NEAR": 581205250,
+ "by_code": [
+  {
+   "code_hash": "J1arLz48fgXcGyCPVckFwLnewNH6j1uw79thsvwqGYTY",
+   "pools": 196,
+   "stake_NEAR": 500880513,
+   "share_pct": 86.2,
+   "stage": "2",
+   "label": "PROVEN EXIT",
+   "why": [
+    "no code-change path found",
+    "exit theorem registered for this code hash"
+   ],
+   "pools_with_full_access_key": 0,
+   "scanned_pool_example": "astro-stakers.poolv1.near"
+  },
+  {
+   "code_hash": "AjD4YJaXgpiRdiArqnzyDi7Bkr1gJms9Z2w7Ev5esTKB",
+   "pools": 140,
+   "stake_NEAR": 64636959,
+   "share_pct": 11.1,
+   "stage": "0",
+   "label": "KEYHOLDER TRUST",
+   "why": [
+    "upgrade method(s) without a delay: upgrade"
+   ],
+   "pools_with_full_access_key": 0,
+   "scanned_pool_example": "liver.pool.near"
+  },
+  {
+   "code_hash": "GGfKUF9TuAFN4AzbecPonNGuRTuVqx8UPXmViogN8pRm",
+   "pools": 2,
+   "stake_NEAR": 10402166,
+   "share_pct": 1.8,
+   "stage": "0",
+   "label": "KEYHOLDER TRUST",
+   "why": [
+    "upgrade method(s) without a delay: upgrade"
+   ],
+   "pools_with_full_access_key": 0,
+   "scanned_pool_example": "metapool01.pool.near"
+  },
+  {
+   "code_hash": "DqKkcbjBiPJju2tqis8G7ayfBePvq9Gn8mjvykNupYxx",
+   "pools": 1,
+   "stake_NEAR": 4774244,
+   "share_pct": 0.8,
+   "stage": "0",
+   "label": "KEYHOLDER TRUST",
+   "why": [
+    "1 full-access key(s) on the account",
+    "upgrade method(s) without a delay: add_full_access_key"
+   ],
+   "pools_with_full_access_key": 1,
+   "scanned_pool_example": "lst-pool.near"
+  },
+  {
+   "code_hash": "5vf2Jkqpk11H7szLnY4XdPA6maJi1ND8xe346xtbtX8e",
+   "pools": 1,
+   "stake_NEAR": 511369,
+   "share_pct": 0.1,
+   "stage": "0",
+   "label": "KEYHOLDER TRUST",
+   "why": [
+    "upgrade method(s) without a delay: upgrade"
+   ],
+   "pools_with_full_access_key": 0,
+   "scanned_pool_example": "aurora.pool.near"
+  }
+ ],
+ "share_by_stage": {
+  "2": 86.2,
+  "0": 13.8
+ }
+}

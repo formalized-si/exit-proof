@@ -1,0 +1,447 @@
+[
+ {
+  "id": "M0_control",
+  "mutation": "unmutated library through the same path patch",
+  "file": "std/src/fungible_token/core_impl.rs",
+  "expected_property": "-",
+  "wasm_sha256": "f032e3033516ec3fa4d5118f2e16adeee70eae6337d6e0266082770cb70b14f6",
+  "result": "PASS",
+  "failed_properties": [],
+  "first_divergence": null,
+  "divergences": 0,
+  "diverging_traces": 0,
+  "diverging_traces_by_first_property": {},
+  "monitor_violations": {
+   "P1": 0,
+   "P2": 0,
+   "P3": 0,
+   "P4": 0,
+   "P5": 0
+  },
+  "reasons": [],
+  "kit_output": [
+   "PASS  f032e3033516ec3fa4d5118f2e16adeee70eae6337d6e0266082770cb70b14f6  traces=1000 receipts=33118 blocks=33291  failed=[]",
+   "certificate: mutants/M0_control/cert/certificate.json"
+  ]
+ },
+ {
+  "id": "M1_refund_not_capped",
+  "mutation": "unused amount no longer capped by the transferred amount",
+  "file": "std/src/fungible_token/core_impl.rs",
+  "expected_property": "P2",
+  "wasm_sha256": "e2bd9364deeb7e235496f322790c6cb63a9eae2ba73af7beb214bc43226dc9c3",
+  "result": "FAIL",
+  "failed_properties": [
+   "P2"
+  ],
+  "first_divergence": {
+   "trace": 4,
+   "h": 59,
+   "kind": "success",
+   "property": "P2",
+   "method": "ft_resolve_transfer",
+   "pred": "token.near",
+   "args": "{\"sender_id\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.near\",\"receiver_id\":\"recv1.near\",\"amount\":\"16321403319824369265101566499\"}",
+   "detail": "sim ok=False model ok=True res={'okhex': '22313633323134303333313938323433363932363531303135363635303022'}"
+  },
+  "divergences": 2801,
+  "diverging_traces": 147,
+  "diverging_traces_by_first_property": {
+   "P2": 147
+  },
+  "monitor_violations": {
+   "P1": 0,
+   "P2": 0,
+   "P3": 0,
+   "P4": 0,
+   "P5": 0
+  },
+  "reasons": [
+   "conformance: 2801 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ],
+  "kit_output": [
+   "FAIL  e2bd9364deeb7e235496f322790c6cb63a9eae2ba73af7beb214bc43226dc9c3  traces=1000 receipts=33113 blocks=33288  failed=['P2']",
+   "first divergence: {\"trace\": 4, \"h\": 59, \"kind\": \"success\", \"property\": \"P2\", \"method\": \"ft_resolve_transfer\", \"pred\": \"token.near\", \"args\": \"{\\\"sender_id\\\":\\\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.near\\\",\\\"receiver_id\\\":\\\"recv1.near\\\",\\\"amount\\\":\\\"16321403319824369265101566499\\\"}\", \"detail\": \"sim ok=False model ok=True res={'okhex': '22313633323134303333313938323433363932363531303135363635303022'}\"}",
+   "reason: conformance: 2801 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ]
+ },
+ {
+  "id": "M2_unparsable_means_used",
+  "mutation": "an unparsable / failed / too long result counts as fully used",
+  "file": "std/src/fungible_token/core_impl.rs",
+  "expected_property": "P2",
+  "wasm_sha256": "9053ce1a9f5152d4221aab6b442ead7ca8fc1c5eda07c38a283fd424b7d144b6",
+  "result": "FAIL",
+  "failed_properties": [
+   "P2"
+  ],
+  "first_divergence": {
+   "trace": 4,
+   "h": 42,
+   "kind": "return",
+   "property": "P2",
+   "method": "ft_resolve_transfer",
+   "pred": "token.near",
+   "args": "{\"sender_id\":\"c1.near\",\"receiver_id\":\"recv2.near\",\"amount\":\"18906142411656260063112083427\"}",
+   "detail": "sim={'json': '18906142411656260063112083427', 'kind': 'value'} model={'json': '0', 'kind': 'value'}"
+  },
+  "divergences": 12906,
+  "diverging_traces": 534,
+  "diverging_traces_by_first_property": {
+   "P2": 534
+  },
+  "monitor_violations": {
+   "P1": 0,
+   "P2": 0,
+   "P3": 0,
+   "P4": 0,
+   "P5": 0
+  },
+  "reasons": [
+   "conformance: 12906 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ],
+  "kit_output": [
+   "FAIL  9053ce1a9f5152d4221aab6b442ead7ca8fc1c5eda07c38a283fd424b7d144b6  traces=1000 receipts=33098 blocks=33284  failed=['P2']",
+   "first divergence: {\"trace\": 4, \"h\": 42, \"kind\": \"return\", \"property\": \"P2\", \"method\": \"ft_resolve_transfer\", \"pred\": \"token.near\", \"args\": \"{\\\"sender_id\\\":\\\"c1.near\\\",\\\"receiver_id\\\":\\\"recv2.near\\\",\\\"amount\\\":\\\"18906142411656260063112083427\\\"}\", \"detail\": \"sim={'json': '18906142411656260063112083427', 'kind': 'value'} model={'json': '0', 'kind': 'value'}\"}",
+   "reason: conformance: 12906 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ]
+ },
+ {
+  "id": "M3_receiver_not_debited",
+  "mutation": "refund credited to the sender without debiting the receiver",
+  "file": "std/src/fungible_token/core_impl.rs",
+  "expected_property": "P2",
+  "wasm_sha256": "a07947a819441199706b2f16313b4567047fd7ad0d27a98ae2cf4c23344414e1",
+  "result": "FAIL",
+  "failed_properties": [
+   "P1",
+   "P2",
+   "P4",
+   "P5"
+  ],
+  "first_divergence": {
+   "trace": 0,
+   "h": 25,
+   "kind": "block-map",
+   "property": "P2",
+   "method": null,
+   "pred": null,
+   "args": null,
+   "detail": "h25 accounts sim/model: {'recv2.near': ('99932807776875140174151401344', '0')}"
+  },
+  "divergences": 14429,
+  "diverging_traces": 719,
+  "diverging_traces_by_first_property": {
+   "P2": 537,
+   "P4": 92,
+   "P5": 81,
+   "P1": 9
+  },
+  "monitor_violations": {
+   "P1": 11803,
+   "P2": 0,
+   "P3": 0,
+   "P4": 0,
+   "P5": 0
+  },
+  "reasons": [
+   "conformance: 14429 divergences from the Lean model, monitor violations {'P1': 11803, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ],
+  "kit_output": [
+   "FAIL  a07947a819441199706b2f16313b4567047fd7ad0d27a98ae2cf4c23344414e1  traces=1000 receipts=33149 blocks=33301  failed=['P1', 'P2', 'P4', 'P5']",
+   "first divergence: {\"trace\": 0, \"h\": 25, \"kind\": \"block-map\", \"property\": \"P2\", \"method\": null, \"pred\": null, \"args\": null, \"detail\": \"h25 accounts sim/model: {'recv2.near': ('99932807776875140174151401344', '0')}\"}",
+   "reason: conformance: 14429 divergences from the Lean model, monitor violations {'P1': 11803, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ]
+ },
+ {
+  "id": "M4_storage_off_by_one",
+  "mutation": "storage minimum measured one byte short",
+  "file": "std/src/fungible_token/core_impl.rs",
+  "expected_property": "P5",
+  "wasm_sha256": "c29f1bd61a68009b3f63e71891a618e6e12ce17387ed3b3defcf72f8d8c5a868",
+  "result": "FAIL",
+  "failed_properties": [
+   "P5"
+  ],
+  "first_divergence": {
+   "trace": 0,
+   "h": 12,
+   "kind": "return",
+   "property": "P5",
+   "method": "storage_deposit",
+   "pred": "alice.near",
+   "args": "{\"account_id\":\"alice.near\"}",
+   "detail": "sim={'json': {'available': '0', 'total': '1240000000000000000000'}, 'kind': 'value'} model={'json': {'available': '0', 'total': '1250000000000000000000'}, 'kind': 'value'}"
+  },
+  "divergences": 122507,
+  "diverging_traces": 1000,
+  "diverging_traces_by_first_property": {
+   "P5": 1000
+  },
+  "monitor_violations": {
+   "P1": 0,
+   "P2": 0,
+   "P3": 0,
+   "P4": 0,
+   "P5": 0
+  },
+  "reasons": [
+   "conformance: 122507 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ],
+  "kit_output": [
+   "FAIL  c29f1bd61a68009b3f63e71891a618e6e12ce17387ed3b3defcf72f8d8c5a868  traces=1000 receipts=33118 blocks=33291  failed=['P5']",
+   "first divergence: {\"trace\": 0, \"h\": 12, \"kind\": \"return\", \"property\": \"P5\", \"method\": \"storage_deposit\", \"pred\": \"alice.near\", \"args\": \"{\\\"account_id\\\":\\\"alice.near\\\"}\", \"detail\": \"sim={'json': {'available': '0', 'total': '1240000000000000000000'}, 'kind': 'value'} model={'json': {'available': '0', 'total': '1250000000000000000000'}, 'kind': 'value'}\"}",
+   "reason: conformance: 122507 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ]
+ },
+ {
+  "id": "M5_resolve_gas_3tgas",
+  "mutation": "settlement callback gets 3 Tgas instead of 5",
+  "file": "std/src/fungible_token/core_impl.rs",
+  "expected_property": "P2",
+  "wasm_sha256": "52850a43ac9c449430e9530a1905bb6d1c5bb4fc896038b67a26250f14f13b36",
+  "result": "FAIL",
+  "failed_properties": [
+   "P2"
+  ],
+  "first_divergence": {
+   "trace": 0,
+   "h": 23,
+   "kind": "calls-gas",
+   "property": "P2",
+   "method": "ft_transfer_call",
+   "pred": "alice.near",
+   "args": "{\"amount\":\"99932807776875140174151401344\",\"msg\":\"take-my-money\",\"receiver_id\":\"recv2.near\"}",
+   "detail": "sim=[('ft_on_transfer', 'recv2.near', '{\"amount\": \"99932807776875140174151401344\", \"msg\": \"take-my-money\", \"sender_id\": \"alice.near\"}', '0', None), ('ft_resolve_transfer', 'token.near', '{\"amount\": \"99932807776875140174151401344\", \"receiver_id\": \"recv2.near\", \"sender_id\": \"alice.near\"}', '0', 3000000000000)] model=[('ft_on_transfer', 'recv2.near', '{\"amount\": \"99932807776875140174151401344\", \"msg\": \"take-my-money\", \"sender_id\": \"alice.near\"}', '0', None), ('ft_resolve_transfer', 'token.near', '{\"amount\": \"99932807776875140174151401344\", \"receiver_id\": \"recv2.near\", \"sender_id\": \"alice.near\"}', '0', 5000000000000)]"
+  },
+  "divergences": 1734,
+  "diverging_traces": 776,
+  "diverging_traces_by_first_property": {
+   "P2": 776
+  },
+  "monitor_violations": {
+   "P1": 0,
+   "P2": 0,
+   "P3": 0,
+   "P4": 0,
+   "P5": 0
+  },
+  "reasons": [
+   "conformance: 1734 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ],
+  "kit_output": [
+   "FAIL  52850a43ac9c449430e9530a1905bb6d1c5bb4fc896038b67a26250f14f13b36  traces=1000 receipts=33118 blocks=33291  failed=['P2']",
+   "first divergence: {\"trace\": 0, \"h\": 23, \"kind\": \"calls-gas\", \"property\": \"P2\", \"method\": \"ft_transfer_call\", \"pred\": \"alice.near\", \"args\": \"{\\\"amount\\\":\\\"99932807776875140174151401344\\\",\\\"msg\\\":\\\"take-my-money\\\",\\\"receiver_id\\\":\\\"recv2.near\\\"}\", \"detail\": \"sim=[('ft_on_transfer', 'recv2.near', '{\\\"amount\\\": \\\"99932807776875140174151401344\\\", \\\"msg\\\": \\\"take-my-money\\\", \\\"sender_id\\\": \\\"alice.near\\\"}', '0', None), ('ft_resolve_transfer', 'token.near', '{\\\"amount\\\": \\\"99932807776875140174151401344\\\", \\\"receiver_id\\\": \\\"recv2.near\\\", \\\"sender_id\\\": \\\"alice.near\\\"}', '0', 3000000000000)] model=[('ft_on_transfer', 'recv2.near', '{\\\"amount\\\": \\\"99932807776875140174151401344\\\", \\\"msg\\\": \\\"take-my-money\\\", \\\"sender_id\\\": \\\"alice.near\\\"}', '0', None), ('ft_resolve_transfer', 'token.near', '{\\\"amount\\\": \\\"99932807776875140174151401344\\\", \\\"receiver_id\\\": \\\"recv2.near\\\", \\\"sender_id\\\": \\\"alice.near\\\"}', '0', 5000000",
+   "reason: conformance: 1734 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ]
+ },
+ {
+  "id": "M6_withdraw_overdraft",
+  "mutation": "internal_withdraw saturates instead of refusing an overdraft",
+  "file": "std/src/fungible_token/core_impl.rs",
+  "expected_property": "P4",
+  "wasm_sha256": "d49240522bbd5d42626305cfd4ee2f8909b56fab911793f79f1d2f8fec46ce33",
+  "result": "FAIL",
+  "failed_properties": [
+   "P1",
+   "P4"
+  ],
+  "first_divergence": {
+   "trace": 0,
+   "h": 25,
+   "kind": "success",
+   "property": "P4",
+   "method": "ft_transfer",
+   "pred": "recv2.near",
+   "args": "{\"amount\":\"99932807776875140174151401345\",\"receiver_id\":\"owner.near\"}",
+   "detail": "sim ok=True model ok=False res=None"
+  },
+  "divergences": 16143,
+  "diverging_traces": 421,
+  "diverging_traces_by_first_property": {
+   "P4": 421
+  },
+  "monitor_violations": {
+   "P1": 7087,
+   "P2": 0,
+   "P3": 0,
+   "P4": 0,
+   "P5": 0
+  },
+  "reasons": [
+   "conformance: 16143 divergences from the Lean model, monitor violations {'P1': 7087, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ],
+  "kit_output": [
+   "FAIL  d49240522bbd5d42626305cfd4ee2f8909b56fab911793f79f1d2f8fec46ce33  traces=1000 receipts=33490 blocks=33318  failed=['P1', 'P4']",
+   "first divergence: {\"trace\": 0, \"h\": 25, \"kind\": \"success\", \"property\": \"P4\", \"method\": \"ft_transfer\", \"pred\": \"recv2.near\", \"args\": \"{\\\"amount\\\":\\\"99932807776875140174151401345\\\",\\\"receiver_id\\\":\\\"owner.near\\\"}\", \"detail\": \"sim ok=True model ok=False res=None\"}",
+   "reason: conformance: 16143 divergences from the Lean model, monitor violations {'P1': 7087, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ]
+ },
+ {
+  "id": "M7_force_unregister_no_burn",
+  "mutation": "force-unregister removes the balance but not from total_supply",
+  "file": "std/src/fungible_token/storage_impl.rs",
+  "expected_property": "P1",
+  "wasm_sha256": "cc8b0d8b8ff3b28795439149c8365570551e1c060afbd10bfeed73306fc8d9d8",
+  "result": "FAIL",
+  "failed_properties": [
+   "P1"
+  ],
+  "first_divergence": {
+   "trace": 2,
+   "h": 24,
+   "kind": "block-supply",
+   "property": "P1",
+   "method": null,
+   "pred": null,
+   "args": null,
+   "detail": "h24 supply sim=1000000000000000000000000000000 model=951693350266437857296853343440"
+  },
+  "divergences": 7091,
+  "diverging_traces": 445,
+  "diverging_traces_by_first_property": {
+   "P1": 445
+  },
+  "monitor_violations": {
+   "P1": 7030,
+   "P2": 0,
+   "P3": 0,
+   "P4": 0,
+   "P5": 0
+  },
+  "reasons": [
+   "conformance: 7091 divergences from the Lean model, monitor violations {'P1': 7030, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ],
+  "kit_output": [
+   "FAIL  cc8b0d8b8ff3b28795439149c8365570551e1c060afbd10bfeed73306fc8d9d8  traces=1000 receipts=33118 blocks=33291  failed=['P1']",
+   "first divergence: {\"trace\": 2, \"h\": 24, \"kind\": \"block-supply\", \"property\": \"P1\", \"method\": null, \"pred\": null, \"args\": null, \"detail\": \"h24 supply sim=1000000000000000000000000000000 model=951693350266437857296853343440\"}",
+   "reason: conformance: 7091 divergences from the Lean model, monitor violations {'P1': 7030, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ]
+ },
+ {
+  "id": "M8_unregister_default_force",
+  "mutation": "storage_unregister without force burns a positive balance",
+  "file": "std/src/fungible_token/storage_impl.rs",
+  "expected_property": "P5",
+  "wasm_sha256": "e95bad6b31017d62d9c33a9225466fdd1323c9c295595e2781fa8d17aabf6280",
+  "result": "FAIL",
+  "failed_properties": [
+   "P5"
+  ],
+  "first_divergence": {
+   "trace": 1,
+   "h": 19,
+   "kind": "success",
+   "property": "P5",
+   "method": "storage_unregister",
+   "pred": "recv1.near",
+   "args": "{}",
+   "detail": "sim ok=True model ok=False res=None"
+  },
+  "divergences": 13827,
+  "diverging_traces": 222,
+  "diverging_traces_by_first_property": {
+   "P5": 222
+  },
+  "monitor_violations": {
+   "P1": 0,
+   "P2": 0,
+   "P3": 0,
+   "P4": 0,
+   "P5": 0
+  },
+  "reasons": [
+   "conformance: 13827 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ],
+  "kit_output": [
+   "FAIL  e95bad6b31017d62d9c33a9225466fdd1323c9c295595e2781fa8d17aabf6280  traces=1000 receipts=33009 blocks=33284  failed=['P5']",
+   "first divergence: {\"trace\": 1, \"h\": 19, \"kind\": \"success\", \"property\": \"P5\", \"method\": \"storage_unregister\", \"pred\": \"recv1.near\", \"args\": \"{}\", \"detail\": \"sim ok=True model ok=False res=None\"}",
+   "reason: conformance: 13827 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ]
+ },
+ {
+  "id": "M9_deposit_refund_to_account",
+  "mutation": "storage_deposit refunds the excess to the registered account instead of the payer",
+  "file": "std/src/fungible_token/storage_impl.rs",
+  "expected_property": "P5",
+  "wasm_sha256": "903c988324f25be3ccfc2a4706c45eb45415c024dd09588024e3909b20027c76",
+  "result": "FAIL",
+  "failed_properties": [
+   "P5"
+  ],
+  "first_divergence": {
+   "trace": 0,
+   "h": 12,
+   "kind": "near-transfers",
+   "property": "P5",
+   "method": "storage_deposit",
+   "pred": "bob.near",
+   "args": "{\"account_id\":\"recv1.near\"}",
+   "detail": "sim=[['recv1.near', '7']] model=[['bob.near', '7']]"
+  },
+  "divergences": 756,
+  "diverging_traces": 548,
+  "diverging_traces_by_first_property": {
+   "P5": 548
+  },
+  "monitor_violations": {
+   "P1": 0,
+   "P2": 0,
+   "P3": 0,
+   "P4": 0,
+   "P5": 0
+  },
+  "reasons": [
+   "conformance: 756 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ],
+  "kit_output": [
+   "FAIL  903c988324f25be3ccfc2a4706c45eb45415c024dd09588024e3909b20027c76  traces=1000 receipts=33193 blocks=33291  failed=['P5']",
+   "first divergence: {\"trace\": 0, \"h\": 12, \"kind\": \"near-transfers\", \"property\": \"P5\", \"method\": \"storage_deposit\", \"pred\": \"bob.near\", \"args\": \"{\\\"account_id\\\":\\\"recv1.near\\\"}\", \"detail\": \"sim=[['recv1.near', '7']] model=[['bob.near', '7']]\"}",
+   "reason: conformance: 756 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5': 0}"
+  ]
+ },
+ {
+  "id": "M10_resolve_not_private",
+  "mutation": "#[private] removed from the token's ft_resolve_transfer",
+  "file": "example/src/lib.rs",
+  "expected_property": "P3",
+  "wasm_sha256": "b96dbfb9c666555c05b609ba18575ebdec77f86e18e7111c724cbe1c6b622ba4",
+  "result": "FAIL",
+  "failed_properties": [
+   "P3",
+   "P4"
+  ],
+  "first_divergence": {
+   "trace": 1,
+   "h": 22,
+   "kind": "success",
+   "property": "P3",
+   "method": "ft_resolve_transfer",
+   "pred": "evil.near",
+   "args": "{\"amount\":\"82508826051914840294959703\",\"receiver_id\":\"recv2.near\",\"sender_id\":\"evil.near\"}",
+   "detail": "sim ok=True model ok=False res={'failed': True}"
+  },
+  "divergences": 5394,
+  "diverging_traces": 329,
+  "diverging_traces_by_first_property": {
+   "P3": 329
+  },
+  "monitor_violations": {
+   "P1": 0,
+   "P2": 0,
+   "P3": 406,
+   "P4": 240,
+   "P5": 0
+  },
+  "reasons": [
+   "check resolve_as_foreign_callback: another contract's callback ran ft_resolve_transfer",
+   "check: foreign ft_resolve_transfer calls changed balances",
+   "conformance: 5394 divergences from the Lean model, monitor violations {'P1': 0, 'P2': 0, 'P3': 406, 'P4': 240, 'P5': 0}"
+  ],
+  "kit_output": [
+   "FAIL  b96dbfb9c666555c05b609ba18575ebdec77f86e18e7111c724cbe1c6b622ba4  traces=1000 receipts=33077 blocks=33287  failed=['P3', 'P4']",
+   "first divergence: {\"trace\": 1, \"h\": 22, \"kind\": \"success\", \"property\": \"P3\", \"method\": \"ft_resolve_transfer\", \"pred\": \"evil.near\", \"args\": \"{\\\"amount\\\":\\\"82508826051914840294959703\\\",\\\"receiver_id\\\":\\\"recv2.near\\\",\\\"sender_id\\\":\\\"evil.near\\\"}\", \"detail\": \"sim ok=True model ok=False res={'failed': True}\"}",
+   "reason: check resolve_as_foreign_callback: another contract's callback ran ft_resolve_transfer"
+  ]
+ }
+]

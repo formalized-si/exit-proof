@@ -1,0 +1,21 @@
+name = "intents_ledger"
+version = "0.1.0"
+defaultTargets = ["ProvedFT", "Intents", "WNear", "IntentsW", "intentsmodel"]
+
+[[lean_lib]]
+name = "ProvedFT"
+
+[[lean_lib]]
+name = "Intents"
+
+# The proved model of the wNEAR contract (wrap.near), copied unchanged.
+[[lean_lib]]
+name = "WNear"
+
+# The two-contract world with wNEAR as the token.
+[[lean_lib]]
+name = "IntentsW"
+
+[[lean_exe]]
+name = "intentsmodel"
+root = "Main"

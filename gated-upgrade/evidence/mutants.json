@@ -1,0 +1,220 @@
+{
+ "traces_per_mutant": 300,
+ "seed": 20261113,
+ "ok": true,
+ "mutants": [
+  {
+   "mutant": "M0_control",
+   "change": "no change",
+   "wasm_sha256": "52a787345f263ca02219a787be84be9e0a2d3dd5e8fd3a84552b8586a0e8c25e",
+   "scenario_checks_failed": 0,
+   "failed_checks": [],
+   "trace_violations": 0,
+   "violation_samples": [],
+   "same_bytes_as_pinned_v1": true,
+   "result": "PASS"
+  },
+  {
+   "mutant": "M1_any_attestor",
+   "change": "on_certificates: the attestor of a certificate is not checked",
+   "wasm_sha256": "67956b4b2f5c26e8c738a5c76deaa99ba0a0cd6132004f32af200433afaf384d",
+   "scenario_checks_failed": 5,
+   "failed_checks": [
+    "uncertified_refused: certificate by an attestor the vault does not accept: the callback refuses, no deploy batch, the code hash does not change",
+    "uncertified_refused: certificate of another kind: the callback refuses, no deploy batch, the code hash does not change",
+    "uncertified_refused: certificate for another hash: the callback refuses, no deploy batch, the code hash does not change",
+    "callback_checks_every_field: answer = a certificate by another attestor: refused (Gate: no valid), no deploy batch, the code is still v1",
+    "callback_checks_every_field: answer = all four of these at once: refused (Gate: no valid), no deploy batch, the code is still v1"
+   ],
+   "trace_violations": 137,
+   "violation_samples": [
+    "trace 1: the callback failed with [Panic(\"Upgradable: Deploy code too early: staging ends on 1794441714997263612\")] although the model says: Gate: no valid",
+    "trace 10: the callback deployed 7yM97bp67hr7VWxxm6fuH7CQRs7bdzqcYSNNQ9B5inRa although the model says: Gate: no valid",
+    "trace 10: deployment of 7yM97bp67hr7VWxxm6fuH7CQRs7bdzqcYSNNQ9B5inRa without an accepted certificate in the registry's answer"
+   ],
+   "result": "DETECTED",
+   "old_line": "&& self.gate.attestors.contains(&c.attestor)",
+   "new_line": ""
+  },
+  {
+   "mutant": "M2_revoked_counts",
+   "change": "on_certificates: a revoked certificate counts",
+   "wasm_sha256": "681adcd8f01752fdf5b3b887083bb2ddb44b11fe5cf976c1a971bf5cbcd7f244",
+   "scenario_checks_failed": 2,
+   "failed_checks": [
+    "callback_checks_every_field: answer = a revoked certificate: refused (Gate: no valid), no deploy batch, the code is still v1",
+    "callback_checks_every_field: answer = all four of these at once: refused (Gate: no valid), no deploy batch, the code is still v1"
+   ],
+   "trace_violations": 0,
+   "violation_samples": [],
+   "result": "DETECTED",
+   "old_line": "!c.revoked && c.code_hash == hash",
+   "new_line": "c.code_hash == hash"
+  },
+  {
+   "mutant": "M3_any_kind",
+   "change": "on_certificates: the kind of a certificate is not checked",
+   "wasm_sha256": "1457fb183af4e2010da7730c3eb5e1da8c33538622eeb1af51761ae0f8bd163a",
+   "scenario_checks_failed": 2,
+   "failed_checks": [
+    "callback_checks_every_field: answer = a certificate of another kind: refused (Gate: no valid), no deploy batch, the code is still v1",
+    "callback_checks_every_field: answer = all four of these at once: refused (Gate: no valid), no deploy batch, the code is still v1"
+   ],
+   "trace_violations": 0,
+   "violation_samples": [],
+   "result": "DETECTED",
+   "old_line": "&& c.body.kind == self.gate.kind &&",
+   "new_line": "&&"
+  },
+  {
+   "mutant": "M4_any_hash",
+   "change": "on_certificates: the hash of a certificate is not checked",
+   "wasm_sha256": "01ffac5e2a28fd19ac6eab59e9b78d4446fa21fb1537e6ff829f5b85b5535008",
+   "scenario_checks_failed": 2,
+   "failed_checks": [
+    "callback_checks_every_field: answer = a certificate for another hash: refused (Gate: no valid), no deploy batch, the code is still v1",
+    "callback_checks_every_field: answer = all four of these at once: refused (Gate: no valid), no deploy batch, the code is still v1"
+   ],
+   "trace_violations": 0,
+   "violation_samples": [],
+   "result": "DETECTED",
+   "old_line": "!c.revoked && c.code_hash == hash &&",
+   "new_line": "!c.revoked &&"
+  },
+  {
+   "mutant": "M5_public_callback",
+   "change": "on_certificates is not #[private]",
+   "wasm_sha256": "84445f0f5098ce68dfd20f83d0001a7db323051dea4c5cf19287d08262969b8c",
+   "scenario_checks_failed": 1,
+   "failed_checks": [
+    "no_way_around_the_gate: on_certificates(hash of the staged code) called directly by 7 accounts (the stager, both attestors, the registry and its owner, a depositor, a stranger): Method on_certificates is private"
+   ],
+   "trace_violations": 502,
+   "violation_samples": [
+    "trace 0: direct on_certificates by other-attestor.near: Host(\"Accessed invalid promise result index: 0\")",
+    "trace 0: direct on_certificates by mallory.near: Host(\"Accessed invalid promise result index: 0\")",
+    "trace 1: direct on_certificates by mallory.near: Host(\"Accessed invalid promise result index: 0\")"
+   ],
+   "result": "DETECTED",
+   "old_line": "#[private]\n    pub fn on_certificates(",
+   "new_line": "pub fn on_certificates("
+  },
+  {
+   "mutant": "M6_stager_deploys",
+   "change": "the plugin's deploy method also accepts the code stagers' role",
+   "wasm_sha256": "ba96badfdc35b1177411c7ef771f8ce6521122001fb36c056cab77792ca9be77",
+   "scenario_checks_failed": 2,
+   "failed_checks": [
+    "no_way_around_the_gate: up_deploy_code(hash of the staged code), with and without an attached call, by the same 7 accounts: Insufficient permissions",
+    "no_way_around_the_gate: after all of the above: same code hash, same permissions, same delay status"
+   ],
+   "trace_violations": 226,
+   "violation_samples": [
+    "trace 0: direct up_deploy_code by gov.near: Panic(\"Upgradable: Deploy code too early: staging ends on 1794441657977510469\")",
+    "trace 1: direct up_deploy_code by gov.near: Panic(\"Upgradable: Cannot deploy due to wrong hash: expected hash: 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2\")",
+    "trace 3: direct up_deploy_code by gov.near: ok"
+   ],
+   "result": "DETECTED",
+   "old_line": "code_deployers(Role::CodeDeployer),",
+   "new_line": "code_deployers(Role::CodeDeployer, Role::CodeStager),"
+  },
+  {
+   "mutant": "M7_no_early_check",
+   "change": "deploy_certified asks the registry before the delay has passed",
+   "wasm_sha256": "7cdfb2aaad355cd8b080ab9f03b9cd1b82c345c3e5a9c2e3bf4e30367bb9145b",
+   "scenario_checks_failed": 1,
+   "failed_checks": [
+    "certified_upgrade: refused at once: deploy too early; the registry is not even asked"
+   ],
+   "trace_violations": 662,
+   "violation_samples": [
+    "trace 0: deploy_certified went ahead: staged Some((\"5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2\", 1794441652977510469)), asked 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2, callback 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2, now 1794441653977510469",
+    "trace 0: deploy_certified went ahead: staged Some((\"5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2\", 1794441652977510469)), asked 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2, callback 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2, now 1794441656977510469",
+    "trace 1: deploy_certified went ahead: staged Some((\"6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA\", 1794441650289862344)), asked 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA, callback 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA, now 1794441652289862344"
+   ],
+   "result": "DETECTED",
+   "old_line": "if env::block_timestamp() < staging_timestamp {",
+   "new_line": "if false && env::block_timestamp() < staging_timestamp {"
+  },
+  {
+   "mutant": "M8_deploys_what_is_staged_now",
+   "change": "on_certificates deploys whatever is staged at callback time, not the hash that was checked",
+   "wasm_sha256": "671b74a10e406b257693b58f9579af8966effdd3d70c2cf53e182f3883ef70a2",
+   "scenario_checks_failed": 3,
+   "failed_checks": [
+    "restaged_between_check_and_deploy: another code (v3), and the callback runs only after that code's delay: the registry answered with the certificate of v2, and the plugin refuses in the callback: Upgradable: Cannot deploy due to w",
+    "restaged_between_check_and_deploy: another code (v3), and the callback runs only after that code's delay: no deploy batch, the code is still v1",
+    "callback_checks_every_field: an accepted answer for a hash that is not the staged one: the plugin refuses (wrong hash), the code is still v1"
+   ],
+   "trace_violations": 9,
+   "violation_samples": [
+    "trace 30: the callback deployed 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA although the model says: Upgradable: Cannot deploy due to wrong hash",
+    "trace 30: deployment of 6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA: staged Some((\"5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2\", 1794441678245346647)), D 20000000000, now 1794441699503733485",
+    "trace 30: block 41: the code hash became 5P7wwWQ5qA1tFez6mwc3Sh6YdwhGSxrBSA7heq5z3JZ2 without a certified batch for it ([\"6AFnkHg3NKz9xwWeomPYq5BpaowVWe2BHCwKD3CuDTuA\"])"
+   ],
+   "result": "DETECTED",
+   "old_line": "self.up_deploy_code(hash, None)",
+   "new_line": "self.up_deploy_code(self.up_staged_code_hash().unwrap_or(hash), None)"
+  },
+  {
+   "mutant": "M9_public_init",
+   "change": "new is not #[private]",
+   "wasm_sha256": "0344128b289d243550afa2580ecac8bf5721c7dcd34c5ad14695903885128307",
+   "scenario_checks_failed": 1,
+   "failed_checks": [
+    "init: a stranger calling new on the uninitialised contract: Method new is private"
+   ],
+   "trace_violations": 0,
+   "violation_samples": [],
+   "result": "DETECTED",
+   "old_line": "#[init]\n    #[private]",
+   "new_line": "#[init]"
+  },
+  {
+   "mutant": "M10_deployer_role_to_stagers",
+   "change": "new grants the deployer role to the stagers as well",
+   "wasm_sha256": "c7760356bba6287c50112d93c86651dd2abfa54e36cdf023dce10b4e032f6588",
+   "scenario_checks_failed": 7,
+   "failed_checks": [
+    "certified_upgrade: after the upgrade: same gate, same roles",
+    "no_way_around_the_gate: the access-control state is the one the theorem assumes",
+    "no_way_around_the_gate: up_deploy_code(hash of the staged code), with and without an attached call, by the same 7 accounts: Insufficient permissions",
+    "no_way_around_the_gate: after all of the above: same code hash, same permissions, same delay status",
+    "no_way_around_the_gate: the stager can renounce its own role, and that is all: afterwards nobody can stage",
+    "init: after new: the gate as given, the contract account the only super-admin and code deployer, gov the code stager, nobody a duration manager, no admins"
+   ],
+   "trace_violations": 16752,
+   "violation_samples": [
+    "trace 0: the permissions changed: {\"roles\":{\"CodeDeployer\":{\"admins\":[],\"grantees\":[\"gov.near\",\"vault.near\"]},\"CodeStager\":{\"admins\":[],\"grantees\":[\"gov.near\"]},\"DurationManager\":{\"admins\":[],\"grantees\":[]}},\"super_admins\":[\"vault.near\"]}",
+    "trace 0: the permissions changed: {\"roles\":{\"CodeDeployer\":{\"admins\":[],\"grantees\":[\"gov.near\",\"vault.near\"]},\"CodeStager\":{\"admins\":[],\"grantees\":[\"gov.near\"]},\"DurationManager\":{\"admins\":[],\"grantees\":[]}},\"super_admins\":[\"vault.near\"]}",
+    "trace 0: the permissions changed: {\"roles\":{\"CodeDeployer\":{\"admins\":[],\"grantees\":[\"gov.near\",\"vault.near\"]},\"CodeStager\":{\"admins\":[],\"grantees\":[\"gov.near\"]},\"DurationManager\":{\"admins\":[],\"grantees\":[]}},\"super_admins\":[\"vault.near\"]}"
+   ],
+   "result": "DETECTED",
+   "old_line": "contract.acl_grant_role(Role::CodeStager.into(), stager).is_some(),",
+   "new_line": "contract.acl_grant_role(Role::CodeDeployer.into(), stager.clone()).is_some() && contract.acl_grant_role(Role::CodeStager.into(), stager).is_some(),"
+  },
+  {
+   "mutant": "M11_any_certificate",
+   "change": "on_certificates: any certificate in the answer counts",
+   "wasm_sha256": "d5f8e7d82dff76a3d973e972d6a92c31c33f56387c65921ee89c9e84549d4f40",
+   "scenario_checks_failed": 8,
+   "failed_checks": [
+    "uncertified_refused: certificate by an attestor the vault does not accept: the callback refuses, no deploy batch, the code hash does not change",
+    "uncertified_refused: certificate of another kind: the callback refuses, no deploy batch, the code hash does not change",
+    "uncertified_refused: certificate for another hash: the callback refuses, no deploy batch, the code hash does not change",
+    "callback_checks_every_field: answer = a revoked certificate: refused (Gate: no valid), no deploy batch, the code is still v1",
+    "callback_checks_every_field: answer = a certificate for another hash: refused (Gate: no valid), no deploy batch, the code is still v1",
+    "callback_checks_every_field: answer = a certificate of another kind: refused (Gate: no valid), no deploy batch, the code is still v1"
+   ],
+   "trace_violations": 137,
+   "violation_samples": [
+    "trace 1: the callback failed with [Panic(\"Upgradable: Deploy code too early: staging ends on 1794441714997263612\")] although the model says: Gate: no valid",
+    "trace 10: the callback deployed FQFySHpWdtVLyah8p8cxTtW4H95k7EokcEvmcw4spj5R although the model says: Gate: no valid",
+    "trace 10: deployment of FQFySHpWdtVLyah8p8cxTtW4H95k7EokcEvmcw4spj5R without an accepted certificate in the registry's answer"
+   ],
+   "result": "DETECTED",
+   "old_line": "!c.revoked && c.code_hash == hash",
+   "new_line": "true || !c.revoked && c.code_hash == hash"
+  }
+ ]
+}

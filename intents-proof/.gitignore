@@ -1,0 +1,11 @@
+# build products and working output (check.sh recreates them)
+**/target/
+**/.lake/
+runs/
+harness/runs/
+harness/results/
+harness/mock-token/out/
+harness/mock-reply-token/out/
+tla/tla2tools.jar
+tla/out/states-*
+__pycache__/

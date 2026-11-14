@@ -1,0 +1,18 @@
+# local caches and working notes
+codes/
+internal/
+# build products
+**/target/
+**/.lake/
+__pycache__/
+*.pyc
+node_modules/
+# raw run outputs (the summaries in evidence/ are kept)
+**/out/traces*
+**/out/model*
+**/runs/
+**/mutants/
+upgrade-window/plugin/
+evidence/*.tar
+cert-*/
+.DS_Store

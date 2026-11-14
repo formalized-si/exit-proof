@@ -1,0 +1,4 @@
+{
+  "description": "Guard test: the init creates no tokens, so nothing can be transferred.",
+  "init": {"method": "new_default_meta", "args": {"owner_id": "owner.near", "total_supply": "0"}}
+}

@@ -1,0 +1,17 @@
+Third-party material in this directory
+
+wasm/w_near.wasm
+  Unmodified build artifact of the wNEAR contract (w_near 1.0.0), copied from
+  https://github.com/near/core-contracts at commit 54f8267436058567b66efdaba3e790394f7f1529,
+  path w-near/res/w_near.wasm
+  (sha256 b72c26d390b23f4517d091a8aab06b0369d465356ec5fb337d5fda076da38ac0,
+  NEAR code hash DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1).
+  near/core-contracts is licensed under MIT OR Apache-2.0 (LICENSE-MIT and LICENSE-APACHE in
+  that repository). ./fetch-wasm.sh downloads the file again from that commit and checks it.
+
+evidence/old_9kQaNisc.wasm
+  The contract code that the account wrap.near held on NEAR mainnet before block 35438886
+  (code hash 9kQaNiscuPh69vRs1GyzfnkEjpUPGLjJhT6RaJBQyG7p), as returned by a public archival
+  RPC node (view_code). It is public on-chain data, included only so that the test of the
+  pre-upgrade code can be repeated; its source repository and license are not known to us.
+  ./fetch-wasm.sh --old downloads it again from the chain and compares.

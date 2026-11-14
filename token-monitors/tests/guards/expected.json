@@ -1,0 +1,88 @@
+{
+ "about": "Runs that must NOT end in PASS. check.sh runs each on the wasm named by `wasm` (a build of reference/); `exit` is the exit status certify.sh must return and `reason_contains` a text the certificate's reasons must contain.",
+ "guards": [
+  {
+   "name": "no-supply",
+   "wasm": "reference",
+   "config": "no-supply.json",
+   "args": [],
+   "exit": 2,
+   "verdict": "INCONCLUSIVE",
+   "reason_contains": "ft_total_supply is 0",
+   "why": "nothing can be transferred, so every transfer check would be empty"
+  },
+  {
+   "name": "wrong-init",
+   "wasm": "reference",
+   "config": "wrong-init.json",
+   "args": [],
+   "exit": 2,
+   "verdict": "INCONCLUSIVE",
+   "reason_contains": "init initialize failed: ",
+   "why": "the token cannot be set up"
+  },
+  {
+   "name": "untracked-holder",
+   "wasm": "reference",
+   "config": "untracked-holder.json",
+   "args": [],
+   "exit": 2,
+   "verdict": "INCONCLUSIVE",
+   "reason_contains": "watched accounts hold 0",
+   "why": "the supply sits on an account nobody watches"
+  },
+  {
+   "name": "too-few-traces",
+   "wasm": "reference",
+   "config": "../../examples/reference.json",
+   "args": [
+    "--traces",
+    "1"
+   ],
+   "exit": 2,
+   "verdict": "INCONCLUSIVE",
+   "reason_contains": "made no check",
+   "why": "one trace does not reach every kind of step, so some monitors have nothing to judge"
+  },
+  {
+   "name": "unknown-key",
+   "wasm": "reference",
+   "config": "unknown-key.json",
+   "args": [],
+   "exit": 3,
+   "verdict": null,
+   "reason_contains": null,
+   "why": "a misspelled config key is refused before anything runs; no certificate is written"
+  },
+  {
+   "name": "factory-init-by-stranger",
+   "wasm": "F1_factory_minted",
+   "config": "factory-init-by-stranger.json",
+   "args": [],
+   "exit": 2,
+   "verdict": "INCONCLUSIVE",
+   "reason_contains": "Only the factory account can init this contract",
+   "why": "a factory-only init sent by another account fails; the certificate quotes the token's own message"
+  },
+  {
+   "name": "nothing-minted",
+   "wasm": "F1_factory_minted",
+   "config": "nothing-minted.json",
+   "args": [],
+   "exit": 2,
+   "verdict": "INCONCLUSIVE",
+   "reason_contains": "ft_total_supply is 0",
+   "why": "the init succeeds but no tokens exist until a setup call mints them"
+  },
+  {
+   "name": "transfer-call-disabled",
+   "wasm": "F2_transfer_call_disabled",
+   "config": "../../examples/reference.json",
+   "args": [],
+   "exit": 2,
+   "verdict": "INCONCLUSIVE",
+   "reason_contains": "no ft_transfer_call was accepted in any trace",
+   "why": "a full run on a token that rejects every ft_transfer_call: no monitor fires, and the settlement monitors made no check"
+  }
+ ]
+}

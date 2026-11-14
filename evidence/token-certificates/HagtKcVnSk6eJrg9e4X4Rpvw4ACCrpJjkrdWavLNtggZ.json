@@ -1,0 +1,211 @@
+{
+ "format": "nep141-monitors-certificate/1",
+ "verdict": "PASS",
+ "reasons": [],
+ "wasm": {
+  "file": "token.v2.ref-finance.near.wasm",
+  "bytes": 184887,
+  "sha256": "f65c41659fee5fd64afdb39ed7074dbe7bbac83d2ad5aa3c0f8d7e34b195f35a",
+  "near_code_hash": "HagtKcVnSk6eJrg9e4X4Rpvw4ACCrpJjkrdWavLNtggZ"
+ },
+ "config": {
+  "description": "REF token (the code of token.v2.ref-finance.near, code hash HagtKcVn...). `new(owner, total_supply)` mints the whole supply to the owner; note the argument is `owner`, not `owner_id`.",
+  "init": {
+   "method": "new",
+   "args": {
+    "owner": "owner.near",
+    "total_supply": "1000000000000000000000000000000"
+   }
+  }
+ },
+ "config_sha256": "1f3711a9a0a2987bbb89d9ad802c5681211b5a97e2469f4086675ed1fb9f6bd5",
+ "run": {
+  "traces_requested": 1000,
+  "traces": 1000,
+  "seed": 20261112,
+  "rounds": 20127,
+  "blocks": 78890,
+  "token_receipts": 43062,
+  "token_receipts_successful": 24946,
+  "trace_digest": "7d5250b1c4cb07241abf1c45f532455de5bac65b78962cd9461a7f985d4f2ff3"
+ },
+ "setup": {
+  "ok": true,
+  "token_account": "token.near",
+  "calls": [
+   {
+    "caller": "token.near",
+    "receiver": "token.near",
+    "method": "new",
+    "ok": true,
+    "failure": null
+   }
+  ],
+  "supply": "1000000000000000000000000000000",
+  "holders": {
+   "owner.near": "1000000000000000000000000000000"
+  },
+  "funder": "owner.near",
+  "funder_from": "largest holder among the user accounts",
+  "watched_accounts": [
+   "owner.near",
+   "alice.near",
+   "bob.near",
+   "c1.near",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.near",
+   "recv1.near",
+   "recv2.near",
+   "ghost.near",
+   "evil.near",
+   "token.near",
+   "Bad!Id",
+   "x"
+  ],
+  "error": null
+ },
+ "monitors": {
+  "P1.supply_eq_sum": {
+   "property": "P1",
+   "statement": "after every block ft_total_supply equals the sum of ft_balance_of over the watched accounts",
+   "checks": 79890,
+   "violations": 0
+  },
+  "P1.exact_transfer": {
+   "property": "P1",
+   "statement": "a successful ft_transfer of an amount lowers the sender by exactly that amount, raises the receiver by exactly that amount and changes nobody else and not the supply; a failed one changes nothing",
+   "checks": 3568,
+   "violations": 0
+  },
+  "P2.settlement_completed": {
+   "property": "P2",
+   "statement": "an accepted ft_transfer_call is settled: the token's own settlement callback runs, succeeds and returns the used amount",
+   "checks": 1649,
+   "violations": 0
+  },
+  "P2.refund_le_amount": {
+   "property": "P2",
+   "statement": "the used amount the token reports and the tokens that move back to the sender do not exceed the transferred amount",
+   "checks": 3472,
+   "violations": 0
+  },
+  "P2.reported_refund_eq_returned": {
+   "property": "P2",
+   "statement": "the refund the token reports (the amount minus the used amount its settlement returns) equals the tokens that actually moved back to the sender",
+   "checks": 1649,
+   "violations": 0
+  },
+  "P2.receiver_keeps_used": {
+   "property": "P2",
+   "statement": "the receiver ends with exactly the amount minus the reported refund (minus what it paid out itself)",
+   "checks": 1573,
+   "violations": 0
+  },
+  "P2.pair_conserved": {
+   "property": "P2",
+   "statement": "a settled ft_transfer_call changes only the sender and the receiver (and the accounts the receiver paid itself); the changes sum to zero and the supply does not change",
+   "checks": 1573,
+   "violations": 0
+  },
+  "P2.refund_follows_reply": {
+   "property": "P2",
+   "statement": "the refund is what the receiver's reply asks for: min(unused, amount) when it returns a number, the whole amount when it fails",
+   "checks": 1058,
+   "violations": 0
+  },
+  "P2.rejected_call_no_effect": {
+   "property": "P2",
+   "statement": "a rejected ft_transfer_call changes no balance and not the supply",
+   "checks": 2953,
+   "violations": 0
+  },
+  "P3.foreign_resolve_fails": {
+   "property": "P3",
+   "statement": "the settlement callback run by anyone but the token's own pending transfer (a user, a contract, another contract's callback, a transaction signed with the token's key) fails",
+   "checks": 2183,
+   "violations": 0
+  },
+  "P3.foreign_resolve_no_effect": {
+   "property": "P3",
+   "statement": "an attempt of a stranger to run the settlement callback changes no balance and not the supply",
+   "checks": 1020,
+   "violations": 0
+  },
+  "P4.lowered_only_by_holder": {
+   "property": "P4",
+   "statement": "a balance falls in a round only if its holder made a successful call to the token in that round",
+   "checks": 95251,
+   "violations": 0
+  },
+  "P4.non_transfer_op_changes_others": {
+   "property": "P4",
+   "statement": "storage_deposit, storage_withdraw, a view sent as a transaction, a repeated init and NEAR sent to the token change no balance; storage_unregister changes none but the caller's",
+   "checks": 3293,
+   "violations": 0
+  },
+  "P5.unregister_refused": {
+   "property": "P5",
+   "statement": "storage_unregister without force=true by an account with a positive balance changes no balance and not the supply",
+   "checks": 299,
+   "violations": 0
+  }
+ },
+ "checks_total": 199431,
+ "violations_total": 0,
+ "coverage": {
+  "balance_falls_after_own_call": 5120,
+  "blocks_with_positive_supply": 79830,
+  "foreign_resolve_contract": 190,
+  "foreign_resolve_direct": 226,
+  "foreign_resolve_foreign_callback": 404,
+  "foreign_resolve_positive_amount": 787,
+  "foreign_resolve_reached_token": 987,
+  "foreign_resolve_token_key": 200,
+  "settlements_with_refund": 1426,
+  "settlements_without_refund": 223,
+  "transfers_failed": 2611,
+  "transfers_ok_positive_amount": 957
+ },
+ "operations": {
+  "foreign_resolve fail": 2245,
+  "ft_transfer fail": 6140,
+  "ft_transfer ok": 6551,
+  "ft_transfer_call fail": 6390,
+  "ft_transfer_call ok": 3472,
+  "near_transfer fail": 590,
+  "other fail": 190,
+  "other ok": 1185,
+  "raw fail": 1289,
+  "raw ok": 76,
+  "reinit fail": 287,
+  "storage_deposit fail": 319,
+  "storage_deposit ok": 8330,
+  "storage_unregister fail": 687,
+  "storage_unregister ok": 1004,
+  "storage_withdraw fail": 416,
+  "storage_withdraw ok": 430
+ },
+ "exports": {
+  "count": 12,
+  "standard_missing": [],
+  "outside_the_standards": [],
+  "never_called": [],
+  "called_only_by_the_setup": [],
+  "called_but_never_successful": []
+ },
+ "not_checked": [
+  "NEAR-side storage accounting of NEP-145: the deposits the token keeps, the refunds it pays, the storage minimum, and that the token stays able to pay its refunds (property P5, except the balance side of storage_unregister)",
+  "gas: the gas the token gives to ft_on_transfer and to its settlement callback, and behaviour at gas limits",
+  "events (NEP-297 logs), error texts and the contents of ft_metadata",
+  "the deployed contract: its state, access keys, owner rights and upgrade path; the run is about the code initialized with the config's arguments in a simulator",
+  "inputs outside the 1000 random traces of this run: the verdict is agreement on these traces, not a proof for all inputs"
+ ],
+ "kit": {
+  "name": "token-monitors",
+  "version": "1.0.0",
+  "bundle_sha256": "0832b4e148dcaa67c2a40f106d33169b28e2e6c2cbcafbbc8b34ec14825d4d97",
+  "simulator": "near-contract-sim 0.2.0 (commit 8e4b69b999c185a1a26fa5e025db042436888856)",
+  "runtime": "nearcore 2.14.0 (commit bc4e9e8cfb03d9e82f027883055624e18576993e)"
+ },
+ "created_utc": "2026-11-13T07:54:29Z",
+ "result_digest": "37658ca392d8d2fc8d3a8a2e7d167f65c4f939a19638fa4ea606a2f4263762a7"
+}

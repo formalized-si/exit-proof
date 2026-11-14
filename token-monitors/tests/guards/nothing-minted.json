@@ -1,0 +1,10 @@
+{
+  "description": "Guard test: the factory initializes the fixture F1_factory_minted but nothing is minted.",
+  "token_account": "tok.factory.near",
+  "accounts": ["factory.near"],
+  "init": {
+    "caller": "factory.near",
+    "method": "new_by_factory",
+    "args": {"metadata": {"spec": "ft-1.0.0", "name": "Factory Token", "symbol": "FT", "decimals": 18}}
+  }
+}

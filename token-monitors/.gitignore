@@ -1,0 +1,5 @@
+# everything the kit builds or downloads
+/build/
+__pycache__/
+*.pyc
+certificate.json

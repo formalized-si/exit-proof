@@ -1,0 +1,72 @@
+{
+ "traces": 1000,
+ "blocks_checked": 31393,
+ "violations": 0,
+ "code": "9kQaNiscuPh69vRs1GyzfnkEjpUPGLjJhT6RaJBQyG7p",
+ "calls_ok_of_total": {
+  "ft_balance_of": [
+   79,
+   164
+  ],
+  "ft_metadata": [
+   76,
+   76
+  ],
+  "ft_on_transfer": [
+   0,
+   93
+  ],
+  "ft_resolve_transfer": [
+   1604,
+   2059
+  ],
+  "ft_total_supply": [
+   44,
+   44
+  ],
+  "ft_transfer": [
+   698,
+   2074
+  ],
+  "ft_transfer_call": [
+   1604,
+   3559
+  ],
+  "near_deposit": [
+   6834,
+   7976
+  ],
+  "near_withdraw": [
+   1616,
+   2789
+  ],
+  "new": [
+   0,
+   154
+  ],
+  "storage_balance_bounds": [
+   0,
+   90
+  ],
+  "storage_balance_of": [
+   82,
+   82
+  ],
+  "storage_deposit": [
+   5944,
+   8841
+  ],
+  "storage_minimum_balance": [
+   74,
+   74
+  ],
+  "storage_unregister": [
+   0,
+   1411
+  ],
+  "storage_withdraw": [
+   285,
+   2589
+  ]
+ }
+}

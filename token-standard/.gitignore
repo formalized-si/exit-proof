@@ -1,0 +1,11 @@
+# build products and generated output (check.sh and certify-token.sh recreate them)
+lean/.lake/
+harness/target/
+token/example-ft/target/
+runs/
+mutants/
+std/
+cert-*/
+__pycache__/
+# local reference checkout of near-sdk-rs
+/src/

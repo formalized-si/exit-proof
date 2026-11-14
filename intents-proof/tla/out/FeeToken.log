@@ -1,0 +1,67 @@
+TLC2 Version 2026.11.06.222357 (rev: d8fb231)
+Running breadth-first search Model-Checking with fp 108 and seed 5078765270107165923 with 1 worker on 32 cores with 27305MB heap and 64MB offheap memory [pid: 3165799] (Linux 6.8.0-1044-aws amd64, Amazon.com Inc. 11.0.30 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file /home/ubuntu/intents-proof/tla/IntentsLedger.tla
+Parsing file /tmp/tlc-13887903034395151255/Naturals.tla (jar:file:/home/ubuntu/intents-proof/tla/tla2tools.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /tmp/tlc-13887903034395151255/FiniteSets.tla (jar:file:/home/ubuntu/intents-proof/tla/tla2tools.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /tmp/tlc-13887903034395151255/_TLCTrace.tla (jar:file:/home/ubuntu/intents-proof/tla/tla2tools.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /tmp/tlc-13887903034395151255/Sequences.tla (jar:file:/home/ubuntu/intents-proof/tla/tla2tools.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /tmp/tlc-13887903034395151255/TLC.tla (jar:file:/home/ubuntu/intents-proof/tla/tla2tools.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /tmp/tlc-13887903034395151255/TLCExt.tla (jar:file:/home/ubuntu/intents-proof/tla/tla2tools.jar!/tla2sany/StandardModules/TLCExt.tla)
+Parsing file /tmp/tlc-13887903034395151255/Integers.tla (jar:file:/home/ubuntu/intents-proof/tla/tla2tools.jar!/tla2sany/StandardModules/Integers.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module IntentsLedger
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module IntentsLedger
+Starting... (2026-11-13 02:36:12)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-13 02:36:13.
+Error: Invariant Backing is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ tok = [u1 |-> 2, u2 |-> 2, fee |-> 0, intents |-> 0, recv |-> 0]
+/\ ops = 0
+/\ led = [u1 |-> 0, u2 |-> 0]
+/\ pend = {}
+/\ stranded = 0
+
+State 2: <StartDeposit("u1",1) line 54, col 5 to line 59, col 34 of module IntentsLedger>
+/\ tok = [u1 |-> 1, u2 |-> 2, fee |-> 1, intents |-> 0, recv |-> 0]
+/\ ops = 1
+/\ led = [u1 |-> 0, u2 |-> 0]
+/\ pend = { [ a |-> 1,
+    x |-> 0,
+    id |-> 0,
+    k |-> "on_transfer",
+    u |-> "u1",
+    dst |-> "intents",
+    call |-> FALSE,
+    res |-> "ok",
+    out |-> 0 ] }
+/\ stranded = 0
+
+State 3: <Next line 161, col 8 to line 162, col 78 of module IntentsLedger>
+/\ tok = [u1 |-> 1, u2 |-> 2, fee |-> 1, intents |-> 0, recv |-> 0]
+/\ ops = 1
+/\ led = [u1 |-> 1, u2 |-> 0]
+/\ pend = { [ a |-> 1,
+    x |-> 0,
+    id |-> 0,
+    k |-> "tok_resolve_dep",
+    u |-> "u1",
+    dst |-> "intents",
+    call |-> FALSE,
+    res |-> "ok",
+    out |-> 0 ] }
+/\ stranded = 0
+
+30 states generated, 30 distinct states found, 27 states left on queue.
+The depth of the complete state graph search is 3.
+Finished in 00s at (2026-11-13 02:36:13)
+Trace exploration spec path: ./IntentsLedger_TTrace_1794537372.tla

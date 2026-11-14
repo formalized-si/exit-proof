@@ -1,0 +1,9 @@
+name = "gated_upgrade"
+version = "0.1.0"
+defaultTargets = ["UpgradeWindow", "GatedUpgrade"]
+
+[[lean_lib]]
+name = "UpgradeWindow"
+
+[[lean_lib]]
+name = "GatedUpgrade"

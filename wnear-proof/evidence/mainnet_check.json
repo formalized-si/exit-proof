@@ -1,0 +1,20 @@
+{
+ "block_height": 224128229,
+ "block_hash": "GsQXrnTNZ3r7fkWVTfhPYSWfSaPBggZTdZGKQzoccQWH",
+ "code_hash": "DL2f5xmZ44cQRP6vBMt94rvseH5d5KKnAGis2WkTAsh1",
+ "access_keys": 0,
+ "locked": "0",
+ "amount_yocto": "36739081653325867661530501852242",
+ "total_supply_yocto": "36732315942203234786064119824307",
+ "storage_usage_bytes": 168885525,
+ "storage_amount_per_byte": "10000000000000000000",
+ "storage_stake_yocto": "1688855250000000000000000000",
+ "storage_min_balance_yocto": "1250000000000000000000",
+ "surplus_yocto": "6765711122632875466382027935",
+ "hypothesis_supply_plus_2stake_le_amount": true,
+ "margin_yocto": "3388000622632875466382027935",
+ "registered_accounts_upper_bound": 2677776,
+ "wnear_held_by_wrap_near_itself_yocto": "107550764923243453203839068",
+ "minbal_le_2x63_bytes": true,
+ "minbal_is_125_bytes": true
+}
