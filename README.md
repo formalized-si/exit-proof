@@ -2,6 +2,8 @@
 
 # Exit Proof
 
+[Research page: results, evidence and limitations](https://formalized.si/projects/exit-proof/)
+
 ### Before you deposit: can you always get the money back?
 
 **Every NEAR contract gets an exit stage. The top stage takes a Lean theorem tied to the deployed code hash.**
